@@ -1,4 +1,4 @@
-<suite name="Understanding testng demo">
+<suite name="Understanding testng demo" >
 
 <!--    <test name="name for test given as per your wish">-->
 <!--        <classes>-->
@@ -9,7 +9,7 @@
 <!--    </test>-->
 
 
-    <test name="test case for payments">
+    <test name="test case for payments" parallel="tests">
 
 
         <packages>

@@ -26,7 +26,7 @@ public class AccountsTest {
     }
 
 
-    @Test
+    @Test()
     public void method2(){
         System.out.println("AccountsTest - > method1 - test case executed.");
     }
