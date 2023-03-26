@@ -1,0 +1,18 @@
+<suite name="Understanding testng demo">
+    <listeners>
+        <listener class-name="TestNGDemo.Listeners"/>
+
+    </listeners>
+
+    <test name="test case for payments">
+
+
+
+        <classes>
+            <class name="TestNGDemo.PaymentTest"/>
+        </classes>
+
+    </test>
+
+</suite>
+

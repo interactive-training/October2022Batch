@@ -1,27 +1,27 @@
 package com.InteractiveTrainingAcademy;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Test;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 public class BeforeAfterMethods {
 
     WebDriver driver;
+    ExtentReports extent;
+    ExtentTest test;
 
     public WebDriver getDriver(){
         return driver;
     }
 
-//    @BeforeSuite
-//    public void beforeSuite(){
-//        System.out.println("Before suite");
-//    }
-//
-//    @AfterSuite
-//    public void afterSuite(){
-//        System.out.println("After suite");
-//    }
+
 //    @BeforeClass
 //    public void beforeClass(){
 //        System.out.println("Before class");
@@ -33,15 +33,15 @@ public class BeforeAfterMethods {
 //        System.out.println("After class");
 //    }
 
-//    @BeforeTest
-//    public void beforeTest(){
-//        System.out.println("Before test");
-//    }
-//
-//    @AfterTest
-//    public void afterTest(){
-//        System.out.println("After test");
-//    }
+    @BeforeTest
+    public void beforeTest(){
+        System.out.println("Before test");
+    }
+
+    @AfterTest
+    public void afterTest(){
+        System.out.println("After test");
+    }
 
 //    @Test
 //    public void mytest(){
@@ -73,5 +73,46 @@ public class BeforeAfterMethods {
         driver.quit();
     }
 
+    @BeforeSuite
+    public void beforeSuite(){
+
+        extent = new ExtentReports();
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("test-output/ExtentReport.html");
+        extent.attachReporter(htmlReporter);
+
+    }
+    @AfterSuite
+    public void afterSuite(){
+        System.out.println("After suite");
+
+    }
+    @BeforeMethod
+    public void beforeTestMethod(){
+
+        test = extent.createTest("My Test", "Test description");
+        test.log(Status.INFO, "Test started");
+//        // Run the test code
+//        test.log(Status.PASS, "Test passed");
+
+    }
+    @AfterMethod
+    public void afterTestMethod(ITestResult result){
+
+//        test = extent.createTest("My Test", "Test description");
+//        test.log(Status.INFO, "Test started");
+        // Run the test code
+//        test.log(Status.PASS, "Test passed");
+
+        test = extent.createTest(result.getName());
+        if (result.getStatus() == ITestResult.FAILURE) {
+            test.fail(result.getThrowable());
+        } else if (result.getStatus() == ITestResult.SKIP) {
+            test.skip(result.getThrowable());
+        } else {
+            test.pass("Test passed");
+        }
+
+        extent.flush();
+    }
 
 }

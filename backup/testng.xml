@@ -3,15 +3,12 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/Training/Batch2_Oct_2022/12032003/October2022Batch">
         <classes>
-            <class name="com.InteractiveTrainingAcademy.ITAAboutUS">
-                <methods>
-                    <include name="verify_ABOUT_US"/>
-                    <include name="verify_OUR_APPROACH"/>
-                </methods>
-            </class>
+            <class name="com.InteractiveTrainingAcademy.ITAAboutUS"/>
+
             <class name="com.InteractiveTrainingAcademy.ITAConsultingPage">
                 <methods>
-                    <include name="verify_Consulting_page"/>
+                    <exclude name="verify_Consulting_page"/>
+
                 </methods>
             </class>
 

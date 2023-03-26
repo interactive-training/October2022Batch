@@ -1,0 +1,32 @@
+<suite name="Understanding testng demo">
+
+<!--    <test name="name for test given as per your wish">-->
+<!--        <classes>-->
+<!--            <class name="TestNGDemo.CustomerTest"/>-->
+<!--            <class name="TestNGDemo.AccountsTest"/>-->
+
+<!--        </classes>-->
+<!--    </test>-->
+
+
+    <test name="test case for payments">
+
+
+        <packages>
+            <package name = "TestNGDemo"/>
+        </packages>
+
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+
+<!--        <classes>-->
+<!--            <class name="TestNGDemo.PaymentTest"/>-->
+<!--        </classes>-->
+
+    </test>
+
+</suite>
+
