@@ -1,4 +1,4 @@
-package ITATest.CommonComponents;
+package com.ita.utility;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,11 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CommonMethods {
+public class CommonComponents {
 
     WebDriver driver;
 
-    public CommonMethods(WebDriver driver){
+
+
+    public CommonComponents(WebDriver driver){
         this.driver = driver;
     }
 
