@@ -22,7 +22,7 @@ public class CommonComponents {
     }
 
 
-    public void waitForElementoAppear(WebElement elmToAppear){
+    public void waitForElementToAppear(WebElement elmToAppear){
 
         //explicit wait
 //        WebElement elmToAppear = driver.findElement(elm);

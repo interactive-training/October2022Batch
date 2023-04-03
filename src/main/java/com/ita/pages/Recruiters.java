@@ -24,7 +24,7 @@ public class Recruiters extends CommonComponents {
 
     public String  getRecruitersEmailAddr(){
 
-        waitForElementoAppear(driver.findElement(recruitersEmail));
+        waitForElementToAppear(driver.findElement(recruitersEmail));
 
        return driver.findElement(recruitersEmail).getText();
 
