@@ -1,15 +1,13 @@
 package com.ita.pages;
 
-import com.ita.utility.CommonComponents;
-import org.openqa.selenium.By;
+import com.ita.utility.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
-public class JobsAndApplications extends CommonComponents {
+public class JobsAndApplicationsPage extends BasePage {
 
     WebDriver driver;
 
-    public JobsAndApplications(WebDriver driver) {
+    public JobsAndApplicationsPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }

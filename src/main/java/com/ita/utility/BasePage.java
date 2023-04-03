@@ -7,13 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CommonComponents {
+public class BasePage {
 
     WebDriver driver;
 
 
 
-    public CommonComponents(WebDriver driver){
+    public BasePage(WebDriver driver){
         this.driver = driver;
     }
 

@@ -1,10 +1,10 @@
 package com.ita.pages;
 
-import com.ita.utility.CommonComponents;
+import com.ita.utility.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Recruiters extends CommonComponents {
+public class Recruiters extends BasePage {
 
     WebDriver driver;
 

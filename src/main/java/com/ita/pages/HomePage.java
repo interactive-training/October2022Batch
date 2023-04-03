@@ -1,11 +1,11 @@
 package com.ita.pages;
 
-import com.ita.utility.CommonComponents;
+import com.ita.utility.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class HomePage extends CommonComponents {
+public class HomePage extends BasePage {
     WebDriver driver;
 
     By recruiters_LinkText = By.linkText("Recruiters");
@@ -25,12 +25,12 @@ public class HomePage extends CommonComponents {
 
     }
 
-    public JobSeekers clickJobSeekersLinkOnTop(){
+    public JobSeekersPage clickJobSeekersLinkOnTop(){
         driver.findElement(jobSeekersBy).click();
-        return new JobSeekers(driver);
+        return new JobSeekersPage(driver);
     }
 
-    public JobsAndApplications clickJobsAndApplicationsMenuOnTop(){
+    public JobsAndApplicationsPage clickJobsAndApplicationsMenuOnTop(){
         //jobs and verification link
 
         driver.findElement(jobsAndApplicationsLink).click();
@@ -40,7 +40,7 @@ public class HomePage extends CommonComponents {
         String actualValue = driver.getTitle();
         Assert.assertTrue(actualValue.contains(expected_value), "User could not navigate to Jobs and application page.");
 
-        return new JobsAndApplications(driver);
+        return new JobsAndApplicationsPage(driver);
 
 
     }

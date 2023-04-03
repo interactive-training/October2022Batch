@@ -1,12 +1,12 @@
 package com.ita.tests;
 
 import com.ita.base.BaseTest;
-import com.ita.pages.JobsAndApplications;
+import com.ita.pages.JobsAndApplicationsPage;
 import com.ita.pages.Recruiters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobsAndApplicationsTest extends BaseTest {
+public class JobsAndApplicationsPageTest extends BaseTest {
 
     @Test
     public void VerifyJObsAndApplicationsPage(){
@@ -26,7 +26,7 @@ public class JobsAndApplicationsTest extends BaseTest {
         Assert.assertEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
 
         //after succesfully logged in , click Jobs & applications page
-        JobsAndApplications jobsnapplicationspage =  homepage.clickJobsAndApplicationsMenuOnTop();
+        JobsAndApplicationsPage jobsnapplicationspage =  homepage.clickJobsAndApplicationsMenuOnTop();
 
 //        jobsnapplicationspage.getManageJobsColumnList();
 

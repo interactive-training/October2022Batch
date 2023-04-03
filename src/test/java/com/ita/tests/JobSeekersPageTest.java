@@ -1,28 +1,27 @@
 package com.ita.tests;
 
 import com.ita.base.BaseTest;
-import com.ita.pages.JobSeekers;
-import org.openqa.selenium.By;
+import com.ita.pages.JobSeekersPage;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobSeekersTest extends BaseTest {
+public class JobSeekersPageTest extends BaseTest {
 
-    WebDriver driver;
+//    WebDriver driver;
 
     @Test(priority = 0, description = "Test description goes here to display in the report left side of the IDE.")
     public void verifyJObSeekers(){
-        System.out.println("Test is my test");
-        JobSeekers jobseekers = homepage.clickJobSeekersLinkOnTop();
+
+        JobSeekersPage jobseekers = homepage.clickJobSeekersLinkOnTop();
         jobseekers.loginJobSeeker("chamtester23@gmail.com", "Welcome@123");
 
         jobseekers.addWorkExperience();
-//
-//        //click Add button for work experience
-//
-//        // job seekers page
-////        chamtester23@gmail.com
-////        Welcome@123
+
+        //verify work experience page appeared
+        Assert.assertTrue(jobseekers.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
+
+
 //
 ////        didn't work with xpath
 //        driver.findElement(By.xpath("(//button[@class='add_button'])[1]")).click();

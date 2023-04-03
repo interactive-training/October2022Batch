@@ -1,10 +1,11 @@
 package com.ita.pages;
 
-import com.ita.utility.CommonComponents;
+import com.ita.utility.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
-public class JobSeekers extends CommonComponents {
+public class JobSeekersPage extends BasePage {
 
     WebDriver driver;
     By emailBy = By.name("email");
@@ -15,8 +16,10 @@ public class JobSeekers extends CommonComponents {
     By jobsAndApplicationsLink = By.linkText("Jobs & applications");
     By manageJobsTextBy = By.xpath("//div[text()='Manage Jobs ']");
 
+    By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
 
-    public JobSeekers(WebDriver driver){
+
+    public JobSeekersPage(WebDriver driver){
         super(driver);
         this.driver = driver;
 
@@ -39,17 +42,22 @@ public class JobSeekers extends CommonComponents {
         return driver.findElement(errorMsgLocator).getText();
     }
 
+
     public void addWorkExperience(){
 
         //click on work experience
-        driver.findElement(By.xpath("//div[@class='summary'][4]//a")).click();
+        By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
+        driver.findElement(workButton).click();
 
+//        Assert.assertTrue(driver.findElement(workExperienceHeaderBy).isDisplayed(), "Work experience page does not loaded property.");
+
+        //verify you are in 'add experience' page
 
     }
-//
-//    public String getManageJobsText(){
-//        return  driver.findElement(manageJobsTextBy).getText().trim();
-//    }
 
+    public boolean isWorkExperienceHeaderTextDisplayed(){
+        return driver.findElement(workExperienceHeaderBy).isDisplayed();
+
+    }
 
 }
