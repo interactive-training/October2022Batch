@@ -18,6 +18,8 @@ public class JobSeekersPage extends BasePage {
 
     By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
 
+    By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
+
 
     public JobSeekersPage(WebDriver driver){
         super(driver);
@@ -43,13 +45,11 @@ public class JobSeekersPage extends BasePage {
     }
 
 
-    public void addWorkExperience(){
+    public void clickADDWorkExperience(){
 
         //click on work experience
-        By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
         driver.findElement(workButton).click();
 
-//        Assert.assertTrue(driver.findElement(workExperienceHeaderBy).isDisplayed(), "Work experience page does not loaded property.");
 
         //verify you are in 'add experience' page
 

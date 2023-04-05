@@ -3,13 +3,22 @@ package com.ita.pages;
 import com.ita.utility.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+// Page factory , cached
+// Extend report (small server) / Allure Report (single page)
+
 
 public class HomePage extends BasePage {
     WebDriver driver;
 
+
     By recruiters_LinkText = By.linkText("Recruiters");
-    By recruiters_PartialLinkText = By.partialLinkText("Recruiters");
+
+
+    By recruiters_PartialLinkText = By.partialLinkText("RecruitersPage");
 
     By jobSeekersBy = By.linkText("Job Seekers");
 
@@ -17,11 +26,13 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+
     }
 
-    public Recruiters clickRecruitersLinkOnTop(){
-        driver.findElement(recruiters_PartialLinkText).click();
-        return new Recruiters(driver);
+    public RecruitersPage clickRecruitersLinkOnTop(){
+
+        driver.findElement(recruiters_LinkText).click();
+        return new RecruitersPage(driver);
 
     }
 

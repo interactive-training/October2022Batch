@@ -2,27 +2,35 @@ package com.ita.tests;
 
 import com.ita.base.BaseTest;
 import com.ita.pages.JobSeekersPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class JobSeekersPageTest extends BaseTest {
 
-//    WebDriver driver;
-
     @Test(priority = 0, description = "Test description goes here to display in the report left side of the IDE.")
-    public void verifyJObSeekers(){
+    public void verifyJObSeekers() throws IOException {
 
         JobSeekersPage jobseekers = homepage.clickJobSeekersLinkOnTop();
         jobseekers.loginJobSeeker("chamtester23@gmail.com", "Welcome@123");
 
-        jobseekers.addWorkExperience();
+        jobseekers.clickADDWorkExperience();
 
         //verify work experience page appeared
         Assert.assertTrue(jobseekers.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
+        System.out.println("Screenshot saved in the path: " + getScreenShot());
+
+        //elements --> webdirver
+        // basic elemnts
+        // drop down -
+        //checkbox
+        //radio button
+
+        //table
 
 
-//
+
 ////        didn't work with xpath
 //        driver.findElement(By.xpath("(//button[@class='add_button'])[1]")).click();
 //        driver.findElement(By.xpath("(//div[@class='edcl'])[10]/a/button")).click();

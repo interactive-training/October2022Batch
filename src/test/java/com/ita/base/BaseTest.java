@@ -1,6 +1,12 @@
 package com.ita.base;
 
+import com.aventstack.extentreports.utils.FileUtil;
+import com.github.javafaker.Faker;
 import com.ita.pages.HomePage;
+import io.netty.handler.codec.http.multipart.FileUpload;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,7 +28,7 @@ public class BaseTest {
 
     protected HomePage homepage;
 
-    public Properties prop; //because I may use this property value from anywhere in the project, improvement -> cretea class and creae one method for one property. ?? ==> homework
+    static Properties prop; //because I may use this property value from anywhere in the project, improvement -> cretea class and creae one method for one property. ?? ==> homework
 
     @BeforeMethod
     public void InitializeDriver() throws IOException {
@@ -33,7 +39,10 @@ public class BaseTest {
 
         String propFilePath = System.getProperty("user.dir") + "/src/test/java/com/ita/resources/Config.properties";
 
-        FileInputStream fis = new FileInputStream(new File(propFilePath));
+        File myFile = new File(propFilePath);
+
+        FileInputStream fis = new FileInputStream(myFile);
+
         prop.load(fis);
 
         //get browser property
@@ -49,7 +58,6 @@ public class BaseTest {
         }
         else if(browerType.equalsIgnoreCase("firefox")){
 
-
             driver = new FirefoxDriver();
         }
         else if(browerType.equalsIgnoreCase("edge")){
@@ -61,13 +69,29 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         //set implicitwai time
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImplicityWaitTimeInSec","10"))));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImpilcitTimeInSec","10"))));
 
-        driver.get("https://www.viewcvs.co.uk/index.php");
 
-        this.homepage = new HomePage(driver);
+        String url = prop.getProperty("URL");
+
+        driver.get(url);
+
+        homepage =  new HomePage(driver);
 
     }
+
+    public File getScreenShot() throws IOException {
+
+        Faker faker = Faker.instance();
+
+        TakesScreenshot sc = (TakesScreenshot)driver;
+        File source = sc.getScreenshotAs(OutputType.FILE);
+        File target = new File(System.getProperty("user.dir") + "//reports" + faker.name().firstName() + ".png");
+        FileUtils.copyFile(source,target);
+        return target;
+
+    }
+
 
     @AfterMethod
     public void TearDown(){

@@ -4,7 +4,7 @@ import com.ita.utility.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Recruiters extends BasePage {
+public class RecruitersPage extends BasePage {
 
     WebDriver driver;
 
@@ -14,13 +14,11 @@ public class Recruiters extends BasePage {
 
     By recruitersEmail = By.xpath("(//div[@class='right'][1]/p/strong[2])[1]");
 
-    public Recruiters(WebDriver driver) {
+    public RecruitersPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
 
     }
-
-
 
     public String  getRecruitersEmailAddr(){
 
