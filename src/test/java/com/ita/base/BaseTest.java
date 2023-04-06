@@ -3,7 +3,6 @@ package com.ita.base;
 import com.aventstack.extentreports.utils.FileUtil;
 import com.github.javafaker.Faker;
 import com.ita.pages.HomePage;
-import io.netty.handler.codec.http.multipart.FileUpload;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -53,7 +52,6 @@ public class BaseTest {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
 
-
             driver = new ChromeDriver(options);
         }
         else if(browerType.equalsIgnoreCase("firefox")){
@@ -80,15 +78,17 @@ public class BaseTest {
 
     }
 
-    public File getScreenShot() throws IOException {
+    public String getScreenShot() throws IOException {
 
         Faker faker = Faker.instance();
 
         TakesScreenshot sc = (TakesScreenshot)driver;
         File source = sc.getScreenshotAs(OutputType.FILE);
-        File target = new File(System.getProperty("user.dir") + "//reports" + faker.name().firstName() + ".png");
+        String sourcePath;
+        sourcePath = System.getProperty("user.dir") + "//Reports//" + faker.name().firstName() + ".png";
+        File target = new File(sourcePath);
         FileUtils.copyFile(source,target);
-        return target;
+        return sourcePath;
 
     }
 

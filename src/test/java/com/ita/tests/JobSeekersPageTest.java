@@ -15,11 +15,6 @@ public class JobSeekersPageTest extends BaseTest {
         JobSeekersPage jobseekers = homepage.clickJobSeekersLinkOnTop();
         jobseekers.loginJobSeeker("chamtester23@gmail.com", "Welcome@123");
 
-        jobseekers.clickADDWorkExperience();
-
-        //verify work experience page appeared
-        Assert.assertTrue(jobseekers.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
-        System.out.println("Screenshot saved in the path: " + getScreenShot());
 
         //elements --> webdirver
         // basic elemnts

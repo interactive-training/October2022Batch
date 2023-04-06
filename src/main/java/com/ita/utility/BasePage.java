@@ -11,8 +11,6 @@ public class BasePage {
 
     WebDriver driver;
 
-
-
     public BasePage(WebDriver driver){
         this.driver = driver;
     }
@@ -20,7 +18,6 @@ public class BasePage {
     public String getBrowserTitle(){
         return driver.getTitle();
     }
-
 
     public void waitForElementToAppear(WebElement elmToAppear){
 

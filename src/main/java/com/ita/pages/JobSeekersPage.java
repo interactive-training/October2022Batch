@@ -45,13 +45,15 @@ public class JobSeekersPage extends BasePage {
     }
 
 
-    public void clickADDWorkExperience(){
+    public WorkExperiencePage clickADDWorkExperience(){
 
         //click on work experience
         driver.findElement(workButton).click();
 
+//        verify you are in 'add experience' page
 
-        //verify you are in 'add experience' page
+        return new WorkExperiencePage(driver);
+
 
     }
 
