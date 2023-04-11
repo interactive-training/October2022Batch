@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/Training/Batch2_Oct_2022/12032003/October2022Batch">
+
+    <listeners>
+        <listener class-name="com.ita.base.TestListener" />
+    </listeners>
+
+    <test name="Regression">
         <classes>
-            <class name="com.ita.tests.JobSeekersPageTest">
-                <methods>
-                    <include name="verifyJObSeekers"/>
-                </methods>
-            </class>
-            <class name="com.ita.tests.JobsAndApplicationsPageTest">
-                <methods>
-                    <include name="VerifyJObsAndApplicationsPage"/>
-                </methods>
-            </class>
-            <class name="com.ita.tests.RecruitersPageTest">
-                <methods>
-                    <include name="VerifyJObsAndApplicationsPage"/>
-                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>
-                    <include name="VerifyRecruitersLogin_Valid_Username_InValid_password"/>
-                </methods>
-            </class>
+            <class name="com.ita.tests.JobSeekersTest"/>
+
+            <class name="com.ita.tests.JobSeekersWorkExperienceTest"/>
+<!--                <methods>-->
+<!--                    <include name="addValidExperience"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="com.ita.tests.JobsAndApplicationsTest"/>
+<!--                <methods>-->
+<!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="com.ita.tests.RecruitersTest"/>
+<!--                <methods>-->
+<!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
+<!--                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>-->
+<!--                    <include name="VerifyRecruitersLogin_Valid_Username_InValid_password"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
+
+
 </suite>
