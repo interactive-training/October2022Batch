@@ -97,9 +97,8 @@ public class BaseTest extends Utility {
     @AfterMethod
     public void tearDown(ITestResult iTestResult) throws IOException {
 
-        driver.close();
+//        driver.close();
         driver.quit();
-
 
     }
 
