@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="classes"  thread-count="3" name="All Test Suite">
+<suite name="All Test Suite">
 
     <listeners>
         <listener class-name="com.ita.base.TestListener" />
     </listeners>
 
     <test name="Regression">
+
+        <groups>
+            <run>
+                <include name="sanity" />
+            </run>
+        </groups>
+
         <classes>
             <class name="com.ita.tests.JobSeekersTest"/>
 

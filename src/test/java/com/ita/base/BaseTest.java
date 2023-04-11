@@ -79,7 +79,7 @@ public class BaseTest extends Utility {
 
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method, ITestContext iTestContext) throws IOException {
         //In BeforeMethod , we cannot get IResult objet, it is a null objet, result objet will be filled up after a test execution, so in test listener onTestStart is a place is - after test is initialied, but not finished, and result is filled up with at least test inforations.
         InitializeDriver();
@@ -94,7 +94,7 @@ public class BaseTest extends Utility {
 
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult iTestResult) throws IOException {
 
 //        driver.close();

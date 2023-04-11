@@ -19,7 +19,8 @@ public class JobSeekersTest extends BaseTest{
 
     }
 
-    @Test
+
+    @Test(groups = {"smoke", "sanity"})
     public void Testcase1() {
 
         //in test explicitly add log and test
@@ -27,7 +28,7 @@ public class JobSeekersTest extends BaseTest{
         Assert.assertTrue(true);
 
     }
-    @Test
+    @Test(groups = {"smoke"})
     public void Testcase2()  {
 
 
