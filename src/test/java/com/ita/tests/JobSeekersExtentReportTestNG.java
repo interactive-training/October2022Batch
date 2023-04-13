@@ -7,9 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 
-public class JobSeekersTest extends BaseTest{
+public class JobSeekersExtentReportTestNG extends BaseTest {
 
     @Test(description = "Test description goes here to display in the report left side of the IDE.")
     public void verifyJObSeekers() throws IOException {
@@ -17,6 +16,7 @@ public class JobSeekersTest extends BaseTest{
         JobSeekersPage jobseekers = homepage.clickJobSeekersLinkOnTop();
         jobseekers.loginJobSeeker("chamtester23@gmail.com", "Welcome@123");
 
+        getCurrentExtentTest().log(Status.INFO, "This is just an info, written inside Test method, if we need to add some extra information to test, then we can add it here.");
     }
 
 
@@ -28,11 +28,12 @@ public class JobSeekersTest extends BaseTest{
         Assert.assertTrue(true);
 
     }
-    @Test(groups = {"smoke"})
-    public void Testcase2()  {
+    @Test()
+    public void Testcase2() throws Exception {
 
 
-        Assert.assertTrue(false);
+//        Assert.assertTrue(false);
+
 
     }
 

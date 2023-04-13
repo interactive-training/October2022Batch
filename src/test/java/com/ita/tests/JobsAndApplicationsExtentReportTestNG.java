@@ -1,18 +1,22 @@
 package com.ita.tests;
 
+import com.aventstack.extentreports.Status;
 import com.ita.base.BaseTest;
 import com.ita.pages.JobsAndApplicationsPage;
 import com.ita.pages.RecruitersPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobsAndApplicationsTest extends BaseTest {
+public class JobsAndApplicationsExtentReportTestNG extends BaseTest {
 
-    @Test
+    @Test()
     public void VerifyJObsAndApplicationsPage(){
 
 
+        getCurrentExtentTest().log(Status.INFO, "Test started, it is in test method if some extra information to be added.");
+
         RecruitersPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmail.com", "October2022" );
 

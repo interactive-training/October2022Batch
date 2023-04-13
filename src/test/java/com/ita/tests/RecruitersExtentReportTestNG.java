@@ -5,7 +5,7 @@ import com.ita.pages.RecruitersPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RecruitersTest extends BaseTest {
+public class RecruitersExtentReportTestNG extends BaseTest {
 
     @Test
     public void VerifyJObsAndApplicationsPage(){

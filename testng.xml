@@ -2,32 +2,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-    <listeners>
-        <listener class-name="com.ita.base.TestListener" />
-    </listeners>
 
     <test name="Regression">
 
-        <groups>
-            <run>
-                <include name="sanity" />
-            </run>
-        </groups>
-
         <classes>
-            <class name="com.ita.tests.JobSeekersTest"/>
+            <class name="com.ita.tests.JobSeekersExtentReportTestNG"/>
 
-            <class name="com.ita.tests.JobSeekersWorkExperienceTest"/>
-<!--                <methods>-->
-<!--                    <include name="addValidExperience"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-            <class name="com.ita.tests.JobsAndApplicationsTest"/>
-<!--                <methods>-->
-<!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-            <class name="com.ita.tests.RecruitersTest"/>
+<!--            <class name="com.ita.tests.JobSeekersWorkExperienceExtentReportTestNG"/>-->
+<!--&lt;!&ndash;                <methods>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <include name="addValidExperience"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </methods>&ndash;&gt;-->
+<!--&lt;!&ndash;            </class>&ndash;&gt;-->
+<!--            <class name="com.ita.tests.JobsAndApplicationsExtentReportTestNG"/>-->
+<!--&lt;!&ndash;                <methods>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <include name="VerifyJObsAndApplicationsPage"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </methods>&ndash;&gt;-->
+<!--&lt;!&ndash;            </class>&ndash;&gt;-->
+<!--            <class name="com.ita.tests.RecruitersExtentReportTestNG"/>-->
 <!--                <methods>-->
 <!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
 <!--                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>-->

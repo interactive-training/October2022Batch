@@ -6,7 +6,7 @@ import com.ita.pages.WorkExperiencePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobSeekersWorkExperienceTest extends BaseTest {
+public class JobSeekersWorkExperienceExtentReportTestNG extends BaseTest {
 
     @Test
     public void  addValidExperience(){
