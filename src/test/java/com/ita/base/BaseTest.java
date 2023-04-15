@@ -59,27 +59,33 @@ public class BaseTest implements ITestListener {
         prop.load(fis);
 
         //get browser property
-        String browerType = prop.getProperty("BrowserType");
+        String browserType = prop.getProperty("BrowserType");
 
-        System.out.println("browser type from command prompt ******** : " + System.getProperty("command.browser"));
+        System.out.println("browser type from command prompt ******** : " + System.getProperty("browser"));
 
         // Override browser from command prompt
-        String brwoserTypeFromCommandPrompt = System.getProperty("command.browser");
-        if (brwoserTypeFromCommandPrompt != null)
-            browerType = brwoserTypeFromCommandPrompt;
+        String browserTypeFromCommandPrompt = System.getProperty("browser");
+        if (browserTypeFromCommandPrompt != null)
+            browserType = browserTypeFromCommandPrompt;
 
-        if (browerType.equalsIgnoreCase("chrome")) {
+        if (browserType.toLowerCase().contains("chrome")) {
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
 
+            //add headless
+            if(browserType.toLowerCase().contains("headless"))
+            {
+                options.addArguments("--headless");
+            }
+
             driver = new ChromeDriver(options);
         }
-        else if(browerType.equalsIgnoreCase("firefox")){
+        else if(browserType.equalsIgnoreCase("firefox")){
 
             driver = new FirefoxDriver();
         }
-        else if(browerType.equalsIgnoreCase("edge")){
+        else if(browserType.equalsIgnoreCase("edge")){
 
             driver = new EdgeDriver();
         }
