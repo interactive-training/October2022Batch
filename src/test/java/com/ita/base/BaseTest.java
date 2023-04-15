@@ -7,6 +7,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.ita.pages.HomePage;
 import com.ita.util.Utility;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -77,9 +78,19 @@ public class BaseTest implements ITestListener {
             if(browserType.toLowerCase().contains("headless"))
             {
                 options.addArguments("--headless");
+                //the browser maximize will not effect on headless, so tests may fail for eleemnt not visisble.
+                //the solution is set the maximum dimentions for teh browser, but this is in driver, so we have to heck the condition agaain
+
             }
 
             driver = new ChromeDriver(options);
+
+            //if headless, maximum dimention set for browser (recommened, 1440, 980)
+            if(browserType.toLowerCase().contains("headless")) {
+                driver.manage().window().setSize(new Dimension(1440,980));
+            }
+
+
         }
         else if(browserType.equalsIgnoreCase("firefox")){
 
@@ -91,8 +102,16 @@ public class BaseTest implements ITestListener {
         }
 
 
-        //maximizze
-        driver.manage().window().maximize();
+        //maximize
+        if(browserType.toLowerCase().contains("headless")) {
+            //do not maximize, we have already set to miximum dimention
+           // driver.manage().window().setSize(new Dimension(1440,980));
+            System.out.println("Headless browser is not maximizing because we set the custom dimention.");
+        }
+        else {
+            driver.manage().window().maximize();
+
+        }
 
         //set implicitwai time
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImpilcitTimeInSec","10"))));
