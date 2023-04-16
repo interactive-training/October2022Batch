@@ -6,9 +6,11 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-        features = "src/main/java/Features",
-        glue = {"stepDefinitions"},
-        tags = "~@Ignore",
+        features = "src/test/java/com/ita/features",
+        glue = {"com.ita.stepDefinitions"},
+        monochrome = true,
+
+//        tags = "~@Ignore",
 //        format = {
 //                "pretty",
 //                "html:target/cucumber-reports/cucumber-pretty",
