@@ -1,6 +1,6 @@
 package com.ita.util;
 
-import com.ita.pages.HomePage;
+import com.ita.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -25,18 +25,51 @@ public class TestContext {
 
     //Page variables
     private HomePage homePage;
+    private JobsAndApplicationsPage jobsnappsPage;
+    private JobSeekersPage jobseekerPage;
+    private RecruitersPage recruitersPage;
+    private WorkExperiencePage workExpPage;
+
 
 
     //
 
 
-    public HomePage getHomePage(){
-        if (homePage == null)
-            return new HomePage(driver);
-        else
-            return homePage;
+    public HomePage getHomePage() {
+
+        if (homePage == null){
+            homePage = new HomePage(driver);
+        }
+        return homePage;
 
     }
+
+    public JobsAndApplicationsPage getJobsAndApplicationsPage(){
+
+        if (jobsnappsPage == null) {
+            jobsnappsPage = new JobsAndApplicationsPage(driver);
+        }
+
+        return jobsnappsPage;
+
+    }
+
+    public JobSeekersPage getJobSeekersPage(){
+
+        if (jobseekerPage == null) {
+            jobseekerPage = new JobSeekersPage(driver);
+        }
+
+        return jobseekerPage;
+    }
+
+//    public RecruitersPage recruitersPage; --- homework
+
+
+//    public     private WorkExperiencePage workExpPage;  -- homework
+
+
+
 
     public WebDriver initializeDriver() throws IOException {
 

@@ -6,6 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 
+
 @CucumberOptions(
         features = "src/test/java/com/ita/features",
         glue = {"com.ita.stepDefinitions"},
@@ -21,7 +22,6 @@ import org.testng.annotations.DataProvider;
 
     )
 
-
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 
 //    @Override
@@ -31,3 +31,4 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 //    }
 
 }
+

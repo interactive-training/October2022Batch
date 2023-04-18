@@ -3,7 +3,6 @@
 <suite name="All Test Suite">
 
     <test name="Cucumber">
-
         <classes>
             <class name="com.ita.Runner.TestNGRunner"/>
 

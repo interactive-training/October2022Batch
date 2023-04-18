@@ -1,0 +1,12 @@
+com\ita\pages\JobSeekersPage.class
+com\ita\Runner\TestNGRunner.class
+com\ita\pages\JobsAndApplicationsPage.class
+com\ita\pages\BasePage.class
+com\ita\stepDefinitions\ViewCvs.class
+com\ita\pages\HomePage.class
+com\ita\stepDefinitions\ViewCvs1.class
+com\ita\pages\WorkExperiencePage.class
+com\ita\util\TestContext.class
+com\ita\util\Utility.class
+com\ita\stepDefinitions\Hooks.class
+com\ita\pages\RecruitersPage.class

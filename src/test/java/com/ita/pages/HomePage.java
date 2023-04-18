@@ -52,6 +52,11 @@ public class HomePage extends BasePage {
 
     }
 
+    public void OpenURL(){
+      driver.get("http://www.viewcvs.co.uk");
+
+    }
+
 
 
 }
