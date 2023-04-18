@@ -14,7 +14,6 @@ public class HomePage extends BasePage {
 
     By recruiters_LinkText = By.linkText("Recruiters");
 
-
     By recruiters_PartialLinkText = By.partialLinkText("RecruitersPage");
 
     By jobSeekersBy = By.linkText("Job Seekers");

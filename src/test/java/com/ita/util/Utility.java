@@ -18,8 +18,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Utility {
+
+    WebDriver driver;
+
+    public Utility(WebDriver driver){
+        this.driver = driver;
+    }
 
     public static String getScreenShotFilePath(WebDriver driver, String testName) throws IOException {
 
@@ -72,4 +80,14 @@ public class Utility {
     {
         JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: Title", JOptionPane.INFORMATION_MESSAGE);
     }
+
+
+    public void SwitchWindowToChild() {
+        Set<String> s1 = driver.getWindowHandles();
+        Iterator<String> i1 = s1.iterator();
+        String parentWindow = i1.next();
+        String childWindow = i1.next();
+        driver.switchTo().window(childWindow);
+    }
+
 }

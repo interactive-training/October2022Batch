@@ -2,11 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-
-    <test name="Regression">
+    <test name="Cucumber">
 
         <classes>
-            <class name="com.ita.tests.JobSeekersExtentReportTestNG"/>
+            <class name="com.ita.Runner.TestNGRunner"/>
 
 <!--            <class name="com.ita.tests.JobSeekersWorkExperienceExtentReportTestNG"/>-->
 <!--&lt;!&ndash;                <methods>&ndash;&gt;-->
