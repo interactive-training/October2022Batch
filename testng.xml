@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="classes"  thread-count="3" name="All Test Suite">
+<suite parallel="tests"  thread-count="10" name="All Test Suite">
 
     <listeners>
         <listener class-name="com.ita.base.TestListener" />
     </listeners>
 
-    <test name="Regression">
+    <test name="ChromeBrowser">
+        <parameter name="paramBrowserType" value="chrome"></parameter>
         <classes>
             <class name="com.ita.tests.JobSeekersTest"/>
 
@@ -15,12 +16,12 @@
 <!--                    <include name="addValidExperience"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="com.ita.tests.JobsAndApplicationsTest"/>
+<!--            <class name="com.ita.tests.JobsAndApplicationsTest"/>-->
 <!--                <methods>-->
 <!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="com.ita.tests.RecruitersTest"/>
+<!--            <class name="com.ita.tests.RecruitersTest"/>-->
 <!--                <methods>-->
 <!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
 <!--                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>-->
@@ -30,5 +31,43 @@
         </classes>
     </test>
 
+    <test name="FireFoxBrowser">
+        <parameter name="paramBrowserType" value="firefox"></parameter>
+        <classes>
+<!--            <class name="com.ita.tests.JobSeekersTest"/>-->
+
+<!--            <class name="com.ita.tests.JobSeekersWorkExperienceTest"/>-->
+            <!--                <methods>-->
+            <!--                    <include name="addValidExperience"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+            <class name="com.ita.tests.JobsAndApplicationsTest"/>
+            <!--                <methods>-->
+            <!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+            <class name="com.ita.tests.RecruitersTest"/>
+            <!--                <methods>-->
+            <!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
+            <!--                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>-->
+            <!--                    <include name="VerifyRecruitersLogin_Valid_Username_InValid_password"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+        </classes>
+    </test>
+
+    <test name="EdgeBrowser">
+        <parameter name="paramBrowserType" value="edge"></parameter>
+        <classes>
+            <class name="com.ita.tests.JobSeekersTest"/>
+
+            <class name="com.ita.tests.JobSeekersWorkExperienceTest"/>
+
+            <class name="com.ita.tests.JobsAndApplicationsTest"/>
+
+            <class name="com.ita.tests.RecruitersTest"/>
+
+        </classes>
+    </test>
 
 </suite>
