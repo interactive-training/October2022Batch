@@ -29,22 +29,29 @@ public class Utility {
         this.driver = driver;
     }
 
-    public static String getScreenShotFilePath(WebDriver driver, String testName) throws IOException {
-
-//        Faker faker = Faker.instance();
-
-        TakesScreenshot sc = (TakesScreenshot) driver;
-        File source = sc.getScreenshotAs(OutputType.FILE);
-        String sourcePath;
-        testName = testName.replace(" ","_");
-        testName=testName+currentDateTime();
-
-        sourcePath = System.getProperty("user.dir") + "/target/Reports/Screenshots/" + testName + ".png";
-        File target = new File(sourcePath);
-        FileUtils.copyFile(source,target);
-        return sourcePath;
-
-    }
+//    public static String getScreenShotFilePath(WebDriver driver, String testName) throws IOException {
+//
+////        Faker faker = Faker.instance();
+//    //create unique file names
+//        verify the link.png //
+////        System.getProperty("user.dir") + "\" + " testName + ".png";
+//
+//        sourcePath =  "D:\Training\Batch2_Oct_2022\12032003\October2022Batch\verify_the_link.png_2023_04_12_13.png"
+//
+//
+//
+//        TakesScreenshot sc = (TakesScreenshot) driver;
+//        File source = sc.getScreenshotAs(OutputType.FILE);
+////        String sourcePath;
+////        testName = testName.replace(" ","_");
+////        testName=testName+currentDateTime();
+//
+//        sourcePath = System.getProperty("user.dir") + testName + ".png";
+//        File target = new File(sourcePath);
+//        FileUtils.copyFile(source,target);
+//        return sourcePath;
+//
+//    }
 
     public static String getScreenShotAsBase64(WebDriver driver, String testName) throws IOException {
 
@@ -76,11 +83,6 @@ public class Utility {
 
     }
 
-    public static void showMessageDialog(String infoMessage)
-    {
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: Title", JOptionPane.INFORMATION_MESSAGE);
-    }
-
 
     public void SwitchWindowToChild() {
         Set<String> s1 = driver.getWindowHandles();
@@ -88,6 +90,11 @@ public class Utility {
         String parentWindow = i1.next();
         String childWindow = i1.next();
         driver.switchTo().window(childWindow);
+    }
+
+    public void handleAlert(){
+        //impliment
+
     }
 
 }

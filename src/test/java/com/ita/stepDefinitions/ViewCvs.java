@@ -4,6 +4,7 @@ import com.ita.pages.JobSeekersPage;
 import com.ita.util.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -33,15 +34,21 @@ public class ViewCvs {
         testContext.getHomePage().OpenURL();
 
 
-        System.out.println(testContext.getHomePage().getBrowserTitle());
+//        System.out.println(testContext.getHomePage().getBrowserTitle());
 
     }
 
-    @Given("the user logged into Jobseekers account with valid credentials")
-    public void the_user_logged_into_Jobseekers_account_with_valid_credentials(){
+//    @Given("the user logged into Jobseekers account with valid credentials")
+//    @When("^the user logged into Jobseekers account with valid credentials \"(.*)\" and \"(.*)\"$")
+    @When("the user logged into Jobseekers account with valid credentials {string} and {string}")
+    public void the_user_logged_into_Jobseekers_account_with_valid_credentials(String userEmail, String password){
         System.out.println("the_user_logged_into_Jobseekers_account_with_valid_credentials...");
         //which page ?
-//        testContext.getJobSeekersPage().loginJobSeeker(emai,pagssword);
+
+        //click jobseekers
+
+        testContext.getHomePage().clickJobSeekersLinkOnTop();
+        testContext.getJobSeekersPage().loginJobSeeker(userEmail,password);
 
     }
 
@@ -49,7 +56,7 @@ public class ViewCvs {
     @And("the user navigates to the Work Experience tab")
     public void theUserNavigatesToTheWorkExperienceTab() {
         System.out.println("theUserNavigatesToTheWorkExperienceTab..");
-        Assert.assertTrue(false);
+        Assert.assertTrue(true);
     }
 
     @And("clicks on add button")

@@ -116,7 +116,10 @@ public class TestContext {
         driver.manage().window().maximize();
 
         //set implicitwai time
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImpilcitTimeInSec", "10"))));
+
+        Integer implicitWaitFrom = Integer.parseInt(prop.getProperty("impilcitTimeInSec", "10"));
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitFrom));
 
         //add this driver to the list
 

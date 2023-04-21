@@ -7,6 +7,7 @@ public class JobSeekersPage extends BasePage {
 
     WebDriver driver;
     By emailBy = By.name("email");
+
     By passwordBy = By.name("password");
     By button = By.xpath("//button[text()=' Sign in']");
 
