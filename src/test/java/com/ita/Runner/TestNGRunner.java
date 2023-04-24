@@ -6,11 +6,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 
-
 @CucumberOptions(
         features = "src/test/java/com/ita/features",
         glue = {"com.ita.stepDefinitions"},
         monochrome = true,
+        tags = "@sanity",
 
 //        tags = "~@Ignore",
 //        format = {

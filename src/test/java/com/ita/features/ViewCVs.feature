@@ -1,5 +1,3 @@
-
-
 Feature: As a user I should be able to add my work experience.
   Description for the above feature
 
@@ -10,3 +8,4 @@ Feature: As a user I should be able to add my work experience.
     And the user navigates to the Work Experience tab
     And clicks on add button
     Then it should navigate to Experience page
+
