@@ -31,19 +31,19 @@ public class Hooks {
         this.driver.quit();
 
     }
-
-    @BeforeStep
-    public void beforeStep(Scenario scenario) throws IOException {
-
-        if (scenario.isFailed()) {
-            //screenshot
-            File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
-            scenario.attach(fileContent, "image/png", "image");
-
-        }
-
-    }
+//
+//    @BeforeStep
+//    public void beforeStep(Scenario scenario) throws IOException {
+//
+//        if (scenario.isFailed()) {
+//            //screenshot
+//            File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+//            scenario.attach(fileContent, "image/png", "image");
+//
+//        }
+//
+//    }
 
     @AfterStep
     public void AddScreenshot(Scenario scenario) throws IOException {

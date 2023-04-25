@@ -41,6 +41,59 @@ public class WorkExperiencePage extends BasePage {
 
         }
 
+        public String getWorkJobTitle(String workTitle){
+            By b = By.xpath("//strong[text()='" + workTitle + "']/../..");
+
+            String s =  driver.findElement(b).getText();
+
+
+            return s;
+        }
+
+        public void select_WillingToTravel(){
+
+
+        }
+
+    public void setTravel(String inputTravel) {
+
+        if (inputTravel.equalsIgnoreCase("Up to 100%")) {
+
+            //click radio button 1
+//            By b...
+//            Web ..
+//            click...
+
+        } else if (inputTravel.equalsIgnoreCase("")) {
+            //click radio button 2
+
+        }
+    }
+
+//        String[] travel = {"Up to 100%", "Up to 25%", "Up to 50%", "Up to 75%","No travel required"};
+//        String travelOption;
+//        for (int i = 0; i < 6; i++) {
+//            travelOption = (travel[i]);
+//            switch (Integer.parseInt(travelOption)) {
+//
+//                case 0:
+//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][2]")).click();
+//                    break;
+//                case 1:
+//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][3]")).click();
+//                    break;
+//                case 2:
+//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][4]")).click();
+//                    break;
+//                case 3:
+//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][5]")).click();
+//                    break;
+//
+//                default:
+//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][1]")).click();
+//            }
+//        }
+
 
         //enter job title
         public void enterJobTitle(String jobtitle){

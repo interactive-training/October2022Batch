@@ -38,4 +38,19 @@ public class RecruitersPage extends BasePage {
         return driver.findElement(errorMsgLocator).getText();
     }
 
+    public void clickRegisterLink(){
+
+        driver.findElement(By.linkText("Register")).click();
+
+    }
+
+
+    public void enterFirstName(String firstname){
+        driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys(firstname);
+    }
+
+    public void enterLastName(String lastname){
+        driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys(lastname);
+    }
+
 }

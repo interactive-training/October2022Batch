@@ -25,6 +25,7 @@ Feature: As a user I should be able to add my work experience.
       |email3          | pass3 | addr3  |
       Then my test case is passed
 
+
 #  @regression
 #  Scenario: test scenario to show demo for datatable
 #    Given I have multiple rows of data

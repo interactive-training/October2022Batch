@@ -64,7 +64,13 @@ public class TestContext {
         return jobseekerPage;
     }
 
-//    public RecruitersPage recruitersPage; --- homework
+    public RecruitersPage getRecruitersPage(){
+        if (recruitersPage == null) {
+            recruitersPage = new RecruitersPage(driver);
+        }
+
+        return recruitersPage;
+    }
 
 
 //    public     private WorkExperiencePage workExpPage;  -- homework
@@ -123,7 +129,15 @@ public class TestContext {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitFrom));
 
+
+        //navigate to the base URL
+
+//        driver.get("https://www.viewcvs.co.uk/index.php");
+        driver.get(prop.getProperty("url"));
+
         //add this driver to the list
+
+
 
         return driver;
     }
