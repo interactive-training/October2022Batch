@@ -16,7 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class TestContext {
+public class TestContext{
+
+    //store output values from test steps
+    private String jobTitle;
+
+
+    //
+
 
     public WebDriver driver;
     public String landingPageProductName;
@@ -31,7 +38,22 @@ public class TestContext {
     private RecruitersPage recruitersPage;
     private WorkExperiencePage workExpPage;
 
+//    public TestContext(WebDriver driver) {
+//        super(driver);
+//    }
 
+
+    //
+
+        //storing values
+
+    public void setJobTitle(String jobTitle){
+
+        this.jobTitle = jobTitle;
+    }
+    public String getJobTitle(){
+        return this.jobTitle;
+    }
 
     //
 
@@ -73,7 +95,19 @@ public class TestContext {
     }
 
 
-//    public     private WorkExperiencePage workExpPage;  -- homework
+    public WorkExperiencePage getWorkExperiencePage(){
+
+        if (workExpPage == null) {
+            workExpPage = new WorkExperiencePage(driver);
+        }
+
+        return workExpPage;
+
+    }
+
+
+
+//    public     private WorkExperiencePage_backup workExpPage;  -- homework
 
 
 
@@ -136,7 +170,6 @@ public class TestContext {
         driver.get(prop.getProperty("url"));
 
         //add this driver to the list
-
 
 
         return driver;

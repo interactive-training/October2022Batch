@@ -1,9 +1,20 @@
-#
-#Feature: As a user I should be able to add my work experience
-#    feature description goes here
-#    multiple line description can be provided here
-#
-#
+Feature: As a user I should be able to add my work experience
+  feature description goes here
+  multiple line description can be provided here
+
+  Background: login as a jobseeker
+    When The user logged into Jobseekers account with valid credentials "chamtester23@gmail.com" and "Welcome@123"
+    Then User is on MyProfile page
+
+  Scenario: The user should be able to fill all the fields in Work Experience
+    When User presses the Add button for Work Experience
+    And User enters below data in Add Work Experience page
+      | CompanyName | JobTitle   | UpdateHeadline | Country | Town   | JobType  | Is_CurrentlyWorkHere | StartMonth | StartYear | EndMonth | EndYear | Achievements           | Description                              |
+      | ABC         | Programmer | Yes            | Russia  | Moscow | Per Diem | Check                | 03         | 1999      | 05       | 2023    | C Sharp Certificataion | I have 4 years of experience in C Sharp. |
+    And user presses save button
+    Then It should create a new record in the Work Experience
+
+
 ##  1 - //if I enter a valid value in email and password, submit - login process
 #
 #

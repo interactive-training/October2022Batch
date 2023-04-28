@@ -86,8 +86,6 @@ public class Recruiters_Register {
         testContext.getRecruitersPage().enterFirstName(firstname);
         testContext.getRecruitersPage().enterLastName(lastname);
 
-
-
     }
     @Then("User should successfully create an account")
     public void user_should_successfully_create_an_account() {

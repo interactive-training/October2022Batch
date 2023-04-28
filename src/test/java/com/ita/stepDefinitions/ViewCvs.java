@@ -40,7 +40,7 @@ public class ViewCvs {
 
 //    @Given("the user logged into Jobseekers account with valid credentials")
 //    @When("^the user logged into Jobseekers account with valid credentials \"(.*)\" and \"(.*)\"$")
-    @When("the user logged into Jobseekers account with valid credentials {string} and {string}")
+    @When("The user logged into Jobseekers account with valid credentials {string} and {string}")
     public void the_user_logged_into_Jobseekers_account_with_valid_credentials(String userEmail, String password){
         System.out.println("the_user_logged_into_Jobseekers_account_with_valid_credentials...");
         //which page ?

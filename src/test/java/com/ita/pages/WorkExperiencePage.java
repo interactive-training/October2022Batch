@@ -1,163 +1,106 @@
 package com.ita.pages;
 
+import com.ita.util.TestContext;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class WorkExperiencePage extends BasePage {
+import java.time.Duration;
 
+public class WorkExperiencePage extends BasePage{
+
+    By emailBy = By.name("email");
+    By passwordBy = By.name("password");
+    By button = By.xpath("//button[text()=' Sign in']");
+    By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
+
+    TestContext testContext;
     WebDriver driver;
 
-    public WorkExperiencePage(WebDriver driver) {
+    public WorkExperiencePage(WebDriver driver){
         super(driver);
         this.driver = driver;
 
     }
 
-    /*
 
-       // we.AddNew(); // click ADD button
-
-    //we.AddValidExperience(); // default values will be added / all mandatroy fields -- happy flow, click 'save changes'
-
-    //we.enterCompanyName(compname)
-
-    //we.enterJobtitle(sadfas)
-
-    we.CheckUpdaetMyHeadline()
-    we.UncheckUpdateHeadLine()
-
-        we.enterCountry()
-
-     */
-
-
-    //enter company name
-        public void enterCompanyName(String compName){
-
-            driver.findElement(By.xpath("//input[@id='comp']")).sendKeys(compName);
-
-        }
-
-        public String getWorkJobTitle(String workTitle){
-            By b = By.xpath("//strong[text()='" + workTitle + "']/../..");
-
-            String s =  driver.findElement(b).getText();
-
-
-            return s;
-        }
-
-        public void select_WillingToTravel(){
-
-
-        }
-
-    public void setTravel(String inputTravel) {
-
-        if (inputTravel.equalsIgnoreCase("Up to 100%")) {
-
-            //click radio button 1
-//            By b...
-//            Web ..
-//            click...
-
-        } else if (inputTravel.equalsIgnoreCase("")) {
-            //click radio button 2
-
-        }
+    public void addCompanyName( String name){
+        By companyName = By.id("comp");
+        driver.findElement(companyName).sendKeys(name);
     }
 
-//        String[] travel = {"Up to 100%", "Up to 25%", "Up to 50%", "Up to 75%","No travel required"};
-//        String travelOption;
-//        for (int i = 0; i < 6; i++) {
-//            travelOption = (travel[i]);
-//            switch (Integer.parseInt(travelOption)) {
-//
-//                case 0:
-//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][2]")).click();
-//                    break;
-//                case 1:
-//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][3]")).click();
-//                    break;
-//                case 2:
-//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][4]")).click();
-//                    break;
-//                case 3:
-//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][5]")).click();
-//                    break;
-//
-//                default:
-//                    driver.findElement(By.xpath("//div[@class='form-group1 rad'][1]")).click();
-//            }
-//        }
+    public void addJobTitle(String title){
 
+        By jobTitle = By.cssSelector("input[name = jtitle]");
+        driver.findElement(jobTitle).sendKeys(title);
+    }
 
-        //enter job title
-        public void enterJobTitle(String jobtitle){
+    public void modifyCountry(String country) {
+        By countryName = By.name("country");
+        driver.findElement(countryName).clear();
+        driver.findElement(countryName).sendKeys(country);
+   //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-            driver.findElement(By.xpath("//input[@id='jtitle']")).sendKeys(jobtitle);
-        }
+    }
 
+    public void checkBoxUpdateHeadline(){
+        By headline = By.name("upd_jtitle");
+        driver.findElement(headline).click();
+    }
 
-        public void updateHeadline(String checkAndUncheck){
+    public void selectJobType(String jobType){
+        WebElement elmjobType = driver.findElement(By.xpath("//div/select[@id='jtype']"));
+        Select selectObj = new Select(elmjobType);
+        selectObj.selectByValue(jobType);
+    }
+    public void selectStartMonth(String startMonth){
+        WebElement elmstartMonth = driver.findElement(By.id("smonth"));
+        Select selectObj = new Select(elmstartMonth);
+        selectObj.selectByValue(startMonth);
+    }
+    public void selectStartYear(String startYear){
+        WebElement elmStartYear = driver.findElement(By.name("syear"));
+        Select selectobj = new Select(elmStartYear);
+        selectobj.selectByValue(startYear);
+    }
+    public void selectEndMonth(String endMonth){
+        WebElement elmEndMonth = driver.findElement(By.cssSelector("#emonth")); // locating using css id
+        Select selectobj = new Select(elmEndMonth);
+        selectobj.selectByValue(endMonth);
+    }
+    public void selectEndYear(String endYear){
+        WebElement elmEndYear = driver.findElement(By.id("eyear")); // locating using css name didn't work
+        Select selectobj = new Select(elmEndYear);
+        selectobj.selectByValue(endYear);
+    }
 
-            if (checkAndUncheck.equalsIgnoreCase("check")){
-                driver.findElement(By.xpath("//input[@name='upd_jtitle']")).click();
+    public void addachievement(String achievements){
+        By addachievements = By.id("achievements");
+        driver.findElement(addachievements).sendKeys(achievements);
+    }
 
-            }
-            else{
-                System.out.println("test");
-                //do not do anything
-            }
+    public void addDescription(String description){
+        By addDescription = By.name("description");
+        driver.findElement(addDescription).sendKeys(description);
+    }
 
-        }
+    public Boolean ifChecked(){
 
-        public void selectJobType(String jobType){
+        WebElement chk = driver.findElement(By.name("upd_jtitle"));
+//        chk // homeowrk - heck value for 1 or 0 , 1 - cheked, 0-unchecked
 
-            WebElement elmToSelect = driver.findElement(By.xpath("//select[@id='jtype']"));
-            Select selectObj = new Select(elmToSelect);
-            selectObj.selectByVisibleText(jobType);
+        return false;
+    }
 
-        }
+    public Boolean isJobTitleExistByName(String expectedjobTitle){
 
+        By jobTitleBy = By.xpath("//strong[text()='" + expectedjobTitle + "']");
 
-        public void selectStartMonth(String stratMonth){
+        WebElement elm = driver.findElement(jobTitleBy);
 
-            WebElement elmToSelect = driver.findElement(By.xpath("//select[@id='smonth']"));
-            Select selectObj = new Select(elmToSelect);
-            selectObj.selectByValue(stratMonth);
-
-        }
-
-        public void selectStartYear(String startYear){
-            WebElement elmToSelect = driver.findElement(By.xpath("//select[@id='syear']"));
-            Select selectObj = new Select(elmToSelect);
-            selectObj.selectByValue(startYear);
-
-        }
-
-//        selectEndMonth("02");
-//        selectEndMonth("2014");
-
-        public void enterDescription(String desc){
-            driver.findElement(By.xpath("//textarea[@id='description']")).sendKeys(desc);
-        }
-
-        public void clickSaveChanges(){
-
-            driver.findElement(By.xpath("//input[@id='savechanges']")).click();
-
-            //work arounds
-            //srol dow using javascript exector
-            JavascriptExecutor  jse =  (JavascriptExecutor) driver;
-            jse.executeScript("document.getElementById('savechanges').click();");
-
-
-        }
-
+        return elm.isDisplayed();
+    }
 
 
 }
