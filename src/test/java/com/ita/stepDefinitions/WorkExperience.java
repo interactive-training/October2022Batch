@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,26 @@ public class WorkExperience {
 
         WorkExperiencePage workExpPage = testContext.getWorkExperiencePage();
         List<Map<String,String>> data = dataTable.asMaps();
+
+
+
+
+        for (int x = 0; x <= data.size()-1; x++){
+
+            System.out.println(data.get(x).get("CompanyName"));
+
+            System.out.println(data.get(x).get("JobTitle"));
+
+            //3rd col
+
+            //4th col
+
+
+            //5th col
+
+        }
+
+
 
         //company
         String companyName = data.get(0).get("CompanyName");

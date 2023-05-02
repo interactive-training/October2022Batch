@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/java/com/ita/features",
         glue = {"com.ita.stepDefinitions"},
         monochrome = true,
-        tags = "@sanity",
+//        tags = "@sanity",
 
 //        tags = "~@Ignore",
 //        format = {

@@ -11,6 +11,7 @@ Feature: As a user I should be able to add my work experience
     And User enters below data in Add Work Experience page
       | CompanyName | JobTitle   | UpdateHeadline | Country | Town   | JobType  | Is_CurrentlyWorkHere | StartMonth | StartYear | EndMonth | EndYear | Achievements           | Description                              |
       | ABC         | Programmer | Yes            | Russia  | Moscow | Per Diem | Check                | 03         | 1999      | 05       | 2023    | C Sharp Certificataion | I have 4 years of experience in C Sharp. |
+      | ABC         | Programmer | Yes            | Russia  | Moscow | Per Diem | Check                | 03         | 1999      | 05       | 2023    | C Sharp Certificataion | I have 4 years of experience in C Sharp. |
     And user presses save button
     Then It should create a new record in the Work Experience
 
