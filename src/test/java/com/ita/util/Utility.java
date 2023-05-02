@@ -1,9 +1,12 @@
 package com.ita.util;
 
+import com.ita.stepDefinitions.Recruiters_Register;
 import freemarker.template.utility.DateUtil;
 import net.bytebuddy.asm.Advice;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +25,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Utility {
+    public static final Logger log = LogManager.getLogger(Utility.class.getName());
 
     WebDriver driver;
 

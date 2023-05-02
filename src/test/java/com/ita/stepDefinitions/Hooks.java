@@ -3,6 +3,8 @@ package com.ita.stepDefinitions;
 import com.ita.util.TestContext;
 import io.cucumber.java.*;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Hooks {
+    public static final Logger log = LogManager.getLogger(Hooks.class.getName());
+
     TestContext testContext;
 
     WebDriver driver;

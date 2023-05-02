@@ -1,9 +1,12 @@
 package com.ita.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class RecruitersPage extends BasePage {
+    public static final Logger log = LogManager.getLogger(RecruitersPage.class.getName());
 
     WebDriver driver;
 

@@ -4,6 +4,8 @@ import com.ita.util.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.Map;
 
 public class Recruiters_Register {
 
+    public static final Logger log = LogManager.getLogger(Recruiters_Register.class.getName());
 
     TestContext testContext;
 
@@ -68,19 +71,16 @@ public class Recruiters_Register {
     }
     @When("User enters below data")
     public void user_enters_below_data(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-//        throw new io.cucumber.java.PendingException();
+
 
         List<Map<String,String>> data = dataTable.asMaps();
 
         String firstname = data.get(0).get("Firstname");
         String lastname = data.get(0).get("Lastname");
+
+//        log.info("First name paramter passed to the method is: " + firstname);
+//        log.info("Second name paramter pased tothe method is; " + lastname);
+//        log.info("User is tryingn to enter first and last name into the edit box.");
 
         //enter the values in the page using driver/page object
         testContext.getRecruitersPage().enterFirstName(firstname);

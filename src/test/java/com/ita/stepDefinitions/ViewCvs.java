@@ -5,12 +5,15 @@ import com.ita.util.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.IOException;
 
 public class ViewCvs {
+    public static final Logger log = LogManager.getLogger(ViewCvs.class.getName());
 
     Hooks hooks;
 

@@ -1,5 +1,7 @@
 package com.ita.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -9,6 +11,8 @@ import org.testng.Assert;
 
 
 public class HomePage extends BasePage {
+    public static final Logger log = LogManager.getLogger(HomePage.class.getName());
+
     WebDriver driver;
 
 

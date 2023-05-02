@@ -1,7 +1,10 @@
 package com.ita.util;
 
 import com.ita.pages.*;
+import com.ita.stepDefinitions.Recruiters_Register;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,6 +20,8 @@ import java.util.Map;
 import java.util.Properties;
 
 public class TestContext{
+
+    public static final Logger log = LogManager.getLogger(TestContext.class.getName());
 
     //store output values from test steps
     private String jobTitle;

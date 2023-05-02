@@ -1,6 +1,8 @@
 package com.ita.pages;
 
 import com.ita.util.TestContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 public class WorkExperiencePage extends BasePage{
+
+    public static final Logger log = LogManager.getLogger(WorkExperiencePage.class.getName());
 
     By emailBy = By.name("email");
     By passwordBy = By.name("password");
