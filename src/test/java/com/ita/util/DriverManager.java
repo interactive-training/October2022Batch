@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.*;
 import org.testng.annotations.Optional;
 
@@ -25,9 +26,9 @@ public class DriverManager {
 
     public WebDriver initializeDriverGrid(String browser, String platform, String browserVersion) throws Exception {
 
-        String hubURL = "http://localhost:4444/wd/hub";
+        String hubURL = "http://192.168.1.4:4444";
 
-        DesiredCapabilities capabilities = null;
+//        DesiredCapabilities capabilities = null;
 
         if (browser.equalsIgnoreCase("chrome")){
 
@@ -39,26 +40,23 @@ public class DriverManager {
             ChromeOptions chromeoptions = new ChromeOptions();
             chromeoptions.addArguments("--remote-allow-origins=*");
             //if browser is headless, add healless
-            chromeoptions.addArguments("--headless"); //headed
-            chromeoptions.addArguments("--disable-gpu");
+//            chromeoptions.addArguments("--headless"); //headless
+//            chromeoptions.addArguments("--disable-gpu");
 
-            chromeoptions.setExperimentalOption("prefs", chromePrefs);
+//            chromeoptions.setExperimentalOption("prefs", chromePrefs);
 
 //            capabilities.acceptInsecureCerts();
-            capabilities = DesiredCapabilities.chrome();
-            capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-
+            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//            capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 
             capabilities.setCapability(ChromeOptions.CAPABILITY, chromeoptions);
 
 //            capabilities.setBrowserName(ChromeOptions.CAPABILITY); // This is same as -->  capabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
 //            //but when we use setCapability, it acccepts const paramter
 
-            capabilities.setPlatform(Platform.WIN10);
-
+//            capabilities.setPlatform(Platform.WIN10);
 
             //finally add options to capability
-
 
             driver = new RemoteWebDriver(new URL(hubURL),capabilities);
 
@@ -66,12 +64,23 @@ public class DriverManager {
         else if(browser.equalsIgnoreCase("firefox")) {
             //firefox, we have to crate a new profile, Chrome does it by default
 
+//            WebDriverManager.firefoxdriver().setup();
+//            System.setProperty("webdriver.gecko.driver", driverPath);
+
+
+            DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+            capabilities.setCapability("marionette",true);
+//            driver= new FirefoxDriver(capabilities);
+
+//            FirefoxOptions options = new FirefoxOptions();
+//            options.addPreference("dom.popup_maximum", 0);
+
 //            capabilities.setBrowserName(String.valueOf(Browser.FIREFOX)); // This is same as -->  capabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
             driver = new RemoteWebDriver(new URL(hubURL),capabilities);
 
 
-            System.out.println();
         }
+
 
         //add common pramters to driver
         driver.manage().window().maximize();
@@ -79,13 +88,13 @@ public class DriverManager {
 //        Integer implicitWaitFrom = Integer.parseInt(prop.getProperty("impilcitTimeInSec", "10"));
 //        driver.manage().timeouts().implicitlyWait();
 
-        driver.get("https://viewcvs.co.uk");
 
         //add drive to the thread
         driversCollection.set(driver);
 
+        driver.get("https://viewcvs.co.uk");
 
-        return getDriver();
+        return driver;
 
     }
 

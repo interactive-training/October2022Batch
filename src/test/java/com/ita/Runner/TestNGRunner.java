@@ -40,7 +40,13 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 //        <parameter name="browserVersion" value="ANY"></parameter>
     @Parameters({ "browser", "runoption", "platform", "browserVersion" })
     @BeforeTest
-    public void beforeTest(String browser, @Optional("local") String runoption, @Optional("") String platform, @Optional("") String browserVersion) throws Exception {
+    public void beforeTest(@Optional("") String browser, @Optional("local") String runoption, @Optional("") String platform, @Optional("") String browserVersion) throws Exception {
+
+        if (browser.isEmpty()){
+            System.out.println("Executing from IDE...");
+            return;
+
+        }
 
         System.out.println("@BeforeTest annotation in cucumberTestNG Runner class");
         System.out.println("paramter passed to beforeTest is: browserType = " + browser);
@@ -54,9 +60,6 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 
         }
 
-//        new DriverManager.initializeDriver(browserType);
-
-//        this.driver = DriverManager.getDriver();
     }
 
     @AfterTest
