@@ -16,11 +16,15 @@ public class demo {
     @Given("I have multiple rows of data in a single column")
     public void i_have_multiple_rows_of_data(DataTable dataTable) {
 
-        String[] a = {"s", "b"};
-        List<String> b = new ArrayList<String>();
-        b.add("a");
-        System.out.println(b);
-        System.out.println(b.toArray());
+//        String[] a = {"s", "b"};
+//
+//
+//        List<String> b = new ArrayList<String>();
+//
+//
+//        b.add("a");
+//        System.out.println(b);
+//        System.out.println(b.toArray());
 
 //        System.out.println(dataTable.asList());
 //        [email@email.com, email 2, email3, email4]
@@ -33,9 +37,10 @@ public class demo {
 
         //if you do not know the number of items  //then loop is the only solution
         //loop 1
-//        for (int x = 0; x <= data.size() - 1; x++){
-//            System.out.println(data.get(x));
-//        }
+        for (int x = 0; x < data.size(); x++){
+            System.out.println(data.get(x));
+        }
+
 
         //loop 2
 //        for (String d: data){
@@ -43,11 +48,11 @@ public class demo {
 //        }
 
         //loop 3 (iterator)
-        Iterator<String> s = data.iterator();
-        while(s.hasNext()){
-            System.out.println(s.next());
-
-        }
+//        Iterator<String> s = data.iterator();
+//        while(s.hasNext()){
+//            System.out.println(s.next());
+//
+//        }
 
     }
 
@@ -106,13 +111,13 @@ public class demo {
 //        There is more then one value per key. Did you mean to transform to Map<java.lang.String, List<java.lang.String>> instead?
 
         System.out.println(dataTable.asMaps());
-//        [{Email=email@email.com, Password=pass1, address=addre1}, {Email=email 2, Password=pass2, address=addr2}, {Email=email3, Password=pass3, address=addr3}]
+//        [ { Email=email@email.com, Password=pass1, address=addre1}, {Email=email 2, Password=pass2, address=addr2}, {Email=email3, Password=pass3, address=addr3}]
 
         System.out.println(dataTable.asList());
 //        io.cucumber.datatable.UndefinedDataTableTypeException: Can't convert DataTable to List<java.lang.String>.
 
         System.out.println(dataTable.asLists());
-//        [[Email, Password, address], [email@email.com, pass1, addre1], [email 2, pass2, addr2], [email3, pass3, addr3]]
+//        [  [Email, Password, address], [email@email.com, pass1, addre1], [email 2, pass2, addr2], [email3, pass3, addr3]]
 
     }
 
