@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ViewCvs1 {
 
-    Hooks hooks;
+//    Hooks hooks;
 
     WebDriver driver;
 

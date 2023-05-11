@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ViewCvs {
 
-    Hooks hooks;
+//    Hooks hooks;
 
     WebDriver driver;
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <test name="Cucumber_Chrome_Windows">
+        <parameter name="runoption" value="grid"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
+
+        <parameter name="platform" value="Windows"></parameter>
+        <parameter name="browserVersion" value="ANY"></parameter>
+        <classes>
+            <class name="com.ita.Runner.TestNGRunner"/>
+        </classes>
+    </test>
+
+    <test name="Cucumber_Firefox_Windows">
+        <parameter name="runoption" value="grid"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
+
+        <parameter name="platform" value="Windows"></parameter>
+        <parameter name="browserVersion" value="ANY"></parameter>
+        <classes>
+            <class name="com.ita.Runner.TestNGRunner"/>
+        </classes>
+    </test>
+
+
+<!--    <test name="Cucumber_Firefox_Mac">-->
+<!--        <parameter name="runoption" value="grid"></parameter>-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+
+<!--        <parameter name="platform" value="Mac"></parameter>-->
+<!--        <parameter name="browserVersion" value="ANY"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.ita.Runner.TestNGRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Cucumber_Chrome_Mac">-->
+<!--        <parameter name="runoption" value="grid"></parameter>-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+
+<!--        <parameter name="platform" value="Mac"></parameter>-->
+<!--        <parameter name="browserVersion" value="ANY"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.ita.Runner.TestNGRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Cucumber_Safari_Mac">-->
+<!--        <parameter name="runoption" value="grid"></parameter>-->
+<!--        <parameter name="browser" value="safari"></parameter>-->
+
+<!--        <parameter name="platform" value="Mac"></parameter>-->
+<!--        <parameter name="browserVersion" value="ANY"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.ita.Runner.TestNGRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Cucumber_Chrome_Linux">-->
+<!--        <parameter name="runoption" value="grid"></parameter>-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+
+<!--        <parameter name="platform" value="Linux"></parameter>-->
+<!--        <parameter name="browserVersion" value="ANY"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.ita.Runner.TestNGRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Cucumber_firefox_Linux">-->
+<!--        <parameter name="runoption" value="grid"></parameter>-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+
+<!--        <parameter name="platform" value="Linux"></parameter>-->
+<!--        <parameter name="browserVersion" value="ANY"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.ita.Runner.TestNGRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>

@@ -1,16 +1,24 @@
 package com.ita.util;
 
 import com.ita.pages.*;
+import io.cucumber.java.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,78 +72,152 @@ public class TestContext {
         return jobseekerPage;
     }
 
+    public RecruitersPage recruitersPage(){
+        if (recruitersPage == null) {
+            recruitersPage = new RecruitersPage(driver);
+        }
+        return recruitersPage;
+    }
+
 //    public RecruitersPage recruitersPage; --- homework
 
 
 //    public     private WorkExperiencePage workExpPage;  -- homework
 
 
+    public String getBrowserType(){
+
+        //preferences
+        //1. command prompt
+
+        //2. testng xml file data
+
+        //3. read from property file
+
+        String browserType = null;
 
 
-    public WebDriver initializeDriver() throws IOException {
-
-        //read properties file
-
-        prop = new Properties();
-
-        String propFilePath = System.getProperty("user.dir") + "/src/test/resources/config.properties";
-
-        File myFile = new File(propFilePath);
-
-        FileInputStream fis = new FileInputStream(myFile);
-
-        prop.load(fis);
-
-        //get browser property
-        String browserType = prop.getProperty("browser");
-
-        System.out.println("browser type from command prompt ******** : " + System.getProperty("command.browser"));
-
-        // Override browser from command prompt
+        //check if any command prompt value passed ?
         String brwoserTypeFromCommandPrompt = System.getProperty("command.browser");
 
         if (brwoserTypeFromCommandPrompt != null) {
             browserType = brwoserTypeFromCommandPrompt;
+            return browserType;
         }
 
-        if (browserType.equalsIgnoreCase("chrome")) {
+        return browserType;
 
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
+    }
+//
+//    public WebDriver initializeDriver_LocalSystem(String param_browserType) throws IOException {
+//
+//        //read properties file
+//
+//        prop = new Properties();
+//
+//        String propFilePath = System.getProperty("user.dir") + "/src/test/resources/config.properties";
+//
+//        File myFile = new File(propFilePath);
+//
+//        FileInputStream fis = new FileInputStream(myFile);
+//
+//        prop.load(fis);
+//
+//        //get browser property
+//        String browserType = prop.getProperty("browser");
+//
+//        System.out.println("browser type from command prompt ******** : " + System.getProperty("command.browser"));
+//
+//        // Override browser from command prompt
+//        String brwoserTypeFromCommandPrompt = System.getProperty("command.browser");
+//
+//        if (brwoserTypeFromCommandPrompt != null) {
+//            browserType = brwoserTypeFromCommandPrompt;
+//        }
+//
+//        if (browserType.equalsIgnoreCase("chrome")) {
+//
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--remote-allow-origins=*");
+//
+//            WebDriverManager.chromedriver().setup();
+//
+//            driver = new ChromeDriver(options);
+//
+////            DesiredCapabilities capability = DesiredCapabilities.chrome(options);
+//
+////            DesiredCapabilities caps = new DesiredCapabilities();
+////101.1.1.1.1
+////            caps.setBrowserName("chrome");
+//
+////            driver = new RemoteWebDriver(new URL("http://192.168.1.123:4444/wd/hub"), options);
+//
+//            driver.get("http://www.viewcvs.co.uk");
+//
+//        } else if (browserType.equalsIgnoreCase("firefox")) {
+//
+//            driver = new FirefoxDriver();
+//        } else if (browserType.equalsIgnoreCase("edge")) {
+//
+//            driver = new EdgeDriver();
+//        }
+//
+//        //maximizze
+//        driver.manage().window().maximize();
+//
+//        //set implicitwai time
+//
+//        Integer implicitWaitFrom = Integer.parseInt(prop.getProperty("impilcitTimeInSec", "10"));
+//
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitFrom));
+//
+//        //add this driver to the list
+//
+//        webDriverObjects.put(Thread.currentThread().getId(), driver);
+//
+//        return driver;
+//    }
 
-            WebDriverManager.chromedriver().setup();
 
-            driver = new ChromeDriver(options);
-        } else if (browserType.equalsIgnoreCase("firefox")) {
+    @Before
+    public void setup() throws Exception {
 
-            driver = new FirefoxDriver();
-        } else if (browserType.equalsIgnoreCase("edge")) {
+        this.driver = new DriverManager().initializeDriver("chrome");
 
-            driver = new EdgeDriver();
+        driver.get("http://www.viewcvs.co.uk");
+
+//        System.out.println("@Before  annotation in cucumber setup method - hooks class.");
+//        this.driver = DriverManager.getDriver();
+        System.out.println(driver.getTitle());
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+        System.out.println("@After annotation in Cucumber after method - Closing browser in tearDown");
+
+//        this.driver = DriverManager.getDriver();
+        this.driver.quit();
+
+    }
+
+    @BeforeStep
+    public void beforeStep(Scenario scenario) throws IOException {
+        System.out.println("@BeforeStep annotation for Cucumber - in beforeStep method");
+    }
+
+    @AfterStep
+    public void AddScreenshot(Scenario scenario) throws IOException {
+        System.out.println("@AfterStep annotation for Cucumber - in beforeStep method");
+
+        if (scenario.isFailed()) {
+            //screenshot
+            File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+            scenario.attach(fileContent, "image/png", "image");
+
         }
 
-        //maximizze
-        driver.manage().window().maximize();
-
-        //set implicitwai time
-
-        Integer implicitWaitFrom = Integer.parseInt(prop.getProperty("impilcitTimeInSec", "10"));
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitFrom));
-
-        //add this driver to the list
-
-        return driver;
     }
-
-    public WebDriver getDriver() throws IOException {
-        if (driver == null) {
-            WebDriver d = initializeDriver();
-            webDriverObjects.put(Thread.currentThread().getId(), d);
-            return webDriverObjects.get(Thread.currentThread().getId());
-
-        } else
-            return webDriverObjects.get(Thread.currentThread().getId());
-    }
-
+    
 }
