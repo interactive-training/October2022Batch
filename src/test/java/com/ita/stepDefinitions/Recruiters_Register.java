@@ -92,4 +92,28 @@ public class Recruiters_Register {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+
+    @Then("User should see an error message as {string}")
+    public void user_should_see_an_error_message_as(String s1) {
+        // Write code here that turns the phrase above into concrete actions
+        System.out.println(s1);
+    }
+
+
+    @When("User enters data as {string} {string} {string} {string} {string} {string}")
+    public void userEntersDataAs(String firstName, String lastname, String compName, String phone, String email, String pass) {
+
+        System.out.println("firstname: " + firstName);
+        System.out.println(lastname);
+        System.out.println(compName);
+        System.out.println(phone);
+        System.out.println(email);
+        System.out.println(pass);
+
+
+
+
+
+    }
 }

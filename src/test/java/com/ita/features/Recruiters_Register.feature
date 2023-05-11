@@ -18,7 +18,7 @@ Feature:  Recruiters Register functionality
 
   Scenario Outline: Verifying registration process without mandatory fields - unhappy path
     Given User is on Registration page
-    When User enters data as <Firstname> <Lastname> <Company_name> <Phone_number> <Email_address> <Password>
+    When User enters data as "<Firstname>" "<Lastname>" "<Company_name>" "<Phone_number>" "<Email_address>" "<Password>"
     Then User should see an error message as "Please fill in this field"
     Examples:
       | Firstname | Lastname | Company_name | Phone_number | Email_address          | Password     |
