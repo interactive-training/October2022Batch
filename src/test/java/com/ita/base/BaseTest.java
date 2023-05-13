@@ -7,6 +7,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.ita.pages.HomePage;
 import com.ita.util.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -70,6 +71,9 @@ public class BaseTest implements ITestListener {
 
         if (browserType.toLowerCase().contains("chrome")) {
 
+
+            WebDriverManager.chromedriver().setup();
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
 
@@ -82,6 +86,9 @@ public class BaseTest implements ITestListener {
             driver = new ChromeDriver(options);
         }
         else if(browserType.equalsIgnoreCase("firefox")){
+
+            WebDriverManager.firefoxdriver().setup();
+
 
             driver = new FirefoxDriver();
         }

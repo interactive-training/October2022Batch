@@ -6,7 +6,7 @@
     <test name="Regression">
 
         <classes>
-            <class name="com.ita.tests.JobSeekersExtentReportTestNG"/>
+            <class name="com.ita.tests.AutoITDemoTest"/>
 
 <!--            <class name="com.ita.tests.JobSeekersWorkExperienceExtentReportTestNG"/>-->
 <!--&lt;!&ndash;                <methods>&ndash;&gt;-->
