@@ -40,7 +40,7 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 //        <parameter name="browserVersion" value="ANY"></parameter>
     @Parameters({ "browser", "runoption", "platform", "browserVersion" })
     @BeforeTest
-    public void beforeTest(@Optional("") String browser, @Optional("local") String runoption, @Optional("") String platform, @Optional("") String browserVersion) throws Exception {
+    public void beforeTest(@Optional("chrome") String browser, @Optional("local") String runoption, @Optional("") String platform, @Optional("") String browserVersion) throws Exception {
 
         if (browser.isEmpty()){
             System.out.println("Executing from IDE...");

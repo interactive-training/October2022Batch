@@ -16,6 +16,7 @@
             <class name="com.ita.Runner.TestNGRunner"/>
         </classes>
     </test>
+
     <test name="Cucumber_Edge">
         <parameter name="runoption" value="local"></parameter>
         <parameter name="browser" value="edge"></parameter>
