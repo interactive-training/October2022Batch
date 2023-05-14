@@ -11,7 +11,6 @@ public class JobsAndApplicationsTest extends BaseTest {
     @Test
     public void VerifyJObsAndApplicationsPage(){
 
-
         RecruitersPage recruitersPage = homepage.clickRecruitersLinkOnTop();
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmail.com", "October2022" );

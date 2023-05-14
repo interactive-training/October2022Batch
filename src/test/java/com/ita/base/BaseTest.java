@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.ita.pages.HomePage;
 import com.ita.util.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -57,6 +58,8 @@ public class BaseTest extends Utility {
 
         if (browerType.equalsIgnoreCase("chrome")) {
 
+            WebDriverManager.chromedriver().setup();
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
 
@@ -64,10 +67,12 @@ public class BaseTest extends Utility {
         }
         else if(browerType.equalsIgnoreCase("firefox")){
 
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
         else if(browerType.equalsIgnoreCase("edge")){
 
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
 

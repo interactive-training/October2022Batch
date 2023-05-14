@@ -25,7 +25,6 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         //enter job title
         wexp.enterJobTitle("job title 1");
 
-
         wexp.updateHeadline("Check");  // Check/UnCheck -- ENUM
 
         wexp.selectJobType("Full Time");
@@ -40,8 +39,6 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         wexp.enterDescription("some long long long descrption, with multilinne characters..");
 
         wexp.clickSaveChanges();
-
-
 
     }
 
