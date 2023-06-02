@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests"  thread-count="10" name="All Test Suite">
+    <!--                <listeners>-->
+    <!--                    <listener class-name="ita.TestListener" />-->
+    <!--                </listeners>-->
+    <test name="ChromeBrowser">
+        <parameter name="paramBrowserType" value="chrome"/>
+        <classes>
+            <class name="Jobseekers.JobseekersWorkExperienceTest"/>
+<!--            <class name="Jobseekers.JobseekersProfileOtherFieldsTest"/>-->
+        </classes>
+    </test>
+
+    <test name="Firefox">
+        <parameter name="paramBrowserType" value="firefox"/>
+        <classes>
+            <class name="Jobseekers.JobseekersWorkExperienceTest"/>
+        </classes>
+    </test>
+
+</suite>
