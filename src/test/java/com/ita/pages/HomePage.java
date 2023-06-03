@@ -1,45 +1,33 @@
 package com.ita.pages;
 
+import com.ita.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-// Page factory , cached
-// Extend report (small server) / Allure Report (single page)
-
-
 public class HomePage extends BasePage {
-    WebDriver driver;
+    static WebDriver driver;
 
 
     By recruiters_LinkText = By.linkText("Recruiters");
-
-
-    By recruiters_PartialLinkText = By.partialLinkText("RecruitersPage");
-
-    By jobSeekersBy = By.linkText("Job Seekers");
-
+    static By jobSeekersBy = By.linkText("Job Seekers");
     By jobsAndApplicationsLink = By.partialLinkText("applications");
     public HomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
-
     }
 
-    public RecruitersPage clickRecruitersLinkOnTop(){
-
+    public RecruitersLoginPage clickRecruitersLinkOnTop(){
         driver.findElement(recruiters_LinkText).click();
-        return new RecruitersPage(driver);
-
+        return new RecruitersLoginPage(driver);
     }
 
-    public JobSeekersPage clickJobSeekersLinkOnTop(){
+    public static JobSeekersLoginPage clickJobSeekersLinkOnTop(){
         driver.findElement(jobSeekersBy).click();
-        return new JobSeekersPage(driver);
+        return new JobSeekersLoginPage(driver);
     }
 
     public JobsAndApplicationsPage clickJobsAndApplicationsMenuOnTop(){
-        //jobs and verification link
 
         driver.findElement(jobsAndApplicationsLink).click();
 
@@ -49,7 +37,6 @@ public class HomePage extends BasePage {
         Assert.assertTrue(actualValue.contains(expected_value), "User could not navigate to Jobs and application page.");
 
         return new JobsAndApplicationsPage(driver);
-
 
     }
 

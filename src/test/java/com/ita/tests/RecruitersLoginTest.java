@@ -1,31 +1,31 @@
 package com.ita.tests;
 
 import com.ita.base.BaseTest;
-import com.ita.pages.RecruitersPage;
+import com.ita.pages.RecruitersLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RecruitersExtentReportTestNG extends BaseTest {
+public class RecruitersLoginTest extends BaseTest {
 
     @Test
     public void VerifyJObsAndApplicationsPage(){
 
-        //        ============================= RecruitersPage =================
+        //        ============================= RecruitersLoginPage =================
 
 
-        RecruitersPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
         //enter credentials
-        recruitersPage.loginRecruiter("born.testers@gmail.com", "October2022" );
+        recruitersPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
 
-        //after login in, verify user in RecruitersPage' dash board page
+        //after login in, verify user in RecruitersLoginPage' dash board page
         String expected_Title = "Recruiter Dashboard";
         Assert.assertTrue(recruitersPage.getBrowserTitle().contains(expected_Title), "Both titles are not matching");
 
 
-        //verify email id is displyed as we passed
-        String expectedEmail = "born.testers@gmail.com";
+        //verify email id is displayed as we passed
+        String expectedEmail = prop.getProperty("recruiterUsername");
         String actualEmail = recruitersPage.getRecruitersEmailAddr();
-        Assert.assertNotEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
+        Assert.assertEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
 
 
     }
@@ -33,7 +33,7 @@ public class RecruitersExtentReportTestNG extends BaseTest {
     @Test
     public void VerifyRecruitersLogin_Invalid_Username_InValid_password(){
 
-        RecruitersPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
 
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmsdfsfdfail.com", "sdffdsfadfa" );
@@ -48,7 +48,7 @@ public class RecruitersExtentReportTestNG extends BaseTest {
     @Test
     public void VerifyRecruitersLogin_Valid_Username_InValid_password(){
 
-        RecruitersPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
 
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmail.com", "sdffdsfadfa" );

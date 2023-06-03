@@ -43,7 +43,7 @@ public class BaseTest implements ITestListener {
 
     protected HomePage homepage;
 
-    public static Properties prop; //because I may use this property value from anywhere in the project, improvement -> cretea class and creae one method for one property. ?? ==> homework
+    public static Properties prop; //because I may use this property value from anywhere in the project
 
     public void InitializeDriver() throws IOException {
 

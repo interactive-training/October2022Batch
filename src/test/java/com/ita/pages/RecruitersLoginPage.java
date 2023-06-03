@@ -1,9 +1,10 @@
 package com.ita.pages;
 
+import com.ita.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RecruitersPage extends BasePage {
+public class RecruitersLoginPage extends BasePage {
 
     WebDriver driver;
 
@@ -13,7 +14,7 @@ public class RecruitersPage extends BasePage {
 
     By recruitersEmail = By.xpath("(//div[@class='right'][1]/p/strong[2])[1]");
 
-    public RecruitersPage(WebDriver driver) {
+    public RecruitersLoginPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
 
