@@ -1,0 +1,10 @@
+pages/HomePage.class
+ita/BasePage.class
+ita/BaseTest.class
+pages/RecruitersPostAJobPage.class
+pages/JobSeekersWorkExperiencePage.class
+pages/JobSeekersLoginPage.class
+pages/JobSeekersSignUpPage.class
+pages/JobsAndApplicationsPage.class
+pages/JobseekersEducationPage.class
+pages/JobSeekersProfileOtherFieldsPage.class
