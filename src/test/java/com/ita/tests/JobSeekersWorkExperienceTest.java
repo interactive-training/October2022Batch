@@ -3,7 +3,7 @@ package com.ita.tests;
 import com.ita.base.BaseTest;
 import com.ita.pages.HomePage;
 import com.ita.pages.JobSeekersLoginPage;
-import com.ita.pages.JobSeekersPage;
+import com.ita.pages.JobSeekersLandingPage;
 import com.ita.pages.JobseekersWorkExperiencePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,9 +14,9 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
 
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickAddWorkExperience();
+        JobSeekersLandingPage.clickAddWorkExperience();
         //verify work experience page appeared
-        Assert.assertTrue(JobSeekersPage.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
+        Assert.assertTrue(JobSeekersLandingPage.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
 
         JobseekersWorkExperiencePage jobseekers = new JobseekersWorkExperiencePage(driver);
         // declaring Work Experience data

@@ -14,27 +14,31 @@ public class JobSeekersLoginTest extends BaseTest {
     @Test(description = "Jobseeker's Test")
     public void verifyJObSeekers() throws IOException {
 
-        //HomePage.clickJobSeekersLinkOnTop();
+        HomePage.clickJobSeekersLinkOnTop();
+        //Verify Login Page
+        String actualTitle = homepage.getBrowserTitle();
+        Assert.assertTrue(actualTitle.contains("Sign in"));
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         getCurrentExtentTest().log(Status.INFO, "Jobseeker's login was successful");
 
     }
-
-    @Test(groups = {"smoke", "sanity"})
-    public void Testcase1() {
-
-        //in test explicitly add log and test
-
-        Assert.assertTrue(true);
-
-    }
-    @Test()
-    public void Testcase2() throws Exception {
-
-
-//        Assert.assertTrue(false);
-
-
-    }
-
 }
+
+//    @Test(groups = {"smoke", "sanity"})
+//    public void Testcase1() {
+//
+//        //in test explicitly add log and test
+//
+//        Assert.assertTrue(true);
+//
+//    }
+//    @Test()
+//    public void Testcase2() throws Exception {
+//
+//
+////        Assert.assertTrue(false);
+//
+
+
+
+

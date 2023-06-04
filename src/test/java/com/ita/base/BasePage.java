@@ -23,6 +23,9 @@ public class BasePage {
     public String getBrowserTitle(){
         return driver.getTitle();
     }
+    public String getBrowserUrl(){
+        return driver.getCurrentUrl();
+    }
 
     public void waitForElementToAppear(WebElement elmToAppear){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));

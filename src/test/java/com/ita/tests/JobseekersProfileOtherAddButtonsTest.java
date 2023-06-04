@@ -2,8 +2,6 @@ package com.ita.tests;
 import com.ita.base.BaseTest;
 
 import com.ita.pages.*;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
@@ -20,8 +18,8 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
 
 
         JobSeekersProfileEditIconsPage addWorkAuthorisation = new JobSeekersProfileEditIconsPage(driver);
-        JobSeekersPage.clickAddWorkAuthorisation();
-        addWorkAuthorisation.setWorkAuthorisation("United Kingdom, India,France");
+        JobSeekersLandingPage.clickAddWorkAuthorisation();
+        addWorkAuthorisation.setWorkAuthorisation("France, United Kingdom, Spain");
         addWorkAuthorisation.clickSaveButton();
     }
 
@@ -29,7 +27,7 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
     public void certifications(){
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.setClickAddCertifications();
+        JobSeekersLandingPage.setClickAddCertifications();
 
         JobseekersProfileOtherAddButtonsPage editcertifications = new JobseekersProfileOtherAddButtonsPage(driver);
         editcertifications.setAddCertificationName("Java");
@@ -44,12 +42,12 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
     public void awards(){
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.setClickAddAwards();
+        JobSeekersLandingPage.setClickAddAwards();
 
         JobseekersProfileOtherAddButtonsPage editAwards = new JobseekersProfileOtherAddButtonsPage(driver);
 
-        editAwards.setAddAwardName("PETALS");
-        editAwards.setAddAwardDescription("Teaching Course");
+        editAwards.setAddAwardName("ISTBQ");
+        editAwards.setAddAwardDescription("Manual Testing Certification");
         editAwards.clickSaveButton();
     }
 
@@ -57,11 +55,11 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
     public void extracurriculars() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.setClickAddExtracurriculars();
+        JobSeekersLandingPage.setClickAddExtracurriculars();
 
         JobseekersProfileOtherAddButtonsPage editExtracurriculars = new JobseekersProfileOtherAddButtonsPage(driver);
         editExtracurriculars.setAddExtracurriculars("Play badminton regularly.");
-        //editExtracurriculars.clickSaveButton();        // defect needs to be fixed
+        editExtracurriculars.clickSaveButton();        // defect needs to be fixed
     }
 
 

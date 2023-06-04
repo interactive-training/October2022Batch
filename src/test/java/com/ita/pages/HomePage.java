@@ -9,7 +9,7 @@ public class HomePage extends BasePage {
     static WebDriver driver;
 
 
-    By recruiters_LinkText = By.linkText("Recruiters");
+    static By recruiters_LinkText = By.linkText("Recruiters");
     static By jobSeekersBy = By.linkText("Job Seekers");
     By jobsAndApplicationsLink = By.partialLinkText("applications");
     public HomePage(WebDriver driver) {
@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
         this.driver = driver;
     }
 
-    public RecruitersLoginPage clickRecruitersLinkOnTop(){
+    public static RecruitersLoginPage clickRecruitersLinkOnTop(){
         driver.findElement(recruiters_LinkText).click();
         return new RecruitersLoginPage(driver);
     }
@@ -27,7 +27,7 @@ public class HomePage extends BasePage {
         return new JobSeekersLoginPage(driver);
     }
 
-    public JobsAndApplicationsPage clickJobsAndApplicationsMenuOnTop(){
+    public ManageJobsPage clickJobsAndApplicationsMenuOnTop(){
 
         driver.findElement(jobsAndApplicationsLink).click();
 
@@ -36,7 +36,7 @@ public class HomePage extends BasePage {
         String actualValue = driver.getTitle();
         Assert.assertTrue(actualValue.contains(expected_value), "User could not navigate to Jobs and application page.");
 
-        return new JobsAndApplicationsPage(driver);
+        return new ManageJobsPage(driver);
 
     }
 

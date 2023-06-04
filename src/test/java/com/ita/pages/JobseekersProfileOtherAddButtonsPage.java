@@ -15,7 +15,6 @@ public class JobseekersProfileOtherAddButtonsPage extends BasePage {
     By editCertificationName = By.id("cname");
     By yearAcquiredCertification = By.id("syear");
     By monthAcquiredCertification = By.name("smonth");
-
     By editCertificationSummary = By.id("summary");
 
     // Add Certifications

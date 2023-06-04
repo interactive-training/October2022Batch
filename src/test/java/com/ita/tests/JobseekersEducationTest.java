@@ -1,11 +1,10 @@
 package com.ita.tests;
 import com.ita.base.BaseTest;
 import com.ita.pages.*;
-import com.ita.base.BaseTest;
 import org.testng.annotations.Test;
 import com.ita.pages.JobSeekersLoginPage;
 import com.ita.pages.JobseekersEducationPage;
-import com.ita.pages.JobSeekersPage;
+import com.ita.pages.JobSeekersLandingPage;
 
 public class JobseekersEducationTest extends BaseTest {
 
@@ -14,7 +13,7 @@ public class JobseekersEducationTest extends BaseTest {
 
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker("mary1@gmail.com", "abcd");
-        JobSeekersPage.clickAddEducation();
+        JobSeekersLandingPage.clickAddEducation();
 
         JobseekersEducationPage addDegreeType = new JobseekersEducationPage(driver);
 

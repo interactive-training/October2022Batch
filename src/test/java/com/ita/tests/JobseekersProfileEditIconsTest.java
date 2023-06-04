@@ -2,7 +2,6 @@ package com.ita.tests;
 
 import com.ita.base.BaseTest;
 import com.ita.pages.*;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 public class JobseekersProfileEditIconsTest extends BaseTest {
@@ -10,7 +9,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void contactInformation() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickContact();
+        JobSeekersLandingPage.clickContact();
 
         JobSeekersProfileEditIconsPage editContact = new JobSeekersProfileEditIconsPage(driver);
         editContact.getPhone("76543890");
@@ -21,7 +20,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void location() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickLocation();
+        JobSeekersLandingPage.clickLocation();
 
 
         JobSeekersProfileEditIconsPage editLocation = new JobSeekersProfileEditIconsPage(driver);
@@ -35,7 +34,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void summary() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickSummary();
+        JobSeekersLandingPage.clickSummary();
 
         JobSeekersProfileEditIconsPage editSummary = new JobSeekersProfileEditIconsPage(driver);
         editSummary.editSummary("This is my 3 years summary.");
@@ -46,7 +45,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void links() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickLink();
+        JobSeekersLandingPage.clickLink();
         JobSeekersProfileEditIconsPage editLinks = new JobSeekersProfileEditIconsPage(driver);
 //        String expected_Title
 //        Assert.assertTrue(editLinks.getBrowserTitle().contains(expected_Title), "Both titles are not matching");
@@ -61,7 +60,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void skills() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickSkills();
+        JobSeekersLandingPage.clickSkills();
 
         JobSeekersProfileEditIconsPage editSkills = new JobSeekersProfileEditIconsPage(driver);
         editSkills.setEnterSkill("Java");
@@ -73,7 +72,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void workAuthorisationEdit() {
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickWorkAuthorisationEdit();
+        JobSeekersLandingPage.clickWorkAuthorisationEdit();
 
         JobSeekersProfileEditIconsPage editWorkAuthorisation = new JobSeekersProfileEditIconsPage(driver);
         editWorkAuthorisation.setWorkAuthorisation("United Kingdom, France,Spain");
@@ -84,7 +83,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void languages(){
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.clickLanguages();
+        JobSeekersLandingPage.clickLanguages();
 
         JobSeekersProfileEditIconsPage editLanguages = new JobSeekersProfileEditIconsPage(driver);
         editLanguages.setEditLanguage("German");
@@ -96,7 +95,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     public void additionalInformationRelocate(){
         HomePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersPage.setClickRelocate();
+        JobSeekersLandingPage.setClickRelocate();
 
         JobSeekersProfileEditIconsPage addRelocate = new JobSeekersProfileEditIconsPage(driver);
         addRelocate.setRelocate();
@@ -109,7 +108,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
 
         JobSeekersProfileEditIconsPage addRelocate = new JobSeekersProfileEditIconsPage(driver);
-        JobSeekersPage.setClickTravel();
+        JobSeekersLandingPage.setClickTravel();
         //addTravel.setTravel(inputTravel);
         Thread.sleep(3000);
        // addTravel.clickSaveButton(); // defect taking to Add Award Page

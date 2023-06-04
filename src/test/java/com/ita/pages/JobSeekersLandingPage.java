@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-public class JobSeekersPage extends BasePage {
+public class JobSeekersLandingPage extends BasePage {
     static WebDriver driver;
     static By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
     static By locationBy = By.xpath("//a[@href='location.php']/img");
@@ -22,7 +22,7 @@ public class JobSeekersPage extends BasePage {
 
     //By clickEditCertifications = By.xpath("//a[@href='edit_cert.php']/img");
 
-    public JobSeekersPage(WebDriver driver){
+    public JobSeekersLandingPage(WebDriver driver){
         super(driver);
         this.driver = driver;
     }

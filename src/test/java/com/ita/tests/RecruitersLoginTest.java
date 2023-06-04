@@ -11,8 +11,6 @@ public class RecruitersLoginTest extends BaseTest {
     public void VerifyJObsAndApplicationsPage(){
 
         //        ============================= RecruitersLoginPage =================
-
-
         RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
         //enter credentials
         recruitersPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));

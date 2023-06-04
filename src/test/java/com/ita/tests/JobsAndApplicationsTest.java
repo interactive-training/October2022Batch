@@ -2,7 +2,7 @@ package com.ita.tests;
 
 import com.aventstack.extentreports.Status;
 import com.ita.base.BaseTest;
-import com.ita.pages.JobsAndApplicationsPage;
+import com.ita.pages.ManageJobsPage;
 import com.ita.pages.RecruitersLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -30,7 +30,7 @@ public class JobsAndApplicationsTest extends BaseTest {
         Assert.assertEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
 
         //after succesfully logged in , click Jobs & applications page
-        JobsAndApplicationsPage jobsnapplicationspage =  homepage.clickJobsAndApplicationsMenuOnTop();
+        ManageJobsPage jobsnapplicationspage =  homepage.clickJobsAndApplicationsMenuOnTop();
 
 
     }
