@@ -83,11 +83,14 @@ public class JobseekersWorkExperiencePage extends BasePage {
         public void setDescription(String desc){
             driver.findElement(By.xpath("//textarea[@id='description']")).sendKeys(desc);
         }
-    public String verifyJobTitle(){
-        By jobTitleBy = By.xpath("//strong[text()='Automation Tester1']/..");
-        String verifyJobTitle = String.valueOf(driver.findElement(jobTitleBy));
-        return verifyJobTitle;
-    }
+//    public String verifyJobTitle(){
+//
+//        By jobTitleBy = By.xpath("//div[@class='texticon']/../p");
+//        String verifyJobTitle = String.valueOf(driver.findElement(jobTitleBy));
+//        return verifyJobTitle;
+//    }
+
+    ////div[@class='texticon']/../p[1]
 
 
 

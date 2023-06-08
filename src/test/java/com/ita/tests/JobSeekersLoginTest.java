@@ -14,9 +14,9 @@ public class JobSeekersLoginTest extends BaseTest {
     @Test(description = "Jobseeker's Test")
     public void verifyJObSeekers() throws IOException {
 
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         //Verify Login Page
-        String actualTitle = homepage.getBrowserTitle();
+        String actualTitle = homePage.getBrowserTitle();
         Assert.assertTrue(actualTitle.contains("Sign in"));
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         getCurrentExtentTest().log(Status.INFO, "Jobseeker's login was successful");

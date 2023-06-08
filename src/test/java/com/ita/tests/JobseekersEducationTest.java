@@ -11,7 +11,7 @@ public class JobseekersEducationTest extends BaseTest {
     @Test
     public void addEducation() {
 
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker("mary1@gmail.com", "abcd");
         JobSeekersLandingPage.clickAddEducation();
 

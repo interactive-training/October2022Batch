@@ -13,17 +13,17 @@ public class JobSeekersSignUpTest extends BaseTest {
     public void verifySignUp(){
         // Test data
         String fullName ="John Gregory";
-        String email = "john3@gmail.com";
+        String email = "john4@gmail.com";
         String password = "john";
         String industry = "Banking";
 
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         //Verify Login Page
-        String actualTitle = homepage.getBrowserTitle();
+        String actualTitle = homePage.getBrowserTitle();
         Assert.assertTrue(actualTitle.contains("Sign in"));
         JobSeekersLoginPage.clickSignUp();
         //Verify Sign Up Page
-        String actualUrl = homepage.getBrowserUrl();
+        String actualUrl = homePage.getBrowserUrl();
         Assert.assertEquals(actualUrl,"https://www.viewcvs.co.uk/register_form.php");
 
         JobSeekersSignUpPage jobSeekersSignUpPage=new JobSeekersSignUpPage(driver);

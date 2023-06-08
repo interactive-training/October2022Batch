@@ -11,7 +11,7 @@ public class RecruitersLoginTest extends BaseTest {
     public void VerifyJObsAndApplicationsPage(){
 
         //        ============================= RecruitersLoginPage =================
-        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homePage.clickRecruitersLinkOnTop();
         //enter credentials
         recruitersPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
 
@@ -19,19 +19,16 @@ public class RecruitersLoginTest extends BaseTest {
         String expected_Title = "Recruiter Dashboard";
         Assert.assertTrue(recruitersPage.getBrowserTitle().contains(expected_Title), "Both titles are not matching");
 
-
         //verify email id is displayed as we passed
         String expectedEmail = prop.getProperty("recruiterUsername");
         String actualEmail = recruitersPage.getRecruitersEmailAddr();
         Assert.assertEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
-
-
     }
 
     @Test
     public void VerifyRecruitersLogin_Invalid_Username_InValid_password(){
 
-        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homePage.clickRecruitersLinkOnTop();
 
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmsdfsfdfail.com", "sdffdsfadfa" );
@@ -46,7 +43,7 @@ public class RecruitersLoginTest extends BaseTest {
     @Test
     public void VerifyRecruitersLogin_Valid_Username_InValid_password(){
 
-        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homePage.clickRecruitersLinkOnTop();
 
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmail.com", "sdffdsfadfa" );

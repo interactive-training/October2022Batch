@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class RecruitersLoginPage extends BasePage {
 
-    static WebDriver driver;
+     WebDriver driver;
 
-    static By emailBy = By.name("email");
-    static By passwordBy = By.name("password");
-    static By button = By.xpath("//button[text()=' Sign in']");
+     By emailBy = By.name("email");
+     By passwordBy = By.name("password");
+     By button = By.xpath("//button[text()=' Sign in']");
 
     By recruitersEmail = By.xpath("(//div[@class='right'][1]/p/strong[2])[1]");
 
@@ -29,10 +29,11 @@ public class RecruitersLoginPage extends BasePage {
 
     }
 
-    public static void loginRecruiter(String email, String password){
+    public RecruitersLandingPage loginRecruiter(String email, String password){
         driver.findElement(emailBy).sendKeys(email);
         driver.findElement(passwordBy).sendKeys(password);
         driver.findElement(button).click();
+        return new RecruitersLandingPage(driver);
     }
 
     By errorMsgLocator = By.xpath("//div[@id='errorval']/b");

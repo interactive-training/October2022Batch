@@ -41,7 +41,7 @@ public class BaseTest implements ITestListener {
     //why protected ? it will work with public as well, but just do not throught out anyone should use this driver objet,
     // protected means you are allowing those classes to use it who extends this class, not just anyone by creating a new objet of it.
 
-    protected HomePage homepage;
+    protected HomePage homePage;
 
     public static Properties prop; //because I may use this property value from anywhere in the project
 
@@ -134,7 +134,7 @@ public class BaseTest implements ITestListener {
 
         getDriver().get(url);
 
-        homepage =  new HomePage(driver);
+        homePage =  new HomePage(driver);
 
     }
 
@@ -157,7 +157,6 @@ public class BaseTest implements ITestListener {
         extentTest = extentReports.createTest(iTestResult.getMethod().getMethodName(), iTestResult.getMethod().getDescription());
 //        Store this object
         extentTests.put(Thread.currentThread().getId(), extentTest);
-
     }
 
     public ExtentTest getCurrentExtentTest(){
@@ -166,17 +165,16 @@ public class BaseTest implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        getCurrentExtentTest().log(Status.PASS, "Test case is passed. This is written in onTestSuccess listerner method.");
+        getCurrentExtentTest().log(Status.PASS, "Test case is passed. This is written in onTestSuccess listener method.");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
 
-        getCurrentExtentTest().log(Status.FAIL, "Test case is failed. This is written in onTestFailed listerner method., ok,after that what to do ? shall we take screenshot and attach ? following code will that.");
+        getCurrentExtentTest().log(Status.FAIL, "Test case is failed.This is written in onTestFailure listener method");//so take screenshot and attach.
         getCurrentExtentTest().log(Status.FAIL, iTestResult.getThrowable());
 
         String testname = iTestResult.getMethod().getMethodName();
-
 
         //add screenshot to the test
         try {

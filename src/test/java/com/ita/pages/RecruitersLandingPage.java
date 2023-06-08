@@ -12,13 +12,13 @@ public class RecruitersLandingPage extends BasePage {
     }
     //By jobsAndApplicationsLink = By.linkText("Jobs & applications");
 
-    static By jobsAndApplicationsLink = By.xpath("//a[@href='manage_jobs.php']");
+     By jobsAndApplicationsLink = By.xpath("//a[@href='manage_jobs.php']");
 
 //    public static ManageJobsPage clickJobsAndApplications(){
 //        driver.findElement(jobsAndApplicationsLink).click();
 //        return new ManageJobsPage(driver);
 //    }
-    public static void clickJobsAndApplications(){
+    public void clickJobsAndApplications(){
         driver.findElement(jobsAndApplicationsLink).click();
     }
 

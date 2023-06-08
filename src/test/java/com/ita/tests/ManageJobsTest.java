@@ -12,17 +12,18 @@ import org.testng.annotations.Test;
 public class ManageJobsTest extends BaseTest {
     @DataProvider(name="Record")
     public Object[][] record(){
-        return new Object[][]{{"Developer"}};
+        return new Object[][]{{"Estate Agent"}};
     }
 
     @Test(dataProvider = "Record")
         public void verifyManageJobsPageView (String dpRecord) throws InterruptedException {
-        HomePage.clickRecruitersLinkOnTop();
-        RecruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
-        //RecruitersLandingPage.clickJobsAndApplications();  This did not work, why?
+        RecruitersLoginPage recruitersLoginPage = homePage.clickRecruitersLinkOnTop();
+        RecruitersLandingPage recruitersLandingPage = recruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
+        recruitersLandingPage.clickJobsAndApplications();
+
         ManageJobsPage manageJobsPage = new ManageJobsPage(driver);
 
-        manageJobsPage.clickJobsAndApplications();
+        //manageJobsPage.clickJobsAndApplications();
         // verify Manage Jobs Page Header
         manageJobsPage.manageJobsHeader();
         // Clicking the Record to View
@@ -37,11 +38,12 @@ public class ManageJobsTest extends BaseTest {
     }
     @Test(dataProvider = "Record")
     public void verifyManageJobsPageEdit (String dpRecord) throws InterruptedException {
-        HomePage.clickRecruitersLinkOnTop();
-        RecruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
+        RecruitersLoginPage recruitersLoginPage = homePage.clickRecruitersLinkOnTop();
+        RecruitersLandingPage recruitersLandingPage = recruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
+        recruitersLandingPage.clickJobsAndApplications();
 
         ManageJobsPage manageJobsPage = new ManageJobsPage(driver);
-        manageJobsPage.clickJobsAndApplications();
+        //manageJobsPage.clickJobsAndApplications();
         // verify Page Header
         manageJobsPage.manageJobsHeader();
         // Edit Record
@@ -58,11 +60,11 @@ public class ManageJobsTest extends BaseTest {
     }
     @Test(dataProvider = "Record")
     public void verifyManageJobsPageDelete (String dpRecord) throws InterruptedException {
-        HomePage.clickRecruitersLinkOnTop();
-        RecruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
+        homePage.clickRecruitersLinkOnTop();
+        //RecruitersLoginPage.loginRecruiter(prop.getProperty("recruiterUsername"), prop.getProperty("recruiterPassword"));
 
         ManageJobsPage manageJobsPage = new ManageJobsPage(driver);
-        manageJobsPage.clickJobsAndApplications();
+        //manageJobsPage.clickJobsAndApplications();
         // verify Page Header
         manageJobsPage.manageJobsHeader();
         // Delete Record

@@ -12,7 +12,7 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
     @Test
     public void  addValidExperience() throws InterruptedException {
 
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickAddWorkExperience();
         //verify work experience page appeared
@@ -21,7 +21,7 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         JobseekersWorkExperiencePage jobseekers = new JobseekersWorkExperiencePage(driver);
         // declaring Work Experience data
         String name = "IT";
-        String title = "Automation Tester123";
+        String title = "Automation Tester678";
         String checkAndUncheck = "check";
         String country = "China1";
         String jobType = "Other";
@@ -45,5 +45,10 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         jobseekers.addachievement(achievement);
         jobseekers.setDescription(description);
         jobseekers.clickSaveChanges();
+
+        // verifying the title field
+        JobSeekersLandingPage.verifyJobTitleText(title);
+
+
     }
 }

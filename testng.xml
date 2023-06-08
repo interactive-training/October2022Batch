@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/ravibabuadari/October2022Batch/October2022Batch">
+        <classes>
+            <class name="com.ita.tests.JobSeekersLoginTest">
+                <methods>
+                    <include name="verifyJObSeekers"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobSeekersSignUpTest">
+                <methods>
+                    <include name="verifySignUp"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobSeekersWorkExperienceTest">
+                <methods>
+                    <include name="addValidExperience"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobsAndApplicationsTest">
+                <methods>
+                    <include name="VerifyJObsAndApplicationsPage"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobseekersEducationTest">
+                <methods>
+                    <include name="addEducation"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobseekersProfileEditIconsTest">
+                <methods>
+                    <include name="contactInformation"/>
+                    <include name="location"/>
+                    <include name="summary"/>
+                    <include name="links"/>
+                    <include name="skills"/>
+                    <include name="workAuthorisationEdit"/>
+                    <include name="languages"/>
+                    <include name="additionalInformationRelocate"/>
+                    <include name="additionalInformationTravel"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.JobseekersProfileOtherAddButtonsTest">
+                <methods>
+                    <include name="workAuthorisationAdd"/>
+                    <include name="certifications"/>
+                    <include name="awards"/>
+                    <include name="extracurriculars"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.ManageJobsEditTest">
+                <methods>
+                    <include name="editManageJobsRecord"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.ManageJobsTest">
+                <methods>
+                    <include name="verifyManageJobsPageView"/>
+                    <include name="verifyManageJobsPageEdit"/>
+                    <include name="verifyManageJobsPageDelete"/>
+                </methods>
+            </class>
+            <class name="com.ita.tests.RecruitersLoginTest">
+                <methods>
+                    <include name="VerifyJObsAndApplicationsPage"/>
+                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>
+                    <include name="VerifyRecruitersLogin_Valid_Username_InValid_password"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

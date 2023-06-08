@@ -4,6 +4,9 @@ import com.ita.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class JobSeekersLandingPage extends BasePage {
     static WebDriver driver;
@@ -14,6 +17,7 @@ public class JobSeekersLandingPage extends BasePage {
     static By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
     static By clickSummary = By.xpath("//a[@href='summary.php']/img");
     static By clickLink = By.xpath("//a[@href='links.php']/img");
+    static By summaryDisplayedBy = By.xpath("//div/h1[text()='Summary  ']/../div/p");
     static By clickSkills = By.xpath("//a[@href='skills.php']/img");
     static By clickEditWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[2]/img");
     static By clickAddWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[1]/button");
@@ -131,7 +135,24 @@ public class JobSeekersLandingPage extends BasePage {
 
     public static boolean isWorkExperienceHeaderTextDisplayed(){
         return driver.findElement(workExperienceHeaderBy).isDisplayed();
+    }
 
+    public static String verifySummaryText(){
+        return driver.findElement(summaryDisplayedBy).getText();
+    }
+
+    public static void verifyJobTitleText(String fieldValue){
+        List<WebElement> fieldList = driver.findElements(By.xpath("//div[@class='texticon']/../p/strong"));
+
+        System.out.println(fieldList.size());
+
+        for (int r = 1; r <= fieldList.size(); r++) {
+            WebElement elm = fieldList.get(r);
+            String fieldText = elm.getText();   //driver.findElement(By.xpath("//div[@class='texticon']/../p/strong")).getText();
+            if (fieldValue.equalsIgnoreCase(fieldText)) {
+                System.out.println("The record is added."); // why is it not entering
+            }
+        }
     }
 
 }

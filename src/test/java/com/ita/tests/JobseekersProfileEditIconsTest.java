@@ -2,12 +2,13 @@ package com.ita.tests;
 
 import com.ita.base.BaseTest;
 import com.ita.pages.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class JobseekersProfileEditIconsTest extends BaseTest {
     @Test
     public void contactInformation() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickContact();
 
@@ -18,7 +19,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     }
     @Test
     public void location() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickLocation();
 
@@ -32,18 +33,21 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     }
     @Test
     public void summary() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickSummary();
 
         JobSeekersProfileEditIconsPage editSummary = new JobSeekersProfileEditIconsPage(driver);
-        editSummary.editSummary("This is my 3 years summary.");
+        String summaryText = "This is my 3 years summary.";
+        editSummary.editSummary(summaryText);
         editSummary.clickSaveButton();
+        String actual = JobSeekersLandingPage.verifySummaryText();
+        Assert.assertEquals(actual,summaryText);
     }
 
     @Test
     public void links() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickLink();
         JobSeekersProfileEditIconsPage editLinks = new JobSeekersProfileEditIconsPage(driver);
@@ -58,7 +62,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     }
     @Test
     public void skills() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickSkills();
 
@@ -70,7 +74,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
 
     @Test
     public void workAuthorisationEdit() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickWorkAuthorisationEdit();
 
@@ -81,19 +85,19 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
 
     @Test
     public void languages(){
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.clickLanguages();
 
         JobSeekersProfileEditIconsPage editLanguages = new JobSeekersProfileEditIconsPage(driver);
         editLanguages.setEditLanguage("German");
         editLanguages.setRelevanceType("Intermediate");
-        editLanguages.clickSaveButton();
+        editLanguages.clickSaveChanges();
     }
 
     @Test
     public void additionalInformationRelocate(){
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.setClickRelocate();
 
@@ -104,7 +108,7 @@ public class JobseekersProfileEditIconsTest extends BaseTest {
     @Test
     public void additionalInformationTravel() throws InterruptedException {
         String inputTravel = "2";
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
 
         JobSeekersProfileEditIconsPage addRelocate = new JobSeekersProfileEditIconsPage(driver);

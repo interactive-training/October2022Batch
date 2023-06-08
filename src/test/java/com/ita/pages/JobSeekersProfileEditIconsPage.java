@@ -22,7 +22,7 @@ public class JobSeekersProfileEditIconsPage extends BasePage {
     By selectSkillType = By.id("skilltype");
     By editsummary = By.name("summary");
     // Assertions
-    By assertSummaryPage = By.xpath("//div[text()='Edit Summary']");
+    By assertSummaryPage = By.xpath("//div/h1[text()='Summary  ']/../div/p");
     By editLinkURL = By.id("url");
     By editDescription = By.id("description");
     By authorisation = By.id("country");

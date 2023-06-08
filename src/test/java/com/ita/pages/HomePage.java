@@ -6,23 +6,23 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class HomePage extends BasePage {
-    static WebDriver driver;
+     WebDriver driver;
 
 
-    static By recruiters_LinkText = By.linkText("Recruiters");
-    static By jobSeekersBy = By.linkText("Job Seekers");
+     By recruiters_LinkText = By.linkText("Recruiters");
+     By jobSeekersBy = By.linkText("Job Seekers");
     By jobsAndApplicationsLink = By.partialLinkText("applications");
     public HomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
 
-    public static RecruitersLoginPage clickRecruitersLinkOnTop(){
+    public RecruitersLoginPage clickRecruitersLinkOnTop(){
         driver.findElement(recruiters_LinkText).click();
         return new RecruitersLoginPage(driver);
     }
 
-    public static JobSeekersLoginPage clickJobSeekersLinkOnTop(){
+    public JobSeekersLoginPage clickJobSeekersLinkOnTop(){
         driver.findElement(jobSeekersBy).click();
         return new JobSeekersLoginPage(driver);
     }

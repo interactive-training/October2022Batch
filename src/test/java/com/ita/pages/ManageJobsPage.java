@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class ManageJobsPage extends BasePage {
-        static WebDriver driver;
+         WebDriver driver;
         public ManageJobsPage(WebDriver driver) {
             super(driver);
             this.driver = driver;
@@ -79,10 +79,10 @@ public class ManageJobsPage extends BasePage {
 
 
 
-    public static void clickJobsAndApplications(){
-        By jobsAndApplicationsLink = By.xpath("//a[@href='manage_jobs.php']");
-        driver.findElement(jobsAndApplicationsLink).click();
-    }
+//    public void clickJobsAndApplications(){
+//        By jobsAndApplicationsLink = By.xpath("//a[@href='manage_jobs.php']");
+//        driver.findElement(jobsAndApplicationsLink).click();
+//    }
 
 
 

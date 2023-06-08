@@ -15,7 +15,7 @@ public class JobsAndApplicationsTest extends BaseTest {
 
         getCurrentExtentTest().log(Status.INFO, "Test started, it is in test method if some extra information to be added.");
 
-        RecruitersLoginPage recruitersPage = homepage.clickRecruitersLinkOnTop();
+        RecruitersLoginPage recruitersPage = homePage.clickRecruitersLinkOnTop();
 
         //enter credentials
         recruitersPage.loginRecruiter("born.testers@gmail.com", "October2022" );
@@ -30,7 +30,7 @@ public class JobsAndApplicationsTest extends BaseTest {
         Assert.assertEquals(actualEmail, expectedEmail , "Email value is not showing as expected.");
 
         //after succesfully logged in , click Jobs & applications page
-        ManageJobsPage jobsnapplicationspage =  homepage.clickJobsAndApplicationsMenuOnTop();
+        ManageJobsPage jobsnapplicationspage =  homePage.clickJobsAndApplicationsMenuOnTop();
 
 
     }

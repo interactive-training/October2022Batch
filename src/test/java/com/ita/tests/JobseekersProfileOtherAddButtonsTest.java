@@ -13,7 +13,7 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
 
     @Test
     public void workAuthorisationAdd() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
 
 
@@ -25,7 +25,7 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
 
     @Test
     public void certifications(){
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.setClickAddCertifications();
 
@@ -40,7 +40,7 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
 
     @Test
     public void awards(){
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.setClickAddAwards();
 
@@ -53,7 +53,7 @@ public class JobseekersProfileOtherAddButtonsTest extends BaseTest {
 
     @Test
     public void extracurriculars() {
-        HomePage.clickJobSeekersLinkOnTop();
+        homePage.clickJobSeekersLinkOnTop();
         JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         JobSeekersLandingPage.setClickAddExtracurriculars();
 
