@@ -1,6 +1,7 @@
 package com.ita.tests;
 import com.ita.base.BaseTest;
 import com.ita.pages.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.ita.pages.JobSeekersLoginPage;
 import com.ita.pages.JobseekersEducationPage;
@@ -11,11 +12,9 @@ public class JobseekersEducationTest extends BaseTest {
     @Test
     public void addEducation() {
 
-        homePage.clickJobSeekersLinkOnTop();
-        JobSeekersLoginPage.loginJobSeeker("mary1@gmail.com", "abcd");
-        JobSeekersLandingPage.clickAddEducation();
-
-        JobseekersEducationPage addDegreeType = new JobseekersEducationPage(driver);
+        JobSeekersLoginPage jobSeekersLoginPage = homePage.clickJobSeekersLinkOnTop();
+        JobSeekersLandingPage jobSeekersLandingPage = jobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
+        JobseekersEducationPage jobseekersEducationPage = jobSeekersLandingPage.clickAddEducation();
 
         // declaring Education data
         String degreeType = "Master";
@@ -32,17 +31,23 @@ public class JobseekersEducationTest extends BaseTest {
 
         //Calling the methods of the Page
 
-        addDegreeType.setDegreeName(degreeName);
-        addDegreeType.setSchoolName(schoolName);
-        addDegreeType.setCountryName(country);
-        addDegreeType.setTownName(town);
-        addDegreeType.selectStartMonth(startMonth);
-        addDegreeType.selectStartYear(startYear);
-        addDegreeType.selectCompletionMonth(completionMonth);
-        addDegreeType.selectCompletionYear(completionYear);
-        addDegreeType.setConcentration(concentration);
-        addDegreeType.setDescription(description);
-        addDegreeType.clickSaveChanges();
+        jobseekersEducationPage.setDegreeName(degreeName);
+        jobseekersEducationPage.setSchoolName(schoolName);
+        jobseekersEducationPage.setCountryName(country);
+        jobseekersEducationPage.setTownName(town);
+        jobseekersEducationPage.selectStartMonth(startMonth);
+        jobseekersEducationPage.selectStartYear(startYear);
+        jobseekersEducationPage.selectCompletionMonth(completionMonth);
+        jobseekersEducationPage.selectCompletionYear(completionYear);
+        jobseekersEducationPage.setConcentration(concentration);
+        jobseekersEducationPage.setDescription(description);
+        jobseekersEducationPage.clickSaveChanges();
+
+        //verify Jobseekers Landing Page
+        jobSeekersLandingPage.isMyProfileHeaderTextDisplayed();
+
+        // Verify School name
+        Assert.assertTrue(jobSeekersLandingPage.verifyLatestfieldText(schoolName));
 
     }
 }

@@ -51,7 +51,6 @@ public class JobseekersWorkExperiencePage extends BasePage {
 
         }
 
-
         public void setStartMonth(String startMonth){
 
             WebElement elmToSelect = driver.findElement(By.xpath("//select[@id='smonth']"));

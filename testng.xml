@@ -18,7 +18,7 @@
                     <include name="addValidExperience"/>
                 </methods>
             </class>
-            <class name="com.ita.tests.JobsAndApplicationsTest">
+            <class name="com.ita.tests.Recruiters_JobsAndApplicationsTest">
                 <methods>
                     <include name="VerifyJObsAndApplicationsPage"/>
                 </methods>
@@ -41,7 +41,7 @@
                     <include name="additionalInformationTravel"/>
                 </methods>
             </class>
-            <class name="com.ita.tests.JobseekersProfileOtherAddButtonsTest">
+            <class name="com.ita.tests.JobSeekersAwardsAddEditTest">
                 <methods>
                     <include name="workAuthorisationAdd"/>
                     <include name="certifications"/>

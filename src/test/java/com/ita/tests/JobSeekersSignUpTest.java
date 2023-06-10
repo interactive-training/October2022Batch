@@ -17,11 +17,11 @@ public class JobSeekersSignUpTest extends BaseTest {
         String password = "john";
         String industry = "Banking";
 
-        homePage.clickJobSeekersLinkOnTop();
+        JobSeekersLoginPage jobSeekersLoginPage = homePage.clickJobSeekersLinkOnTop();
         //Verify Login Page
         String actualTitle = homePage.getBrowserTitle();
         Assert.assertTrue(actualTitle.contains("Sign in"));
-        JobSeekersLoginPage.clickSignUp();
+        jobSeekersLoginPage.clickSignUp();
         //Verify Sign Up Page
         String actualUrl = homePage.getBrowserUrl();
         Assert.assertEquals(actualUrl,"https://www.viewcvs.co.uk/register_form.php");

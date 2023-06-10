@@ -7,7 +7,7 @@ import com.ita.pages.RecruitersLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobsAndApplicationsTest extends BaseTest {
+public class Recruiters_JobsAndApplicationsTest extends BaseTest {
 
     @Test()
     public void VerifyJObsAndApplicationsPage(){

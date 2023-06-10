@@ -11,14 +11,14 @@ import java.io.IOException;
 
 public class JobSeekersLoginTest extends BaseTest {
 
-    @Test(description = "Jobseeker's Test")
+    @Test(groups = {"smoke"},description = "Jobseeker's Test")
     public void verifyJObSeekers() throws IOException {
 
-        homePage.clickJobSeekersLinkOnTop();
+        JobSeekersLoginPage jobSeekersLoginPage = homePage.clickJobSeekersLinkOnTop();
         //Verify Login Page
         String actualTitle = homePage.getBrowserTitle();
         Assert.assertTrue(actualTitle.contains("Sign in"));
-        JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
+        jobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
         getCurrentExtentTest().log(Status.INFO, "Jobseeker's login was successful");
 
     }

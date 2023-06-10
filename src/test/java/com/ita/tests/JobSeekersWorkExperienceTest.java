@@ -12,16 +12,15 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
     @Test
     public void  addValidExperience() throws InterruptedException {
 
-        homePage.clickJobSeekersLinkOnTop();
-        JobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
-        JobSeekersLandingPage.clickAddWorkExperience();
+        JobSeekersLoginPage jobSeekersLoginPage = homePage.clickJobSeekersLinkOnTop();
+        JobSeekersLandingPage jobSeekersLandingPage = jobSeekersLoginPage.loginJobSeeker(prop.getProperty("jobseekersUsername"), prop.getProperty("jobseekersPassword"));
+        JobseekersWorkExperiencePage jobseekers = jobSeekersLandingPage.clickAddWorkExperience();
         //verify work experience page appeared
-        Assert.assertTrue(JobSeekersLandingPage.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
+        Assert.assertTrue(jobSeekersLandingPage.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
 
-        JobseekersWorkExperiencePage jobseekers = new JobseekersWorkExperiencePage(driver);
         // declaring Work Experience data
         String name = "IT";
-        String title = "Automation Tester678";
+        String title = "Tester";
         String checkAndUncheck = "check";
         String country = "China1";
         String jobType = "Other";
@@ -47,8 +46,6 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         jobseekers.clickSaveChanges();
 
         // verifying the title field
-        JobSeekersLandingPage.verifyJobTitleText(title);
-
-
+        Assert.assertTrue(jobSeekersLandingPage.verifyLatestfieldText(title));
     }
 }

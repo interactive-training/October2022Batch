@@ -9,150 +9,209 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class JobSeekersLandingPage extends BasePage {
-    static WebDriver driver;
-    static By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
-    static By locationBy = By.xpath("//a[@href='location.php']/img");
-    static By contactBy = By.xpath("//a[@href='contact_information.php']/img");
+     WebDriver driver;
+     By workExperienceHeaderBy = By.xpath("//div[text()='Add Experience']");
+     By locationBy = By.xpath("//a[@href='location.php']/img");
+     By contactBy = By.xpath("//a[@href='contact_information.php']/img");
+     By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
+     By clickSummary = By.xpath("//a[@href='summary.php']/img");
+     By clickLink = By.xpath("//h1[text()='Links ']/../div/a/img");//a[@href='links.php']/img"
+     By clickSkills = By.xpath("//a[@href='skills.php']/img");
+     By clickEditWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[2]/img");
+     By clickAddWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[1]/button");
+     By clickLanguages = By.xpath("//a[@href='languages.php']/img");
+     By clickAddCertifications = By.xpath("//a[@href='certifications.php']/button");
 
-    static By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
-    static By clickSummary = By.xpath("//a[@href='summary.php']/img");
-    static By clickLink = By.xpath("//a[@href='links.php']/img");
-    static By summaryDisplayedBy = By.xpath("//div/h1[text()='Summary  ']/../div/p");
-    static By clickSkills = By.xpath("//a[@href='skills.php']/img");
-    static By clickEditWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[2]/img");
-    static By clickAddWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[1]/button");
-    static By clickLanguages = By.xpath("//a[@href='languages.php']/img");
-    static By clickAddCertifications = By.xpath("//a[@href='certifications.php']/button");
-
-    //By clickEditCertifications = By.xpath("//a[@href='edit_cert.php']/img");
-
+    //verification locators on Jobseekers Landing Page
+    By myProfileHeaderDisplayedBy = By.xpath("//div[@class='myprofile']");
+    By summaryDisplayedBy = By.xpath("//div/h1[text()='Summary  ']/../div/p");
+    By linkUrlDisplayedBy = By.xpath("//a[@class='lin']"); // //div[@class='summary'][1]/following-sibling::*/p
+    By skillsDisplayedBy = By.xpath("//div[@class='skils_p']/p[1]");
+    By skillsLevelDisplayedBy = By.xpath("//div[@class='skils_p']/p[2]");
+    By workAuthorisationDisplayedBy = By.xpath("//h1[text()='Work Authorisation ']/..//ul/li/strong");
+    By languageDisplayedBy = By.xpath("(//p[@class='skils_p_left'])[2]");
+    By languageRelevanceDisplayedBy = By.xpath("(//p[@class='skils_p_right'])[2]");
+    By awardsDisplayedBy = By.xpath("//div[@class='summary'][9]/following-sibling::*/p/strong");
+    int n;
     public JobSeekersLandingPage(WebDriver driver){
         super(driver);
         this.driver = driver;
     }
 
-    By errorMsgLocator = By.xpath("//div[@id='errorval']/b");
-
-    public String getErrorMsg(){
-        return driver.findElement(errorMsgLocator).getText();
-    }
-
-
-    public static JobseekersWorkExperiencePage clickAddWorkExperience(){
-        //click on work experience
+    //Click on Work Experience
+    public  JobseekersWorkExperiencePage clickAddWorkExperience(){
         driver.findElement(workButton).click();
         return new JobseekersWorkExperiencePage(driver);
     }
     // Click Add Button of Education
-    public static JobseekersEducationPage clickAddEducation(){
+    public  JobseekersEducationPage clickAddEducation(){
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("(document.getElementsByClassName('add_button'))[1].click();");
+        jse.executeScript("(document.getElementsByClassName('add_button'))[2].click();");
         //Assert.assertTrue(driver.findElement(assertEducationPage).isDisplayed());
         return new JobseekersEducationPage(driver);
-    } // without return also it worked as we are passing driver in the test page? but is it correct?
+    }
 
     // Click Contact Information Icon
-    public static JobSeekersProfileEditIconsPage clickContact(){
+    public  JobSeekers_ContactInformationEditPage clickContact(){
         driver.findElement(contactBy).click();
         //log.info("Contact Icon is clicked.");
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_ContactInformationEditPage(driver);
     }
 
     // Click Location
-    public static JobSeekersProfileEditIconsPage clickLocation(){
+    public  JobSeekers_LocationEditPage clickLocation(){
         driver.findElement(locationBy).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_LocationEditPage(driver);
     }
     // Click Summary Icon
-    public static JobSeekersProfileEditIconsPage clickSummary() {
+    public  JobSeekers_SummaryEditPage clickSummary() {
         driver.findElement(clickSummary).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_SummaryEditPage(driver);
     }
     // Click Link Method
-    public static JobSeekersProfileEditIconsPage clickLink() {
+    public  JobSeekers_LinkEditPage clickLink() {
         driver.findElement(clickLink).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_LinkEditPage(driver);
     }
     // Click Skills Method
-    public static JobSeekersProfileEditIconsPage clickSkills() {
+    public  JobSeekers_SkillsEditPage clickSkills() {
         driver.findElement(clickSkills).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_SkillsEditPage(driver);
     }
 
     // Click Work Authorisation Edit icon
-    public static JobSeekersProfileEditIconsPage clickWorkAuthorisationEdit() {
+    public JobSeekers_WorkAuthorisationAddEditPage clickWorkAuthorisationEdit() {
         driver.findElement(clickEditWorkAuthorisation).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_WorkAuthorisationAddEditPage(driver);
     }
 
     // Click Work Authorisation Add button
-    public static void clickAddWorkAuthorisation() {
+    public  JobSeekers_WorkAuthorisationAddEditPage clickWorkAuthorisationAdd() {
         driver.findElement(clickAddWorkAuthorisation).click();
+        return new JobSeekers_WorkAuthorisationAddEditPage(driver);
     }
 
     // Click Languages Edit Icon
-    public static JobSeekersProfileEditIconsPage clickLanguages() {
+    public JobSeekers_LanguagesEditPage clickLanguages() {
         driver.findElement(clickLanguages).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_LanguagesEditPage(driver);
     }
 
     //Click Add Certifications Button
-    public static JobSeekersProfileEditIconsPage setClickAddCertifications() {
+    public JobSeekers_CertificationsAddEditPage clickCertificationsAdd() {
         driver.findElement(clickAddCertifications).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_CertificationsAddEditPage(driver);
     }
-
-    public static JobSeekersProfileEditIconsPage setClickAddAwards() {
+    //Click Add Awards Button
+    public JobSeekers_AwardsAddEditPage clickAddAwards() {
         JavascriptExecutor je = (JavascriptExecutor) driver;
         je.executeScript("(document.getElementsByClassName('add_button'))[4].click();");
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_AwardsAddEditPage(driver);
     }
 
     //Click Extracurriculars
-    public static JobSeekersProfileEditIconsPage setClickAddExtracurriculars() {
+    public Jobseekers_ExtracurricularsAddPage clickAddExtracurriculars() {
         JavascriptExecutor jsce = (JavascriptExecutor) driver;
         jsce.executeScript("(document.getElementsByClassName('add_button'))[5].click();");
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new Jobseekers_ExtracurricularsAddPage(driver);
     }
-//    By clickAddExtracurriculars = By.xpath("//h1[text()='Extracurriculars ']//../div/a/button");
-//    driver.findElement(clickAddExtracurriculars);}
 
-    // Click Additional Information-Relocate
-    public static JobSeekersProfileEditIconsPage setClickRelocate() {
+    // Click Additional Information-Relocate Edit Icon
+    public JobSeekers_RelocateEditPage setClickRelocate() {
         By addRelocate = By.xpath("//a[@href='willingness_to_relocate.php']/img");
         driver.findElement(addRelocate).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_RelocateEditPage(driver);
     }
 
     // Click Additional Information-Travel
-    public static JobSeekersProfileEditIconsPage setClickTravel() {
+    public JobSeekers_TravelEditPage setClickTravel() {
         By addTravel = By.xpath("//a[@href='willingness_to_travel.php']/img");
         driver.findElement(addTravel).click();
-        return new JobSeekersProfileEditIconsPage(driver);
+        return new JobSeekers_TravelEditPage(driver);
     }
 
-
-
-    public static boolean isWorkExperienceHeaderTextDisplayed(){
+    // Verifications
+    public  boolean isWorkExperienceHeaderTextDisplayed(){
         return driver.findElement(workExperienceHeaderBy).isDisplayed();
     }
-
-    public static String verifySummaryText(){
-        return driver.findElement(summaryDisplayedBy).getText();
+    public boolean isMyProfileHeaderTextDisplayed(){
+        return driver.findElement(myProfileHeaderDisplayedBy).isDisplayed();
     }
 
-    public static void verifyJobTitleText(String fieldValue){
-        List<WebElement> fieldList = driver.findElements(By.xpath("//div[@class='texticon']/../p/strong"));
+    public  String verifySummaryText(){
+        return driver.findElement(summaryDisplayedBy).getText();
+    }
+    public String verifyLinkUrl(){return driver.findElement(linkUrlDisplayedBy).getText();}
+    public String verifySkill(){return driver.findElement(skillsDisplayedBy).getText();}
+    public String verifySkillLevel(){return driver.findElement(skillsLevelDisplayedBy).getText();}
+    public String verifylanguage(){return driver.findElement(languageDisplayedBy).getText();}
+    public String verifyLanguageRelevanceType(){return driver.findElement(languageRelevanceDisplayedBy).getText();}
+    public String verifyWorkAuthorisation(){return driver.findElement(workAuthorisationDisplayedBy).getText();}
+    public String verifyAwards(){return driver.findElement(awardsDisplayedBy).getText();}
 
+    public boolean verifyLatestfieldText(String fieldValue){
+        List<WebElement> fieldList = driver.findElements(By.xpath("//div[@class='get']/p/strong"));
         System.out.println(fieldList.size());
 
         for (int r = 1; r <= fieldList.size(); r++) {
             WebElement elm = fieldList.get(r);
             String fieldText = elm.getText();   //driver.findElement(By.xpath("//div[@class='texticon']/../p/strong")).getText();
             if (fieldValue.equalsIgnoreCase(fieldText)) {
-                System.out.println("The record is added."); // why is it not entering
+                System.out.println("The record is added.");
+                 n=1;
+                break;
             }
         }
+        if (n==1)
+        return true;
+        else return false;
     }
+    public boolean verifyContactInformationText(String fieldValue){
+        List<WebElement> fieldList = driver.findElements(By.xpath("h1[text()='Contact Information']/..//p"));
+        System.out.println(fieldList.size());
 
+        for (int r = 1; r <= fieldList.size(); r++) {
+            WebElement elm = fieldList.get(r);
+            String fieldText = elm.getText();
+            if (fieldValue.equalsIgnoreCase(fieldText)) {
+                System.out.println("The information is up-to-date.");
+                n=1;
+                break;
+            }
+        }
+        if (n==1)
+            return true;
+        else return false;
+    }
+    public boolean verifySkillsLanguagesText(String fieldValue){
+        List<WebElement> fieldList = driver.findElements(By.xpath("(//p[@class='skils_p_left'])"));
+        System.out.println(fieldList.size());
+
+        for (int r = 1; r <= fieldList.size(); r++) {
+            WebElement elm = fieldList.get(r);
+            String fieldText = elm.getText();
+            if (fieldValue.equalsIgnoreCase(fieldText)) {
+                System.out.println("The information is up-to-date.");
+                n=1;
+                break;
+            }
+        }
+        if (n==1)
+            return true;
+        else return false;
+    }
+    //
 }
+//By linkDescriptionDisplayedBy = By.xpath();//"//a[@class='lin']/../br"
+//public String verifyLinkDescription(){return driver.findElement(linkDescriptionDisplayedBy).getText();}
+//By clickEditCertifications = By.xpath("//a[@href='edit_cert.php']/img");
+//public String verifyEducation(){return driver.findElement(educationSchoolNameDisplayedBy).getText();}
+//public String verifyWorkExperience(){return driver.findElement(workExperienceTitleDisplayedBy).getText();}
+
+//By workExperienceTitleDisplayedBy = By.xpath("//div[@class='summary'][4]/following-sibling::*/p/strong");
+//By educationSchoolNameDisplayedBy = By.xpath("//div[@class='summary'][5]/following-sibling::*/p/strong");
+//By certificationLanguageDisplayedBy = By.xpath("//div[@class='summary'][6]/following-sibling::*/p/strong");
+//div[@class='summary']/following-sibling::*/p
+
+//    By clickAddExtracurriculars = By.xpath("//h1[text()='Extracurriculars ']//../div/a/button");
+//    driver.findElement(clickAddExtracurriculars);}
