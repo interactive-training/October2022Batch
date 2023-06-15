@@ -1,5 +1,6 @@
 package com.ita.util;
 
+//import com.sun.media.sound.InvalidFormatException;
 import freemarker.template.utility.DateUtil;
 import net.bytebuddy.asm.Advice;
 import org.apache.commons.io.FileUtils;
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +24,9 @@ import java.util.Date;
 
 public class Utility {
 
+public static String TEST_DATA_SHEET_PATH = "/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/testData/ViewCvsData.xlsx";
+//static Workbook book;
+//static Sheet sheet;
     public static String getScreenShotFilePath(WebDriver driver, String testName) throws IOException {
 
 //        Faker faker = Faker.instance();
@@ -68,8 +74,25 @@ public class Utility {
 
     }
 
+//    public static Object[][] getTestData(String sheetNmae){
+//        FileInputStream file=null;
+//        try {
+//            file = new FileInputStream(TEST_DATA_SHEET_PATH);
+//        }catch)FileNotFoundException e)
+//        {e.printStackTrace();}
+//        try{
+//            book = Workbook.create(file);
+//        } catch(InvalidFormatException e){
+//    }{e.printStackTrace();}
+//        catch(IOException e)
+//        {e.printStackTrace();}
+//        sheet = book}
+
+
+
     public static void showMessageDialog(String infoMessage)
     {
         JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: Title", JOptionPane.INFORMATION_MESSAGE);
     }
+
 }

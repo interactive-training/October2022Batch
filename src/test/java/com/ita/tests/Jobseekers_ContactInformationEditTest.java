@@ -25,7 +25,9 @@ public class Jobseekers_ContactInformationEditTest extends BaseTest {
         jobSeekersLandingPage.isMyProfileHeaderTextDisplayed();
 
         // Verify Contact Information
-        Assert.assertTrue(jobSeekersLandingPage.verifyContactInformationText(name));
+        String actual = jobSeekersLandingPage.getPhoneNumber();
+        Assert.assertEquals(actual, phone);
+        //Assert.assertTrue(jobSeekersLandingPage.verifyContactInformationText(name));
     }
 }
 

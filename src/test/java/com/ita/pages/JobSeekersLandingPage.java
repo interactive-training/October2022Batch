@@ -15,7 +15,7 @@ public class JobSeekersLandingPage extends BasePage {
      By contactBy = By.xpath("//a[@href='contact_information.php']/img");
      By workButton = By.xpath("//h1[text()='Work Experience ']/..//a/button");
      By clickSummary = By.xpath("//a[@href='summary.php']/img");
-     By clickLink = By.xpath("//h1[text()='Links ']/../div/a/img");//a[@href='links.php']/img"
+     By clickLink = By.xpath("//a[@href='links.php']/button"); //h1[text()='Links ']/../div/a/img")
      By clickSkills = By.xpath("//a[@href='skills.php']/img");
      By clickEditWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[2]/img");
      By clickAddWorkAuthorisation = By.xpath("(//a[@href='work_authorisation.php'])[1]/button");
@@ -166,8 +166,15 @@ public class JobSeekersLandingPage extends BasePage {
         return true;
         else return false;
     }
+
+    // verify Contact record through phone number
+    public String getPhoneNumber() {
+        String actualPhone = driver.findElement(By.xpath("//h1[text()='Contact Information']/..//p/text()[3]")).getText();
+        //log.info("Phone number is retrieved from the Profile Page.");
+        return actualPhone;
+    }
     public boolean verifyContactInformationText(String fieldValue){
-        List<WebElement> fieldList = driver.findElements(By.xpath("h1[text()='Contact Information']/..//p"));
+        List<WebElement> fieldList = driver.findElements(By.xpath("h1[text()='Contact Information']/..//p/text()")); ///html/body/div[1]/div[3]/div[2]/div/div[2]/div/div[2]/div[1]/div[1]/p/text()[3]
         System.out.println(fieldList.size());
 
         for (int r = 1; r <= fieldList.size(); r++) {

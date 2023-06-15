@@ -6,6 +6,7 @@ import com.ita.pages.JobSeekersLoginPage;
 import com.ita.pages.JobSeekersLandingPage;
 import com.ita.pages.JobseekersWorkExperiencePage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class JobSeekersWorkExperienceTest extends BaseTest {
@@ -19,6 +20,8 @@ public class JobSeekersWorkExperienceTest extends BaseTest {
         Assert.assertTrue(jobSeekersLandingPage.isWorkExperienceHeaderTextDisplayed(), "Work experience page does not loaded property.");
 
         // declaring Work Experience data
+
+
         String name = "IT";
         String title = "Tester";
         String checkAndUncheck = "check";

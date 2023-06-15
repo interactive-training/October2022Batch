@@ -125,14 +125,14 @@ public class BaseTest implements ITestListener {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method, ITestContext iTestContext) throws IOException {
         //In BeforeMethod , we cannot get IResult objet, it is a null objet, result objet will be filled up after a test execution, so in test listener onTestStart is a place is - after test is initialied, but not finished, and result is filled up with at least test inforations.
-        InitializeDriver();
+        InitializeDriver(); // this will get the browser and puts the thread
 
 
 //        iTestContext.setAttribute("WebDriver", getDriver);
 
         String url = prop.getProperty("URL");
 
-        getDriver().get(url);
+        getDriver().get(url);  // getting the current
 
         homePage =  new HomePage(driver);
 

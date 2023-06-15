@@ -56,7 +56,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">Jun 9, 2023 10:08:07 pm</span>
+                    <span class="badge badge-primary">Jun 11, 2023 12:09:25 am</span>
                 </a>
             </li>
         </ul>
@@ -131,19 +131,19 @@
 					</div>
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">links</p>
-							<p class="duration text-sm">0h 0m 16s+241ms</p>
-							<span class="datetime">22:08:17 pm</span>
+							<p class="name">contactInformation</p>
+							<p class="duration text-sm">0h 24m 15s+111ms</p>
+							<span class="datetime">00:09:36 am</span>
 						</div>
 					</div>
 					<div class="test-contents d-none">
 						<div class="detail-head">
 							<div class="p-v-10 d-inline-block">
 								<div class="info">
-									<h5 class="test-status text-fail">links</h5>
-									<span class='badge badge-success'>06.09.2023 22:08:17</span>
-									<span class='badge badge-danger'>06.09.2023 22:08:33</span>
-									<span class='badge badge-default'>0h 0m 16s+241ms</span>
+									<h5 class="test-status text-fail">contactInformation</h5>
+									<span class='badge badge-success'>06.11.2023 00:09:36</span>
+									<span class='badge badge-danger'>06.11.2023 00:33:51</span>
+									<span class='badge badge-default'>0h 24m 15s+111ms</span>
 								</div>
 								<div class="m-t-10 m-l-5">
 									
@@ -160,24 +160,24 @@
 	<tbody>
 			<tr class="event-row">
 				<td><i class="fa fa-times text-fail"></i></td>
-				<td>22:08:33</td>
+				<td>00:33:49</td>
 				<td>
 						Test case is failed.This is written in onTestFailure listener method
 				</td>
 			</tr>
 			<tr class="event-row">
 				<td><i class="fa fa-times text-fail"></i></td>
-				<td>22:08:33</td>
+				<td>00:33:49</td>
 				<td>
-						<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='links.php']/img"}
+						<textarea disabled class="code-block">org.openqa.selenium.InvalidSelectorException: invalid selector: The result of the xpath expression "//h1[text()='Contact Information']/..//p/text()[3]" is: [object Text]. It should be an element.
   (Session info: chrome=114.0.5735.106)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
 Build info: version: '4.8.1', revision: '8ebccac989'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.4', java.version: '11.0.17'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [dac95fa1fa52f8cc3d9794859978a9f7, findElement {using=xpath, value=//a[@href='links.php']/img}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.106, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/7z/gjs34n5d711...}, goog:chromeOptions: {debuggerAddress: localhost:54188}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:54188/devtoo..., se:cdpVersion: 114.0.5735.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: dac95fa1fa52f8cc3d9794859978a9f7
+Command: [ef8176e85a785d499e670550372970dd, findElement {using=xpath, value=//h1[text()='Contact Information']/..//p/text()[3]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.106, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/7z/gjs34n5d711...}, goog:chromeOptions: {debuggerAddress: localhost:57852}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57852/devtoo..., se:cdpVersion: 114.0.5735.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ef8176e85a785d499e670550372970dd
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -193,8 +193,8 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at com.ita.pages.JobSeekersLandingPage.clickLink(JobSeekersLandingPage.java:73)
-	at com.ita.tests.Jobseekers_LinkEditTest.links(Jobseekers_LinkEditTest.java:20)
+	at com.ita.pages.JobSeekersLandingPage.getPhoneNumber(JobSeekersLandingPage.java:172)
+	at com.ita.tests.Jobseekers_ContactInformationEditTest.contactInformation(Jobseekers_ContactInformationEditTest.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -223,9 +223,9 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 			</tr>
 			<tr class="event-row">
 				<td><i class="fa fa-info text-info"></i></td>
-				<td>22:08:33</td>
+				<td>00:33:51</td>
 				<td>
-						The current screenshot path is : /Users/ravibabuadari/October2022Batch/October2022Batch/target/Reports/Screenshots/links2023_JUNE_9_FRIDAY_22_8_33.png
+						The current screenshot path is : /Users/ravibabuadari/October2022Batch/October2022Batch/target/Reports/Screenshots/contactInformation2023_JUNE_11_SUNDAY_0_33_51.png
 				</td>
 			</tr>
 	</tbody>
@@ -278,13 +278,13 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 				<li class="test-item">
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">org.openqa.selenium.NoSuchElementException</p>
+							<p class="name">org.openqa.selenium.InvalidSelectorException</p>
 							<p class="duration text-sm">1 tests</p>
 						</div>
 					</div>
 					<div class="test-contents d-none">
 						<div class="info">
-							<h4>org.openqa.selenium.NoSuchElementException</h4>
+							<h4>org.openqa.selenium.InvalidSelectorException</h4>
 						</div>
 						<table class='table table-sm mt-4'>
 							<thead>
@@ -301,9 +301,9 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 											<i class="fa fa-times text-white"></i>
 										</div>
 									</td>
-									<td>22:08:17 pm</td>
+									<td>00:09:36 am</td>
 									<td class='linked' test-id='1'>
-										links
+										contactInformation
 									</td>
 								</tr>
 							</tbody>
@@ -400,7 +400,7 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Start</h6>
-							<h4 class="font-weight-light mt-4">Jun 9, 2023 10:08:07 pm</h4>
+							<h4 class="font-weight-light mt-4">Jun 11, 2023 12:09:25 am</h4>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -416,7 +416,7 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Duration</h6>
-							<h4 class="font-weight-light mt-4">0h 0m 26s+665ms</h4>
+							<h4 class="font-weight-light mt-4">0h 24m 27s+263ms</h4>
 							<span class="text-semibold font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -515,7 +515,7 @@ Session ID: dac95fa1fa52f8cc3d9794859978a9f7
 </script>
 <script>
 	var timeline = {
-	        "links":16.241
+	        "contactInformation":1455.111
 	};
 </script>
                 </div>
