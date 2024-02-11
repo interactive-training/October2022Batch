@@ -12,8 +12,6 @@ import java.io.IOException;
 public class ExtentReportObject{
 
     //ExtentReport, ExtentSparkReport-- html report name
-
-
     //Listeners
 
     public static ExtentReports getExtentReportObject(){
