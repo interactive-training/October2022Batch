@@ -7,12 +7,12 @@ Feature: As an admin user I should be able to create an event
         When user clicks on CMS drop down and then choose Events
         Then user should get into Events Page
 
-#    Scenario Outline: Add a new event without picture
-#        When user clicks on Add Event button
-#        Then user should get in to Add Events Details Page
-#        When user enters the details for all the mandatory fields "<EventTitle>","<EventType>","<EventStartDate>","<EventEndDate>","<EventTimeDuration>","<EventLocation>","<EventContent>"
-#        And clicks Submit button
-#        Then the event should be created with message "Events details Added successfully"
+    Scenario Outline: Add a new event with pictures
+        When user clicks on Add Event button
+        Then user should get in to Add Events Details Page
+        When user enters the details for all the mandatory fields "<EventTitle>","<EventType>","<EventStartDate>","<EventEndDate>","<EventTimeDuration>","<EventLocation>","<EventContent>"
+        And clicks Submit button
+        Then the event should be created with message "Events details Added successfully"
 #        #       Front-end Verification on Event's tab
 #        When user launches the given url "https://www.hanumanhindutemple.org/test_mode/index.php"
 #        Then user should be on the Home Page
@@ -26,21 +26,21 @@ Feature: As an admin user I should be able to create an event
 #        Then user should be on the Calendar Page
 #        When user clicks on the "<EventTitle>"
 #        Then user should be able to see the event "<EventTitle>"
-#        Examples:
-#            |EventTitle|EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
-#            |Rathasaptami     |Festival |09/04/2024    |29/11/2024  |6-8PM            |Temple      |It is a festival.|
+        Examples:
+            |EventTitle|EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
+            |Navami     |Festival |09/04/2024    |29/11/2024  |6-8PM            |Temple      |It is a festival.|
 #
 
-    Scenario Outline: Add a new event with incorrect date
-        When user clicks on Add Event button
-        Then user should get in to Add Events Details Page
-        When user enters the details for all the mandatory fields "<EventTitle>","<EventType>","<EventStartDate>","<EventEndDate>","<EventTimeDuration>","<EventLocation>","<EventContent>"
-        And clicks Submit button
-        Then it should not create the event
-#        Then it should show error message "Error: Please try again"
-        Examples:
-            |EventTitle     |EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
-            |Ram Navami 2   |Festival |09/vbnnmm        |  juikl       |6-8PM            |Temple       |Ugadi or Yugadi, also known as Samvatsarādi, is New Year's Day according to the Hindu calendar and is celebrated in the states of Andhra Pradesh, Telangana, Karnataka and Goa in India. The cycle is actually consists of 60 years, each year individually named. The first day of each year called 'Ugadi'.|
+#    Scenario Outline: Add a new event with incorrect date
+#        When user clicks on Add Event button
+#        Then user should get in to Add Events Details Page
+#        When user enters the details for all the mandatory fields "<EventTitle>","<EventType>","<EventStartDate>","<EventEndDate>","<EventTimeDuration>","<EventLocation>","<EventContent>"
+#        And clicks Submit button
+#        Then it should not create the event
+##        Then it should show error message "Error: Please try again"
+#        Examples:
+#            |EventTitle     |EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
+#            |Ram Navami 2   |Festival |09/vbnnmm        |  juikl       |6-8PM            |Temple       |Ugadi or Yugadi, also known as Samvatsarādi, is New Year's Day according to the Hindu calendar and is celebrated in the states of Andhra Pradesh, Telangana, Karnataka and Goa in India. The cycle is actually consists of 60 years, each year individually named. The first day of each year called 'Ugadi'.|
 
 
 #    Scenario Outline: Editing the field of an event by Event Title

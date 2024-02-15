@@ -77,27 +77,25 @@ public class CRUD_Event {
     }
 
     @When("user enters the details for all the mandatory fields {string},{string},{string},{string},{string},{string},{string}")
-    public void user_enters_the_details_for_all_the_mandatory_fields(String EventTitle, String EventType, String EventStartDate, String EventEndDate, String EventTimeDuration, String EventLocation, String EventContent) throws InterruptedException {
+    public void user_enters_the_details_for_all_the_mandatory_fields(String EventTitle, String EventType, String EventStartDate, String EventEndDate, String EventTimeDuration, String EventLocation, String EventContent)  {
+        // Passing information to the text fields through feature
         driver.findElement(By.xpath("//tr/td[2]/input")).sendKeys(EventTitle);
         driver.findElement(By.xpath("//tr[2]/td[2]/input")).sendKeys(EventType);
-
         driver.findElement(By.xpath("//tr[3]/td[2]/input")).sendKeys(EventStartDate);
-        Thread.sleep(2000);
         driver.findElement(By.xpath("//tr[4]/td[2]/input")).sendKeys(EventEndDate);
-
         driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(EventTimeDuration);
         driver.findElement(By.xpath("//tr[6]/td[2]/input")).sendKeys(EventLocation);
-        // Passing text to the iframe
+        // Passing information to the iframe
         WebElement outerIframe = driver.findElement(By.id("article___Frame"));
         driver.switchTo().frame(outerIframe);
         WebElement innerIframe = driver.findElement(By.xpath("//td[@id='xEditingArea']/iframe"));
         driver.switchTo().frame(innerIframe);
         driver.findElement(By.xpath("/html/body")).sendKeys(EventContent);
         driver.switchTo().defaultContent();
-
-// PICTURE
-//    driver.findElement(By.xpath("//tr[9]/td[2]/input")).click();
-//    driver.findElement(By.xpath("//tr[10]/td[2]/input")).click();
+        // Passing the path of the pictures
+        String Picture1Path = "//Users//ravibabuadari//Desktop//testing//bogi Small.jpeg";
+        driver.findElement(By.xpath("//tr[9]/td[2]/input")).sendKeys(Picture1Path);
+        driver.findElement(By.xpath("//tr[10]/td[2]/input")).sendKeys(Picture1Path);
     }
 
     @When("clicks Submit button")
@@ -110,7 +108,7 @@ public class CRUD_Event {
     public void theEventShouldBeCreatedWithMessage(String expectedMessage) {
         String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
         Assert.assertEquals(actualMessage, expectedMessage, " Create message is verified.");
-        System.out.println("Event added without picture.");
+        System.out.println("Event added with pictures.");
         driver.quit();
     }
 
