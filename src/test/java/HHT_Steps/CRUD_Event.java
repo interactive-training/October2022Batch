@@ -52,7 +52,7 @@ public class CRUD_Event {
         WebElement events = driver.findElement(By.linkText("EVENTS"));  // Finding the Events
         events.click();
     }
-
+    
     @Then("user should get into Events Page")
     public void userShouldGetInToEventsPage() {
         String expectedTitle = ":: Welcome to Hanuman Hindu Temple Events Details ::";
@@ -185,10 +185,6 @@ public class CRUD_Event {
                 break;
             }
         }
-//        Actions action = new Actions(driver);// Initiating the Actions class for mouse hover(drop-down)
-//        WebElement moreInfo = driver.findElement(By.xpath("(//div[@class='events_main'])[1]/p[5]/a"));
-//        action.moveToElement(moreInfo).click().perform();
-//        System.out.println("More Info clicked");
     }
 
     @Then("user should be able to see the event {string}")
@@ -197,7 +193,6 @@ public class CRUD_Event {
         Thread.sleep(2000);
         Assert.assertEquals(actualTitle, EventTitle, " Titles did not match.");
         System.out.println("Event is verified.");
-        //driver.quit();
     }
 
     // --------------------------------Create Event's Front-end Calendar's Verification-------------------------------------------------------------
@@ -237,25 +232,6 @@ public class CRUD_Event {
     }
 
     // ------------------------------------------View Event---------------------------------------------------------
-//    @When("user selects the View option of {int}")
-//    public void userSelectsTheViewOptionOfSerialNumber(int SerialNumber) throws InterruptedException {
-//        List<WebElement> rowElements = driver.findElements(By.xpath("//table/tbody/tr"));
-//        System.out.println(rowElements.size());
-//        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
-//            String festivalTitle = String.valueOf(driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[2]")).getText());
-//            System.out.println(festivalTitle);
-//            //Thread.sleep(3000);
-//            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[1]")).click();
-//            Thread.sleep(8000);
-//            System.out.println("Event Selected");
-//
-//            // Verifying the festival Title
-//            String actualFestivalTitle = driver.findElement(By.xpath("//table/tbody/tr/td[2]")).getText();
-//            Assert.assertEquals(actualFestivalTitle, festivalTitle, "Event Titles did not match");
-//        } else {
-//            System.out.println("Please give a valid number");
-//        }
-//    }
 
     @When("user selects the View option of {string}")
     public void userSelectsTheViewOption(String EventTitle) {
@@ -274,23 +250,6 @@ public class CRUD_Event {
         }
     }
 
-//        List<WebElement> titleElements = driver.findElements(By.xpath("//p[@class='quote-author']"));
-//        System.out.println(rowElements.size());
-//        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
-//            String festivalTitle = String.valueOf(driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[2]")).getText());
-//            System.out.println(festivalTitle);
-//            //Thread.sleep(3000);
-//            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[1]")).click();
-//            Thread.sleep(8000);
-//            System.out.println("Event Selected");
-//
-//            // Verifying the festival Title
-//            String actualFestivalTitle = driver.findElement(By.xpath("//table/tbody/tr/td[2]")).getText();
-//            Assert.assertEquals(actualFestivalTitle, festivalTitle, "Event Titles did not match");
-//        } else {
-//            System.out.println("Please give a valid number");
-//        }
-//    }
 
     @Then("user should be able to view the event")
     public void userShouldBeAbleToViewTheEvent() {
@@ -374,19 +333,62 @@ public class CRUD_Event {
     @When("user selects the Delete option for {string} then it should be deleted")
     public void user_selects_the_delete_option_for_then_it_should_be_deleted(String EventTitle) {
 
+//        List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
+//        System.out.println(titleElements.size());
+
+//        for (int n = 0; n <= titleElements.size(); n++) {
+//            // Looping each Event Title
+//            String title = titleElements.get(n).getText();
+//            int r = n + 2; // to pass the matching row for the given event to delete
+//            if (title.equalsIgnoreCase(EventTitle)) {
+//                // Deleting the event
+//                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
+//                break;
+//            }
+//        }
+        //Storing all the titles in the web-element 'titleElements'
+        int r,s;
+        String eventToDelete ="" ;
         List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
         System.out.println(titleElements.size());
-
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
+        // Looping each Event Title
+        for (int n = 0; n < titleElements.size(); n++) {
+            // Retrieving each Event Title from the titleElements
             String title = titleElements.get(n).getText();
-            int r = n + 2; // to pass the matching row for the given event to delete
+             r = n + 2; // to pass the matching row for the given event to delete
             if (title.equalsIgnoreCase(EventTitle)) {
-                // Deleting the event
-                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
-                break;
+                // Collecting the Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any duplicate events
+                List<WebElement> duplicateEventSerialNumbers = driver.findElements(By.xpath("//table/tbody/tr[" + r +"]/td[1]"));
+                // Checking for any duplicate events from the nth row
+                for ( int d=n+1; d < titleElements.size(); d++) {
+                    // Looping each Event Title for any duplicates
+                    String titleDuplicate = titleElements.get(d).getText();
+                     s = d + 2; // to pass the matching row for the given event to delete
+                    if (titleDuplicate.equalsIgnoreCase(title)) {
+                        // title of current event
+                        String currentTitle = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[2]")).getText() ;
+                        WebElement duplicate = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[1]"));
+                        eventToDelete = duplicate.getText();
+                        System.out.println(currentTitle  + "serial number is: " + eventToDelete);
+                        //String number = StringValueof(duplicate.getText()); // serial number of current event
+                        duplicateEventSerialNumbers.add(1,duplicate);
+                    }
+                }
+                System.out.println(" Number of duplicate Events="+ duplicateEventSerialNumbers.size());
+                if (duplicateEventSerialNumbers.size()>1){
+                    // Deleting the last created duplicate event
+//                        String eventToDelete = String.valueOf(duplicateEventSerialNumbers.lastIndexOf(duplicateEventSerialNumbers));
+//                        System.out.println(" Event being deleted Serial number: " + eventToDelete);
+                    int m = Integer.parseInt(eventToDelete) + 1;
+                    driver.findElement(By.xpath("//tbody/tr[ " + m + " ]/td[4]/a[3]")).click();
+                    break;
+                }else
+                    // Deleting the unique event( not duplicated)
+                    driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
+                    break;
+                }
             }
-        }
+
 
         // Back-end verification of deleted event
         List<WebElement> newTitleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
@@ -403,6 +405,8 @@ public class CRUD_Event {
         System.out.println("Event is deleted at the back-end");
         driver.quit();
     }
+
+
 
     // Front-end verification of deleted event on the Event's Page
     @And("the user should not find the deleted Event {string} in Events")
@@ -454,3 +458,41 @@ public class CRUD_Event {
 
 //    String chromePath = "C:\\Automation\\chrome\\chrome-win64\\chrome.exe";
 //        System.setProperty("web-driver.chrome.driver", chromePath);
+
+//@When("user selects the View option of {int}")
+//    public void userSelectsTheViewOptionOfSerialNumber(int SerialNumber) throws InterruptedException {
+//        List<WebElement> rowElements = driver.findElements(By.xpath("//table/tbody/tr"));
+//        System.out.println(rowElements.size());
+//        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
+//            String festivalTitle = String.valueOf(driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[2]")).getText());
+//            System.out.println(festivalTitle);
+//            //Thread.sleep(3000);
+//            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[1]")).click();
+//            Thread.sleep(8000);
+//            System.out.println("Event Selected");
+//
+//            // Verifying the festival Title
+//            String actualFestivalTitle = driver.findElement(By.xpath("//table/tbody/tr/td[2]")).getText();
+//            Assert.assertEquals(actualFestivalTitle, festivalTitle, "Event Titles did not match");
+//        } else {
+//            System.out.println("Please give a valid number");
+//        }
+//    }
+
+//    List<WebElement> titleElements = driver.findElements(By.xpath("//p[@class='quote-author']"));
+//        System.out.println(rowElements.size());
+//        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
+//            String festivalTitle = String.valueOf(driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[2]")).getText());
+//            System.out.println(festivalTitle);
+//            //Thread.sleep(3000);
+//            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[1]")).click();
+//            Thread.sleep(8000);
+//            System.out.println("Event Selected");
+//
+//            // Verifying the festival Title
+//            String actualFestivalTitle = driver.findElement(By.xpath("//table/tbody/tr/td[2]")).getText();
+//            Assert.assertEquals(actualFestivalTitle, festivalTitle, "Event Titles did not match");
+//        } else {
+//            System.out.println("Please give a valid number");
+//        }
+//    }
