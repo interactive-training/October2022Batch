@@ -175,17 +175,22 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("(//div[@class='events_main'])/p[3]"));
         System.out.println(titleElements.size());
 
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-            int r = n + 1; // to pass the matching row for the given event
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Clicking on the Event Title
-                driver.findElement(By.xpath("(//div[@class='events_main'])["+ r +"]/p[5]/a")).click();
-                break;
+//        if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
+            for (int n = 0; n <= titleElements.size(); n++) {
+                // Looping each Event Title
+                String title = titleElements.get(n).getText();
+                int r = n + 1; // to pass the matching row for the given event
+                if (title.equalsIgnoreCase(EventTitle)) {
+                    // Clicking on the Event Title
+                    driver.findElement(By.xpath("(//div[@class='events_main'])[" + r + "]/p[5]/a")).click();
+                    break;
+                }
             }
-        }
+//        } else {
+//            System.out.println("There is no event with this title");
+//        }
     }
+
 
     @Then("user should be able to see the event {string}")
     public void user_should_be_able_to_see_the_event(String EventTitle) throws InterruptedException {
@@ -219,16 +224,21 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
         System.out.println(titleElements.size());
 
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-            int r = n + 1; // to pass the matching row for the given event
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Clicking on the Event Title
-                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
-                break;
+        //if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
+
+            for (int n = 0; n <= titleElements.size(); n++) {
+                // Looping each Event Title
+                String title = titleElements.get(n).getText();
+                int r = n + 1; // to pass the matching row for the given event
+                    if (title.equalsIgnoreCase(EventTitle)) {
+                        // Clicking on the Event Title
+                        driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
+                        break;
+                    }
             }
-        }
+//        }else {
+//            System.out.println("There is no event with this title");
+//        }
     }
 
     // ------------------------------------------View Event---------------------------------------------------------
@@ -238,15 +248,19 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
         System.out.println(titleElements.size());
 
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-            int r = n + 1; // to pass the matching row for the given event
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Clicking on the Event Title
-                driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
-                break;
+        if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
+            for (int n = 0; n <= titleElements.size(); n++) {
+                // Looping each Event Title
+                String title = titleElements.get(n).getText();
+                int r = n + 1; // to pass the matching row for the given event
+                if (title.equalsIgnoreCase(EventTitle)) {
+                    // Clicking on the Event Title
+                    driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
+                    break;
+                }
             }
+        }else {
+            System.out.println("There is no event with this title");
         }
     }
 
@@ -254,7 +268,7 @@ public class CRUD_Event {
     @Then("user should be able to view the event")
     public void userShouldBeAbleToViewTheEvent() {
         // Verifying the Event Selected Page
-        String expectedTitle = "::Welcome to Hanuman Hindu Temple View Events Details ::";
+        String expectedTitle = ":: Welcome to Hanuman Hindu Temple Events Details ::";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
         System.out.println("Event Viewed");
@@ -265,24 +279,24 @@ public class CRUD_Event {
     @When("user selects the Edit option for {string} and edits the {string} with {string}")
     public void userSelectsTheEditOption(String EventTitle, String EditField, String EditInfo) {
 
-        List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
-        System.out.println(titleElements);
+        List<WebElement> titleElements = driver.findElements(By.xpath("//table//tr/td[2]"));
+        System.out.println(titleElements.size());
 //        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
 //            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[2]")).click();
 //            // Verifying the Edit Events Details Heading
 //            String actualHeading = driver.findElement(By.xpath("//div[@id='bar']/h1")).getText();
 //            String expectedHeading = "Edit Events Details";
 //            Assert.assertEquals(actualHeading, expectedHeading, "Url did not match");
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Clicking on the selected Event Title
-                int r = n + 2; // to pass the matching row for the given event
-                driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[2]")).click();
-                break;
-            }
-        }
+                for (int n = 0; n <= titleElements.size(); n++) {
+                // Looping each Event Title
+                String title = titleElements.get(n).getText();
+                    if (title.equalsIgnoreCase(EventTitle)) {
+                        // Clicking on the selected Event Title
+                        int r = n + 2; // to pass the matching row for the given event
+                        driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[2]")).click();
+                        break;
+                    }
+                }
 
 
         if (EditField.equalsIgnoreCase("Event title")) {
@@ -315,7 +329,6 @@ public class CRUD_Event {
         }
     }
 
-
     @And("clicks Submit button on Edit Page")
     public void clicksSubmitButtonOnEditPage() {
         driver.findElement(By.xpath("//tr[13]/td/input")).click();
@@ -347,70 +360,75 @@ public class CRUD_Event {
 //            }
 //        }
         //Storing all the titles in the web-element 'titleElements'
-        int r,s;
-        String eventToDelete ="" ;
+        int r, s;
+        String eventToDelete = "";
         List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
         System.out.println(titleElements.size());
-        // Looping each Event Title
-        for (int n = 0; n < titleElements.size(); n++) {
-            // Retrieving each Event Title from the titleElements
-            String title = titleElements.get(n).getText();
-             r = n + 2; // to pass the matching row for the given event to delete
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Collecting the Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any duplicate events
-                List<WebElement> duplicateEventSerialNumbers = driver.findElements(By.xpath("//table/tbody/tr[" + r +"]/td[1]"));
-                // Checking for any duplicate events from the nth row
-                for ( int d=n+1; d < titleElements.size(); d++) {
-                    // Looping each Event Title for any duplicates
-                    String titleDuplicate = titleElements.get(d).getText();
-                     s = d + 2; // to pass the matching row for the given event to delete
-                    if (titleDuplicate.equalsIgnoreCase(title)) {
-                        // title of current event
-                        String currentTitle = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[2]")).getText() ;
-                        WebElement duplicate = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[1]"));
-                        eventToDelete = duplicate.getText();
-                        System.out.println(currentTitle  + "serial number is: " + eventToDelete);
-                        //String number = StringValueof(duplicate.getText()); // serial number of current event
-                        duplicateEventSerialNumbers.add(1,duplicate);
+      //  if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
+            // Looping each Event Title
+            for (int n = 0; n < titleElements.size(); n++) {
+                // Retrieving each Event Title from the titleElements
+                String title = titleElements.get(n).getText();
+                r = n + 2; // to pass the matching row for the given event to delete
+                if (title.equalsIgnoreCase(EventTitle)) {
+                    // Collecting the Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any duplicate events
+                    List<WebElement> duplicateEventSerialNumbers = driver.findElements(By.xpath("//table/tbody/tr[" + r + "]/td[1]"));
+                    // Checking for any duplicate events from the nth row
+                    for (int d = n + 1; d < titleElements.size(); d++) {
+                        // Looping each Event Title for any duplicates
+                        String titleDuplicate = titleElements.get(d).getText();
+                        s = d + 2; // to pass the matching row for the given event to delete
+                        if (titleDuplicate.equalsIgnoreCase(title)) {
+                            // title of current event
+                            String currentTitle = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[2]")).getText();
+                            WebElement duplicate = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[1]"));
+                            eventToDelete = duplicate.getText();
+                            System.out.println(currentTitle + "serial number is: " + eventToDelete);
+                            //String number = StringValueof(duplicate.getText()); // serial number of current event
+                            duplicateEventSerialNumbers.add(1, duplicate);
+                        }
                     }
-                }
-                System.out.println(" Number of duplicate Events="+ duplicateEventSerialNumbers.size());
-                if (duplicateEventSerialNumbers.size()>1){
-                    // Deleting the last created duplicate event
+                    System.out.println(" Number of duplicate Events=" + duplicateEventSerialNumbers.size());
+                    if (duplicateEventSerialNumbers.size() > 1) {
+                        // Deleting the last created duplicate event
 //                        String eventToDelete = String.valueOf(duplicateEventSerialNumbers.lastIndexOf(duplicateEventSerialNumbers));
 //                        System.out.println(" Event being deleted Serial number: " + eventToDelete);
-                    int m = Integer.parseInt(eventToDelete) + 1;
-                    driver.findElement(By.xpath("//tbody/tr[ " + m + " ]/td[4]/a[3]")).click();
-                    break;
-                }else
-                    // Deleting the unique event( not duplicated)
-                    driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
+                        int m = Integer.parseInt(eventToDelete) + 1;
+                        driver.findElement(By.xpath("//tbody/tr[ " + m + " ]/td[4]/a[3]")).click();
+                        break;
+                    } else
+                        // Deleting the unique event( not duplicated)
+                        driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
                     break;
                 }
             }
-
-
-        // Back-end verification of deleted event
-        List<WebElement> newTitleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
-        System.out.println(newTitleElements.size());
-        int title_Elements = newTitleElements.size() -1;
-        for (int n = 0; n <= title_Elements; n++) {
-            // Looping each Event Title
-            String title = newTitleElements.get(n).getText();
-            if (title.equalsIgnoreCase(EventTitle)) {
-                System.out.println("There is a duplicate event.");
-                break;
-            }
-        }
-        System.out.println("Event is deleted at the back-end");
-        driver.quit();
+//        } else {
+//            System.out.println("There is no event with this title");
+//        }
     }
 
+        @Then("the event should be  deleted for {string}")
+        public void theEventShouldBeDeleted(String EventTitle ) {
+            // Back-end verification of deleted event
+            List<WebElement> newTitleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
+            System.out.println(newTitleElements.size());
+            int title_Elements = newTitleElements.size() -1;
+            for (int n = 0; n <= title_Elements; n++) {
+                // Looping each Event Title
+                String title = newTitleElements.get(n).getText();
+                if (title.equalsIgnoreCase(EventTitle)) {
+                    System.out.println("There is a duplicate event.");
+                    break;
+                }
+            }
+            System.out.println("This event does not exist in the Administration Panel.");
+            driver.quit();
+        }
 
 
-    // Front-end verification of deleted event on the Event's Page
     @And("the user should not find the deleted Event {string} in Events")
     public void theUserShouldNotFindTheDeletedEvent(String EventTitle) {
+        // Front-end verification of deleted event on the Event's Page
         List<WebElement> titleElements = driver.findElements(By.xpath("//p[@class='quote-author']"));
         System.out.println(titleElements.size());
         //int title_Elements = titleElements.size() -1;
@@ -424,7 +442,7 @@ public class CRUD_Event {
                 break;
             }
         }
-        System.out.println("Event is deleted in the Events.");
+        System.out.println("This event does not exist on the Event's Page.");
     }
 
     // Front-end verification of deleted event on the Calendar's Page
@@ -441,9 +459,11 @@ public class CRUD_Event {
                 break;
             }
         }
-        System.out.println("Event is deleted in the Calendar.");
+        System.out.println("This event does not exist in the Calendar.");
         driver.quit();
     }
+
+
 }
 
 //    //-----------------------------Edit Event Front-End Verification------------------------------------------------------------------------
