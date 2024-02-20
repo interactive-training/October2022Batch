@@ -114,15 +114,9 @@ public class CRUD_Event {
 
     @Then("it should not create the event")
     public void it_should_not_create_the_event() {
-//        The below code is working but earlier gave the uncommented code, it failed so I want to just understand the error
-//        String date = driver.findElement(By.xpath("//tr[4]/td[2]/input")).getText();
-//        Assert.assertEquals(date, "", "Date is present");
-//        System.out.println("Date is absent.");
-        WebElement date = driver.findElement(By.xpath("//tr[4]/td[2]/input"));
-        String EndDate =date.getText();
-        Assert.assertNull(EndDate, "Date is present.");
-//        why the below error
-//        java.lang.AssertionError: Date is present. expected [null] but found []  :[[ChromeDriver: chrome on mac (3710e27aeb6240ce85ceadbe6ec9784b)] -> xpath: //tr[4]/td[2]/input]
+        String date = driver.findElement(By.xpath("//tr[4]/td[2]/input")).getText();
+        Assert.assertEquals(date, "", "Date is present");
+        System.out.println("Date is absent.");
     }
 
     @Then("it should show error message {string}")
@@ -175,20 +169,18 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("(//div[@class='events_main'])/p[3]"));
         System.out.println(titleElements.size());
 
-//        if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
-            for (int n = 0; n <= titleElements.size(); n++) {
-                // Looping each Event Title
-                String title = titleElements.get(n).getText();
+        // checking if the event actually exists before entering the loop
+        for (int n = 0; n < titleElements.size(); n++) {
+            // Looping each Event Title
+            String title = titleElements.get(n).getText();
+
+            if (title.equalsIgnoreCase(EventTitle)) {
                 int r = n + 1; // to pass the matching row for the given event
-                if (title.equalsIgnoreCase(EventTitle)) {
-                    // Clicking on the Event Title
-                    driver.findElement(By.xpath("(//div[@class='events_main'])[" + r + "]/p[5]/a")).click();
-                    break;
-                }
+                // Clicking on the Event Title
+                driver.findElement(By.xpath("(//div[@class='events_main'])[" + r + "]/p[5]/a")).click();
+                break;
             }
-//        } else {
-//            System.out.println("There is no event with this title");
-//        }
+        }
     }
 
 
@@ -224,21 +216,17 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
         System.out.println(titleElements.size());
 
-        //if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
+        for (int n = 0; n <= titleElements.size(); n++) {
+            // Looping each Event Title
+            String title = titleElements.get(n).getText();
 
-            for (int n = 0; n <= titleElements.size(); n++) {
-                // Looping each Event Title
-                String title = titleElements.get(n).getText();
+            if (title.equalsIgnoreCase(EventTitle)) {
                 int r = n + 1; // to pass the matching row for the given event
-                    if (title.equalsIgnoreCase(EventTitle)) {
-                        // Clicking on the Event Title
-                        driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
-                        break;
-                    }
+                // Clicking on the Event Title
+                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
+                break;
             }
-//        }else {
-//            System.out.println("There is no event with this title");
-//        }
+        }
     }
 
     // ------------------------------------------View Event---------------------------------------------------------
@@ -248,22 +236,18 @@ public class CRUD_Event {
         List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
         System.out.println(titleElements.size());
 
-        if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
-            for (int n = 0; n <= titleElements.size(); n++) {
+        for (int n = 0; n <= titleElements.size(); n++) {
                 // Looping each Event Title
-                String title = titleElements.get(n).getText();
-                int r = n + 1; // to pass the matching row for the given event
-                if (title.equalsIgnoreCase(EventTitle)) {
-                    // Clicking on the Event Title
-                    driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
-                    break;
-                }
+            String title = titleElements.get(n).getText();
+            int r = n + 1; // to pass the matching row for the given event
+            if (title.equalsIgnoreCase(EventTitle)) {
+                // Clicking on the Event Title
+                driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
+                break;
             }
-        }else {
-            System.out.println("There is no event with this title");
         }
-    }
 
+    }
 
     @Then("user should be able to view the event")
     public void userShouldBeAbleToViewTheEvent() {
@@ -345,7 +329,7 @@ public class CRUD_Event {
     //---------------------------------------Delete Event---------------------------------------------------------
     @When("user selects the Delete option for {string} then it should be deleted")
     public void user_selects_the_delete_option_for_then_it_should_be_deleted(String EventTitle) {
-
+          // Below is the code for just deleting the event( it will delete the first one if there are duplicates)
 //        List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
 //        System.out.println(titleElements.size());
 
@@ -359,19 +343,20 @@ public class CRUD_Event {
 //                break;
 //            }
 //        }
-        //Storing all the titles in the web-element 'titleElements'
+
+        // Below is the code to delete the last event if there are duplicate events with the same title
         int r, s;
         String eventToDelete = "";
+        //Storing all the titles in the web-element 'titleElements'
         List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
         System.out.println(titleElements.size());
-      //  if (titleElements.contains(EventTitle)) { // checking if the event actually exists before entering the loop
             // Looping each Event Title
             for (int n = 0; n < titleElements.size(); n++) {
                 // Retrieving each Event Title from the titleElements
                 String title = titleElements.get(n).getText();
                 r = n + 2; // to pass the matching row for the given event to delete
                 if (title.equalsIgnoreCase(EventTitle)) {
-                    // Collecting the Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any duplicate events
+                    // Collecting the matched event's Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any other duplicate events
                     List<WebElement> duplicateEventSerialNumbers = driver.findElements(By.xpath("//table/tbody/tr[" + r + "]/td[1]"));
                     // Checking for any duplicate events from the nth row
                     for (int d = n + 1; d < titleElements.size(); d++) {
@@ -402,9 +387,7 @@ public class CRUD_Event {
                     break;
                 }
             }
-//        } else {
-//            System.out.println("There is no event with this title");
-//        }
+
     }
 
         @Then("the event should be  deleted for {string}")
