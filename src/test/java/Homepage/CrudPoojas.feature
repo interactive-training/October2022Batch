@@ -17,11 +17,11 @@ Feature: Crud Poojas
 #   | Ekadasi	    |
 
  Scenario Outline: Verify Edit Poojas
-    When user select the edit option for"<Pooja Title>",and edits the"<edit field>",with"<edit info>"
+    When user select the edit option for"<PoojaTitle>",and edits the"<edit field>",with"<edit info>"
      And clicks on Submit button on edit page
      Then Pooja Title should be edited
      Examples:
-     | Pooja Title|edit field|edit info|
+     | PoojaTitle|editfield|editinfo|
    	 | Navami	  | Pooja Title| Navami1|
 #     | Navami1     | Pooja Start Date 	  |10/04/2024|
 #     | Navami1      | Pooja End Date 	  |11/04/2024|
