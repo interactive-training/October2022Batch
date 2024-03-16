@@ -1,10 +1,7 @@
 package Utilities;
 
-import HHT_Pages.AdministrationPanelPage;
-import HHT_Pages.EventsPage;
-import HHT_Pages.LoginPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import HHT_Pages.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,12 +13,20 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class TestContext {
-    public WebDriver driver;
-    public Properties prop;
+    private WebDriver driver;
+    private Properties prop;
     // Pages variables
-    public LoginPage loginPage;
-    public EventsPage eventsPage;
-    public AdministrationPanelPage administrationPanelPage;
+    private LoginPage loginPage;
+    private AdminEventsPage adminEventsPage;
+    private EventsPage eventsPage;
+    private AdministrationPanelPage administrationPanelPage;
+
+    private CreateEventsPage createEventsPage;
+    private LandingPage landingPage;
+
+    private CalendarPage calendarPage;
+    private EditEventsPage editEventsPage;
+
 
 
     // methods for creating a new driver or passing the previous one to the next page
@@ -39,23 +44,42 @@ public class TestContext {
         return administrationPanelPage;
     }
 
+    public AdminEventsPage getAdminEventsPage(){
+        if(adminEventsPage == null){
+            adminEventsPage = new AdminEventsPage(driver);
+        }
+        return adminEventsPage;
+    }
     public EventsPage getEventsPage(){
         if(eventsPage == null){
             eventsPage = new EventsPage(driver);
         }
         return eventsPage;
     }
+    public CreateEventsPage getCreateEventsPage(){
+        if(createEventsPage == null){
+            createEventsPage = new CreateEventsPage(driver);
+        }
+        return createEventsPage;
+    }
+    public LandingPage getLandingPage(){
+        if(landingPage == null){
+            landingPage = new LandingPage(driver);
+        }
+        return landingPage;
+    }
+    public CalendarPage getCalendarPage(){
+        if(calendarPage == null){
+            calendarPage = new CalendarPage(driver);
+        }
+        return calendarPage;
+    }
 
-//    @Before
-//    public void setUp() throws IOException {
- //       this.driver = testContext.intializeDriver();
-//        System.out.println(driver.getTitle());
-//    }
-
-    @After
-    public void teardown(){
-        this.driver.quit();
-        System.out.println("Closing browser in tearDown");
+    public EditEventsPage getEditEventsPage(){
+        if(editEventsPage == null){
+            editEventsPage = new EditEventsPage(driver);
+        }
+        return editEventsPage;
     }
     //Initialising the driver
 
@@ -88,11 +112,6 @@ public class TestContext {
         // Set Implicit Wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("ImpilcitTimeInSec","10"))));
 
-        //getLoginPage();
-//        if (login.equalsIgnoreCase("admin")) {
-//            System.getProperty(AdminUrl);
-//        } else
-
         return driver;
     }
 
@@ -104,5 +123,26 @@ public class TestContext {
     public String getURL(){
         return driver.getCurrentUrl();
     }
+    public String getMessage(){
+        return driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+    }
+
+    public void clickAcceptButton() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@class='btn btn-primary btn-sm ms-3']")).click();
+        Thread.sleep(3000);
+    }
+
+
 }
 
+//@Before
+//    public void setUp() throws IOException {
+//       this.driver = testContext.intializeDriver();
+//        System.out.println(driver.getTitle());
+//    }
+
+//    @After
+//    public void teardown(){
+//        this.driver.quit();
+//        System.out.println("Closing browser in tearDown");
+//    }

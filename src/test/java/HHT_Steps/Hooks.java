@@ -15,15 +15,15 @@ public class Hooks {
         this.testContext = testContext;
     }
 
-//    @Before
-//    public void setUp() throws IOException {
-//        this.driver = testContext.intializeDriver();
-//        System.out.println(driver.getTitle());
-//    }
-//
-//    @After
-//    public void teardown(){
-//        this.driver.quit();
-//        System.out.println("Closing browser in tearDown");
-//    }
+    @Before
+    public void setUp() throws IOException {
+        this.driver = testContext.intializeDriver();
+        System.out.println(driver.getTitle());
+    }
+
+    @After
+    public void teardown(){
+        this.driver.quit();
+        System.out.println("Closing browser in tearDown");
+    }
 }

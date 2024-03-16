@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class LoginPage {
-
     WebDriver driver;
-
     Properties prop;
 
     // Constructor
@@ -26,12 +24,11 @@ public class LoginPage {
 
 // Page methods
 
-    public void getURL(String admin) throws IOException {
-        // Reading Properties file
+    public void getAdminURL(String admin) throws IOException {
+        // Reading Properties file and get admin url
         prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/resources/config.properties");
         prop.load(fis);
-
         String adminURL = prop.getProperty("AdminURL");
         driver.get(adminURL);
     }
@@ -45,6 +42,18 @@ public class LoginPage {
         jse.executeScript("document.querySelector(\"input[value='Login']\").click();");
         System.out.println("Login successful");
     }
+
+    public void getWebsiteURL() throws IOException {
+        // Reading Properties file and get the url
+        prop = new Properties();
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/resources/config.properties");
+        prop.load(fis);
+
+        driver.get(prop.getProperty("WebsiteURl"));
+
+    }
+
+
 
 
 

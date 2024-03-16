@@ -27,13 +27,13 @@ public class CRUD_EventStep {
     // ------------------------------------------Background Steps--------------------------------------------------
     @When("user launches the URL as {string}")
     public void the_admin_user_launches_the_URL(String admin) throws IOException {
-        testContext.intializeDriver();
-        testContext.getLoginPage().getURL(admin);
+        //testContext.intializeDriver();
+        testContext.getLoginPage().getAdminURL(admin);
     }
 
     @And("signs in with admin credentials {string} and {string}")
     public void signsInWithAdminCredentials(String emailId, String password) {
-        testContext.loginPage.loginAsAdmin(emailId, password);
+        testContext.getLoginPage().loginAsAdmin(emailId, password);
     }
 
     @Then("user should get in to the Administration Panel")
@@ -46,8 +46,7 @@ public class CRUD_EventStep {
 
     @When("user clicks on CMS drop down and then choose Events")
     public void clicksOnCMSDropDownAndThenChooseEvents() {
-        testContext.getAdministrationPanelPage();
-        testContext.administrationPanelPage.clickCMSthenEvents();
+        testContext.getAdministrationPanelPage().clickCMSthenEvents();
     }
     
     @Then("user should get into Events Page")
@@ -62,8 +61,8 @@ public class CRUD_EventStep {
     // ------------------------------------------Create Events--------------------------------------------------
     @When("user clicks on Add Event button")
     public void userClicksOnMyAddEventButton() {
-        testContext.getEventsPage();
-        testContext.eventsPage.clickAddEvents();
+       // testContext.getEventsPage();
+        testContext.getAdminEventsPage().clickAddEvents();
     }
 
     @Then("user should get in to Add Events Details Page")
@@ -76,159 +75,105 @@ public class CRUD_EventStep {
 
     @When("user enters the details for all the mandatory fields")
     public void user_enters_the_details_for_all_the_mandatory_fields(DataTable dataTable)  {
-        testContext.eventsPage.createEvent(dataTable);
-        //public void user_enters_the_details_for_all_the_mandatory_fields}(String EventTitle, String EventType, String EventStartDate, String EventEndDate, String EventTimeDuration, String EventLocation, String EventContent)  {
-
+        testContext.getCreateEventsPage().createEvent(dataTable);
     }
 
     @When("clicks Submit button")
     public void clicks_submit_button() {
-        testContext.eventsPage.clickSubmitButton();
+        testContext.getCreateEventsPage().clickSubmitButton();
     }
 
     @Then("the event should be created with message {string}")
     public void theEventShouldBeCreatedWithMessage(String expectedMessage) {
-        String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+        String actualMessage = testContext.getMessage();
         Assert.assertEquals(actualMessage, expectedMessage, " Create message is verified.");
         System.out.println("Event added with pictures.");
-        driver.quit();
     }
 
     @Then("it should not create the event")
     public void it_should_not_create_the_event() {
-        String date = driver.findElement(By.xpath("//tr[4]/td[2]/input")).getText();
+        String date = testContext.getCreateEventsPage().verifyIncorrectDate();
         Assert.assertEquals(date, "", "Date is present");
         System.out.println("Date is absent.");
     }
 
-    @Then("it should show error message {string}")
-    public void itShouldShowErrorMessage(String ErrorMessage) {
-        String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
-        Assert.assertEquals(actualMessage, ErrorMessage, " Message is not verified.");
-        System.out.println("Error message is verified and event is not created.");
-        driver.close();
-    }
+//    @Then("it should show error message {string}")
+//    public void itShouldShowErrorMessage(String ErrorMessage) {
+//        String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+//        Assert.assertEquals(actualMessage, ErrorMessage, " Message is not verified.");
+//        System.out.println("Error message is verified and event is not created.");
+//        driver.close();
+//    }
 
     // --------------------------------Create Event's Front-end Event's Verification-------------------------------------------------------------
-    @When("user launches the given url {string}")
-    public void userLaunchesTheGivenUrl(String validURL) {
-        driver = new ChromeDriver();
-        driver.get(validURL);
-        driver.manage().window().maximize();
+    @When("user launches the given url")
+    public void userLaunchesTheGivenUrl() throws IOException {
+        testContext.getLoginPage().getWebsiteURL();
     }
-    @Then("user should be on the Home Page")
-    public void userShouldBeOnTheHomePage() {
-        String expectedTile = "Welcome to Hanuman Hindu Temple...";
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTile, "Titles did not match.");
+    @Then("user should be on the Landing Page")
+    public void userShouldBeOnTheLandingPage() {
+        String expectedTitle = "Welcome to Hanuman Hindu Temple...";
+        String actualTitle = testContext.getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle, "Titles did not match.");
     }
 
     @When("user clicks on Events and chooses the Events option")
     public void UserClicksOnEventsAndChoosesTheEventsOption()  {
-        Actions action = new Actions(driver);// Initiating the Actions class for mouse hover(drop-down)
-        WebElement Home_Menu = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle'][normalize-space()='Events']"));    //Finding the element with drop-down
-        action.moveToElement(Home_Menu).perform(); // Hovering over the Training drop-down
-        //WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement events = driver.findElement(By.xpath("(//ul[@class='dropdown-menu'])[2]/li[2]/a"));
-        action.moveToElement(events).click().perform();
+        testContext.getLandingPage().userChoosesEventsInEventsDropDown();
+
     }
 
     @Then("the user should click on Accept button")
     public void the_user_should_click_on_accept_button() throws InterruptedException {
-        driver.findElement(By.xpath("//button[@class='btn btn-primary btn-sm ms-3']")).click();
-        Thread.sleep(3000);
+        testContext.clickAcceptButton();
     }
 
     @Then("user should be on the Events Page")
     public void UserShouldBeOnTheEventsPage() {
         String expectedHeading = "EVENTS";
-        String actualHeading = driver.findElement(By.xpath("(//div[@class='container'])[4]/h2")).getText();
+        String actualHeading = testContext.getEventsPage().eventsPageHeading();
         Assert.assertEquals(actualHeading, expectedHeading, "Events heading is absent");
     }
 
     @When("user clicks on the More Info of {string}")
-    public void userClicksOnTheMoreInfo(String EventTitle) {
-        List<WebElement> titleElements = driver.findElements(By.xpath("(//div[@class='events_main'])/p[3]"));
-        System.out.println(titleElements.size());
-
-        // checking if the event actually exists before entering the loop
-        for (int n = 0; n < titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-
-            if (title.equalsIgnoreCase(EventTitle)) {
-                int r = n + 1; // to pass the matching row for the given event
-                // Clicking on the Event Title
-                driver.findElement(By.xpath("(//div[@class='events_main'])[" + r + "]/p[5]/a")).click();
-                break;
-            }
-        }
+        public void moreInfo(String EventTitle){
+        testContext.getEventsPage().userClicksMoreInfo(EventTitle );
     }
-
-
-    @Then("user should be able to see the event {string}")
-    public void user_should_be_able_to_see_the_event(String EventTitle) throws InterruptedException {
-        String actualTitle = driver.findElement(By.xpath("//div[@class='gurumid']/div[2]/h4")).getText();
+    @Then("user should be able to see the event {string} in {string}")
+    public void user_should_be_able_to_see_the_event(String EventTitle, String Page) throws InterruptedException {
+        String actualTitle = testContext.getEventsPage().verifyEventTitleOnPage();
         Thread.sleep(2000);
         Assert.assertEquals(actualTitle, EventTitle, " Titles did not match.");
-        System.out.println("Event is verified.");
+        if(Page.equalsIgnoreCase("calendar")) {
+            System.out.println("Event is verified on Calendar Page.");
+        } else if (Page.equalsIgnoreCase("events")){
+            System.out.println("Event is verified on Event Page.");
+        }
     }
 
     // --------------------------------Create Event's Front-end Calendar's Verification-------------------------------------------------------------
 
     @When("user clicks on Events and chooses the Calendar option")
     public void UserClicksOnEventsAndChoosesTheCalendarOption() {
-        Actions action = new Actions(driver);// Initiating the Actions class for mouse hover(drop-down)
-        WebElement Home_Menu = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle'][normalize-space()='Events']"));    //Finding the element with drop-down
-        action.moveToElement(Home_Menu).perform(); // Hovering over the Training drop-down
-        //WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement events = driver.findElement(By.xpath("(//ul[@class='dropdown-menu'])[2]/li[1]/a"));  // By.xpath("(//a[@href='events_web.php'])[1]")      Finding the Events
-        action.moveToElement(events).click().perform();
+        testContext.getCalendarPage().clickEventsThenCalendar();
     }
 
     @Then("user should be on the Calendar Page")
     public void UserShouldBeOnTheCalendarPage() {
-        String expectedHeading = "CALENDAR";
-        String actualHeading = driver.findElement(By.xpath("(//div[@class='container'])[4]/h2")).getText();
-        Assert.assertEquals(actualHeading, expectedHeading, "Calendar heading is absent");
+        Assert.assertTrue(testContext.getCalendarPage().verifyCalendarPage());
     }
 
     @When("user clicks on the {string}")
     public void userClicksOnThe(String EventTitle) {
-        List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
-        System.out.println(titleElements.size());
-
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
-            String title = titleElements.get(n).getText();
-
-            if (title.equalsIgnoreCase(EventTitle)) {
-                int r = n + 1; // to pass the matching row for the given event
-                // Clicking on the Event Title
-                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
-                break;
-            }
-        }
+        testContext.getCalendarPage().userClicksOnDetails(EventTitle);
     }
+
 
     // ------------------------------------------View Event---------------------------------------------------------
 
     @When("user selects the View option of {string}")
     public void userSelectsTheViewOption(String EventTitle) {
-        List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
-        System.out.println(titleElements.size());
 
-        for (int n = 0; n <= titleElements.size(); n++) {
-                // Looping each Event Title
-            String title = titleElements.get(n).getText();
-            int r = n + 1; // to pass the matching row for the given event
-            if (title.equalsIgnoreCase(EventTitle)) {
-                // Clicking on the Event Title
-                WebElement viewEvent = driver.findElement(By.xpath("(//a[contains(text(),'View')])[ " + r + " ]"));
-                viewEvent .click();
-                break;
-            }
-        }
     }
 
     @Then("user should be able to view the event")
@@ -245,65 +190,21 @@ public class CRUD_EventStep {
     @When("user selects the Edit option for {string} and edits the {string} with {string}")
     public void userSelectsTheEditOption(String EventTitle, String EditField, String EditInfo) {
 
-        List<WebElement> titleElements = driver.findElements(By.xpath("//table//tr/td[2]"));
-        System.out.println(titleElements.size());
-//        if (SerialNumber > 1 && SerialNumber <= rowElements.size()) {
-//            driver.findElement(By.xpath("//tbody/tr[" + SerialNumber + "]/td[4]/a[2]")).click();
-//            // Verifying the Edit Events Details Heading
-//            String actualHeading = driver.findElement(By.xpath("//div[@id='bar']/h1")).getText();
-//            String expectedHeading = "Edit Events Details";
-//            Assert.assertEquals(actualHeading, expectedHeading, "Url did not match");
-                for (int n = 0; n <= titleElements.size(); n++) {
-                // Looping each Event Title
-                String title = titleElements.get(n).getText();
-                    if (title.equalsIgnoreCase(EventTitle)) {
-                        // Clicking on the selected Event Title
-                        int r = n + 2; // to pass the matching row for the given event
-                        driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[2]")).click();
-                        break;
-                    }
-                }
+        testContext.getEditEventsPage().editEventInfo(EventTitle,EditField,EditInfo);
 
 
-        if (EditField.equalsIgnoreCase("Event title")) {
-            driver.findElement(By.xpath("//tr[1]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[1]/td[2]/input")).sendKeys(EditInfo);
-        } else if (EditField.equalsIgnoreCase("Event type")) {
-            driver.findElement(By.xpath("//tr[3]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[3]/td[2]/input")).sendKeys(EditInfo);
-        } else if (EditField.equalsIgnoreCase("Event Start Date")) {
-            driver.findElement(By.xpath("//tr[4]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[4]/td[2]/input")).sendKeys(EditInfo);
-        } else if (EditField.equalsIgnoreCase("Event End Date")) {
-            driver.findElement(By.xpath("//tr[5]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(EditInfo);
-        } else if (EditField.equalsIgnoreCase("Event Time Duration")) {
-            driver.findElement(By.xpath("//tr[6]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[6]/td[2]/input")).sendKeys(EditInfo);
-        } else if (EditField.equalsIgnoreCase("Event Location")) {
-            driver.findElement(By.xpath("//tr[7]/td[2]/input")).clear();
-            driver.findElement(By.xpath("//tr[7]/td[2]/input")).sendKeys(EditInfo);
-
-//            else if (field.equalsIgnoreCase("Event Status")) {
-//                //driver.findElement(By.xpath("//tr[8]/td[2]/select[@id='country']")).sendKeys(editField);
-//            } else if (field.equalsIgnoreCase("Event Country")) {
-//                //driver.findElement(By.xpath("//tr[8]/td[2]/select[@id='country']")).sendKeys(editField);
-//            }
-
-        } else {
-            System.out.println("Please give a valid Event Title");
-        }
     }
 
     @And("clicks Submit button on Edit Page")
     public void clicksSubmitButtonOnEditPage() {
-        driver.findElement(By.xpath("//tr[13]/td/input")).click();
-        System.out.println("Event Edited");
+        testContext.getAdminEventsPage().clickSubmitButton();
+
     }
 
     @Then("user should see the message {string}")
     public void user_should_see_the_message(String expectedMessage) {
-        String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+        String actualMessage = testContext.getMessage();
+                //driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
         Assert.assertEquals(actualMessage, expectedMessage, "Messages are not matching,");
         System.out.println("Event Message Verified");
     }
