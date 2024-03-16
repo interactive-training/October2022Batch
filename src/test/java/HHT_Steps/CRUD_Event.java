@@ -1,4 +1,6 @@
 package HHT_Steps;
+import HHT_Pages.LoginPage;
+import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,30 +12,31 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.List;
 
 public class CRUD_Event {
     WebDriver driver;
+    TestContext testContext;
+    LoginPage loginPage;
+    // this constructor will load the contents of the TestContext class which can be accessed through its object.
+    public CRUD_Event(TestContext testContext){
+        this.testContext = testContext;
+    }
 
     // ------------------------------------------Background Steps--------------------------------------------------
     @When("the admin user launches the URL {string}")
-    public void the_admin_user_launches_the_URL(String url) {
-        driver = new ChromeDriver();
-        driver.get(url);
+    public void the_admin_user_launches_the_URL(String url) throws IOException {
+        testContext.intializeDriver();
+        loginPage = new LoginPage(driver);
+        loginPage.getURL(url);
+        //testContext.getLoginPage().getURL(url);
     }
 
     @And("signs in with admin credentials {string} and {string}")
     public void signsInWithAdminCredentials(String emailId, String password) {
-        By emailIDBy = By.id("usr_email");
-        By pwdBy = By.id("usr_password");
-
-        driver.findElement(emailIDBy).sendKeys(emailId); // email Id
-        driver.findElement(pwdBy).sendKeys(password);    // password
-        //driver.findElement(By.xpath("input[@class='btn-lg btn-success btn-block']")).click();
-
-        JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
-        jse.executeScript("document.querySelector(\"input[value='Login']\").click();");
-        System.out.println("Login successful");
+        //loginPage = new LoginPage(driver);
+        loginPage.loginAsAdmin(emailId, password);
     }
 
     @Then("user should get in to the Administration Panel")
@@ -242,19 +245,19 @@ public class CRUD_Event {
             int r = n + 1; // to pass the matching row for the given event
             if (title.equalsIgnoreCase(EventTitle)) {
                 // Clicking on the Event Title
-                driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
+                WebElement viewEvent = driver.findElement(By.xpath("(//a[contains(text(),'View')])[ " + r + " ]"));
+                viewEvent .click();
                 break;
             }
         }
-
     }
 
     @Then("user should be able to view the event")
     public void userShouldBeAbleToViewTheEvent() {
         // Verifying the Event Selected Page
-        String expectedTitle = ":: Welcome to Hanuman Hindu Temple Events Details ::";
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
+        String expectedHeading = "View Events Details";
+        String actualHeading = driver.findElement(By.xpath("//div[@id='bar']/h1")).getText();
+        Assert.assertEquals(actualHeading, expectedHeading, "Headings did not match");
         System.out.println("Event Viewed");
         driver.quit();
     }

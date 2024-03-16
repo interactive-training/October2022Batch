@@ -2,18 +2,18 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-14T22:35:27 GMT" name="All Test Suite" finished-at="2024-02-14T22:35:58 GMT" duration-ms="30631">
+  <suite started-at="2024-03-14T22:06:07 GMT" name="All Test Suite" finished-at="2024-03-14T22:06:49 GMT" duration-ms="41391">
     <groups>
       <group name="smoke">
-        <method signature="JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" name="Testcase1" class="com.ita.tests.JobSeekersExtentReportTestNG"/>
+        <method signature="JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" name="Testcase1" class="com.ita.tests.JobSeekersExtentReportTestNG"/>
       </group> <!-- smoke -->
       <group name="sanity">
-        <method signature="JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" name="Testcase1" class="com.ita.tests.JobSeekersExtentReportTestNG"/>
+        <method signature="JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" name="Testcase1" class="com.ita.tests.JobSeekersExtentReportTestNG"/>
       </group> <!-- sanity -->
     </groups>
-    <test started-at="2024-02-14T22:35:27 GMT" name="Regression" finished-at="2024-02-14T22:35:58 GMT" duration-ms="30631">
+    <test started-at="2024-03-14T22:06:07 GMT" name="Regression" finished-at="2024-03-14T22:06:49 GMT" duration-ms="41391">
       <class name="com.ita.tests.JobSeekersExtentReportTestNG">
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:27 GMT" name="beforeMethod" finished-at="2024-02-14T22:35:37 GMT" duration-ms="9364" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:07 GMT" name="beforeMethod" finished-at="2024-03-14T22:06:20 GMT" duration-ms="12401" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,29 +22,29 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1fcf9739]]>
+                <![CDATA[org.testng.TestRunner@5cd61783]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:37 GMT" name="Testcase1" finished-at="2024-02-14T22:35:37 GMT" duration-ms="4" status="PASS">
+        <test-method signature="Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:20 GMT" name="Testcase1" finished-at="2024-03-14T22:06:20 GMT" duration-ms="29" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Testcase1 -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:37 GMT" name="tearDown" finished-at="2024-02-14T22:35:37 GMT" duration-ms="92" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:20 GMT" name="tearDown" finished-at="2024-03-14T22:06:20 GMT" duration-ms="100" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Testcase1 status=SUCCESS method=JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4] output={null}]]]>
+                <![CDATA[[TestResult name=Testcase1 status=SUCCESS method=JobSeekersExtentReportTestNG.Testcase1()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:37 GMT" name="beforeMethod" finished-at="2024-02-14T22:35:44 GMT" duration-ms="7514" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:20 GMT" name="beforeMethod" finished-at="2024-03-14T22:06:31 GMT" duration-ms="10705" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,29 +53,29 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1fcf9739]]>
+                <![CDATA[org.testng.TestRunner@5cd61783]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="Testcase2()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:44 GMT" name="Testcase2" finished-at="2024-02-14T22:35:44 GMT" duration-ms="1" status="PASS">
+        <test-method signature="Testcase2()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:31 GMT" name="Testcase2" finished-at="2024-03-14T22:06:31 GMT" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Testcase2 -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:44 GMT" name="tearDown" finished-at="2024-02-14T22:35:44 GMT" duration-ms="81" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:31 GMT" name="tearDown" finished-at="2024-03-14T22:06:31 GMT" duration-ms="87" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Testcase2 status=SUCCESS method=JobSeekersExtentReportTestNG.Testcase2()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4] output={null}]]]>
+                <![CDATA[[TestResult name=Testcase2 status=SUCCESS method=JobSeekersExtentReportTestNG.Testcase2()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:44 GMT" name="beforeMethod" finished-at="2024-02-14T22:35:52 GMT" duration-ms="7426" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:31 GMT" name="beforeMethod" finished-at="2024-03-14T22:06:41 GMT" duration-ms="10399" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -84,22 +84,22 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1fcf9739]]>
+                <![CDATA[org.testng.TestRunner@5cd61783]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyJObSeekers()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:52 GMT" name="verifyJObSeekers" description="Test description goes here to display in the report left side of the IDE." finished-at="2024-02-14T22:35:58 GMT" duration-ms="6036" status="PASS">
+        <test-method signature="verifyJObSeekers()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:41 GMT" name="verifyJObSeekers" description="Test description goes here to display in the report left side of the IDE." finished-at="2024-03-14T22:06:49 GMT" duration-ms="7528" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyJObSeekers -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4]" started-at="2024-02-14T22:35:58 GMT" name="tearDown" finished-at="2024-02-14T22:35:58 GMT" duration-ms="91" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c]" started-at="2024-03-14T22:06:49 GMT" name="tearDown" finished-at="2024-03-14T22:06:49 GMT" duration-ms="101" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyJObSeekers status=SUCCESS method=JobSeekersExtentReportTestNG.verifyJObSeekers()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@71e9ddb4] output={null}]]]>
+                <![CDATA[[TestResult name=verifyJObSeekers status=SUCCESS method=JobSeekersExtentReportTestNG.verifyJObSeekers()[pri:0, instance:com.ita.tests.JobSeekersExtentReportTestNG@7530ad9c] output={null}]]]>
               </value>
             </param>
           </params>
