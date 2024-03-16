@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-
-
-    <test name="Regression">
-
+    <test verbose="2" preserve-order="true" name="RunParallel">
         <classes>
-            <class name="com.ita.tests.JobSeekersExtentReportTestNG"/>
-
-<!--            <class name="com.ita.tests.JobSeekersWorkExperienceExtentReportTestNG"/>-->
-<!--&lt;!&ndash;                <methods>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <include name="addValidExperience"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                </methods>&ndash;&gt;-->
-<!--&lt;!&ndash;            </class>&ndash;&gt;-->
-<!--            <class name="com.ita.tests.JobsAndApplicationsExtentReportTestNG"/>-->
-<!--&lt;!&ndash;                <methods>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <include name="VerifyJObsAndApplicationsPage"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                </methods>&ndash;&gt;-->
-<!--&lt;!&ndash;            </class>&ndash;&gt;-->
-<!--            <class name="com.ita.tests.RecruitersExtentReportTestNG"/>-->
-<!--                <methods>-->
-<!--                    <include name="VerifyJObsAndApplicationsPage"/>-->
-<!--                    <include name="VerifyRecruitersLogin_Invalid_Username_InValid_password"/>-->
-<!--                    <include name="VerifyRecruitersLogin_Valid_Username_InValid_password"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="HHT_TestRunner"/>
         </classes>
     </test>
-
-
 </suite>

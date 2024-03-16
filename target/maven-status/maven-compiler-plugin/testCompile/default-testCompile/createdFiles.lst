@@ -1,0 +1,9 @@
+HHT_Pages\LoginPage.class
+HHT_Pages\AdministrationPanelPage.class
+HHT_Steps\TestContext.class
+HHT_Steps\CreateNews.class
+HHT_Steps\CRUD_EventStep.class
+HHT_Steps\MyAccountExisting.class
+HHT_TestRunner.class
+HHT_Steps\DependencyInjectorAndHooks.class
+HHT_Pages\EventsPage.class
