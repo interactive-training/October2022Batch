@@ -1,10 +1,8 @@
-package Utilities;
+package HHT_Steps;
 
-import HHT_Pages.AdministrationPanelPage;
-import HHT_Pages.EventsPage;
-import HHT_Pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,49 +13,25 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class TestContext {
-    public WebDriver driver;
-    public Properties prop;
-    // Pages variables
-    public LoginPage loginPage;
-    public EventsPage eventsPage;
-    public AdministrationPanelPage administrationPanelPage;
+public class DependencyInjectorAndHooks {
 
+    //
+    WebDriver driver;
 
-    // methods for creating a new driver or passing the previous one to the next page
-    public LoginPage getLoginPage() {
-        if (loginPage == null) {
-            loginPage = new LoginPage(driver);
-        }
-        return loginPage;
+    private TestContext testContext;
+    private Properties prop;
+
+    public DependencyInjectorAndHooks(TestContext testContext) {
+        this.testContext = testContext;
     }
 
-    public AdministrationPanelPage getAdministrationPanelPage(){
-        if(administrationPanelPage == null){
-            administrationPanelPage = new AdministrationPanelPage(driver);
-        }
-        return administrationPanelPage;
-    }
+    //set the driver inside TestContext , which would be shared across steps files...
+    // like setDriver( chrome driver), but this should exeute very first step, so we are writing in Before hooks (which will be exeuted first before any step method exeutes)
 
-    public EventsPage getEventsPage(){
-        if(eventsPage == null){
-            eventsPage = new EventsPage(driver);
-        }
-        return eventsPage;
-    }
+    //here the trick is, we canno create constructor to set the driver for testcontext, because when creates the testcontext object avove,
+    // uur driver would not be created, in this class, first contructor exeutes, then hooks method (setup) executes
+    // So, createing a public method - setDriver in testContext and setting the driver to use across steps metbhods
 
-//    @Before
-//    public void setUp() throws IOException {
- //       this.driver = testContext.intializeDriver();
-//        System.out.println(driver.getTitle());
-//    }
-
-    @After
-    public void teardown(){
-        this.driver.quit();
-        System.out.println("Closing browser in tearDown");
-    }
-    //Initialising the driver
 
     public WebDriver intializeDriver() throws IOException {
         // Reading Properties file
@@ -75,6 +49,7 @@ public class TestContext {
         if (browserTypeFromCommandPrompt != null){
             browserType = browserTypeFromCommandPrompt;
         }else if (browserType.equalsIgnoreCase("chrome")){
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         }else if(browserType.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
@@ -96,13 +71,21 @@ public class TestContext {
         return driver;
     }
 
-    //Common methods
-    public String getTitle(){
-        return driver.getTitle();
+
+
+    @Before
+    public void setUp() throws IOException {
+        WebDriver driver = intializeDriver();
+        testContext.setDriver(driver);
+
+
     }
 
-    public String getURL(){
-        return driver.getCurrentUrl();
+    //
+    @After
+    public void teardown(){
+        this.driver.quit();
+        System.out.println("Closing browser in tearDown");
     }
+
 }
-

@@ -11,9 +11,18 @@ import org.testng.Assert;
 
 public class MyAccountExisting {
     WebDriver driver;
+    TestContext testContext;
+    //* Pramod on 16 Mar 2024
+    // EACH STEPS OR PAGE FILE (JAVA) SHOULD HAVE A CONSTRUCTOR TO GET THE WEBDRIVER FROM OUTSIDE AND STGORE IT IN LOCAL VARIABLE TO USE IT FUTURE.
+
+    public MyAccountExisting(TestContext testContext){
+        this.testContext = testContext;
+        this.driver = testContext.getDriver();
+    }
+
     @When("the user launches the url {string}")
     public void the_user_launches_the_url(String validURL) {
-        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
         driver.get(validURL);
         driver.manage().window().maximize();
     }

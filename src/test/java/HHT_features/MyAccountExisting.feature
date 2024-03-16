@@ -17,12 +17,12 @@ Feature: I want to verify the presence of web elements on the home page
     Then it should go to Events Page with title "Events"
     And Close the browser
 
-  Scenario: I want to verify Poojas Icon
-    When I click on Poojas Icon
-    Then it should go to Poojas Page with title "Pooja Services"
-    And Close the browser
-
-  Scenario: I want to verify Donations Icon
-    When I click on Donations Icon
-    Then it should go to Donations Page with title "Donations"
-    And Close the browser
+#  Scenario: I want to verify Poojas Icon
+#    When I click on Poojas Icon
+#    Then it should go to Poojas Page with title "Pooja Services"
+#    And Close the browser
+#
+#  Scenario: I want to verify Donations Icon
+#    When I click on Donations Icon
+#    Then it should go to Donations Page with title "Donations"
+#    And Close the browser

@@ -1,6 +1,9 @@
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/Utilities/TestContext.java
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/HHT_Steps/CreateNews.java
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/HHT_Steps/Hooks.java
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/HHT_Steps/CRUD_EventStep.java
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/HHT_TestRunner.java
-/Users/ravibabuadari/October2022Batch/October2022Batch/src/test/java/HHT_Steps/MyAccountExisting.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Pages\EventsPage.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Steps\CRUD_EventStep.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_TestRunner.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Steps\CreateNews.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Pages\AdministrationPanelPage.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Steps\TestContext.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Steps\DependencyInjectorAndHooks.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Steps\MyAccountExisting.java
+C:\Users\Booster\16032024\October2022Batch\src\test\java\HHT_Pages\LoginPage.java

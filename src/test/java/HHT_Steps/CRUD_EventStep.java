@@ -1,6 +1,4 @@
 package HHT_Steps;
-import HHT_Pages.LoginPage;
-import Utilities.TestContext;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -22,18 +20,19 @@ public class CRUD_EventStep {
     // this constructor will load the contents of the TestContext class which can be accessed through its object.
     public CRUD_EventStep(TestContext testContext){
         this.testContext = testContext;
+        this.driver = testContext.getDriver();
     }
 
     // ------------------------------------------Background Steps--------------------------------------------------
     @When("user launches the URL as {string}")
     public void the_admin_user_launches_the_URL(String admin) throws IOException {
-        testContext.intializeDriver();
+//        testContext.intializeDriver();
         testContext.getLoginPage().getURL(admin);
     }
 
     @And("signs in with admin credentials {string} and {string}")
     public void signsInWithAdminCredentials(String emailId, String password) {
-        testContext.loginPage.loginAsAdmin(emailId, password);
+        testContext.getLoginPage().loginAsAdmin(emailId, password);
     }
 
     @Then("user should get in to the Administration Panel")
