@@ -1,11 +1,11 @@
 package HHT_Steps;
 import HHT_Pages.LoginPage;
 import Utilities.TestContext;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,51 +15,45 @@ import org.testng.Assert;
 import java.io.IOException;
 import java.util.List;
 
-public class CRUD_Event {
+public class CRUD_EventStep {
     WebDriver driver;
     TestContext testContext;
-    LoginPage loginPage;
+
     // this constructor will load the contents of the TestContext class which can be accessed through its object.
-    public CRUD_Event(TestContext testContext){
+    public CRUD_EventStep(TestContext testContext){
         this.testContext = testContext;
     }
 
     // ------------------------------------------Background Steps--------------------------------------------------
-    @When("the admin user launches the URL {string}")
-    public void the_admin_user_launches_the_URL(String url) throws IOException {
+    @When("user launches the URL as {string}")
+    public void the_admin_user_launches_the_URL(String admin) throws IOException {
         testContext.intializeDriver();
-        loginPage = new LoginPage(driver);
-        loginPage.getURL(url);
-        //testContext.getLoginPage().getURL(url);
+        testContext.getLoginPage().getURL(admin);
     }
 
     @And("signs in with admin credentials {string} and {string}")
     public void signsInWithAdminCredentials(String emailId, String password) {
-        //loginPage = new LoginPage(driver);
-        loginPage.loginAsAdmin(emailId, password);
+        testContext.loginPage.loginAsAdmin(emailId, password);
     }
 
     @Then("user should get in to the Administration Panel")
     public void userShouldGetInToTheAdministrationPanel() {
         String expectedTitle = ":: Welcome to Hanuman Hindu Temple - Home page ::";
-        String actualTitle = driver.getTitle();
+        String actualTitle = testContext.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
         System.out.println("Administration Panel page");
     }
 
     @When("user clicks on CMS drop down and then choose Events")
     public void clicksOnCMSDropDownAndThenChooseEvents() {
-        Actions action = new Actions(driver);                             // Initiating the Actions class for mouse hover(drop-down)
-        WebElement CMS_Menu = driver.findElement(By.linkText("CMS"));    //Finding the element with drop-down
-        action.moveToElement(CMS_Menu).perform();                        // Hovering over the Training drop-down
-        WebElement events = driver.findElement(By.linkText("EVENTS"));  // Finding the Events
-        events.click();
+        testContext.getAdministrationPanelPage();
+        testContext.administrationPanelPage.clickCMSthenEvents();
     }
     
     @Then("user should get into Events Page")
     public void userShouldGetInToEventsPage() {
         String expectedTitle = ":: Welcome to Hanuman Hindu Temple Events Details ::";
-        String actualTitle = driver.getTitle();
+        String actualTitle = testContext.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle, "Titles match");
         System.out.println("Events page");
 
@@ -68,43 +62,28 @@ public class CRUD_Event {
     // ------------------------------------------Create Events--------------------------------------------------
     @When("user clicks on Add Event button")
     public void userClicksOnMyAddEventButton() {
-        driver.findElement(By.xpath("//a[@href='add_event.php']")).click();
+        testContext.getEventsPage();
+        testContext.eventsPage.clickAddEvents();
     }
 
     @Then("user should get in to Add Events Details Page")
     public void userShouldGetInToAddEventsDetailsPage() {
         String expectedURL = "https://www.hanumanhindutemple.org/test_mode/adm_hht9m8a4s2/add_event.php";
-        String actualURL = driver.getCurrentUrl();
+        String actualURL = testContext.getURL();
         Assert.assertEquals(actualURL, expectedURL, "Url did not match");
         System.out.println("Add Events Details Page");
     }
 
-    @When("user enters the details for all the mandatory fields {string},{string},{string},{string},{string},{string},{string}")
-    public void user_enters_the_details_for_all_the_mandatory_fields(String EventTitle, String EventType, String EventStartDate, String EventEndDate, String EventTimeDuration, String EventLocation, String EventContent)  {
-        // Passing information to the text fields through feature
-        driver.findElement(By.xpath("//tr/td[2]/input")).sendKeys(EventTitle);
-        driver.findElement(By.xpath("//tr[2]/td[2]/input")).sendKeys(EventType);
-        driver.findElement(By.xpath("//tr[3]/td[2]/input")).sendKeys(EventStartDate);
-        driver.findElement(By.xpath("//tr[4]/td[2]/input")).sendKeys(EventEndDate);
-        driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(EventTimeDuration);
-        driver.findElement(By.xpath("//tr[6]/td[2]/input")).sendKeys(EventLocation);
-        // Passing information to the iframe
-        WebElement outerIframe = driver.findElement(By.id("article___Frame"));
-        driver.switchTo().frame(outerIframe);
-        WebElement innerIframe = driver.findElement(By.xpath("//td[@id='xEditingArea']/iframe"));
-        driver.switchTo().frame(innerIframe);
-        driver.findElement(By.xpath("/html/body")).sendKeys(EventContent);
-        driver.switchTo().defaultContent();
-        // Passing the path of the pictures
-        String Picture1Path = "//Users//ravibabuadari//Desktop//testing//bogi Small.jpeg";
-        driver.findElement(By.xpath("//tr[9]/td[2]/input")).sendKeys(Picture1Path);
-        driver.findElement(By.xpath("//tr[10]/td[2]/input")).sendKeys(Picture1Path);
+    @When("user enters the details for all the mandatory fields")
+    public void user_enters_the_details_for_all_the_mandatory_fields(DataTable dataTable)  {
+        testContext.eventsPage.createEvent(dataTable);
+        //public void user_enters_the_details_for_all_the_mandatory_fields}(String EventTitle, String EventType, String EventStartDate, String EventEndDate, String EventTimeDuration, String EventLocation, String EventContent)  {
+
     }
 
     @When("clicks Submit button")
     public void clicks_submit_button() {
-        driver.findElement(By.xpath("//tr[12]/td/input")).click();
-        System.out.println("Clicked on submit");
+        testContext.eventsPage.clickSubmitButton();
     }
 
     @Then("the event should be created with message {string}")
