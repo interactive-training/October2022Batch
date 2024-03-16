@@ -22,14 +22,13 @@ Feature: As an admin user I should be able to create an event
         When user launches the given url
         Then user should be on the Landing Page
         When user clicks on Events and chooses the Events option
-        Then the user should click on Accept button
         Then user should be on the Events Page
-        When user clicks on the More Info of "<EventTitle>"
+        When user clicks on the "<EventTitle>" of Event page for "view"
         Then user should be able to see the event "<EventTitle>" in "events"
         #       Front-end Verification on Calendar's tab
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
-        When user clicks on the "<EventTitle>"
+        When user clicks on the "<EventTitle>" of Calendar page for "view"
         Then user should be able to see the event "<EventTitle>" in "calendar"
         Examples:
             |EventTitle|
@@ -47,12 +46,12 @@ Feature: As an admin user I should be able to create an event
         When user clicks on Events and chooses the Events option
         Then the user should click on Accept button
         Then user should be on the Events Page
-        When user clicks on the More Info of "<EventTitle>"
+        When user clicks on the "<EventTitle>" of Event page for "view"
         Then user should be able to see the event "<EventTitle>" in "events"
         #       Front-end Verification on Calendar's tab
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
-        When user clicks on the "<EventTitle>"
+        When user clicks on the "<EventTitle>" of Calendar page for "view"
         Then user should be able to see the event "<EventTitle>" in "calendar"
 
         Examples:
@@ -63,13 +62,26 @@ Feature: As an admin user I should be able to create an event
     Scenario Outline: Viewing the event with Event Title
         When user selects the View option of "<EventTitle>"
         Then user should be able to view the event
-        ##       Front-end Verification
+        #    Front-end Verification on Event's tab
         When user launches the given url
         Then user should be on the Landing Page
         When user clicks on Events and chooses the Events option
-        And the user should click on Accept button
+        Then the user should click on Accept button
         Then user should be on the Events Page
-        When user clicks on the More Info of "<EventTitle>"
+        When user clicks on the "<EventTitle>" of Event page for "view"
+        Then user should be able to see the event "<EventTitle>" in "events"
+        #       Front-end Verification on Calendar's tab
+        When user clicks on Events and chooses the Calendar option
+        Then user should be on the Calendar Page
+        When user clicks on the "<EventTitle>" of Calendar page for "view"
+        Then user should be able to see the event "<EventTitle>" in "calendar"
+#        ##       Front-end Verification
+#        When user launches the given url
+#        Then user should be on the Landing Page
+#        When user clicks on Events and chooses the Events option
+#        And the user should click on Accept button
+#        Then user should be on the Events Page
+#        When user clicks on the "<EventTitle>" for "view"
         @viewEvent
         Examples:
             | EventTitle |
@@ -80,7 +92,7 @@ Feature: As an admin user I should be able to create an event
             | EventTitle |
             | Maha Shivratri    |
 
-    @deleteEvent @events-end-end
+
     Scenario Outline: Deleting an event as a backend admin user
         When user selects the Delete option for "<EventTitle>" then it should be deleted
         Then the event should be  deleted for "<EventTitle>"
@@ -88,17 +100,23 @@ Feature: As an admin user I should be able to create an event
         When user launches the given url
         Then user should be on the Landing Page
         When user clicks on Events and chooses the Events option
-        And the user should click on Accept button
         Then user should be on the Events Page
-        And the user should not find the deleted Event "<EventTitle>" in Events
+        When user clicks on the "<EventTitle>" of Event page for "delete"
+
 
 #    // Front-end verification of deleted event on the Calendar's Page
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
-        And the user should not find the deleted Event "<EventTitle>" in Calendar
+        When user clicks on the "<EventTitle>" of Calendar page for "delete"
+        @events-end-end
         Examples:
             |EventTitle |
             | Maha Shivratri    |
+
+         @deleteEvent
+        Examples:
+            |EventTitle |
+            | Holi    |
 
 #    @create-incorrect-event
 #    Scenario : Add a new event with incorrect date

@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features= "src/test/java/HHT_features/CRUD_Event.feature",
         glue = "HHT_Steps",
-        tags = "@editEvent"
+        tags = "viewEvent"//"@events-end-end"
 )
 public class HHT_TestRunner extends AbstractTestNGCucumberTests {
 //   // @Override

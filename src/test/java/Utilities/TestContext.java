@@ -15,21 +15,20 @@ import java.util.Properties;
 public class TestContext {
     private WebDriver driver;
     private Properties prop;
-    // Pages variables
+    // Page variables
     private LoginPage loginPage;
     private AdminEventsPage adminEventsPage;
     private EventsPage eventsPage;
     private AdministrationPanelPage administrationPanelPage;
-
-    private CreateEventsPage createEventsPage;
     private LandingPage landingPage;
-
     private CalendarPage calendarPage;
+    private CreateEventsPage createEventsPage;
     private EditEventsPage editEventsPage;
+    private ViewEventsPage viewEventsPage;
+    private DeleteEventsPage deleteEventsPage;
 
 
-
-    // methods for creating a new driver or passing the previous one to the next page
+    // Methods for creating a new driver or passing the previous one to the next page
     public LoginPage getLoginPage() {
         if (loginPage == null) {
             loginPage = new LoginPage(driver);
@@ -56,12 +55,6 @@ public class TestContext {
         }
         return eventsPage;
     }
-    public CreateEventsPage getCreateEventsPage(){
-        if(createEventsPage == null){
-            createEventsPage = new CreateEventsPage(driver);
-        }
-        return createEventsPage;
-    }
     public LandingPage getLandingPage(){
         if(landingPage == null){
             landingPage = new LandingPage(driver);
@@ -74,12 +67,31 @@ public class TestContext {
         }
         return calendarPage;
     }
-
+    public CreateEventsPage getCreateEventsPage(){
+        if(createEventsPage == null){
+            createEventsPage = new CreateEventsPage(driver);
+        }
+        return createEventsPage;
+    }
     public EditEventsPage getEditEventsPage(){
         if(editEventsPage == null){
             editEventsPage = new EditEventsPage(driver);
         }
         return editEventsPage;
+    }
+
+    public ViewEventsPage getViewEventsPage(){
+        if(viewEventsPage == null){
+            viewEventsPage = new ViewEventsPage(driver);
+        }
+        return viewEventsPage;
+    }
+
+    public DeleteEventsPage getDeleteEventsPage(){
+        if(deleteEventsPage == null){
+            deleteEventsPage = new DeleteEventsPage(driver);
+        }
+        return deleteEventsPage;
     }
     //Initialising the driver
 

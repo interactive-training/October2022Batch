@@ -97,15 +97,7 @@ public class CRUD_EventStep {
         System.out.println("Date is absent.");
     }
 
-//    @Then("it should show error message {string}")
-//    public void itShouldShowErrorMessage(String ErrorMessage) {
-//        String actualMessage = driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
-//        Assert.assertEquals(actualMessage, ErrorMessage, " Message is not verified.");
-//        System.out.println("Error message is verified and event is not created.");
-//        driver.close();
-//    }
-
-    // --------------------------------Create Event's Front-end Event's Verification-------------------------------------------------------------
+    // -------------------------------- Front-end Event's Verification-------------------------------------------------------------
     @When("user launches the given url")
     public void userLaunchesTheGivenUrl() throws IOException {
         testContext.getLoginPage().getWebsiteURL();
@@ -120,7 +112,6 @@ public class CRUD_EventStep {
     @When("user clicks on Events and chooses the Events option")
     public void UserClicksOnEventsAndChoosesTheEventsOption()  {
         testContext.getLandingPage().userChoosesEventsInEventsDropDown();
-
     }
 
     @Then("the user should click on Accept button")
@@ -135,9 +126,9 @@ public class CRUD_EventStep {
         Assert.assertEquals(actualHeading, expectedHeading, "Events heading is absent");
     }
 
-    @When("user clicks on the More Info of {string}")
-        public void moreInfo(String EventTitle){
-        testContext.getEventsPage().userClicksMoreInfo(EventTitle );
+    @When("user clicks on the {string} of Event page for {string}")
+        public void moreInfo(String EventTitle, String option){
+        testContext.getEventsPage().userClicksMoreInfo(EventTitle, option );
     }
     @Then("user should be able to see the event {string} in {string}")
     public void user_should_be_able_to_see_the_event(String EventTitle, String Page) throws InterruptedException {
@@ -151,7 +142,7 @@ public class CRUD_EventStep {
         }
     }
 
-    // --------------------------------Create Event's Front-end Calendar's Verification-------------------------------------------------------------
+    // -------------------------------- Front-end Calendar Verification-------------------------------------------------------------
 
     @When("user clicks on Events and chooses the Calendar option")
     public void UserClicksOnEventsAndChoosesTheCalendarOption() {
@@ -163,16 +154,16 @@ public class CRUD_EventStep {
         Assert.assertTrue(testContext.getCalendarPage().verifyCalendarPage());
     }
 
-    @When("user clicks on the {string}")
-    public void userClicksOnThe(String EventTitle) {
-        testContext.getCalendarPage().userClicksOnDetails(EventTitle);
+    @When("user clicks on the {string} of Calendar page for {string}")
+    public void userClicksOnThe(String EventTitle, String option) {
+        testContext.getCalendarPage().userClicksOnDetails(EventTitle,option);
     }
-
 
     // ------------------------------------------View Event---------------------------------------------------------
 
     @When("user selects the View option of {string}")
     public void userSelectsTheViewOption(String EventTitle) {
+        testContext.getViewEventsPage().viewEvent(EventTitle);
 
     }
 
@@ -180,31 +171,25 @@ public class CRUD_EventStep {
     public void userShouldBeAbleToViewTheEvent() {
         // Verifying the Event Selected Page
         String expectedHeading = "View Events Details";
-        String actualHeading = driver.findElement(By.xpath("//div[@id='bar']/h1")).getText();
+        String actualHeading = testContext.getViewEventsPage().verifyEventHeading();
         Assert.assertEquals(actualHeading, expectedHeading, "Headings did not match");
         System.out.println("Event Viewed");
-        driver.quit();
     }
 
     // ------------------------------------------Edit Event-----------------------------------------
     @When("user selects the Edit option for {string} and edits the {string} with {string}")
     public void userSelectsTheEditOption(String EventTitle, String EditField, String EditInfo) {
-
         testContext.getEditEventsPage().editEventInfo(EventTitle,EditField,EditInfo);
-
-
     }
 
     @And("clicks Submit button on Edit Page")
     public void clicksSubmitButtonOnEditPage() {
         testContext.getAdminEventsPage().clickSubmitButton();
-
     }
 
     @Then("user should see the message {string}")
     public void user_should_see_the_message(String expectedMessage) {
         String actualMessage = testContext.getMessage();
-                //driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
         Assert.assertEquals(actualMessage, expectedMessage, "Messages are not matching,");
         System.out.println("Event Message Verified");
     }
@@ -212,84 +197,13 @@ public class CRUD_EventStep {
     //---------------------------------------Delete Event---------------------------------------------------------
     @When("user selects the Delete option for {string} then it should be deleted")
     public void user_selects_the_delete_option_for_then_it_should_be_deleted(String EventTitle) {
-          // Below is the code for just deleting the event( it will delete the first one if there are duplicates)
-//        List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
-//        System.out.println(titleElements.size());
-
-//        for (int n = 0; n <= titleElements.size(); n++) {
-//            // Looping each Event Title
-//            String title = titleElements.get(n).getText();
-//            int r = n + 2; // to pass the matching row for the given event to delete
-//            if (title.equalsIgnoreCase(EventTitle)) {
-//                // Deleting the event
-//                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
-//                break;
-//            }
-//        }
-
-        // Below is the code to delete the last event if there are duplicate events with the same title
-        int r, s;
-        String eventToDelete = "";
-        //Storing all the titles in the web-element 'titleElements'
-        List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
-        System.out.println(titleElements.size());
-            // Looping each Event Title
-            for (int n = 0; n < titleElements.size(); n++) {
-                // Retrieving each Event Title from the titleElements
-                String title = titleElements.get(n).getText();
-                r = n + 2; // to pass the matching row for the given event to delete
-                if (title.equalsIgnoreCase(EventTitle)) {
-                    // Collecting the matched event's Serial Number into a List of WebElements(checkForDuplicateEvent) and then checking for any other duplicate events
-                    List<WebElement> duplicateEventSerialNumbers = driver.findElements(By.xpath("//table/tbody/tr[" + r + "]/td[1]"));
-                    // Checking for any duplicate events from the nth row
-                    for (int d = n + 1; d < titleElements.size(); d++) {
-                        // Looping each Event Title for any duplicates
-                        String titleDuplicate = titleElements.get(d).getText();
-                        s = d + 2; // to pass the matching row for the given event to delete
-                        if (titleDuplicate.equalsIgnoreCase(title)) {
-                            // title of current event
-                            String currentTitle = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[2]")).getText();
-                            WebElement duplicate = driver.findElement(By.xpath("//table/tbody/tr[" + s + "]/td[1]"));
-                            eventToDelete = duplicate.getText();
-                            System.out.println(currentTitle + "serial number is: " + eventToDelete);
-                            //String number = StringValueof(duplicate.getText()); // serial number of current event
-                            duplicateEventSerialNumbers.add(1, duplicate);
-                        }
-                    }
-                    System.out.println(" Number of duplicate Events=" + duplicateEventSerialNumbers.size());
-                    if (duplicateEventSerialNumbers.size() > 1) {
-                        // Deleting the last created duplicate event
-//                        String eventToDelete = String.valueOf(duplicateEventSerialNumbers.lastIndexOf(duplicateEventSerialNumbers));
-//                        System.out.println(" Event being deleted Serial number: " + eventToDelete);
-                        int m = Integer.parseInt(eventToDelete) + 1;
-                        driver.findElement(By.xpath("//tbody/tr[ " + m + " ]/td[4]/a[3]")).click();
-                        break;
-                    } else
-                        // Deleting the unique event( not duplicated)
-                        driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[4]/a[3]")).click();
-                    break;
-                }
-            }
-
+          testContext.getDeleteEventsPage().deleteEvent(EventTitle);
     }
 
-        @Then("the event should be  deleted for {string}")
+    @Then("the event should be  deleted for {string}")
         public void theEventShouldBeDeleted(String EventTitle ) {
-            // Back-end verification of deleted event
-            List<WebElement> newTitleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
-            System.out.println(newTitleElements.size());
-            int title_Elements = newTitleElements.size() -1;
-            for (int n = 0; n <= title_Elements; n++) {
-                // Looping each Event Title
-                String title = newTitleElements.get(n).getText();
-                if (title.equalsIgnoreCase(EventTitle)) {
-                    System.out.println("There is a duplicate event.");
-                    break;
-                }
-            }
-            System.out.println("This event does not exist in the Administration Panel.");
-            driver.quit();
-        }
+           testContext.getDeleteEventsPage().verifyEventDeletedAtBackend(EventTitle);
+    }
 
 
     @And("the user should not find the deleted Event {string} in Events")

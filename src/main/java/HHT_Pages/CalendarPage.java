@@ -28,20 +28,27 @@ public class CalendarPage {
         return driver.findElement(By.xpath("(//div[@class='container'])[4]/h2")).isDisplayed();
     }
 
-    public void userClicksOnDetails(String EventTitle){
+    public void userClicksOnDetails(String EventTitle, String option){
         List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
         System.out.println(titleElements.size());
 
-        for (int n = 0; n <= titleElements.size(); n++) {
-            // Looping each Event Title
+        for (int n = 0; n < titleElements.size(); n++)
+        {   // Looping each Event Title
             String title = titleElements.get(n).getText();
 
-            if (title.equalsIgnoreCase(EventTitle)) {
+            if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("view")))
+            {
                 int r = n + 1; // to pass the matching row for the given event
                 // Clicking on the Event Title
                 driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
                 break;
             }
+            else if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("delete")))
+            {
+                System.out.println("There is a duplicate event.");
+                break;
+            }
         }
+        //System.out.println("Event is not present in the Calendar.");
     }
 }
