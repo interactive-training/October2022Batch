@@ -3,19 +3,17 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features/CRUD_Event.feature",
+        features= "@target/failed_scenarios.txt",
         glue = "HHT_Steps",
         monochrome = true,
-        //publish = true,
+        publish = true,
         tags = "@events-end-end",
-        plugin = {"pretty", "html:target/cucumber-reports.html",
-                "json:target/cucumber.json",
-                "rerun:target/failed_scenarios.txt",
+        plugin = {"pretty", "html:target/cucumber-reports.html","json:target/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 // "com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
         }
 )
-public class HHT_TestRunner extends AbstractTestNGCucumberTests {
+public class Failed_HHT_TestRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios(){

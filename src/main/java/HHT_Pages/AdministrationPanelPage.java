@@ -25,4 +25,8 @@ public class AdministrationPanelPage {
         WebElement events = driver.findElement(EventsBy);  // Finding the Events
         events.click();
     }
+
+    public Boolean welcomeLogin() {
+        return driver.findElement(By.xpath("//span[@class='welcome']")).isDisplayed();
+    }
 }

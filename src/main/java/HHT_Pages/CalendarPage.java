@@ -1,6 +1,9 @@
 package HHT_Pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -8,43 +11,45 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.List;
 
 public class CalendarPage {
+    public static final Logger log = LogManager.getLogger(CalendarPage.class.getName());
     WebDriver driver;
 
     public CalendarPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
-    public void clickEventsThenCalendar() {
-        Actions action = new Actions(driver);// Initiating the Actions class for mouse hover(drop-down)
-        WebElement Home_Menu = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle'][normalize-space()='Events']"));    //Finding the element with drop-down
-        action.moveToElement(Home_Menu).perform(); // Hovering over the Training drop-down
-        //WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement events = driver.findElement(By.xpath("(//ul[@class='dropdown-menu'])[2]/li[1]/a"));  // By.xpath("(//a[@href='events_web.php'])[1]")      Finding the Events
-        action.moveToElement(events).click().perform();
-    }
-
     public boolean verifyCalendarPage() {
         return driver.findElement(By.xpath("(//div[@class='container'])[4]/h2")).isDisplayed();
     }
 
-    public void userClicksOnDetails(String EventTitle, String option){
+    public void userClicksOnDetails(String EventTitle, String option) throws InterruptedException {
         List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
         System.out.println(titleElements.size());
 
         for (int n = 0; n < titleElements.size(); n++)
         {   // Looping each Event Title
             String title = titleElements.get(n).getText();
-
+            int r = n + 1; // to pass the matching row for the given event
             if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("view")))
             {
-                int r = n + 1; // to pass the matching row for the given event
                 // Clicking on the Event Title
-                driver.findElement(By.xpath("//tbody/tr[ " + r + " ]/td[3]/div/p/a")).click();
+                // Element not clickable at point exception:</a> is not clickable at point (519, 653)
+                //driver.findElement(By.xpath("(//tr)[ " + r + " ]/td[3]/div/p/a")).click();     //(//tr)["+r+"]/td[4]/p/a
+
+                // Element not clickable at point exception:did not work with Actions class
+//                WebElement element = driver.findElement(By.xpath("(//tr)[" + r + "]/td[4]/p/a"));
+//                Actions actions = new Actions(driver);
+//                actions.moveToElement(element).click().perform();
+
+                WebElement element = driver.findElement(By.xpath("//tr[" + r + "]/td[4]/p/a"));
+                JavascriptExecutor jse = (JavascriptExecutor)driver;
+                jse.executeScript("arguments[0].scrollIntoView()", element);
+                element.click();
+
                 break;
             }
-            else if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("delete")))
-            {
+            else if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("delete"))) {
+                log.info("There is a duplicate event.");
                 System.out.println("There is a duplicate event.");
                 break;
             }

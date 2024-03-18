@@ -1,13 +1,18 @@
 package HHT_Pages;
 
 import io.cucumber.java.en.Then;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
 public class EventsPage {
+    public static final Logger log = LogManager.getLogger(EventsPage.class.getName());
+
     WebDriver driver;
 
     public EventsPage(WebDriver driver){
@@ -35,11 +40,17 @@ public class EventsPage {
             {
                 int r = n + 1; // to pass the matching row for the given event
                 // Clicking on the Event Title
-                driver.findElement(By.xpath("(//p[@class='eventsimg'])[\" + r + \"]/a")).click();
+                WebElement element = driver.findElement(By.xpath("(//p[@class='eventsimg'])[" + r + "]/a"));
+
+                Actions actions = new Actions(driver);
+
+                actions.moveToElement(element).click().perform();
+                //driver.findElement(By.xpath("(//p[@class='eventsimg'])[" + r + "]/a")).click();
                 break;
             }
             else if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("delete")))
             {
+                log.trace("There is a duplicate event.");
                 System.out.println("There is a duplicate event.");
                 break;
             }
@@ -49,7 +60,4 @@ public class EventsPage {
     public String verifyEventTitleOnPage(){
         return driver.findElement(By.xpath("//div[@class='gurumid']/div[2]/h4")).getText();
     }
-
-
-
 }

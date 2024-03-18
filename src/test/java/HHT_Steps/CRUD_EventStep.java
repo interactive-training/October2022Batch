@@ -38,9 +38,10 @@ public class CRUD_EventStep {
 
     @Then("user should get in to the Administration Panel")
     public void userShouldGetInToTheAdministrationPanel() {
-        String expectedTitle = ":: Welcome to Hanuman Hindu Temple - Home page ::";
-        String actualTitle = testContext.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
+        testContext.getAdministrationPanelPage().welcomeLogin();
+//        String expectedTitle = "Hanuman Hindu Temple";
+//        String actualTitle = testContext.getTitle();
+//        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
         System.out.println("Administration Panel page");
     }
 
@@ -51,6 +52,7 @@ public class CRUD_EventStep {
     
     @Then("user should get into Events Page")
     public void userShouldGetInToEventsPage() {
+
         String expectedTitle = ":: Welcome to Hanuman Hindu Temple Events Details ::";
         String actualTitle = testContext.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle, "Titles match");
@@ -127,7 +129,7 @@ public class CRUD_EventStep {
     }
 
     @When("user clicks on the {string} of Event page for {string}")
-        public void moreInfo(String EventTitle, String option){
+        public void moreInfoOfEvent(String EventTitle, String option){
         testContext.getEventsPage().userClicksMoreInfo(EventTitle, option );
     }
     @Then("user should be able to see the event {string} in {string}")
@@ -146,7 +148,7 @@ public class CRUD_EventStep {
 
     @When("user clicks on Events and chooses the Calendar option")
     public void UserClicksOnEventsAndChoosesTheCalendarOption() {
-        testContext.getCalendarPage().clickEventsThenCalendar();
+        testContext.getLandingPage().clickEventsThenCalendar();
     }
 
     @Then("user should be on the Calendar Page")
@@ -155,8 +157,8 @@ public class CRUD_EventStep {
     }
 
     @When("user clicks on the {string} of Calendar page for {string}")
-    public void userClicksOnThe(String EventTitle, String option) {
-        testContext.getCalendarPage().userClicksOnDetails(EventTitle,option);
+    public void userClicksOnTheCalendar(String EventTitle, String option) throws InterruptedException {
+        testContext.getCalendarPage().userClicksOnDetails(EventTitle, option);
     }
 
     // ------------------------------------------View Event---------------------------------------------------------

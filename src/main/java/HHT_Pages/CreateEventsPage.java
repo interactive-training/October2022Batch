@@ -1,6 +1,8 @@
 package HHT_Pages;
 
 import io.cucumber.datatable.DataTable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CreateEventsPage {
+    public static final Logger log = LogManager.getLogger(CreateEventsPage.class.getName());
 
     WebDriver driver;
     public CreateEventsPage(WebDriver driver){
@@ -53,6 +56,7 @@ public class CreateEventsPage {
 
     public void clickSubmitButton(){
         driver.findElement(submitBy).click();
+        log.info("Clicked on Submit button");
         System.out.println("Clicked on submit");
     }
 

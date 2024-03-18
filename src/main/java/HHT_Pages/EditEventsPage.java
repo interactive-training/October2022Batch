@@ -1,5 +1,7 @@
 package HHT_Pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class EditEventsPage {
+    public static final Logger log = LogManager.getLogger(EditEventsPage.class.getName());
+
     WebDriver driver;
     public EditEventsPage(WebDriver driver) {
       this.driver = driver;
@@ -63,6 +67,7 @@ public class EditEventsPage {
 //            }
 
         } else {
+            log.info("Please give a valid Event Title");
             System.out.println("Please give a valid Event Title");
         }
     }

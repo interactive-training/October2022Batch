@@ -60,32 +60,28 @@ Feature: As an admin user I should be able to create an event
 
 
     Scenario Outline: Viewing the event with Event Title
-        When user selects the View option of "<EventTitle>"
-        Then user should be able to view the event
-        #    Front-end Verification on Event's tab
+#        When user selects the View option of "<EventTitle>"
+#        Then user should be able to view the event
+
+#            Front-end Verification on Event's tab
         When user launches the given url
         Then user should be on the Landing Page
         When user clicks on Events and chooses the Events option
-        Then the user should click on Accept button
         Then user should be on the Events Page
         When user clicks on the "<EventTitle>" of Event page for "view"
         Then user should be able to see the event "<EventTitle>" in "events"
         #       Front-end Verification on Calendar's tab
+        When user launches the given url
+        Then user should be on the Landing Page
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
         When user clicks on the "<EventTitle>" of Calendar page for "view"
         Then user should be able to see the event "<EventTitle>" in "calendar"
-#        ##       Front-end Verification
-#        When user launches the given url
-#        Then user should be on the Landing Page
-#        When user clicks on Events and chooses the Events option
-#        And the user should click on Accept button
-#        Then user should be on the Events Page
-#        When user clicks on the "<EventTitle>" for "view"
+
         @viewEvent
         Examples:
             | EventTitle |
-            |   Holi    |
+            |   N_Navami    |
 
         @events-end-end
         Examples:

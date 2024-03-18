@@ -1,5 +1,7 @@
 package HHT_Pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class LoginPage {
+    public static final Logger log = LogManager.getLogger(LoginPage.class.getName());
+
     WebDriver driver;
     Properties prop;
 
@@ -41,6 +45,7 @@ public class LoginPage {
         JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
         jse.executeScript("document.querySelector(\"input[value='Login']\").click();");
         System.out.println("Login successful");
+        log.debug("Admin Login successful");
     }
 
     public void getWebsiteURL() throws IOException {
@@ -52,10 +57,4 @@ public class LoginPage {
         driver.get(prop.getProperty("WebsiteURl"));
 
     }
-
-
-
-
-
-
 }

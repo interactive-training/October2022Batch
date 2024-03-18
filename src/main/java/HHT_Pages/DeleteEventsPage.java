@@ -1,5 +1,7 @@
 package HHT_Pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class DeleteEventsPage {
+    public static final Logger log = LogManager.getLogger(DeleteEventsPage.class.getName());
+
     WebDriver driver;
 
     public DeleteEventsPage(WebDriver driver) {
@@ -82,6 +86,7 @@ public class DeleteEventsPage {
             // Looping each Event Title
             String title = newTitleElements.get(n).getText();
             if (title.equalsIgnoreCase(EventTitle)) {
+                log.info("There is a duplicate event.");
                 System.out.println("There is a duplicate event.");
                 break;
             }
