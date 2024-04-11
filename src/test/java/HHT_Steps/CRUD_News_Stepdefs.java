@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class git giCRUD_News_Stepdefs {
+public class CRUD_News_Stepdefs {
     WebDriver driver;
 
     @Given("the admin user launches the url {string}")
