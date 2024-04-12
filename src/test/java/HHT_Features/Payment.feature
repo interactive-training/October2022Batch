@@ -19,4 +19,4 @@ Background: Below steps are common
     Then user should get successful message on ORDER CONFIRMATION page
     Examples:
        |DONATIONS|
-       |AlankaraSeva123 |
+       |Pound a Day|
