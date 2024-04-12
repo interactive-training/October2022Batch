@@ -133,18 +133,24 @@ public class Payment {
         js1.executeScript("arguments[1].value = arguments[0]; ", cExp, inputField1);
         driver.findElement(By.id("cc-csc")).sendKeys("234");
      driver.findElement(By.xpath("(//div[@class='inner'])[2]")).click();
+        driver.switchTo().defaultContent();
      System.out.println("entered the card details and submit ");
     }
     @Then("user should get successful message on ORDER CONFIRMATION page")
     public void user_should_get_successful_message_on_order_confirmation_page() {
-    String EX_H = "Thank You For Placing Order In Online.";
-    WebElement H = driver.findElement(By.xpath("(//div[@class='container']//h2)[2]"));
-    String Act_H = H.getText();
-    Assert.assertEquals(EX_H , Act_H);
-    System.out.println("Payment Successful");
-    driver.quit();
+
+    String Expected_H = "ORDER CONFIRMATION";
+    WebElement O = driver.findElement(By.xpath("(((//div[@class='body-inner'])//div)[17])//h2"));
+    String Actual_H = O.getText();
+    Assert.assertEquals(Expected_H,Actual_H);
+    System.out.println("Payment is Successful");
 
     }
 
 
-   }
+    @And("user logouts successfully")
+    public void userLogoutsSuccessfully() {
+        driver.findElement(By.partialLinkText("Logout")).click();
+        driver.quit();
+    }
+}

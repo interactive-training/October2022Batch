@@ -17,6 +17,7 @@ Background: Below steps are common
     When user clicks on pay with card button
     And enters valid card details
     Then user should get successful message on ORDER CONFIRMATION page
+    And user logouts successfully
     Examples:
        |DONATIONS|
        |Pound a Day|
