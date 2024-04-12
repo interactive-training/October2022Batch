@@ -4,20 +4,26 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import javax.swing.*;
+import java.time.Duration;
 import java.util.List;
 
 public class Payment {
     WebDriver driver;
+
+
     @Given("user launches url")
     public void userLaunchesUrl() {
         driver = new ChromeDriver();
+//        WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
      driver.get("https://www.hanumanhindutemple.org/test_mode/index.php");
      driver.manage().window().maximize();
     }
@@ -103,20 +109,41 @@ public class Payment {
 
     }
     @When("enters valid card details")
-    public void enters_valid_card_details() {
-//        driver.switchTo().alert().accept();
-     driver.findElement(By.id("card_number")).sendKeys("4242424242424242");
-     driver.findElement(By.id("cc-exp")).sendKeys("09/25");
-     driver.findElement(By.id("cc-csc")).sendKeys("234");
+    public void enters_valid_card_details() throws InterruptedException {
+//        WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+//       driver.switchTo().alert().getText();
+//     WebElement C = driver.findElement(By.id("card_number"));
+//        Actions action = new Actions(driver);
+//        action.moveToElement(C).sendKeys("4242424242424242");
+        WebElement iFrame1 = driver.findElement(By.name("stripe_checkout_app"));
+        driver.switchTo().frame(iFrame1);
+        String cardNum= "4242424242424242";
+        WebElement inputField= driver.findElement((By.xpath("(//div[@class='cardNumberInput input top'])//input")));
+
+        JavascriptExecutor js= (JavascriptExecutor) driver;
+        js.executeScript("arguments[1].value = arguments[0]; ", cardNum, inputField);
+//driver.findElement(By.xpath("(//div[@class='cardNumberInput input top'])//input")).sendKeys("4242424242424242");
+//Thread.sleep(6000);
+//mywait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("(//div[@class='cardNumberInput input top'])//input")))).sendKeys("4242 4242 4242 4242");
+//     driver.findElement(By.id("cc-exp")).sendKeys("09/25");
+        String cExp= "09/25 ";
+        WebElement inputField1= driver.findElement(By.id("cc-exp"));
+        JavascriptExecutor js1= (JavascriptExecutor) driver;
+        js1.executeScript("arguments[1].value = arguments[0]; ", cExp, inputField1);
+        driver.findElement(By.id("cc-csc")).sendKeys("234");
      driver.findElement(By.xpath("(//div[@class='inner'])[2]")).click();
-     System.out.println("enetred alla the card details and submit ");
+     System.out.println("entered the card details and submit ");
     }
     @Then("user should get successful message on ORDER CONFIRMATION page")
     public void user_should_get_successful_message_on_order_confirmation_page() {
-    String EX_ur = "https://www.hanumanhindutemple.org/test_mode/thank-you-ord.php";
-    String Act_ur = driver.getCurrentUrl();
-    Assert.assertEquals(EX_ur , Act_ur);
-    System.out.println("Payment successful");
+    String EX_H = "Thank You For Placing Order In Online.";
+    WebElement H = driver.findElement(By.xpath("(//div[@class='container']//h2)[2]"));
+    String Act_H = H.getText();
+    Assert.assertEquals(EX_H , Act_H);
+    System.out.println("Payment Successful");
+    driver.quit();
+
     }
 
 
