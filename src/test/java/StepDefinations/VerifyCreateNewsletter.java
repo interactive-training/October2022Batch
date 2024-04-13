@@ -36,7 +36,7 @@ public class VerifyCreateNewsletter {
     public void user_enters_email_address() throws InterruptedException {
         //Enter Email Address
         WebElement elmEmailAddress = driver.findElement(By.xpath("//input[@id='emailaddress']"));
-        elmEmailAddress.sendKeys("raj321@gmail.com");
+        elmEmailAddress.sendKeys("testsharma123@gmail.com");
         Thread.sleep(2000);
 
     }
