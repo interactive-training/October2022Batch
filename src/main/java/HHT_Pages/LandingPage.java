@@ -42,4 +42,13 @@ public class LandingPage {
         driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[3]")).click();
         System.out.println("clicked on news");
     }
+    public void clickDonations(){
+        driver.findElement(By.linkText("DONATIONS")).click();
+        System.out.println("Clicked on Donations");
+    }
+    public void clickLogOut(){
+        driver.findElement(By.partialLinkText("Logout")).click();
+        System.out.println("User Logged out");
+
+    }
 }

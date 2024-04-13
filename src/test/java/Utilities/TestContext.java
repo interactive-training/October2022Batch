@@ -39,6 +39,13 @@ public class TestContext {
     private News_ViewNewsDetailsPage news_viewNewsDetailsPage;
     private News_EditNewsDetailsPage news_editNewsDetailsPage;
 
+// Payment variables
+    private DonationsPage donationsPage;
+    private DonationsDetailsPage donationsDetailsPage;
+    private DonationsProductDetailsPage donationsProductDetailsPage;
+    private ShoppingCartPage shoppingCartPage;
+    private PaymentPage paymentPage;
+    private OrderConfirmationPage orderConfirmationPage;
 
     // Methods for creating a new driver or passing the previous one to the next page
     public LoginPage getLoginPage() {
@@ -136,6 +143,43 @@ public class TestContext {
             news_editNewsDetailsPage = new News_EditNewsDetailsPage(driver);
         }
         return news_editNewsDetailsPage;
+    }
+    // Calling Payment Pages
+    public DonationsPage getDonationsPage(){
+        if(donationsPage == null){
+            donationsPage = new DonationsPage(driver);
+        }
+        return donationsPage;
+    }
+    public DonationsDetailsPage getDonationsDetailsPage(){
+        if(donationsDetailsPage == null){
+            donationsDetailsPage = new DonationsDetailsPage(driver);
+        }
+        return donationsDetailsPage;
+    }
+    public DonationsProductDetailsPage getDonationsProductDetailsPage(){
+        if(donationsProductDetailsPage == null){
+            donationsProductDetailsPage = new DonationsProductDetailsPage(driver);
+        }
+        return donationsProductDetailsPage;
+    }
+    public ShoppingCartPage getShoppingCartPage(){
+        if(shoppingCartPage == null){
+            shoppingCartPage = new ShoppingCartPage(driver);
+        }
+        return shoppingCartPage;
+    }
+    public PaymentPage getPaymentPage(){
+        if(paymentPage == null){
+            paymentPage = new PaymentPage(driver);
+        }
+        return paymentPage;
+    }
+    public OrderConfirmationPage getOrderConfirmationPage(){
+        if(orderConfirmationPage == null){
+            orderConfirmationPage = new OrderConfirmationPage(driver);
+        }
+        return orderConfirmationPage;
     }
 
     //Initialising the driver
