@@ -208,7 +208,6 @@ if (Title.equals(PoojaTitle)) {
    driver.findElement(By.name("save")).click();
    System.out.println("Edit and submitted");
     }
-
     @Then("Pooja Title should be edited")
     public void poojaTitleShouldBeEdited() {
      String e ="https://www.hanumanhindutemple.org/test_mode/adm_hht9m8a4s2/poojas.php";
@@ -216,8 +215,6 @@ if (Title.equals(PoojaTitle)) {
      Assert.assertEquals(e,a);
      System.out.println("Edited successfully");
     }
-
-
 }
 
 
