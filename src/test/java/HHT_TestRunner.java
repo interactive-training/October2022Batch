@@ -3,11 +3,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features/CRUD_Event.feature",
+        features= "src/test/java/HHT_features",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,
-        tags = "@events-end-end",
+        //tags = "news",//"@events-end-end",
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
                 "rerun:target/failed_scenarios.txt",

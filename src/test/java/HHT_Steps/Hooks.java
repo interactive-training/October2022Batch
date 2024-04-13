@@ -16,8 +16,9 @@ public class Hooks {
     }
 
     @Before
-    public void setUp() throws IOException {
-        this.driver = testContext.intializeDriver();
+    @Before
+    public void setup() throws IOException {
+        this.driver = testContext.getDriver();
         System.out.println(driver.getTitle());
     }
 

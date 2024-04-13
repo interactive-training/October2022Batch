@@ -18,6 +18,9 @@ public class CalendarPage {
         this.driver = driver;
     }
 
+    //By variables
+    By numberOfTitlesInCalendar = By.xpath("//tbody/tr/td[3]/div/p/a");
+
     public boolean verifyCalendarPage() {
         return driver.findElement(By.xpath("(//div[@class='container'])[4]/h2")).isDisplayed();
     }
@@ -55,5 +58,8 @@ public class CalendarPage {
             }
         }
         //System.out.println("Event is not present in the Calendar.");
+    }
+    public List<WebElement> getNumberofTitlesInCalendar(){
+        return driver.findElements(numberOfTitlesInCalendar);
     }
 }

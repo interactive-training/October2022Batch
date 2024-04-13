@@ -10,22 +10,34 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class TestContext {
     private WebDriver driver;
+    public Map<Long, WebDriver> webDriverObjects = new HashMap<>();
     private Properties prop;
-    // Page variables
+    // Front-end Page variables
     private LoginPage loginPage;
-    private AdminEventsPage adminEventsPage;
     private EventsPage eventsPage;
-    private AdministrationPanelPage administrationPanelPage;
     private LandingPage landingPage;
     private CalendarPage calendarPage;
+    private NewsPage newsPage;
+
+    // Admin Event variables
+    private AdministrationPanelPage administrationPanelPage;
+    private AdminEventsPage adminEventsPage;
     private CreateEventsPage createEventsPage;
     private EditEventsPage editEventsPage;
     private ViewEventsPage viewEventsPage;
     private DeleteEventsPage deleteEventsPage;
+
+// Admin News variables
+    private NewsDetailsPage newsDetailsPage;
+    private News_AddNewsDetailsPage news_addNewsDetailsPage;
+    private News_ViewNewsDetailsPage news_viewNewsDetailsPage;
+    private News_EditNewsDetailsPage news_editNewsDetailsPage;
 
 
     // Methods for creating a new driver or passing the previous one to the next page
@@ -54,6 +66,12 @@ public class TestContext {
             eventsPage = new EventsPage(driver);
         }
         return eventsPage;
+    }
+    public NewsPage getNewsPage(){
+        if(newsPage == null){
+            newsPage = new NewsPage(driver);
+        }
+        return newsPage;
     }
     public LandingPage getLandingPage(){
         if(landingPage == null){
@@ -93,8 +111,43 @@ public class TestContext {
         }
         return deleteEventsPage;
     }
-    //Initialising the driver
+    // Calling News Pages
+    public NewsDetailsPage getNewsDetailsPage(){
+        if(newsDetailsPage == null){
+            newsDetailsPage = new NewsDetailsPage(driver);
+        }
+        return newsDetailsPage;
+    }
 
+    public News_AddNewsDetailsPage getNews_addNewsDetailsPage(){
+        if(news_addNewsDetailsPage == null){
+            news_addNewsDetailsPage = new News_AddNewsDetailsPage(driver);
+        }
+        return news_addNewsDetailsPage;
+    }
+    public News_ViewNewsDetailsPage getNews_viewNewsDetailsPage(){
+        if(news_viewNewsDetailsPage == null){
+            news_viewNewsDetailsPage = new News_ViewNewsDetailsPage(driver);
+        }
+        return news_viewNewsDetailsPage;
+    }
+    public News_EditNewsDetailsPage getNews_editNewsDetailsPage(){
+        if(news_editNewsDetailsPage == null){
+            news_editNewsDetailsPage = new News_EditNewsDetailsPage(driver);
+        }
+        return news_editNewsDetailsPage;
+    }
+
+    //Initialising the driver
+    public WebDriver getDriver() throws IOException {             //?
+        if (driver == null) {
+            WebDriver d = intializeDriver();
+            webDriverObjects.put(Thread.currentThread().getId(), d);
+            return webDriverObjects.get(Thread.currentThread().getId());
+
+        } else
+            return webDriverObjects.get(Thread.currentThread().getId());
+    }
     public WebDriver intializeDriver() throws IOException {
         // Reading Properties file
         prop = new Properties();

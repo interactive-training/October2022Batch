@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class CRUD_EventStep {
-    WebDriver driver;
+    //WebDriver driver;
     TestContext testContext;
 
     // this constructor will load the contents of the TestContext class which can be accessed through its object.
@@ -38,10 +38,10 @@ public class CRUD_EventStep {
 
     @Then("user should get in to the Administration Panel")
     public void userShouldGetInToTheAdministrationPanel() {
-        testContext.getAdministrationPanelPage().welcomeLogin();
-//        String expectedTitle = "Hanuman Hindu Temple";
-//        String actualTitle = testContext.getTitle();
-//        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
+        //testContext.getAdministrationPanelPage().welcomeLogin();
+        String expectedTitle = "Hanuman Hindu Temple";
+        String actualTitle = testContext.getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
         System.out.println("Administration Panel page");
     }
 
@@ -211,7 +211,7 @@ public class CRUD_EventStep {
     @And("the user should not find the deleted Event {string} in Events")
     public void theUserShouldNotFindTheDeletedEvent(String EventTitle) {
         // Front-end verification of deleted event on the Event's Page
-        List<WebElement> titleElements = driver.findElements(By.xpath("//p[@class='quote-author']"));
+        List<WebElement> titleElements = testContext.getEventsPage().getNumberofTitlesInEvents();
         System.out.println(titleElements.size());
         //int title_Elements = titleElements.size() -1;
 
@@ -230,7 +230,7 @@ public class CRUD_EventStep {
     // Front-end verification of deleted event on the Calendar's Page
     @And("the user should not find the deleted Event {string} in Calendar")
     public void theUserShouldNotFindTheDeletedEventInCalendar(String EventTitle) {
-        List<WebElement> titleElements = driver.findElements(By.xpath("//tbody/tr/td[3]/div/p/a"));
+        List<WebElement> titleElements = testContext.getCalendarPage().getNumberofTitlesInCalendar();
         System.out.println(titleElements.size());
 
         for (int n = 0; n < titleElements.size(); n++) {
@@ -242,7 +242,6 @@ public class CRUD_EventStep {
             }
         }
         System.out.println("This event does not exist in the Calendar.");
-        driver.quit();
     }
 
 

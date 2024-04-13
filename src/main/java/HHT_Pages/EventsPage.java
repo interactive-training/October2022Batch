@@ -1,6 +1,5 @@
 package HHT_Pages;
 
-import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -20,6 +19,8 @@ public class EventsPage {
     }
     // By variables
     By eventsTitleElementsBy = By.xpath("(//div[@class='events_main'])/p[3]");
+
+    By numberOfTitlesInEvents = By.xpath("//p[@class='quote-author']");
 
     //Page Methods
     public String eventsPageHeading(){
@@ -60,4 +61,8 @@ public class EventsPage {
     public String verifyEventTitleOnPage(){
         return driver.findElement(By.xpath("//div[@class='gurumid']/div[2]/h4")).getText();
     }
+    public List<WebElement> getNumberofTitlesInEvents(){
+        return driver.findElements(numberOfTitlesInEvents);
+    }
+
 }

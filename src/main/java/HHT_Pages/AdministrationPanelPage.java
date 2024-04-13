@@ -25,6 +25,12 @@ public class AdministrationPanelPage {
         WebElement events = driver.findElement(EventsBy);  // Finding the Events
         events.click();
     }
+    public void clickCMSthenNews(){
+        Actions actions = new Actions(driver);
+        WebElement cms = driver.findElement(By.linkText("CMS"));
+        actions.moveToElement(cms).perform();
+        driver.findElement(By.linkText("NEWS")).click();
+    }
 
     public Boolean welcomeLogin() {
         return driver.findElement(By.xpath("//span[@class='welcome']")).isDisplayed();

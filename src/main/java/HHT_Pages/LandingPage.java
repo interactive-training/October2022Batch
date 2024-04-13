@@ -37,4 +37,9 @@ public class LandingPage {
         WebElement events = driver.findElement(By.xpath("(//ul[@class='dropdown-menu'])[2]/li[1]/a"));  // By.xpath("(//a[@href='events_web.php'])[1]")      Finding the Events
         action.moveToElement(events).click().perform();
     }
+
+    public void clickNews(){
+        driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[3]")).click();
+        System.out.println("clicked on news");
+    }
 }
