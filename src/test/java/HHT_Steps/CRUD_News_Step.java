@@ -85,7 +85,7 @@ public class CRUD_News_Step {
     }
 
 
-    @And("clicks Submit button")
+    @And("clicks the Submit button")
     public void clicksSubmitButton() {
         testContext.getNews_addNewsDetailsPage().clickSubmitButton();
     }
@@ -158,13 +158,13 @@ public class CRUD_News_Step {
         testContext.getNews_editNewsDetailsPage().editNews(Editfield,EditInfo);
     }
 
-    @And("clicks Submit button on Edit Page")
-    public void clicksSubmitButtonOnEditPage() {
-        testContext.getNews_editNewsDetailsPage().clickSubmitButton();
-    }
+//    @And("clicks Submit button on Edit Page")
+//    public void clicksSubmitButtonOnEditPage() {
+//        testContext.getNews_editNewsDetailsPage().clickSubmitButton();
+//    }
 
-    @Then("user should see the message {string}")
-    public void userShouldSeeTheMessage(String expectedmsg) {
+    @Then("user should see the News message {string}")
+    public void userShouldSeeTheNewsMessage(String expectedmsg) {
         String actualmsg= testContext.getNewsDetailsPage().verifyNewsAlert();
         Assert.assertEquals(expectedmsg,actualmsg);
         System.out.println("Edited News is verified successfully");

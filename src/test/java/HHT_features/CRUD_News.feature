@@ -13,7 +13,7 @@ Feature:News
     When User clicks on Add News button
     Then user should get Add News Details page
    When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
-    And clicks Submit button
+    And clicks the Submit button
     Then the News should be added successfully.
 #Front end verification for created News
     When user launches the given url
@@ -26,13 +26,13 @@ Feature:News
      # |SriRama Navami News|Abhishekam in the evening      |
       #|Ugadi News |Annadaanam in the evening      |
 
-#  Scenario: Add new News with a picture.
-#    When user enters the details for all the mandatory fields
-#    And adds a picture
-#    And clicks Submit button
-#    Then News should be created successfully.
+  Scenario: Add new News with a picture.
+    When user enters the details for all the mandatory fields
+    And adds a picture
+    And clicks Submit button
+    Then News should be created successfully.
 
-#  View the News
+  View the News
   Scenario Outline: Viewing News
     When user clicks on View of "<NewsTitle>"
     Then user should get View details page
@@ -46,7 +46,7 @@ Feature:News
       Then user should be in the Edit News Details Page
       When user edits the "<Editfield>" with "<EditInfo>"
       And clicks Submit button on Edit Page
-      Then user should see the message "News details updated successfully"
+      Then user should see the News message "News details updated successfully"
 #      ********-----Front end verification-------********
 #      When user launches the given url "https://www.hanumanhindutemple.org/test_mode/index.php"
 #    Then user should be on the Home Page

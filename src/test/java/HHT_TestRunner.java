@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,
-        //tags = "news",//"@events-end-end",
+        //tags = "@createEvent", //"@events",//"@events-end-end",
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
                 "rerun:target/failed_scenarios.txt",

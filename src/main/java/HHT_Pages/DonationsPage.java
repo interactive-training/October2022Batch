@@ -30,5 +30,8 @@ public class DonationsPage {
             }
         }
     }
+    public Boolean verifyDonationsHeader(){
+        return driver.findElement(By.xpath("//h2[text()='Donations']")).isDisplayed();
+    }
 
 }

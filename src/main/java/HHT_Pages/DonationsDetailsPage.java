@@ -15,8 +15,8 @@ public class DonationsDetailsPage {
     // By variables
 
     //Page Methods
-    public String verifyDonationDetailsHeader(){
-        return driver.findElement(By.xpath("(//div[@class='container'])[4]")).getText();
+    public Boolean verifyDonationDetailsHeader(){
+        return driver.findElement(By.xpath("//h2[text()='Donation Details']")).isDisplayed();
     }
     public void clickAddToCartButton(){
         driver.findElement(By.linkText("ADD TO CART")).click();

@@ -19,5 +19,8 @@ public class ShoppingCartPage {
         driver.findElement(By.partialLinkText("Checkout")).click();
         System.out.println("Clicked on Checkout");
     }
+    public Boolean verifyCartItemsHeader(){
+        return driver.findElement(By.xpath("//h2[text()='Cart Items']")).isDisplayed();
+    }
 
 }

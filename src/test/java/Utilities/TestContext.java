@@ -24,6 +24,8 @@ public class TestContext {
     private LandingPage landingPage;
     private CalendarPage calendarPage;
     private NewsPage newsPage;
+    private CommonMethods commonMethods;
+    private MyAccountPage myAccountPage;
 
     // Admin Event variables
     private AdministrationPanelPage administrationPanelPage;
@@ -68,6 +70,12 @@ public class TestContext {
         }
         return adminEventsPage;
     }
+    public MyAccountPage getMyAccountPage() {
+        if (myAccountPage == null) {
+            myAccountPage = new MyAccountPage(driver);
+        }
+        return myAccountPage;
+    }
     public EventsPage getEventsPage(){
         if(eventsPage == null){
             eventsPage = new EventsPage(driver);
@@ -92,6 +100,13 @@ public class TestContext {
         }
         return calendarPage;
     }
+    public CommonMethods getCommonMethods(){
+        if(commonMethods == null){
+            commonMethods = new CommonMethods(driver);
+        }
+        return commonMethods;
+    }
+    //Calling Event Pages
     public CreateEventsPage getCreateEventsPage(){
         if(createEventsPage == null){
             createEventsPage = new CreateEventsPage(driver);
@@ -183,13 +198,15 @@ public class TestContext {
     }
 
     //Initialising the driver
-    public WebDriver getDriver() throws IOException {             //?
+    public WebDriver getDriver() throws IOException {
         if (driver == null) {
             WebDriver d = intializeDriver();
             webDriverObjects.put(Thread.currentThread().getId(), d);
+            System.out.println("Thread id:"+ Thread.currentThread().getId());
             return webDriverObjects.get(Thread.currentThread().getId());
 
         } else
+            System.out.println("Thread id:"+ Thread.currentThread().getId());
             return webDriverObjects.get(Thread.currentThread().getId());
     }
     public WebDriver intializeDriver() throws IOException {

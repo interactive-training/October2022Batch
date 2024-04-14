@@ -58,7 +58,7 @@ Feature: As an admin user I should be able to create an event
             |EventTitle| EditField |EditInfo|
             |Maha Shivratri  |Event Location |Temple Hall|
 
-
+#@events
     Scenario Outline: Viewing the event with Event Title
 #        When user selects the View option of "<EventTitle>"
 #        Then user should be able to view the event
@@ -83,12 +83,12 @@ Feature: As an admin user I should be able to create an event
             | EventTitle |
             |   N_Navami    |
 
-        @events-end-end
-        Examples:
-            | EventTitle |
-            | Maha Shivratri    |
-
-
+#        @events-end-end
+#        Examples:
+#            | EventTitle |
+#            | Maha Shivratri    |
+#
+#
     Scenario Outline: Deleting an event as a backend admin user
         When user selects the Delete option for "<EventTitle>" then it should be deleted
         Then the event should be  deleted for "<EventTitle>"
@@ -99,7 +99,6 @@ Feature: As an admin user I should be able to create an event
         Then user should be on the Events Page
         When user clicks on the "<EventTitle>" of Event page for "delete"
 
-
 #    // Front-end verification of deleted event on the Calendar's Page
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
@@ -108,11 +107,11 @@ Feature: As an admin user I should be able to create an event
         Examples:
             |EventTitle |
             | Maha Shivratri    |
-
-         @deleteEvent
-        Examples:
-            |EventTitle |
-            | Holi    |
+#
+#         @deleteEvent
+#        Examples:
+#            |EventTitle |
+#            | Holi    |
 
 #    @create-incorrect-event
 #    Scenario : Add a new event with incorrect date

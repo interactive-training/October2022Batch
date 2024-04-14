@@ -36,3 +36,4 @@ public class AdministrationPanelPage {
         return driver.findElement(By.xpath("//span[@class='welcome']")).isDisplayed();
     }
 }
+//a[@href='index.php']

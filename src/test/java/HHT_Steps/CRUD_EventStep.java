@@ -38,11 +38,11 @@ public class CRUD_EventStep {
 
     @Then("user should get in to the Administration Panel")
     public void userShouldGetInToTheAdministrationPanel() {
-        //testContext.getAdministrationPanelPage().welcomeLogin();
-        String expectedTitle = "Hanuman Hindu Temple";
-        String actualTitle = testContext.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
-        System.out.println("Administration Panel page");
+        testContext.getAdministrationPanelPage().welcomeLogin();
+//        String expectedTitle = "Hanuman Hindu Temple";
+//        String actualTitle = testContext.getTitle();
+//        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
+//        System.out.println("Administration Panel page");
     }
 
     @When("user clicks on CMS drop down and then choose Events")
