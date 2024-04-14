@@ -29,7 +29,8 @@ public class AdministrationPanelPage {
         Actions actions = new Actions(driver);
         WebElement cms = driver.findElement(By.linkText("CMS"));
         actions.moveToElement(cms).perform();
-        driver.findElement(By.linkText("NEWS")).click();
+        WebElement news = driver.findElement(By.linkText("NEWS"));
+        news.click();
     }
 
     public Boolean welcomeLogin() {

@@ -1,8 +1,5 @@
 Feature: Payment module
 
-#Background: Below steps are common
-#  Given user launches url
-
   Scenario Outline: Verify cart functionality by adding from Donations page
     When user launches the given url
     Then user should be on the Landing Page

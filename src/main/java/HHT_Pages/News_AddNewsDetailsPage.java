@@ -15,7 +15,9 @@ public class News_AddNewsDetailsPage {
     }
 
     // By Variables
-
+    public Boolean verifyAddNewsDetailsHeader(){
+        return driver.findElement(By.xpath("//h1[text()='Add News Details']")).isDisplayed();
+    }
     public void addNews(String NewsTitle, String NewsContent){
         WebElement NT = driver.findElement(By.name("title"));
         NT.sendKeys(NewsTitle);
@@ -30,8 +32,6 @@ public class News_AddNewsDetailsPage {
         driver.findElement(By.xpath("/html/body")).sendKeys(NewsContent);
         driver.switchTo().defaultContent();
     }
-    public void clickSubmitButton(){
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
 
-    }
+
 }

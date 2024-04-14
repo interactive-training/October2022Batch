@@ -1,17 +1,11 @@
 package HHT_Steps;
-import HHT_Pages.LoginPage;
 import Utilities.TestContext;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -27,7 +21,6 @@ public class CRUD_EventStep {
     // ------------------------------------------Background Steps--------------------------------------------------
     @When("user launches the URL as {string}")
     public void the_admin_user_launches_the_URL(String admin) throws IOException {
-        //testContext.intializeDriver();
         testContext.getLoginPage().getAdminURL(admin);
     }
 
@@ -39,10 +32,7 @@ public class CRUD_EventStep {
     @Then("user should get in to the Administration Panel")
     public void userShouldGetInToTheAdministrationPanel() {
         testContext.getAdministrationPanelPage().welcomeLogin();
-//        String expectedTitle = "Hanuman Hindu Temple";
-//        String actualTitle = testContext.getTitle();
-//        Assert.assertEquals(actualTitle, expectedTitle, "Url did not match");
-//        System.out.println("Administration Panel page");
+        System.out.println("Administration Panel page");
     }
 
     @When("user clicks on CMS drop down and then choose Events")
@@ -166,7 +156,6 @@ public class CRUD_EventStep {
     @When("user selects the View option of {string}")
     public void userSelectsTheViewOption(String EventTitle) {
         testContext.getViewEventsPage().viewEvent(EventTitle);
-
     }
 
     @Then("user should be able to view the event")
@@ -243,8 +232,6 @@ public class CRUD_EventStep {
         }
         System.out.println("This event does not exist in the Calendar.");
     }
-
-
 }
 
 //    //-----------------------------Edit Event Front-End Verification------------------------------------------------------------------------

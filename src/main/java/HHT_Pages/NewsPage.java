@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 public class NewsPage {
     public static final Logger log = LogManager.getLogger(NewsPage.class.getName());
-
     WebDriver driver;
 
     public NewsPage(WebDriver driver){
@@ -15,7 +14,7 @@ public class NewsPage {
     }
     // By variables
 
-    public String verifyNews(){
+    public String verifyNewsTitle(){
         return driver.findElement(By.xpath("(//div[@class='news_main'])[1]/p/a")).getText();
     }
 }

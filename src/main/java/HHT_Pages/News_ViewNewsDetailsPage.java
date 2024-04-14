@@ -15,8 +15,8 @@ public class News_ViewNewsDetailsPage {
 // By variables
 
 // Methods
-    public String verifyViewNewsDetailsHeader(){
-        return driver.findElement(By.xpath("(//div[@id='bar']/h1)")).getText();
+    public Boolean verifyViewNewsDetailsHeader(){
+        return driver.findElement(By.xpath("(//div[@id='bar']/h1)")).isDisplayed();
     }
 
 }

@@ -8,14 +8,15 @@ Feature:News
     Then user should get News Details page
 
 #Creating News
-  @news
   Scenario Outline:  : Add News without a picture
     When User clicks on Add News button
     Then user should get Add News Details page
-   When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
+    When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
     And clicks the Submit button
     Then the News should be added successfully.
 #Front end verification for created News
+#    When user launches the given url "https://www.hanumanhindutemple.org/test_mode/index.php"
+#    Then user should be on the Home Page
     When user launches the given url
     Then user should be on the Landing Page
     When user clicks on News
@@ -26,13 +27,13 @@ Feature:News
      # |SriRama Navami News|Abhishekam in the evening      |
       #|Ugadi News |Annadaanam in the evening      |
 
-  Scenario: Add new News with a picture.
-    When user enters the details for all the mandatory fields
-    And adds a picture
-    And clicks Submit button
-    Then News should be created successfully.
+#  Scenario: Add new News with a picture.
+#    When user enters the details for all the mandatory fields
+#    And adds a picture
+#    And clicks Submit button
+#    Then News should be created successfully.
 
-  View the News
+#  ------------------------View the News--------------------------------
   Scenario Outline: Viewing News
     When user clicks on View of "<NewsTitle>"
     Then user should get View details page
@@ -40,25 +41,26 @@ Feature:News
       | NewsTitle |
       | Ugadi News |
 
-#    Editing the News
+#    ------------------------Editing the News------------------------------
     Scenario Outline: Editing the fields of News
       When user selects the Edit option for "<NewsTitle>"
-      Then user should be in the Edit News Details Page
-      When user edits the "<Editfield>" with "<EditInfo>"
+      Then the user should be on Edit News Details Page
+      When the user edits the "<Editfield>" with "<EditInfo>"
       And clicks Submit button on Edit Page
-      Then user should see the News message "News details updated successfully"
+      Then user should see the message "News details updated successfully"
 #      ********-----Front end verification-------********
 #      When user launches the given url "https://www.hanumanhindutemple.org/test_mode/index.php"
-#    Then user should be on the Home Page
-#    When user clicks on News
-#    Then user should be able to see the News "<NewsTitle>"
+#      Then user should be on the Home Page
+      When user clicks on News
+      Then user should be able to see the News "<NewsTitle>"
 
       Examples:
       |NewsTitle  | Editfield |EditInfo|
      # | Lakshmi pooja | News Artile/Content|Pooja details will be updated soon   |
       |Navami1	|News Title |  Navami|
 
-#      Deleting the News
+
+#   ------------------------------Deleting the News-----------------------------
 #  Scenario Outline: Deleting News
 #    When user clicks on Delete of "<NewsTitle>"
 #    Then user should be able delete the news

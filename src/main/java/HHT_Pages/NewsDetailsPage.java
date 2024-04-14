@@ -18,6 +18,10 @@ public class NewsDetailsPage {
 
     // By Variables
 
+    public Boolean verifyNewsDetailsHeader(){
+        return driver.findElement(By.xpath("//h1[text()='News Details']")).isDisplayed();
+    }
+
     public void clickAddNews(){
         driver.findElement(By.linkText("Add News")).click();
     }
@@ -57,8 +61,8 @@ public class NewsDetailsPage {
             }
         }
     }
-    public String verifyNewsAlert(){
-        return driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+    public Boolean verifyNewsAlert(){
+        return driver.findElement(By.xpath("//div[@class='error_msg']")).isDisplayed();
     }
 
     public void clickDeleteNews(String NewsTitle){
