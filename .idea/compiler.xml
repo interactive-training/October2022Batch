@@ -6,9 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="October2022Batch" />
+=======
+>>>>>>> HHT-FINAL-PROJECT
         <module name="HHT" />
         <module name="TestNG" />
+        <module name="TestAutomationTraining" />
       </profile>
     </annotationProcessing>
   </component>
