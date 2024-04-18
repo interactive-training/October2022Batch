@@ -14,8 +14,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies>
-<<<<<<< HEAD
+
+    <dependencies>
 
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
@@ -37,31 +37,25 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-testng</artifactId>
       <version>7.14.0</version>
-=======
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
->>>>>>> HHT-FINAL-PROJECT
+
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-<<<<<<< HEAD
-      <version>4.17.0</version>
-=======
-      <version>4.16.1</version>
->>>>>>> HHT-FINAL-PROJECT
+        <version>4.17.0</version>
+
     </dependency>
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>7.14.0</version>
-    </dependency>
-<<<<<<< HEAD
+
+
 
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
     <dependency>
@@ -72,17 +66,7 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
-=======
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
->>>>>>> HHT-FINAL-PROJECT
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-testng</artifactId>
-      <version>7.14.0</version>
-    </dependency>
-
-
-<<<<<<< HEAD
+=
 <!--    <dependency>-->
 <!--      <groupId>com.aventstack</groupId>-->
 <!--      <artifactId>extentreports</artifactId>-->
@@ -122,14 +106,14 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.5</version>
-=======
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    </dependency>
+
+     https://mvnrepository.com/artifact/org.testng/testng
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.7.1</version>
       <scope>test</scope>
->>>>>>> HHT-FINAL-PROJECT
     </dependency>
 
   </dependencies>
