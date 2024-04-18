@@ -41,4 +41,4 @@ Feature: My Account Dashboard
 
   Scenario: Verify Logout button
     When user clicks on Logout button
-    Then user should naviagte to My Account existing member pag
+    Then user should naviagte to My Account existing member page
