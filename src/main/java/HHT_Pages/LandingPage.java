@@ -42,6 +42,11 @@ public class LandingPage {
         driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[3]")).click();
         System.out.println("clicked on news");
     }
+    public void clickPoojas(){
+        driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[5]")).click();
+        System.out.println("clicks on Poojas");
+    }
+
     public void clickDonations(){
         driver.findElement(By.linkText("DONATIONS")).click();
         System.out.println("Clicked on Donations");

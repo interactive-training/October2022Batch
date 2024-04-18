@@ -49,6 +49,14 @@ public class TestContext {
     private PaymentPage paymentPage;
     private OrderConfirmationPage orderConfirmationPage;
 
+    //Pooja variables
+    private PoojaDetailsPage poojaDetailsPage;
+    private Poojas_AddPoojasDetailsPage poojas_addPoojasDetailsPage;
+    private PoojaServicesPage poojaServicesPage;
+    private RegularPoojasPage regularPoojasPage;
+    private SpecialPoojasPage specialPoojasPage;
+    private Poojas_ViewPoojasDetails poojas_viewPoojasDetails;
+
     // Methods for creating a new driver or passing the previous one to the next page
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -196,6 +204,44 @@ public class TestContext {
         }
         return orderConfirmationPage;
     }
+    // Calling Pooja Pages
+    public PoojaDetailsPage getPoojaDetailsPage(){
+        if(poojaDetailsPage == null){
+            poojaDetailsPage = new PoojaDetailsPage(driver);
+        }
+        return poojaDetailsPage;
+    }
+
+    public Poojas_AddPoojasDetailsPage getPoojas_addPoojasDetailsPage(){
+        if(poojas_addPoojasDetailsPage == null){
+            poojas_addPoojasDetailsPage = new Poojas_AddPoojasDetailsPage(driver);
+        }
+        return poojas_addPoojasDetailsPage;
+    }
+    public PoojaServicesPage getPoojaServicesPage(){
+        if(poojaServicesPage == null){
+            poojaServicesPage = new PoojaServicesPage(driver);
+        }
+        return poojaServicesPage;
+    }
+    public RegularPoojasPage getRegularPoojasPage(){
+        if(regularPoojasPage == null){
+            regularPoojasPage = new RegularPoojasPage(driver);
+        }
+        return regularPoojasPage;
+    }
+    public SpecialPoojasPage getSpecialPoojasPage(){
+        if(specialPoojasPage == null){
+            specialPoojasPage = new SpecialPoojasPage(driver);
+        }
+        return specialPoojasPage;
+    }
+    public Poojas_ViewPoojasDetails getPoojas_viewPoojasDetails(){
+        if(poojas_viewPoojasDetails == null){
+            poojas_viewPoojasDetails = new Poojas_ViewPoojasDetails(driver);
+        }
+        return poojas_viewPoojasDetails;
+    }
 
     //Initialising the driver
     public WebDriver getDriver() throws IOException {
@@ -209,6 +255,7 @@ public class TestContext {
             System.out.println("Thread id:"+ Thread.currentThread().getId());
             return webDriverObjects.get(Thread.currentThread().getId());
     }
+
     public WebDriver intializeDriver() throws IOException {
         // Reading Properties file
         prop = new Properties();

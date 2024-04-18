@@ -3,6 +3,7 @@ package HHT_Pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -31,6 +32,12 @@ public class News_AddNewsDetailsPage {
         driver.switchTo().frame(Frame2);
         driver.findElement(By.xpath("/html/body")).sendKeys(NewsContent);
         driver.switchTo().defaultContent();
+        System.out.println("Entered news information.");
+    }
+    public void clickSubmitButton(){
+        JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
+        jse.executeScript("document.querySelector(\"input[value='Submit']\").click();");
+        System.out.println("Clicked Submit");
     }
 
 

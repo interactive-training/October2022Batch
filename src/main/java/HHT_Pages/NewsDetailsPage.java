@@ -3,6 +3,7 @@ package HHT_Pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -29,7 +30,7 @@ public class NewsDetailsPage {
     // click View on NewsDetails Page
     public void clickViewNews(String NewsTitle){
         List<WebElement> ViewElements = driver.findElements(By.xpath("//table//tr/td[2]"));
-        System.out.println(ViewElements.size());
+        System.out.println("Number of News Elements" + ViewElements.size());
 //      driver.findElement(By.xpath("//tr[2]/td[4]/a[1]")).click();
 
 //        if(ViewElements.contains(NewsTitle)){
@@ -80,5 +81,6 @@ public class NewsDetailsPage {
             }
         }
     }
+
 }
 

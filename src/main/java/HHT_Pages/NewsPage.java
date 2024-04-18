@@ -18,3 +18,4 @@ public class NewsPage {
         return driver.findElement(By.xpath("(//div[@class='news_main'])[1]/p/a")).getText();
     }
 }
+//div[@class='news_main']/p/a

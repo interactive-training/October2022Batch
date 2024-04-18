@@ -51,7 +51,7 @@ public class CRUD_News_Stepdefs {
     }
     @And("clicks the Submit button")
     public void clicksTheSubmitButton() {
-        testContext.getCommonMethods().clickSubmitButton();
+        testContext.getNews_addNewsDetailsPage().clickSubmitButton();
     }
 
     @Then("the News should be added successfully.")
@@ -116,13 +116,13 @@ public class CRUD_News_Stepdefs {
         testContext.getNews_editNewsDetailsPage().editNews(Editfield, EditInfo);
     }
 
-    @And("clicks Submit button on Edit Page")
-    public void clicksSubmitButtonOnEditPage() {
+    @When("clicks Submit button of Edit News Page")
+    public void clicks_submit_button_of_edit_news_page() {
         testContext.getCommonMethods().clickSubmitButton();
     }
 
-    @Then("user should see the message {string}")
-    public void userShouldSeeTheMessage(String expectedmsg) {
+    @Then("user should see message {string}")
+    public void userShouldSeeMessage(String expectedmsg) {
         String actualmsg= testContext.getCommonMethods().verifyMessage();
         Assert.assertEquals(expectedmsg,actualmsg);
         System.out.println("Edited News is verified successfully");
