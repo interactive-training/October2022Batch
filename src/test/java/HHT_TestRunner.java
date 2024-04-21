@@ -3,14 +3,14 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features",
+        features= "src/test/java/HHT_features/CRUD_Event.feature",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,
-        tags = "@viewPoojas",//"@editPoojas",//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+//        tags = "@viewPoojas",//"@editPoojas",//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
-                "rerun:target/failed_scenarios.txt",
+//                "rerun:target/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 // "com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
         }

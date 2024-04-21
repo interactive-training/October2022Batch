@@ -40,11 +40,12 @@ public class CRUD_Poojas_Stepdefs {
         System.out.println("Clicks on Add poojas");
     }
 
-    @Then("navigate to the ADD pooja page")
-    public void navigateToTheADDPoojaPage() {
-        testContext.getPoojas_addPoojasDetailsPage().verifyAddPoojaDetailsHeader();
-        System.out.println("on Add Poojas Details page ");
-    }
+    //commented by Pramod to fix - duplicate steps issue
+//    @Then("navigate to the ADD pooja page")
+//    public void navigateToTheADDPoojaPage() {
+//        testContext.getPoojas_addPoojasDetailsPage().verifyAddPoojaDetailsHeader();
+//        System.out.println("on Add Poojas Details page ");
+//    }
 
     @When("user enters all details for Pooja Type as {string} with {string}")
     public void userEntersAllDetailsFor(String PoojaServicesSection,String PoojaTitle, DataTable dataTable) {

@@ -19,3 +19,12 @@ We will implement to execute suite from maven command line.
 3. There are a default testng html report created in target folder.
 4. But we also implemented Extent report for a better user experience and detailed information with screenshot for failed tests.
 
+Change History
+============================
+
+
+V 1.1 - 
+----------
+Cleaned the duplicate methods issue, commented two files, ensure that no code is missing , later delete these files if not required.
+Updated Maven POM file with correct version of dependancies.
+
