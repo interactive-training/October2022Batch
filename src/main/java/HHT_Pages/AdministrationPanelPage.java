@@ -9,6 +9,7 @@ public class AdministrationPanelPage {
     WebDriver driver;
     // Constructor
     public AdministrationPanelPage(WebDriver driver) {
+
         this.driver = driver;
     }
 

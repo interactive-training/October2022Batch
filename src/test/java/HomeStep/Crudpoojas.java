@@ -196,9 +196,10 @@ if (Title.equals(PoojaTitle)) {
    if(Editfield.equals("Pooja Title")) {
     driver.findElement(By.xpath("((//table/tbody/tr[1]/td[2])[1]/input[@name='title'])")).clear();
           driver.findElement(By.xpath("((//table/tbody/tr[1]/td[2])[1]/input[@name='title'])")).sendKeys(editinfo);
-//          driver.findElement(By.xpath("//tr[5]/td[2]/input")).clear();
-//          driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(editinfo);
-//          driver.findElement(By.xpath("//tr[6]/td[2]/input")).clear();
+
+//           driver.findElement(By.xpath("//tr[5]/td[2]/input")).clear();
+//           driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(editinfo);
+//           driver.findElement(By.xpath("//tr[6]/td[2]/input")).clear();
 //          driver.findElement(By.xpath("//tr[6]/td[2]/input")).sendKeys(editinfo);
           System.out.println("Title edited");
       }
