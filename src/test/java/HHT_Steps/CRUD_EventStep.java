@@ -173,7 +173,7 @@ public class CRUD_EventStep {
         testContext.getEditEventsPage().editEventInfo(EventTitle,EditField,EditInfo);
     }
 
-    @And("clicks Submit button on Edit Page")
+    @And("clicks Submit button on Edit Page of events")
     public void clicksSubmitButtonOnEditPage() {
         testContext.getAdminEventsPage().clickSubmitButton();
     }

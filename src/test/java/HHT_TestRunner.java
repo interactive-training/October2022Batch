@@ -3,7 +3,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features/CRUD_Event.feature",
+        features= "src/test/java/HHT_features/CRUD_News.feature",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,

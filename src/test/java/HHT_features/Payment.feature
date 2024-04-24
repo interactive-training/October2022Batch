@@ -1,7 +1,7 @@
 Feature: Payment module
 
 Background: Below steps are common
-  Given user launches url
+  When user launches the given url
 
   Scenario Outline: Verify cart functionality by adding from Donations page
     Given user clicks on Donations link

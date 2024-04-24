@@ -34,8 +34,11 @@ public class News_AddNewsDetailsPage {
         driver.switchTo().defaultContent();
         System.out.println("Entered news information.");
     }
-    public void clickSubmitButton(){
+    public void clickTheSubmitButton(){
         JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
+        WebElement submit = driver.findElement(By.name("save"));
+        jse.executeScript("arguments[0].scrollIntoView();", submit);
+        //jse.executeScript(String.valueOf(submit)).click();
         jse.executeScript("document.querySelector(\"input[value='Submit']\").click();");
         System.out.println("Clicked Submit");
     }

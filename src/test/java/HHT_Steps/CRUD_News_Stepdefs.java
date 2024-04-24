@@ -49,9 +49,10 @@ public class CRUD_News_Stepdefs {
     public void userEntersDataInAllTheMandatoryFields(String NewsTitle, String NewsContent) {
         testContext.getNews_addNewsDetailsPage().addNews(NewsTitle, NewsContent);
     }
-    @And("clicks the Submit button")
-    public void clicksTheSubmitButton() {
-        testContext.getNews_addNewsDetailsPage().clickSubmitButton();
+    @When("clicks Submit button for News")
+    public void clicks_submit_button_for_news() {
+        //testContext.getCommonMethods().clickSubmitButton();
+         testContext.getNews_addNewsDetailsPage().clickTheSubmitButton();
     }
 
     @Then("the News should be added successfully.")
@@ -59,24 +60,7 @@ public class CRUD_News_Stepdefs {
         Assert.assertTrue(testContext.getNewsDetailsPage().verifyNewsAlert());
     }
 
-    // -----------------------Front-End Verification------------------------------------------------
-
-//    @When("user launches the given url {string}")
-//    public void userLaunchesTheGivenUrl(String validURL) {
-//        driver = new ChromeDriver();
-//        driver.get(validURL);
-//        driver.manage().window().maximize();
-//    }
-
-//    @Then("user should be on the Home Page")
-//    public void userShouldBeOnTheHomePage() {
-////        driver.manage().window().maximize();
-//        String expectedURL = "https://www.hanumanhindutemple.org/test_mode/index.php";
-//        String actualURL = driver.getCurrentUrl();
-//        Assert.assertEquals(actualURL, expectedURL, "User is on expected URL");
-//        System.out.println("homepage url verified");
-//    }
-
+    // -----------------------Front-End Verification-----------------------------------------------
 
     @When("user clicks on News")
     public void userClicksOnNews() {
@@ -142,6 +126,8 @@ public class CRUD_News_Stepdefs {
 //        Assert.assertEquals(A,E);
         System.out.println("News Deleted");
     }
+
+
 }
 
 
