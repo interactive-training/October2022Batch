@@ -19,7 +19,7 @@ public class PoojaDetailsPage {
     }
 // By variables
 
-    public Boolean verifyPoojaDetailsHeader(){
+    public Boolean verifyAddPoojaDetailsHeader(){
         return driver.findElement(By.xpath("//div[@id='bar']/h1")).isDisplayed();
     }
 

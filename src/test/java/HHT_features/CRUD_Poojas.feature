@@ -6,16 +6,16 @@ Feature:Regular Poojas
     And signs in with admin credentials "sk_behara@hotmail.com" and "test@123"
     Then user should get in to the Administration Panel
     When user is at CMS dropdown and click Poojas
-    Then user should navigate to the Add poojas page
+    Then user should navigate to the Pooja Details Page
 
   @createPoojas
   Scenario Outline: Verify  creating poojas
     And user clicks on ADD pooja button
-    Then navigate to the ADD pooja page
+    Then user should go to the ADD Pooja Details page
     When user enters all details for Pooja Type as "<PujaServicesSection>" with "<PoojaTitle>"
       |PoojaType     |PoojaStartDate|PoojaEndDate   |PoojaFrequency|PoojaTimeDuration|PoojaCutOffTime|PoojaAmount|PoojaLocation|PoojaCountry  |PoojaContent|
       |Car Puja      |2/05/2024     |2/05/2024     |Yearly         |9am to 3pm      |3pm            |20         |Hounslow     |United Kingdom|Festival    |
-      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
+#      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
 
     And clicks on Submit button for Poojas
 

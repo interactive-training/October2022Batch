@@ -28,9 +28,9 @@ public class CRUD_Poojas_Stepdefs {
         testContext.getAdministrationPanelPage().clickCMSthenPoojas();
     }
 
-    @Then("user should navigate to the Add poojas page")
+    @Then("user should navigate to the Pooja Details Page")
     public void userShouldNavigateToTheAddPoojasPage() {
-        Assert.assertTrue(testContext.getPoojaDetailsPage().verifyPoojaDetailsHeader());
+        Assert.assertTrue(testContext.getPoojaDetailsPage().verifyAddPoojaDetailsHeader());
         System.out.println("Pooja Details Page verified.");
     }
 
@@ -41,11 +41,11 @@ public class CRUD_Poojas_Stepdefs {
     }
 
     //commented by Pramod to fix - duplicate steps issue
-//    @Then("navigate to the ADD pooja page")
-//    public void navigateToTheADDPoojaPage() {
-//        testContext.getPoojas_addPoojasDetailsPage().verifyAddPoojaDetailsHeader();
-//        System.out.println("on Add Poojas Details page ");
-//    }
+    @Then("user should go to the ADD Pooja Details page")
+    public void navigateToTheADDPoojaPage() {
+        testContext.getPoojas_addPoojasDetailsPage().verifyAddPoojaDetailsHeader();
+        System.out.println("on Add Pooja Details page ");
+    }
 
     @When("user enters all details for Pooja Type as {string} with {string}")
     public void userEntersAllDetailsFor(String PoojaServicesSection,String PoojaTitle, DataTable dataTable) {

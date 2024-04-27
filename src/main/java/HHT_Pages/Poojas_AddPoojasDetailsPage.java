@@ -22,7 +22,7 @@ public class Poojas_AddPoojasDetailsPage {
 // By variables
 
     public Boolean verifyAddPoojaDetailsHeader(){
-        return driver.findElement(By.xpath("//div[@id='bar']/h1")).isDisplayed();
+        return driver.findElement(By.xpath("//h1[text()='Add Pooja Details']")).isDisplayed();
     }
 
     public void addPoojaDetails(String PoojaServicesSection,String PoojaTitle,DataTable dataTable){
