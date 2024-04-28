@@ -53,7 +53,7 @@ public class TestContext {
     private PoojaDetailsPage poojaDetailsPage;
     private Poojas_AddPoojasDetailsPage poojas_addPoojasDetailsPage;
     private PoojaServicesPage poojaServicesPage;
-    private RegularPoojasPage regularPoojasPage;
+    private Poojas_EditPoojaDetailsPage poojas_editPoojaDetailsPage;
     private SpecialPoojasPage specialPoojasPage;
     private Poojas_ViewPoojasDetails poojas_viewPoojasDetails;
 
@@ -224,11 +224,11 @@ public class TestContext {
         }
         return poojaServicesPage;
     }
-    public RegularPoojasPage getRegularPoojasPage(){
-        if(regularPoojasPage == null){
-            regularPoojasPage = new RegularPoojasPage(driver);
+    public Poojas_EditPoojaDetailsPage getPoojas_editPoojaDetailsPage(){
+        if(poojas_editPoojaDetailsPage == null){
+            poojas_editPoojaDetailsPage = new Poojas_EditPoojaDetailsPage(driver);
         }
-        return regularPoojasPage;
+        return poojas_editPoojaDetailsPage;
     }
     public SpecialPoojasPage getSpecialPoojasPage(){
         if(specialPoojasPage == null){

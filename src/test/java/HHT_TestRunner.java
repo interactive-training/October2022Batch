@@ -3,11 +3,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features/CRUD_News.feature",
+        features= "src/test/java/HHT_features",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,
-//        tags = "@viewPoojas",//"@editPoojas",//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+        tags = "@deletePooja", //"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
 //                "rerun:target/failed_scenarios.txt",

@@ -40,6 +40,38 @@ public class PoojaDetailsPage {
             }
         }
     }
+    public void clickEditPoojaOption(String PoojaTitle){
+        List<WebElement> EditTitle = driver.findElements(By.xpath("//tr//td[2]"));
+        System.out.println(EditTitle.size());
+        for (int X = 0; X<EditTitle.size(); X++) {
+            String Title = EditTitle.get(X).getText();
+            if (Title.equals(PoojaTitle)) {
+                int r = X + 2;
+                driver.findElement(By.xpath("//tr[" + r + "]/td[6]/a[2]")).click();
+                System.out.println("Clicked Edit for the title:"+ PoojaTitle);
+                break;
+            }
+        }
+    }
+
+    public void clickDeletePoojaOption(String PoojaTitle){
+        List<WebElement> DeleteTitle = driver.findElements(By.xpath("//tr//td[2]"));
+        System.out.println(DeleteTitle.size());
+        for (int X = 0; X<DeleteTitle.size(); X++) {
+            String Title = DeleteTitle.get(X).getText();
+            if (Title.equals(PoojaTitle)) {
+                int r = X + 2;
+                driver.findElement(By.xpath("//tr[" + r + "]/td[6]/a[3]")).click();
+                System.out.println("Clicked Delete for the title:"+ PoojaTitle);
+                break;
+            }
+        }
+    }
+    public String verifyPoojaDetailsUpdatedMessage(){
+        return driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+    }
+
+
 
 
 }

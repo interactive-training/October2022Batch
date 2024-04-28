@@ -1,6 +1,6 @@
 <Configuration>
     <Properties>
-        <Property name="basePath">./target/logs</Property>
+        <Property name="basePath">logs</Property>
     </Properties>
     <Appenders>
         <RollingFile name="File" fileName="${basePath}/TestAutomation.log" filePattern="${basePath}/TestAutomation-%d{yyyy-MM-dd-HHmmss}.log">

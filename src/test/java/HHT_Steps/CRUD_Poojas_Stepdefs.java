@@ -100,46 +100,46 @@ public class CRUD_Poojas_Stepdefs {
         System.out.println("View Events Details Page displayed.");
     }
     //************ Edit Poojas ************
-    @When("user select the edit option for{string},and edits the{string},with{string}")
-    public void editTheFollowingFields (String Poojatitle, String Editfield, String editinfo) {
-        List<WebElement> EditPoojaTitle = driver.findElements(By.xpath("//tr//td[2]"));
-        System.out.println(EditPoojaTitle.size());
-        for (int E = 0; E < EditPoojaTitle.size(); E++) {
-            String Title = EditPoojaTitle.get(E).getText();
-            if (Title.equals(Poojatitle)) {
-                int r1 = E + 2;
-                driver.findElement(By.xpath("//tr[" + r1 + "]/td[6]/a[2]")).click();
-                break;
-            }
-        }
-        WebElement actualHeader = driver.findElement(By.xpath("//div[@id='bar']"));
-        String H = actualHeader.getText();
-        String expectedHeader = "Edit Pooja Details";
-        Assert.assertEquals(H, expectedHeader);
-        System.out.println("User is on Edit Pooja page");
-        if(Editfield.equals("Pooja Title")) {
-            driver.findElement(By.xpath("((//table/tbody/tr[1]/td[2])[1]/input[@name='title'])")).clear();
-            driver.findElement(By.xpath("((//table/tbody/tr[1]/td[2])[1]/input[@name='title'])")).sendKeys(editinfo);
-//          driver.findElement(By.xpath("//tr[5]/td[2]/input")).clear();
-//          driver.findElement(By.xpath("//tr[5]/td[2]/input")).sendKeys(editinfo);
-//          driver.findElement(By.xpath("//tr[6]/td[2]/input")).clear();
-//          driver.findElement(By.xpath("//tr[6]/td[2]/input")).sendKeys(editinfo);
-            System.out.println("Title edited");
-        }
+
+    @When("user selects the Edit Pooja option for {string}")
+    public void userSelectsTheEditPoojaOptionFor(String Poojatitle) {
+        testContext.getPoojaDetailsPage().clickEditPoojaOption(Poojatitle);
     }
-    @And("clicks on Submit button on edit page")
-    public void clicksOnSubmitButtonOnEditPage() {
-        driver.findElement(By.name("save")).click();
-        System.out.println("Edit and submitted");
+
+    @Then("user should be on the Edit Pooja Page")
+    public void userShouldBeOnTheEditPoojaPage() {
+        String actualHeader = testContext.getPoojas_editPoojaDetailsPage().verifyEditPoojaDetailsHeader();
+        String expectedHeader = "Edit Pooja Details";
+        Assert.assertEquals(actualHeader, expectedHeader);
+        System.out.println("User is on Edit Pooja page");
+    }
+    @When("user edits the Pooja for {string} with {string}")
+    public void userEditsThePoojaForWith(String EditField, String EditInfo) {
+        testContext.getPoojas_editPoojaDetailsPage().editPoojaDetails(EditField,EditInfo);
+    }
+
+    @And("clicks on Submit button on Edit Pooja page")
+    public void clicksOnSubmitButtonOnEditPoojaPage() {
+        testContext.getCommonMethods().clickSubmitButton();
     }
 
     @Then("Pooja Title should be edited")
     public void poojaTitleShouldBeEdited() {
-        String exp ="https://www.hanumanhindutemple.org/test_mode/adm_hht9m8a4s2/poojas.php";
-        String act = driver.getCurrentUrl();
+        String exp ="Pooja details updated successfully";
+        String act = testContext.getPoojaDetailsPage().verifyPoojaDetailsUpdatedMessage();
         Assert.assertEquals(exp,act);
-        System.out.println("Edited successfully");
+        System.out.println("Pooja edited successfully");
     }
 
+//--------------------------Delete Poojas-----------------------------------------------
 
+    @When("user selects the Delete option for Pooja with {string}")
+    public void userSelectsTheDeleteOptionForPoojaWith(String PoojaTitle) {
+        testContext.getPoojaDetailsPage().clickDeletePoojaOption(PoojaTitle);
+    }
+
+    @Then("Pooja should be deleted")
+    public void poojaShouldBeDeleted() {
+        System.out.println("Pooja deleted.");
+    }
 }
