@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
-public class CreateSpecialPoojasPage {
-   public static final Logger log = LogManager.getLogger(CreateSpecialPoojasPage.class.getName());
+public class CreateSpecialPoojasPage{
+  // public static final Logger log = LogManager.getLogger(CreateSpecialPoojasPage.class.getName());
     WebDriver driver;
     public CreateSpecialPoojasPage(WebDriver driver){
         this.driver=driver;
@@ -67,7 +67,7 @@ public void CreateSpecialPoojasPage(DataTable dataTable) {
 }
     public void clicksOnSubmitButton() {
         driver.findElement(By.name("save")).click();
-        log.info("clicked on submit button");
+       // log.info("clicked on submit button");
         System.out.println("clicked on submit");
     }
 }
