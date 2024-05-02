@@ -168,7 +168,7 @@ public class CRUD_EventStep {
     }
 
     // ------------------------------------------Edit Event-----------------------------------------
-    @When("user selects the Edit option for {string} and edits the {string} with {string}")
+    @When("user selects the Edit option in events {string} and edits the {string} with {string}")
     public void userSelectsTheEditOption(String EventTitle, String EditField, String EditInfo) {
         testContext.getEditEventsPage().editEventInfo(EventTitle,EditField,EditInfo);
     }
@@ -232,6 +232,8 @@ public class CRUD_EventStep {
         }
         System.out.println("This event does not exist in the Calendar.");
     }
+
+
 }
 
 //    //-----------------------------Edit Event Front-End Verification------------------------------------------------------------------------

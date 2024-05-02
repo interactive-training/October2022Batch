@@ -6,13 +6,13 @@ import org.testng.annotations.DataProvider;
         features= "src/test/java/HHT_features",
         glue = "HHT_Steps",
         monochrome = true,
-        //publish = true,
-        tags = "@deletePooja", //"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+        publish = true,
+        //tags = "@editEvent",//"@editNews",//"@deletePooja", //"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
 //                "rerun:target/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-                // "com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
+                 //"com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
         }
 )
 public class HHT_TestRunner extends AbstractTestNGCucumberTests {

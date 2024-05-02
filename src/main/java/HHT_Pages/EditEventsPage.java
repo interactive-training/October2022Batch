@@ -38,9 +38,8 @@ public class EditEventsPage {
                 break;
             }
         }
+
         // Editing the field of the selected event
-
-
         if (EditField.equalsIgnoreCase("Event title")) {
             driver.findElement(By.xpath("//tr[1]/td[2]/input")).clear();
             driver.findElement(By.xpath("//tr[1]/td[2]/input")).sendKeys(EditInfo);

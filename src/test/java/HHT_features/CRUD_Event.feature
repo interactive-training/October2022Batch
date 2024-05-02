@@ -37,7 +37,7 @@ Feature: As an admin user I should be able to create an event
 
 #    @events-end-end @editEvent
     Scenario Outline: Editing the field of an event by Event Title
-        When user selects the Edit option for "<EventTitle>" and edits the "<EditField>" with "<EditInfo>"
+        When user selects the Edit option in events "<EventTitle>" and edits the "<EditField>" with "<EditInfo>"
         And clicks Submit button on Edit Page of events
         Then user should see the message "Event details updated successfully"
 
@@ -57,7 +57,9 @@ Feature: As an admin user I should be able to create an event
 
         Examples:
             |EventTitle| EditField |EditInfo|
-            |Maha Shivratri  |Event Location |Temple Hall|
+            |N_Navami  |Event Location |Temple Hall|
+#        @events-end-end
+#            |Maha Shivratri  |Event Location |Temple Hall|
 
 #@events
     Scenario Outline: Viewing the event with Event Title

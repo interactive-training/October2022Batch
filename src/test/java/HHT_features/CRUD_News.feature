@@ -39,21 +39,18 @@ Feature:News
       | NewsTitle |
       | Ugadi News |
 
-
+@editNews
     Scenario Outline: Editing the fields of News
-      When user selects the Edit option for "<NewsTitle>" and edits the "<Editfield>" with "<EditInfo>"
+      When user selects the Edit option in news for "<NewsTitle>"
+      Then the user should be on Edit News Details Page
+      When the user edits the "<Editfield>" with "<EditInfo>" in news
       And clicks Submit button of Edit News Page
-      Then user should see the message "News details updated successfully"
-#      ********-----Front end verification-------********
-      When user launches the given url
-      Then user should be on the Landing Page
-      When user clicks on News
-      Then user should be able to see the News "<NewsTitle>"
+      Then user should see the edited message for news as "News details updated successfully"
 
       Examples:
       |NewsTitle  | Editfield |EditInfo|
      # | Lakshmi pooja | News Artile/Content|Pooja details will be updated soon   |
-      |xcc	|News Title |  Navami|
+      |Special News	|News Title |  Navami|
 
 
   Scenario Outline: Deleting News
@@ -61,4 +58,4 @@ Feature:News
     Then user should be able delete the news
     Examples:
       | NewsTitle |
-      | Updated News1 |
+      | Ugadi     |

@@ -84,7 +84,7 @@ public class CRUD_News_Stepdefs {
     }
 
 //**********-------Editing the details of News-------********
-    @When("user selects the Edit option for {string}")
+    @When("user selects the Edit option in news for {string}")
     public void userSelectsTheEditOptionFor(String NewsTitle) {
         testContext.getNewsDetailsPage().clickEditNews(NewsTitle);
     }
@@ -93,10 +93,10 @@ public class CRUD_News_Stepdefs {
         String actualHeader =testContext.getNews_editNewsDetailsPage().verifyEditNewsDetailsHeader();
         String expectedHeader = "Edit News Details";
         Assert.assertEquals(actualHeader, expectedHeader);
-        System.out.println("User is on Edit News page");
+        System.out.println("User is on Edit News Details page");
     }
-    @When("the user edits the {string} with {string}")
-    public void theUserEditsTheWith(String Editfield, String EditInfo) {
+    @When("the user edits the {string} with {string} in news")
+    public void the_user_edits_the_with_in_news(String Editfield, String EditInfo) {
         testContext.getNews_editNewsDetailsPage().editNews(Editfield, EditInfo);
     }
 
@@ -105,8 +105,8 @@ public class CRUD_News_Stepdefs {
         testContext.getCommonMethods().clickSubmitButton();
     }
 
-    @Then("user should see message {string}")
-    public void userShouldSeeMessage(String expectedmsg) {
+    @Then("user should see the edited message for news as {string}")
+    public void user_should_see_the_edited_message_for_news_as(String expectedmsg) {
         String actualmsg= testContext.getCommonMethods().verifyMessage();
         Assert.assertEquals(expectedmsg,actualmsg);
         System.out.println("Edited News is verified successfully");
@@ -126,7 +126,6 @@ public class CRUD_News_Stepdefs {
 //        Assert.assertEquals(A,E);
         System.out.println("News Deleted");
     }
-
 
 }
 
