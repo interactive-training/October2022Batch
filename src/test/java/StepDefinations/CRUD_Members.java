@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class VerifyMembers {
+public class CRUD_Members {
 
     WebDriver driver;
     @Given("admin user launches the URL")
@@ -77,6 +77,7 @@ public class VerifyMembers {
 
     //    *******--------Viewing the Member Details Page---------************
 
+
     @When("user clicks on view of {string}")
     public void user_clicks_on_view_of(String MemberName) throws InterruptedException {
         List<WebElement> ViewMemberElements = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr[2]//td[2]"));
@@ -105,7 +106,9 @@ public class VerifyMembers {
         String expectedHeader = "View Member Details";
         Assert.assertEquals(Headers, expectedHeader);
         System.out.println("User successfully View Member Details");
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
+        driver.close();
+        driver.quit();
 
     }
 
@@ -132,9 +135,9 @@ public class VerifyMembers {
 
     }
     @Then("user should be able delete the members")
-    public void userShouldBeAbleDeleteTheMembers() throws InterruptedException {
+    public void userShouldBeAbleDeleteTheMembers()  {
         System.out.println("Members Deleted Successfully");
-        Thread.sleep(3000);
+
         driver.close();
         driver.quit();
     }
