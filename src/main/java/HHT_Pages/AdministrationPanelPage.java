@@ -16,6 +16,8 @@ public class AdministrationPanelPage {
     By CMSBy = By.linkText("CMS");
     By EventsBy = By.linkText("EVENTS");
 
+    By NewsLetterBy = By.xpath("//div[@id='wrapper']/nav/ul/li[6]/a");
+
     //Page Methods
 
     public Boolean welcomeLogin() {
@@ -44,6 +46,13 @@ public class AdministrationPanelPage {
         System.out.println("CMS dropdown");
         driver.findElement(By.linkText("POOJAS")).click();
         System.out.println("clicked on Poojas");
+    }
+    public void clickNewLetter(){
+        Actions a = new Actions(driver);
+        WebElement mainMenu = driver.findElement(NewsLetterBy);
+        a.moveToElement(mainMenu).perform();
+        System.out.println("Clicked on NewsLetter");
+
     }
 
 }

@@ -57,6 +57,11 @@ public class TestContext {
     private SpecialPoojasPage specialPoojasPage;
     private Poojas_ViewPoojasDetails poojas_viewPoojasDetails;
 
+    private NewsLetter_HomePage newsLetter_HomePage;
+    private NewLetterConfirmationPage newsLetter_confirmationPage;
+
+    private NewsLetterSubscriberDetailsPage newsLetterSubscriberDetailsPage;
+
     // Methods for creating a new driver or passing the previous one to the next page
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -242,6 +247,24 @@ public class TestContext {
         }
         return poojas_viewPoojasDetails;
     }
+    public NewsLetter_HomePage getNewsLetter_homePage() {
+        if (newsLetter_HomePage == null) {
+            newsLetter_HomePage = new NewsLetter_HomePage(driver);
+        }
+        return newsLetter_HomePage;
+    }
+    public NewLetterConfirmationPage getNewsLetter_confirmationPage() {
+        if (newsLetter_confirmationPage == null) {
+            newsLetter_confirmationPage = new NewLetterConfirmationPage(driver);
+        }
+        return newsLetter_confirmationPage;
+    }
+    public NewsLetterSubscriberDetailsPage getNewsLetterSubscriberDetails_Page() {
+        if (newsLetterSubscriberDetailsPage == null) {
+            newsLetterSubscriberDetailsPage = new NewsLetterSubscriberDetailsPage(driver);
+        }
+        return newsLetterSubscriberDetailsPage;
+    }
 
     //Initialising the driver
     public WebDriver getDriver() throws IOException {
@@ -304,6 +327,7 @@ public class TestContext {
         driver.findElement(By.xpath("//button[@class='btn btn-primary btn-sm ms-3']")).click();
         Thread.sleep(3000);
     }
+
 
 
 }
