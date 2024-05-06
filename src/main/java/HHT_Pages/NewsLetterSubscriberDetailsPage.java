@@ -26,12 +26,12 @@ public class NewsLetterSubscriberDetailsPage {
         return driver.findElement(By.xpath("//h1[text()='News Letter Subscriber Details']")).isDisplayed();
     }
     public void DeleteNewsLetter(String EmailField){
-        List<WebElement> dateField = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr//td[2]"));
-        System.out.println(dateField.size());
+        List<WebElement> emailField = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr//td[3]"));
+        System.out.println(emailField.size());
 
-        for (int n = 0; n <= dateField.size(); n++) {
+        for (int n = 0; n <= emailField.size(); n++) {
             // Looping each Event Title
-            String title = dateField.get(n).getText();
+            String title = emailField.get(n).getText();
             int r = n + 2; // to pass the matching row for the given event to delete
             if (title.equalsIgnoreCase(EmailField)) {
                 // Deleting the event

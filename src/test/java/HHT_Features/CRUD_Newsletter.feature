@@ -7,25 +7,24 @@ Feature: NewsLetter
     And user clicks on sign up
     Then user navigated to the newsletter page
     Examples:
-      | NewsLetterEmailID       |
-      | testsharma123@gmail.com |
+      | NewsLetterEmailID    |
+      | siva.msccs@gmail.com |
 
 
 
-#  Scenario Outline : Delete NewsLetter
-  Background:Below steps are common for every scenario
+
+#  @DNL
+  Scenario Outline: Delete NewsLetter
     When user launches the URL as "admin"
     And signs in with admin credentials "sk_behara@hotmail.com" and "test@123"
     Then user should get in to the Administration Panel
-
-  Scenario Outline: Delete NewsLetter
     When User clicks on NewsLetter Subscribers menu
     Then user should get News Letter Subscriber Details page
     When admin user clicks on delete action button of "<EmailField>"
     Then newsletter should be deleted successfully
     Examples:
       | EmailField             |
-      | pansharma123@gmail.com |
+      | born.testers@gmail.com |
 
 
     # View NewsLetter
