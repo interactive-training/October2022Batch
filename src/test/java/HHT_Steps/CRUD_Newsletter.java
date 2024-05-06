@@ -27,22 +27,10 @@ public class CRUD_Newsletter {
     //    *******--------Create NewsLetter Front-End Panel ---------************
 
     @Given("browser is open")
-    public void browser_is_open() {
-////        System.setProperty("web-driver.chrome.driver","P://December_2023_HHT_Project//chromedriver-win64//chromedriver-win64//chromedriver.exe");
-//        driver = new ChromeDriver();
-//        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-//        driver.manage().timeouts().pageLoadTimeout(40,TimeUnit.SECONDS);
-//        driver.manage().window().maximize();
-    }
-
-    @And("user is on home page")
-    public void user_is_on_home_page() throws IOException {
-      testContext.getLoginPage().getWebsiteURL();
-
+    public void browser_is_open() throws IOException {
+        testContext.getLoginPage().getWebsiteURL();
 
     }
-
-
     @When("user enters email address {string}")
     public void userEntersEmailAddress(String Emailid) {
         //Enter Email Address
@@ -65,42 +53,9 @@ public class CRUD_Newsletter {
 
     }
 
-    //    *******--------View & Delete NewsLetter Back-End Admin Panel---------************
-
-//    @Given("user is on admin login page")
-//    public void user_is_on_admin_login_page()
-//    {
-//        testContext.getLoginPage().getAdminURL(admin);
-//
-//    }
-//    @When("user enters email address and password")
-//    public void  user_enters_email_address_and_password(){
-//        // Enter Email Address and Password
-//        WebElement EmailAddress = driver.findElement(By.xpath("//input[@id='usr_email']"));
-//        EmailAddress.sendKeys("sk_behara@hotmail.com");
-//        WebElement Password = driver.findElement(By.xpath("//input[@id='usr_password']"));
-//        Password.sendKeys("test@123");
-//
-//    }
-//    @And("user clicks on login button")
-//    public void user_clicks_on_login_button() {
-//        // User Clicks on Login Button
-//        WebElement btnLogin = driver.findElement(By.xpath("//input[@name='login']"));
-//        btnLogin.click();
-//        System.out.println("Successfully login to Admin Page");
-//
-//
-//    }
-//    @Then("user navigated to the admin home page")
-//    public void user_navigated_to_the_admin_home_page() {
-//        // Admin Panel Home Page Display on the Screen
-//        String expectedURL = "https://www.hanumanhindutemple.org/test_mode/adm_hht9m8a4s2/home.php";
-//        String actualURL = driver.getCurrentUrl();
-//        Assert.assertEquals(actualURL,expectedURL,"URLs are not matching");
-//        System.out.println("Welcome to Hanuman Hindu Temple Admin Panel");
 
 //    }
-    @And ("User clicks on NewsLetter Subscribers menu")
+    @When("User clicks on NewsLetter Subscribers menu")
     public void User_clicks_on_NewsLetter_Subscribers_menu(){
         testContext.getAdministrationPanelPage().clickNewsLetter();
     }

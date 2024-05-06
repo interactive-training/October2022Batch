@@ -3,7 +3,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features",
+        features= "src/test/java/HHT_Features",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,

@@ -8,7 +8,7 @@ Feature:News
     Then user should get News Details page
 
 #Creating News
-  Scenario Outline:  : Add News without a picture
+  Scenario Outline: Add News without a picture
     When User clicks on Add News button
     Then user should get Add News Details page
     When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"

@@ -13,9 +13,9 @@ public class NewsLetterSubscriberDetailsPage {
     public static final Logger log = LogManager.getLogger(LoginPage.class.getName());
 
     WebDriver driver;
-    Properties prop;
+//    Properties prop;
 
-    By NLDeleteBy = (By.xpath("//td[text()='1']//following-sibling::td/a[text()='Delete']"));
+//    By NLDeleteBy = (By.xpath("//td[text()='1']//following-sibling::td/a[text()='Delete']"));
 
     // Constructor
     public NewsLetterSubscriberDetailsPage(WebDriver driver){
