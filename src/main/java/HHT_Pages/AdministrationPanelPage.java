@@ -47,10 +47,9 @@ public class AdministrationPanelPage {
         driver.findElement(By.linkText("POOJAS")).click();
         System.out.println("clicked on Poojas");
     }
-    public void clickNewLetter(){
-        Actions a = new Actions(driver);
-        WebElement mainMenu = driver.findElement(NewsLetterBy);
-        a.moveToElement(mainMenu).perform();
+    public void clickNewsLetter(){
+        WebElement NL = driver.findElement(NewsLetterBy);
+        NL.click();
         System.out.println("Clicked on NewsLetter");
 
     }

@@ -1,5 +1,3 @@
-
-
 Feature: NewsLetter
 
    # Create NewsLetter
@@ -16,15 +14,20 @@ Feature: NewsLetter
 
     # View & Delete NewsLetter
 
-#  Scenario: Delete NewsLetter
+
+#  Scenario Outline : Delete NewsLetter
   Background: Below steps are common for every scenario
     When user launches the URL as "admin"
     And signs in with admin credentials "sk_behara@hotmail.com" and "test@123"
     Then user should get in to the Administration Panel
+  Scenario Outline : Delete NewsLetter
     And User clicks on NewsLetter Subscribers menu
     Then user should get News Letter Subscriber Details page
-    When admin user clicks on delete action button
+    When admin user clicks on delete action button of "<EmailField>"
     Then newsletter should be deleted successfully
+    Examples:
+      | EmailField |
+      |	pansharma123@gmail.com|
 
 
     # View NewsLetter

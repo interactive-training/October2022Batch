@@ -276,7 +276,7 @@ public class TestContext {
 
         } else
             System.out.println("Thread id:"+ Thread.currentThread().getId());
-            return webDriverObjects.get(Thread.currentThread().getId());
+        return webDriverObjects.get(Thread.currentThread().getId());
     }
 
     public WebDriver intializeDriver() throws IOException {
