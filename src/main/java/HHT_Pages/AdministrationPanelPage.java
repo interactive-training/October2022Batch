@@ -17,6 +17,7 @@ public class AdministrationPanelPage {
     By EventsBy = By.linkText("EVENTS");
 
     By NewsLetterBy = By.xpath("//div[@id='wrapper']/nav/ul/li[6]/a");
+    By DonationsBY = By.linkText("DONATIONS");
 
     //Page Methods
 
@@ -34,14 +35,14 @@ public class AdministrationPanelPage {
     }
     public void clickCMSthenNews(){
         Actions actions = new Actions(driver);
-        WebElement cms = driver.findElement(By.linkText("CMS"));
+        WebElement cms = driver.findElement(CMSBy);
         actions.moveToElement(cms).perform();
         WebElement news = driver.findElement(By.linkText("NEWS"));
         news.click();
     }
     public void clickCMSthenPoojas(){
         Actions action = new Actions(driver);
-        WebElement CMS_elm = driver.findElement(By.linkText("CMS"));
+        WebElement CMS_elm = driver.findElement(CMSBy);
         action.moveToElement(CMS_elm).perform();
         System.out.println("CMS dropdown");
         driver.findElement(By.linkText("POOJAS")).click();
@@ -51,6 +52,15 @@ public class AdministrationPanelPage {
         WebElement NL = driver.findElement(NewsLetterBy);
         NL.click();
         System.out.println("Clicked on NewsLetter");
+
+    }
+    public void clickDonations(){
+        Actions action = new Actions(driver);
+        WebElement CMS_elm = driver.findElement(CMSBy);
+        action.moveToElement(CMS_elm).perform();
+        System.out.println("CMS dropdown");
+        driver.findElement(DonationsBY).click();
+        System.out.println("clicked on DONATIONS");
 
     }
 
