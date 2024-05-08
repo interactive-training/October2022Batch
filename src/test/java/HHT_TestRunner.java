@@ -3,11 +3,12 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features= "src/test/java/HHT_features",
+        features= "src/test/java/HHT_Features",
         glue = "HHT_Steps",
         monochrome = true,
         //publish = true,
-        tags ="@viewMembers",//"@deleteMembers",//"@deleteMembers",//"@createNewsletter",//"@deleteNewsletter" ,//"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+        tags ="@viewMembers",//"@deleteMembers",//"@adminViewDonations",//"@adminEditDonations",//"@createNewsletter",//"@createNewsletter",//"@deleteNewsletter" ,//"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
 //                "rerun:target/failed_scenarios.txt",

@@ -62,6 +62,7 @@ public class TestContext {
 
     private NewsLetterSubscriberDetailsPage newsLetterSubscriberDetailsPage;
 
+
     // Members Variables
     private MembersDetailsPage membersDetailsPage;
     private Members_ViewMembersDetailsPage members_viewMembersDetailsPage;
@@ -70,6 +71,13 @@ public class TestContext {
 
 
     // Methods for creating a new driver or passing the previous one to the next page
+
+    private Admin_DonationsDetailsPage admin_donationsDetailsPage;
+
+    private Donations_ViewDonationDetailsPage donations_viewDonationDetailsPage;
+
+    private Donations_EditDonationsPage donationsEditDonations_Page;
+
     public LoginPage getLoginPage() {
         if (loginPage == null) {
             loginPage = new LoginPage(driver);
@@ -272,6 +280,24 @@ public class TestContext {
         }
         return newsLetterSubscriberDetailsPage;
     }
+    public Admin_DonationsDetailsPage getAdmin_donationsDetails_Page() {
+        if (admin_donationsDetailsPage == null) {
+            admin_donationsDetailsPage = new Admin_DonationsDetailsPage(driver);
+        }
+        return admin_donationsDetailsPage;
+    }
+    public Donations_ViewDonationDetailsPage getDonations_viewDonationDetails_Page() {
+        if (donations_viewDonationDetailsPage == null) {
+            donations_viewDonationDetailsPage = new Donations_ViewDonationDetailsPage(driver);
+        }
+        return donations_viewDonationDetailsPage;
+    }
+    public Donations_EditDonationsPage getDonations_editDonation_Page() {
+        if (donationsEditDonations_Page == null) {
+            donationsEditDonations_Page = new Donations_EditDonationsPage(driver);
+        }
+        return donationsEditDonations_Page;
+    }
 
     // Calling Members Page
     public MembersDetailsPage getMembersDetails_Page() {
@@ -306,7 +332,7 @@ public class TestContext {
 
         } else
             System.out.println("Thread id:"+ Thread.currentThread().getId());
-            return webDriverObjects.get(Thread.currentThread().getId());
+        return webDriverObjects.get(Thread.currentThread().getId());
     }
 
     public WebDriver intializeDriver() throws IOException {
