@@ -3,7 +3,7 @@
 Feature: NewsLetter
 
    # Create NewsLetter
-
+  @createNewsletter
   Scenario Outline: Create Newsletter
     Given browser is open
     And user is on home page
@@ -16,8 +16,9 @@ Feature: NewsLetter
 
     # View & Delete NewsLetter
 
+@deleteNewsletter
 #  Scenario: Delete NewsLetter
-  Background: Below steps are common for every scenario
+  Scenario: Delete NewsLetter
     When user launches the URL as "admin"
     And signs in with admin credentials "sk_behara@hotmail.com" and "test@123"
     Then user should get in to the Administration Panel

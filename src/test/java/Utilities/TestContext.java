@@ -62,6 +62,13 @@ public class TestContext {
 
     private NewsLetterSubscriberDetailsPage newsLetterSubscriberDetailsPage;
 
+    // Members Variables
+    private MembersDetailsPage membersDetailsPage;
+    private Members_ViewMembersDetailsPage members_viewMembersDetailsPage;
+
+    private Members_DeleteMembersDetailsPage members_deleteMembersDetailsPage;
+
+
     // Methods for creating a new driver or passing the previous one to the next page
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -265,6 +272,29 @@ public class TestContext {
         }
         return newsLetterSubscriberDetailsPage;
     }
+
+    // Calling Members Page
+    public MembersDetailsPage getMembersDetails_Page() {
+        if (membersDetailsPage == null) {
+            membersDetailsPage = new MembersDetailsPage(driver);
+        }
+        return membersDetailsPage;
+    }
+    public Members_ViewMembersDetailsPage getMembers_ViewMembersDetailsPage(){
+        if (members_viewMembersDetailsPage == null) {
+            members_viewMembersDetailsPage = new Members_ViewMembersDetailsPage(driver);
+        }
+        return members_viewMembersDetailsPage;
+    }
+
+    public Members_DeleteMembersDetailsPage getMembers_deleteMembersDetailsPage(){
+        if (members_deleteMembersDetailsPage == null){
+            members_deleteMembersDetailsPage = new Members_DeleteMembersDetailsPage(driver);
+        }
+        return members_deleteMembersDetailsPage;
+    }
+
+
 
     //Initialising the driver
     public WebDriver getDriver() throws IOException {

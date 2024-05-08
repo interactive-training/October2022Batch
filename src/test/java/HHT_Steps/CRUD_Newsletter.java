@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CRUD_Newsletter {
+
+    WebDriver driver;
     TestContext testContext;
 
     public CRUD_Newsletter(TestContext testContext){

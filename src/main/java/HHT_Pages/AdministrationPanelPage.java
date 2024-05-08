@@ -18,6 +18,8 @@ public class AdministrationPanelPage {
 
     By NewsLetterBy = By.xpath("//div[@id='wrapper']/nav/ul/li[6]/a");
 
+    By MembersBy = (By.xpath("//div[@id='wrapper']/nav/ul/li[3]/a"));
+
     //Page Methods
 
     public Boolean welcomeLogin() {
@@ -54,6 +56,13 @@ public class AdministrationPanelPage {
         System.out.println("Clicked on NewsLetter");
 
     }
+
+    public void clickMembers(){
+        WebElement membersMenu = driver.findElement(MembersBy);
+        membersMenu.click();
+    }
+
+
 
 }
 //a[@href='index.php']
