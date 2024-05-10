@@ -15,7 +15,20 @@ We will implement to execute suite from maven command line.
 
     Ensure that respective browser drivers are availble and set in the path variable to execute with different browsers.
 
-
 3. There are a default testng html report created in target folder.
 4. But we also implemented Extent report for a better user experience and detailed information with screenshot for failed tests.
 
+   5.Log4J log levels
+      - define **fatal** in root level in log4j properties file,
+      -- only fatal logs would be logged in the file/terminal
+   
+        - define **error** in root level in log4j properties file,
+        -- only fatal and error would be logged in the file/terminal
+   
+        - define **warn** in root level in log4 properties file,
+             -- only fatal, error and warning logs would be logged in file/display in terminal
+        ...and so on...
+
+        Below picture illustrates for all types
+        
+      ![img.png](log4_levels_image.png)

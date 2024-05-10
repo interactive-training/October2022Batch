@@ -1,0 +1,8 @@
+[DEBUG] 2024-05-10 08:18:10.706 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 08:18:11.655 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[FATAL] 2024-05-10 08:18:11.791 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 08:18:11.793 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 08:18:11.794 [main] LogTest - Log message written
+[INFO ] 2024-05-10 08:18:11.795 [main] LogTest - Log message written

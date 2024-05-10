@@ -1,0 +1,156 @@
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
+[ERROR] 2024-05-10 07:33:02.053 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:34:59.633 [main] LogTest - Log message written
+[ERROR] 2024-05-10 07:35:22.077 [main] LogTest - Log message written
+
+[DEBUG] 2024-05-10 07:35:40.035 [main] TestNG - suiteXmlPath: "C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml"
+[INFO ] 2024-05-10 07:35:40.944 [main] Utils - [TestNG] Running:
+  C:\Users\Booster\AppData\Local\JetBrains\IdeaIC2022.2\temp-testng-customsuite.xml
+
+[ERROR] 2024-05-10 07:35:41.079 [main] LogTest - Log message written
+[DEBUG] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[INFO ] 2024-05-10 07:35:41.080 [main] LogTest - Log message written
+[FATAL] 2024-05-10 07:45:47.890 [main] LogTest - Fatal error
