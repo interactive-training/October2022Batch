@@ -35,7 +35,7 @@ public class Admin_DonationsDetailsPage {
             String Title = EditElements.get(i1).getText();
 
             if (Title.equals(DonationTitle)) {
-                int r1 = i1 + 1;
+                int r1 = i1 + 2;
                 driver.findElement(By.xpath("//tr[" + r1 + "]/td[4]/a[2]")).click();
                 break;
             }

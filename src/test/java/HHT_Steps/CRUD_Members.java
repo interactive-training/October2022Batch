@@ -1,21 +1,12 @@
 package HHT_Steps;
 
 import Utilities.TestContext;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class CRUD_Members {
 
-    WebDriver driver;
     TestContext testContext;
 
     public CRUD_Members(TestContext testContext)
@@ -31,7 +22,7 @@ public class CRUD_Members {
 
     }
     @Then("user should get into Members Page")
-    public void user_should_get_into_members_page() throws InterruptedException {
+    public void user_should_get_into_members_page()  {
       testContext.getMembersDetails_Page().verifyMembersDetailsHeader();
     }
 
@@ -39,7 +30,7 @@ public class CRUD_Members {
 
 
     @When("user clicks on view of {string}")
-    public void user_clicks_on_view_of(String MemberName) throws InterruptedException {
+    public void user_clicks_on_view_of(String MemberName)  {
 
         testContext.getMembers_ViewMembersDetailsPage().viewMembers(MemberName);
 

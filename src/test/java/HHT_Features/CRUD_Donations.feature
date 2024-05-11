@@ -21,8 +21,8 @@ Feature:Donations
     And clicks Submit button on Edit Page
     Then user should see the message Donation details updated successfully
     Examples:
-      | DonationTitle | Editfield     | EditInfo |
-      | Annadanam     | DonationPrice | 15       |
+      | DonationTitle | Editfield            | EditInfo |
+      | Annadanam     | Donation Amount in £ | 15       |
 
 # Deleting Donations
 

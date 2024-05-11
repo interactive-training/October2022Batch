@@ -11,6 +11,8 @@ public class Donations_EditDonationsPage {
     By SubmitBy = By.xpath("//input[@type='submit']");
     By MessageBy = By.xpath("//div[@class='error_msg']");
 
+    By EditFieldBy = By.xpath("//table//tbody[1]//tr[4]//td[2]//input[@name='price1']");
+
     public Donations_EditDonationsPage (WebDriver driver){
         this.driver = driver;
     }
@@ -20,10 +22,10 @@ public class Donations_EditDonationsPage {
     public String verifyEditDonationsDetailsHeader(){
         return driver.findElement(By.xpath("(//div[@id='bar'])")).getText();
     }
-    public void editDonationFields(String EditField,String EditInfo){
-        if (EditField.equals("Donation Amount in")) {
-            driver.findElement(By.id("price1")).clear();
-            driver.findElement(By.id("price1")).sendKeys(EditInfo);
+    public void editDonationFields(String EditField,String EditInfo)  {
+        if (EditField.equalsIgnoreCase("Price")) {
+            driver.findElement(EditFieldBy).clear();
+            driver.findElement(EditFieldBy).sendKeys(EditInfo);
         }
     }
     public void DonationSubmitButton(){
