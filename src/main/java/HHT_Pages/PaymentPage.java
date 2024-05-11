@@ -25,6 +25,7 @@ public class PaymentPage {
     public void clickPayWithCard(){
         driver.findElement(By.xpath("//button[@class='stripe-button-el']")).click();
         System.out.println("Clicked on pay with card");
+        log.info("Clicked on pay with card");
     }
 
     public void enterCardDetails(String CardNumber, String ExpiryDetails,String CVC){
@@ -45,5 +46,6 @@ public class PaymentPage {
         driver.findElement(By.xpath("(//div[@class='inner'])[2]")).click();
         driver.switchTo().defaultContent();
         System.out.println("entered the card details and clicked on Pay ");
+        log.info("Entered the card details and clicked on Pay ");
     }
 }

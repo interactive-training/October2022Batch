@@ -8,7 +8,7 @@ Feature:Regular Poojas
     When user is at CMS dropdown and click Poojas
     Then user should navigate to the Pooja Details Page
 
-  @createPoojas
+  @CreatePoojas
   Scenario Outline: Verify  creating poojas
     And user clicks on ADD pooja button
     Then user should go to the ADD Pooja Details page
@@ -32,7 +32,7 @@ Feature:Regular Poojas
     | Ugadi   |Special Poojas     |
 
 #      ******* View Poojas *********
-  @viewPoojas
+  @ViewPoojas
  Scenario Outline: :Verify View Poojas
    When user clicks on View for Pooja with "<Pooja Title>"
    Then it should navigate to the selected poojas page
@@ -41,7 +41,7 @@ Feature:Regular Poojas
    | Ratha Sapthami	    |
 
 #      ******* View Poojas *********
-@editPoojas
+@EditPoojas
   Scenario Outline: Verify Edit Poojas
     When user selects the Edit Pooja option for "<PoojaTitle>"
     Then user should be on the Edit Pooja Page
@@ -56,7 +56,7 @@ Feature:Regular Poojas
       | Sankranti      | Pooja End Date 	  |11/04/2024|
 
   #      ******* Delete Poojas *********
-@deletePooja
+@DeletePoojas
   Scenario Outline: Verify Delete Poojas
     When user selects the Delete option for Pooja with "<PoojaTitle>"
     Then Pooja should be deleted

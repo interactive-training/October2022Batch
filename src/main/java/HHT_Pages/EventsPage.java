@@ -30,6 +30,7 @@ public class EventsPage {
     public void userClicksMoreInfo(String EventTitle, String option) {
         List<WebElement> titleElements = driver.findElements(eventsTitleElementsBy);
         System.out.println(titleElements.size());
+        log.info("Number of Events:"+ titleElements.size());
 
         // checking if the event actually exists before entering the loop
         for (int n = 0; n < titleElements.size(); n++)

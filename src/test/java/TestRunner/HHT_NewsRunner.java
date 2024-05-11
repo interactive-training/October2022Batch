@@ -1,3 +1,5 @@
+package TestRunner;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
@@ -7,16 +9,16 @@ import org.testng.annotations.DataProvider;
         glue = "HHT_Steps",
         monochrome = true,
         publish = true,
-        tags = "@adminEditDonations",//"@viewMembers",//"@deleteMembers",//"@adminViewDonations",//"@adminEditDonations",//"@createNewsletter",//"@createNewsletter",git//"@deleteNewsletter" ,//"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+        tags = "@CreateNews or @EditNews or @ViewNews or @DeleteNews",
 
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
-//                "rerun:target/failed_scenarios.txt",
+                "rerun:target/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 // "com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
         }
 )
-public class HHT_TestRunner extends AbstractTestNGCucumberTests {
+public class HHT_NewsRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios(){

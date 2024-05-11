@@ -50,6 +50,7 @@ public class CreateEventsPage {
         driver.switchTo().defaultContent();
         // Passing the path of the pictures
         String Picture1Path = "//Users//ravibabuadari//Desktop//testing//bogi Small.jpeg";
+        //String Picture1Path = System.getProperty("user+dir")+ "/src/main/java/Images/bogi Small 17.27.27.jpeg";
         driver.findElement(firstPictureBy).sendKeys(Picture1Path);
         driver.findElement(secondPictureBy).sendKeys(Picture1Path);
     }
@@ -58,6 +59,7 @@ public class CreateEventsPage {
         driver.findElement(submitBy).click();
         log.info("Clicked on Submit button");
         System.out.println("Clicked on submit");
+        log.info("Clicked on Submit");
     }
 
     public String verifyIncorrectDate(){return driver.findElement(By.xpath("//tr[4]/td[2]/input")).getText();}

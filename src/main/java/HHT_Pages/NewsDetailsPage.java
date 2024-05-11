@@ -40,7 +40,7 @@ public class NewsDetailsPage {
             String T = ViewElements.get(i).getText();
 
             if (T.equals(NewsTitle)) {
-                int r=i+1;
+                int r=i+2;
                 driver.findElement(By.xpath("//tr[" + r + "]/td[4]/a[1]")).click();
                 break;
             }
@@ -68,6 +68,8 @@ public class NewsDetailsPage {
     public void clickDeleteNews(String NewsTitle){
         List<WebElement> Elements = driver.findElements(By.xpath("//table//tr/td[2]"));
         System.out.println(Elements.size());
+        log.info("Number of News Elements to delete: "+ Elements.size());
+
 
         for (int i= 0; i<Elements.size(); i++) {
 

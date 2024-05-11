@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="ParallelTests-HHT">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+    <test verbose="2" preserve-order="true" name="ParallelTests-Events">
         <classes>
-        <class name= "HHT_TestRunner"/>
+            <class name= "TestRunner.HHT_EventsRunner"/>
+            <class name= "TestRunner.HHT_NewsRunner"/>
         </classes>
     </test>
 </suite>

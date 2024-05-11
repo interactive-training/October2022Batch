@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Donations_EditDonationsPage {
-    public static final Logger log = LogManager.getLogger(News_EditNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Donations_EditDonationsPage.class.getName());
     WebDriver driver;
     By SubmitBy = By.xpath("//input[@type='submit']");
     By MessageBy = By.xpath("//div[@class='error_msg']");

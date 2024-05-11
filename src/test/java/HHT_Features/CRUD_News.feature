@@ -8,6 +8,7 @@ Feature:News
     Then user should get News Details page
 
 #Creating News
+  @CreateNews
   Scenario Outline: Add News without a picture
     When User clicks on Add News button
     Then user should get Add News Details page
@@ -21,9 +22,9 @@ Feature:News
     Then user should be able to see the News "<NewsTitle>"
     Examples:
       | NewsTitle | NewsContent |
-      |Special News|Special pooja on auspicious day|
+#      |Special News|Special pooja on auspicious day|
      # |SriRama Navami News|Abhishekam in the evening      |
-      #|Ugadi News |Annadaanam in the evening      |
+      |Ugadi News |Annadaanam in the evening      |
 
 #  Scenario: Add new News with a picture.
 #    When user enters the details for all the mandatory fields
@@ -31,7 +32,7 @@ Feature:News
 #    And clicks Submit button
 #    Then News should be created successfully.
 
-
+  @ViewNews
   Scenario Outline: Viewing News
     When user clicks on View of "<NewsTitle>"
     Then user should get View details page
@@ -39,7 +40,7 @@ Feature:News
       | NewsTitle |
       | Ugadi News |
 
-
+  @EditNews
     Scenario Outline: Editing the fields of News
       When user selects the Edit option for "<NewsTitle>" and edits the "<Editfield>" with "<EditInfo>"
       And clicks Submit button of Edit News Page
@@ -53,12 +54,12 @@ Feature:News
       Examples:
       |NewsTitle  | Editfield |EditInfo|
      # | Lakshmi pooja | News Artile/Content|Pooja details will be updated soon   |
-      |xcc	|News Title |  Navami|
+      |Ugadi News	|News Title |  Navami|
 
-
+  @DeleteNews
   Scenario Outline: Deleting News
     When user clicks on Delete of "<NewsTitle>"
     Then user should be able delete the news
     Examples:
       | NewsTitle |
-      | Updated News1 |
+      | Ugadi News |

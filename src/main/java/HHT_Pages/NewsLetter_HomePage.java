@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class NewsLetter_HomePage {
 
-        public static final Logger log = LogManager.getLogger(HHT_Pages.NewsDetailsPage.class.getName());
+        public static final Logger log = LogManager.getLogger(NewsLetter_HomePage.class.getName());
 
         WebDriver driver;
         public NewsLetter_HomePage(WebDriver driver) {

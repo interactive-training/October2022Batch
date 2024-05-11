@@ -38,6 +38,8 @@ public class DeleteEventsPage {
         //Storing all the titles in the web-element 'titleElements'
         List<WebElement> titleElements = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
         System.out.println(titleElements.size());
+        log.info("Number of Title Elements :"+ titleElements.size());
+
         // Looping each Event Title
         for (int n = 0; n < titleElements.size(); n++) {
             // Retrieving each Event Title from the titleElements

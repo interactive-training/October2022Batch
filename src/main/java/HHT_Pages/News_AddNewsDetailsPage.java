@@ -33,6 +33,7 @@ public class News_AddNewsDetailsPage {
         driver.findElement(By.xpath("/html/body")).sendKeys(NewsContent);
         driver.switchTo().defaultContent();
         System.out.println("Entered news information.");
+        log.info("Entered news information.");
     }
     public void clickTheSubmitButton(){
         JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
@@ -41,6 +42,7 @@ public class News_AddNewsDetailsPage {
         //jse.executeScript(String.valueOf(submit)).click();
         jse.executeScript("document.querySelector(\"input[value='Submit']\").click();");
         System.out.println("Clicked Submit");
+        log.info("Clicked Submit");
     }
 
 

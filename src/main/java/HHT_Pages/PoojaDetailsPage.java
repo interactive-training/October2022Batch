@@ -29,6 +29,8 @@ public class PoojaDetailsPage {
     public void clickViewOption(String PoojaTitle){
         List<WebElement> ViewTitle = driver.findElements(By.xpath("//tr//td[2]"));
         System.out.println(ViewTitle.size());
+        log.info("Number of Pooja Titles for View:" + ViewTitle.size());
+
         for (int X = 0; X<ViewTitle.size(); X++) {
             String Title = ViewTitle.get(X).getText();
             if (Title.equals(PoojaTitle)) {
@@ -56,6 +58,8 @@ public class PoojaDetailsPage {
     public void clickDeletePoojaOption(String PoojaTitle){
         List<WebElement> DeleteTitle = driver.findElements(By.xpath("//tr//td[2]"));
         System.out.println(DeleteTitle.size());
+        log.info("Number of Pooja Titles for Deletion:" + DeleteTitle.size());
+
         for (int X = 0; X<DeleteTitle.size(); X++) {
             String Title = DeleteTitle.get(X).getText();
             if (Title.equals(PoojaTitle)) {

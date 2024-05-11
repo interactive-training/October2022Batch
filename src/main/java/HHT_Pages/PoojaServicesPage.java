@@ -23,10 +23,13 @@ public class PoojaServicesPage {
         if (PoojaServicesSection.equalsIgnoreCase("Regular Poojas")) {
             driver.findElement(By.linkText("Regular Poojas")).click();
             System.out.println("Clicked on Regular Poojas");
+            log.info("Clicked on Regular Poojas");
         }
         else if (PoojaServicesSection.equalsIgnoreCase("Special Poojas")) {
             driver.findElement(By.linkText("Special Poojas")).click();
             System.out.println("Clicked on Special Poojas");
+            log.info("Clicked on Special Poojas");
+
         }
     }
     // In Regular and Special Poojas the first titles are the same so keeping it here to avoid dulpication of code

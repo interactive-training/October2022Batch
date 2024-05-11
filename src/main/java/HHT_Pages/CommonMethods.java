@@ -20,6 +20,8 @@ public class CommonMethods {
         JavascriptExecutor jse = (JavascriptExecutor) driver;// Login Button
         jse.executeScript("document.querySelector(\"input[value='Submit']\").click();");
         System.out.println("Clicked Submit");
+        log.info("Clicked on Submit");
+
     }
 
     // verify message
