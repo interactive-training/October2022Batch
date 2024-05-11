@@ -350,7 +350,9 @@ public class TestContext {
 
         if (browserTypeFromCommandPrompt != null){
             browserType = browserTypeFromCommandPrompt;
-        }else if (browserType.equalsIgnoreCase("chrome")){
+        }
+
+        if (browserType.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
         }else if(browserType.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
