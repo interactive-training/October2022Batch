@@ -16,8 +16,9 @@ Feature:Donations
 
   @adminEditDonations
   Scenario Outline: Verify Edit Donations
-    When user selects the Edit option for "<DonationTitle>" and edits the"<Editfield>",with"<EditInfo>"
+    When user selects the Edit option for "<DonationTitle>" of Donations
     And user should be on Edit Donations page
+    When user edits the "<Editfield>" of Donations with "<EditInfo>"
     And clicks Submit button on Edit Page
     Then user should see the message Donation details updated successfully
     Examples:

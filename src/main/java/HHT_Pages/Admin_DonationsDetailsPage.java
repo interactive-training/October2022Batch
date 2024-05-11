@@ -27,7 +27,7 @@ public class Admin_DonationsDetailsPage {
             }
         }
     }
-    public void editDonations(String DonationTitle){
+    public void editDonations(String DonationTitle ){
         List<WebElement> EditElements = driver.findElements(By.xpath("//table//tr/td[2]"));
         System.out.println(EditElements.size());
 

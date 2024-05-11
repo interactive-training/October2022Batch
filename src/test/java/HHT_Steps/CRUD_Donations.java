@@ -43,8 +43,8 @@ public class CRUD_Donations {
     }
     //**********-------Editing Donations Details Page-------********
 
-    @When("user selects the Edit option for {string} and edits the{string},with{string}")
-    public void user_Selects_The_Edit_Option_For_And_Edits_The_With(String DonationTitle, String Editfield, String EditInfo) {
+    @When("user selects the Edit option for {string} of Donations")
+    public void user_selects_the_edit_option_for_of_donations(String DonationTitle) {
         testContext.getAdmin_donationsDetails_Page().editDonations(DonationTitle);
     }
 
@@ -53,10 +53,9 @@ public class CRUD_Donations {
         testContext.getDonations_editDonation_Page().verifyEditDonationsDetailsHeader();
     }
 
-    @When("user edits the {string},with{string}")
-    public void userEditsTheWith(String Editfield, String EditInfo) {
+    @When("user edits the {string} of Donations with {string}")
+    public void user_edits_the_of_donations_with(String Editfield, String EditInfo) {
         testContext.getDonations_editDonation_Page().editDonationFields(Editfield, EditInfo);
-//
     }
 
     @And("clicks Submit button on Edit Page")

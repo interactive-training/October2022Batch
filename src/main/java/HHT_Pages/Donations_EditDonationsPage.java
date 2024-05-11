@@ -23,7 +23,7 @@ public class Donations_EditDonationsPage {
         return driver.findElement(By.xpath("(//div[@id='bar'])")).getText();
     }
     public void editDonationFields(String EditField,String EditInfo)  {
-        if (EditField.equalsIgnoreCase("Price")) {
+        if (EditField.equalsIgnoreCase("Donation Amount in £")) {
             driver.findElement(EditFieldBy).clear();
             driver.findElement(EditFieldBy).sendKeys(EditInfo);
         }

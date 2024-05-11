@@ -6,8 +6,8 @@ import org.testng.annotations.DataProvider;
         features= "src/test/java/HHT_Features",
         glue = "HHT_Steps",
         monochrome = true,
-        //publish = true,
-      //  tags =//"@viewMembers",//"@deleteMembers",//"@adminViewDonations",//"@adminEditDonations",//"@createNewsletter",//"@createNewsletter",git//"@deleteNewsletter" ,//"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
+        publish = true,
+        tags = "@adminEditDonations",//"@viewMembers",//"@deleteMembers",//"@adminViewDonations",//"@adminEditDonations",//"@createNewsletter",//"@createNewsletter",git//"@deleteNewsletter" ,//"@editPoojas",//"@viewPoojas"//"@createPoojas",//"@editNews",//"@createEvent", //"@events",//"@events-end-end",
 
         plugin = {"pretty", "html:target/cucumber-reports.html",
                 "json:target/cucumber.json",
