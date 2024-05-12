@@ -22,9 +22,9 @@ Feature:News
     Then user should be able to see the News "<NewsTitle>"
     Examples:
       | NewsTitle | NewsContent |
-#      |Special News|Special pooja on auspicious day|
+      |Special News|Special pooja on auspicious day|
      # |SriRama Navami News|Abhishekam in the evening      |
-      |Ugadi News |Annadaanam in the evening      |
+#      |Ugadi News |Annadaanam in the evening      |
 
 #  Scenario: Add new News with a picture.
 #    When user enters the details for all the mandatory fields

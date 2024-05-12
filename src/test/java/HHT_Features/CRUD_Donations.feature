@@ -23,7 +23,7 @@ Feature:Donations
     Then user should see the message Donation details updated successfully
     Examples:
       | DonationTitle | Editfield            | EditInfo |
-      | Annadanam     | Donation Amount in £ | 15       |
+      | Annadanam     | Donation Amount in £ | 20       |
 
 # Deleting Donations
 

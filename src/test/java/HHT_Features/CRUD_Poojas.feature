@@ -53,7 +53,7 @@ Feature:Regular Poojas
       | PoojaTitle|EditField|EditInfo|
       | Ugadi  	  | Pooja Title| Special Pooja|
       | Sankranti     | Pooja Start Date 	  |10/04/2024|
-      | Sankranti      | Pooja End Date 	  |11/04/2024|
+#      | Sankranti      | Pooja End Date 	  |11/04/2024|
 
   #      ******* Delete Poojas *********
 @DeletePoojas

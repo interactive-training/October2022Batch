@@ -3,6 +3,7 @@ Feature: Payment module
 Background: Below steps are common
   When user launches the given url
 
+@MakePayment
   Scenario Outline: Verify cart functionality by adding from Donations page
     Given user clicks on Donations link
     Then user is on Donations page
