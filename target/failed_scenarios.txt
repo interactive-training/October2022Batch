@@ -1,0 +1,5 @@
+file:src/test/java/HHT_Features/Payment.feature:25
+file:src/test/java/HHT_Features/CRUD_Event.feature:35
+file:src/test/java/HHT_Features/CRUD_Poojas.feature:30:31
+file:src/test/java/HHT_Features/CRUD_News.feature:56
+file:src/test/java/HHT_Features/CRUD_Newsletter.feature:27

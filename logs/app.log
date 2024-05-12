@@ -1,0 +1,4 @@
+2024-05-12 17:04:23,538 [main] INFO  Utilities.TestContext - driver started for browser type: EdgeDriver: MicrosoftEdge on windows (d8285a9410d84889f24cb10233abbe02)
+2024-05-12 17:04:23,771 [main] INFO  Utilities.TestContext - maximized the window successfully.
+2024-05-12 17:04:23,779 [main] INFO  Utilities.TestContext - driver browser implicit wait set for 10 seconds.
+2024-05-12 17:04:23,806 [main] INFO  HHT_Steps.Hooks - before method calling

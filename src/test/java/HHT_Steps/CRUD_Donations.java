@@ -5,6 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CRUD_Donations {
 
+    public static final Logger LOGGER = LogManager.getLogger(CRUD_Donations.class);
     TestContext testContext;
 
     public CRUD_Donations(TestContext testContext) {
@@ -27,6 +30,7 @@ public class CRUD_Donations {
 
     @And("user is at CMS dropdown and clicks on Donations")
     public void user_is_at_CMS_dropdown_and_clicks_on_Donations() {
+        LOGGER.info("getAdminstrationPanelPage started");
         testContext.getAdministrationPanelPage().clickDonations();
     }
 

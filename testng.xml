@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="ParallelTests-HHT">
+    <test verbose="2" preserve-order="true" parallel="classes" name="ParallelTests-HHT">
         <classes>
-        <class name= "HHT_TestRunner"/>
+        <class name= "testRunner.1"/>
+            <class name= "testRunner.2"/>
         </classes>
     </test>
 </suite>
+

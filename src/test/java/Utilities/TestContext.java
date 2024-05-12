@@ -1,6 +1,8 @@
 package Utilities;
 
 import HHT_Pages.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,6 +17,8 @@ import java.util.Map;
 import java.util.Properties;
 
 public class TestContext {
+
+    public static final Logger LOGGER = LogManager.getLogger(TestContext.class);
     private WebDriver driver;
     public Map<Long, WebDriver> webDriverObjects = new HashMap<>();
     private Properties prop;
@@ -67,6 +71,7 @@ public class TestContext {
     private Donations_ViewDonationDetailsPage donations_viewDonationDetailsPage;
 
     private Donations_EditDonationsPage donationsEditDonations_Page;
+
     public LoginPage getLoginPage() {
         if (loginPage == null) {
             loginPage = new LoginPage(driver);
@@ -302,21 +307,35 @@ public class TestContext {
     }
 
     public WebDriver intializeDriver() throws IOException {
+
+        LOGGER.info("Webdriver initialize driver method started.");
+
         // Reading Properties file
         prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/resources/config.properties");
         prop.load(fis);
 
+        LOGGER.debug("File input stream from proeprties file " + fis);
+
         //Get browser property from config file
         String browserType = prop.getProperty("BrowserType");
+        LOGGER.info("Browser type selected from properties file is: " + browserType);
+
 
         // Override from command prompt
         String browserTypeFromCommandPrompt = System.getProperty("command.browser");
         System.out.println("BrowserType from command prompt:" + System.getProperty("command.browser"));
 
-        if (browserTypeFromCommandPrompt != null){
+        LOGGER.info("Browser type from command prompt is: " + browserTypeFromCommandPrompt);
+
+
+        // fixing this issue for browser starting issue,,,
+
+        if (browserTypeFromCommandPrompt != null) {
             browserType = browserTypeFromCommandPrompt;
-        }else if (browserType.equalsIgnoreCase("chrome")){
+        }
+
+        if (browserType.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
         }else if(browserType.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
@@ -324,11 +343,17 @@ public class TestContext {
             driver = new EdgeDriver();
         }
 
+        LOGGER.info("driver started for browser type: " + driver);
+
         // Maximise browser window
         driver.manage().window().maximize();
 
+        LOGGER.info("maximized the window successfully.");
+
         // Set Implicit Wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("ImpilcitTimeInSec","10"))));
+
+        LOGGER.info("driver browser implicit wait set for 10 seconds.");
 
         return driver;
     }

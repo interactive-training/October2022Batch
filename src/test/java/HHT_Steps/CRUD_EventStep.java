@@ -4,6 +4,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.util.List;
 public class CRUD_EventStep {
     //WebDriver driver;
     TestContext testContext;
+    public static Logger LOGGER = LogManager.getLogger(CRUD_EventStep.class);
 
     // this constructor will load the contents of the TestContext class which can be accessed through its object.
     public CRUD_EventStep(TestContext testContext){
@@ -22,6 +25,7 @@ public class CRUD_EventStep {
     @When("user launches the URL as {string}")
     public void the_admin_user_launches_the_URL(String admin) throws IOException {
         testContext.getLoginPage().getAdminURL(admin);
+        LOGGER.info("User launches the admin page for user: " + admin);
     }
 
     @And("signs in with admin credentials {string} and {string}")
@@ -230,6 +234,7 @@ public class CRUD_EventStep {
                 break;
             }
         }
+
         System.out.println("This event does not exist in the Calendar.");
     }
 }
