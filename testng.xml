@@ -8,6 +8,8 @@
             <class name= "TestRunner.HHT_PoojasRunner"/>
             <class name= "TestRunner.HHT_DonationsAndMembersRunner"/>
             <class name= "TestRunner.HHT_PaymentAndNewsLetterRunner"/>
+            <class name= "TestRunner.HHT_OrdersRunner"/>
+            <class name= "TestRunner.HHT_MyAccountRunner"/>
         </classes>
     </test>
 </suite>
