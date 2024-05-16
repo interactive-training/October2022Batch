@@ -78,6 +78,13 @@ public class TestContext {
 
     private Donations_EditDonationsPage donationsEditDonations_Page;
 
+    // Orders Variables
+    private Admin_OrderDetailsPage admin_orderDetailsPage;
+    private Orders_ViewOrderDetailsPage orders_viewOrderDetailsPage;
+
+    //My Account Dashboard
+    private MyAccountDashboardPage myAccountDashboardPage;
+
     public LoginPage getLoginPage() {
         if (loginPage == null) {
             loginPage = new LoginPage(driver);
@@ -320,6 +327,29 @@ public class TestContext {
         return members_deleteMembersDetailsPage;
     }
 
+    // Calling Orders Page
+    public Admin_OrderDetailsPage getAdmin_orderDetailsPage(){
+        if(admin_orderDetailsPage == null){
+            admin_orderDetailsPage = new Admin_OrderDetailsPage(driver);
+        }
+        return admin_orderDetailsPage;
+    }
+
+    public Orders_ViewOrderDetailsPage getOrders_viewOrderDetailsPage(){
+        if(orders_viewOrderDetailsPage == null){
+            orders_viewOrderDetailsPage = new Orders_ViewOrderDetailsPage(driver);
+        }
+        return orders_viewOrderDetailsPage;
+    }
+
+    // Calling My Account Dashboard Page
+
+    public MyAccountDashboardPage getMyAccountDashboardPage(){
+        if(myAccountDashboardPage == null){
+            myAccountDashboardPage = new MyAccountDashboardPage(driver);
+        }
+        return myAccountDashboardPage;
+    }
 
 
     //Initialising the driver

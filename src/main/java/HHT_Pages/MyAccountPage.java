@@ -15,12 +15,16 @@ public class MyAccountPage {
         //super(driver);
         this.driver = driver;
     }
-// By variables
+    // By variables
+    By MyAccountHeaderBy = By.xpath("//a[@class='btn btn-primary']");
 
     public Boolean verifyMyAccountHeader(){
         return  driver.findElement(By.xpath("//h1[text()='My Account']")).isDisplayed();
     }
-
+    public void clicksMyAccount(){
+        WebElement myAcct = driver.findElement(MyAccountHeaderBy);
+        myAcct.click();
+    }
     public void loginAsRegisteredUser(String UserName, String Password){
         driver.findElement(By.xpath("(//input[@id='email'])[2]")).sendKeys(UserName);
         driver.findElement(By.id("pwd")).sendKeys(Password);

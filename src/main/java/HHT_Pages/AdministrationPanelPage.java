@@ -21,6 +21,8 @@ public class AdministrationPanelPage {
 
     By MembersBy = (By.xpath("//div[@id='wrapper']/nav/ul/li[3]/a"));
 
+    By OrdersBy = (By.xpath("//div[@id='wrapper']/nav/ul/li[5]/a"));
+
     //Page Methods
 
     public Boolean welcomeLogin() {
@@ -70,7 +72,10 @@ public class AdministrationPanelPage {
         WebElement membersMenu = driver.findElement(MembersBy);
         membersMenu.click();
     }
-
+    public void clickOrders(){
+        WebElement ordersMenu = driver.findElement(OrdersBy);
+        ordersMenu.click();
+    }
 
 
 }
