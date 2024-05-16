@@ -10,7 +10,7 @@ import org.testng.Assert;
 import java.util.List;
 
 public class MembersDetailsPage {
-    public static final Logger log = LogManager.getLogger(News_AddNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(MembersDetailsPage.class.getName());
 
     WebDriver driver;
     public MembersDetailsPage(WebDriver driver) {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Properties;
 
 public class NewsLetterSubscriberDetailsPage {
-    public static final Logger log = LogManager.getLogger(LoginPage.class.getName());
+    public static final Logger log = LogManager.getLogger(NewsLetterSubscriberDetailsPage.class.getName());
 
     WebDriver driver;
 //    Properties prop;
@@ -28,6 +28,8 @@ public class NewsLetterSubscriberDetailsPage {
     public void DeleteNewsLetter(String EmailField){
         List<WebElement> emailField = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr//td[3]"));
         System.out.println(emailField.size());
+        log.info("Number of News Letters for Deletion:" + emailField.size());
+
 
         for (int n = 0; n <= emailField.size(); n++) {
             // Looping each Event Title

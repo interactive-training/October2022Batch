@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Members_DeleteMembersDetailsPage {
 
-    public static final Logger log = LogManager.getLogger(News_AddNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Members_DeleteMembersDetailsPage.class.getName());
 
     WebDriver driver;
 
@@ -22,6 +22,7 @@ public class Members_DeleteMembersDetailsPage {
     public void deleteMembers(String MemberName)  {
         List<WebElement> deleteElements = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr//td[2]"));
         System.out.println(deleteElements.size());
+        log.info("Number of Members for Deletion:" + deleteElements.size());
         for (int d = 0; d <= deleteElements.size(); d++)
         {
             String deleteValue = deleteElements.get(d).getText();

@@ -17,11 +17,7 @@ Feature: NewsLetter
 
 
 @deleteNewsletter
-#  Scenario: Delete NewsLetter
-  Scenario: Delete NewsLetter
 
-
-#  @DNL
   Scenario Outline: Delete NewsLetter
 
     When user launches the URL as "admin"

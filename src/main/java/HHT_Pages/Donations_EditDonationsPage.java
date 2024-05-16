@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Donations_EditDonationsPage {
-    public static final Logger log = LogManager.getLogger(News_EditNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Donations_EditDonationsPage.class.getName());
     WebDriver driver;
     By SubmitBy = By.xpath("//input[@type='submit']");
     By MessageBy = By.xpath("//div[@class='error_msg']");
@@ -23,7 +23,7 @@ public class Donations_EditDonationsPage {
         return driver.findElement(By.xpath("(//div[@id='bar'])")).getText();
     }
     public void editDonationFields(String EditField,String EditInfo)  {
-        if (EditField.equalsIgnoreCase("Price")) {
+        if (EditField.equalsIgnoreCase("Donation Amount in £")) {
             driver.findElement(EditFieldBy).clear();
             driver.findElement(EditFieldBy).sendKeys(EditInfo);
         }

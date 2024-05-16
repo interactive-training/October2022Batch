@@ -21,6 +21,7 @@ public class DonationsPage {
     public void clicksOnDonateForTitle(String Donations){
         List<WebElement> DonationType = driver.findElements(By.xpath("//tr//td[2]//p"));
         System.out.println(DonationType.size());
+        log.info("Number of Donation Titles:" + DonationType.size());
         for (int n = 0; n<DonationType.size(); n++) {
             String Title = DonationType.get(n).getText();
             if (Title.equalsIgnoreCase(Donations)) {

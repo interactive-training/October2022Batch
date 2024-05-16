@@ -1,11 +1,15 @@
 package HHT_Pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class AdministrationPanelPage {
+    public static final Logger log = LogManager.getLogger(AdministrationPanelPage.class.getName());
+
     WebDriver driver;
     // Constructor
     public AdministrationPanelPage(WebDriver driver) {
@@ -36,6 +40,7 @@ public class AdministrationPanelPage {
         action.moveToElement(CMS_Menu).perform();          // Hovering over the Training drop-down
         WebElement events = driver.findElement(EventsBy);  // Finding the Events
         events.click();
+        log.info("Clicked on Events");
     }
     public void clickCMSthenNews(){
         Actions actions = new Actions(driver);
@@ -43,6 +48,7 @@ public class AdministrationPanelPage {
         actions.moveToElement(cms).perform();
         WebElement news = driver.findElement(By.linkText("NEWS"));
         news.click();
+        log.info("Clicked on News");
     }
     public void clickCMSthenPoojas(){
         Actions action = new Actions(driver);
@@ -50,7 +56,8 @@ public class AdministrationPanelPage {
         action.moveToElement(CMS_elm).perform();
         System.out.println("CMS dropdown");
         driver.findElement(By.linkText("POOJAS")).click();
-        System.out.println("clicked on Poojas");
+        System.out.println("Clicked on Poojas");
+        log.info("Clicked on Poojas");
     }
     public void clickNewsLetter(){
         WebElement NL = driver.findElement(NewsLetterBy);
@@ -64,13 +71,15 @@ public class AdministrationPanelPage {
         action.moveToElement(CMS_elm).perform();
         System.out.println("CMS dropdown");
         driver.findElement(DonationsBY).click();
-        System.out.println("clicked on DONATIONS");
+        System.out.println("Clicked on DONATIONS");
+        log.info("Clicked on Donations");
 
     }
 
     public void clickMembers(){
         WebElement membersMenu = driver.findElement(MembersBy);
         membersMenu.click();
+        log.info("Clicked on Members");
     }
     public void clickOrders(){
         WebElement ordersMenu = driver.findElement(OrdersBy);

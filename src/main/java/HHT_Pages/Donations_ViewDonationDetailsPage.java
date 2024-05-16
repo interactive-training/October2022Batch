@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Donations_ViewDonationDetailsPage {
-    public static final Logger log = LogManager.getLogger(News_ViewNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Donations_ViewDonationDetailsPage.class.getName());
     WebDriver driver;
     By ViewDonationHeaderBY = By.xpath("(//div[@id='bar']/h1)");
 

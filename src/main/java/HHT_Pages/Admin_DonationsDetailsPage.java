@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class Admin_DonationsDetailsPage {
-    public static final Logger log = LogManager.getLogger(News_AddNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Admin_DonationsDetailsPage.class.getName());
 
     WebDriver driver;
     public Admin_DonationsDetailsPage(WebDriver driver) {
@@ -27,9 +27,10 @@ public class Admin_DonationsDetailsPage {
             }
         }
     }
-    public void editDonations(String DonationTitle){
+    public void editDonations(String DonationTitle ){
         List<WebElement> EditElements = driver.findElements(By.xpath("//table//tr/td[2]"));
         System.out.println(EditElements.size());
+        log.info("Donation's Edit element size :" + EditElements.size());
 
         for (int i1 = 0; i1 <= EditElements.size(); i1++) {
             String Title = EditElements.get(i1).getText();

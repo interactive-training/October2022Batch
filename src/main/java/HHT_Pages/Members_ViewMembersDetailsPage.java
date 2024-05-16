@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class Members_ViewMembersDetailsPage {
-    public static final Logger log = LogManager.getLogger(News_ViewNewsDetailsPage.class.getName());
+    public static final Logger log = LogManager.getLogger(Members_ViewMembersDetailsPage.class.getName());
     WebDriver driver;
     By ViewMembersHeaderBY = By.xpath("(//div[@id='bar']/h1)");
 
@@ -22,6 +22,8 @@ public class Members_ViewMembersDetailsPage {
     public void viewMembers(String MemberName){
         List<WebElement> ViewMemberElements = driver.findElements(By.xpath("//div[contains(@id,'purchase_list')]//table//tr//td[2]"));
         System.out.println(ViewMemberElements.size());
+        log.info("Number of Members for Viewing:" + ViewMemberElements.size());
+
         for (int m = 0; m<ViewMemberElements.size(); m++)
         {
             String viewValue = ViewMemberElements.get(m).getText();

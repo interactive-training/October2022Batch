@@ -41,6 +41,8 @@ public class LandingPage {
     public void clickNews(){
         driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[3]")).click();
         System.out.println("clicked on news");
+        log.info("Clicked on News");
+
     }
     public void clickPoojas(){
         driver.findElement(By.xpath("(//a[@class='nav-link dropdown-toggle'])[5]")).click();
@@ -50,10 +52,12 @@ public class LandingPage {
     public void clickDonations(){
         driver.findElement(By.linkText("DONATIONS")).click();
         System.out.println("Clicked on Donations");
+        log.info("Clicked on Donations");
+
     }
     public void clickLogOut(){
         driver.findElement(By.partialLinkText("Logout")).click();
         System.out.println("User Logged out");
-
+        log.info("User Logged out");
     }
 }

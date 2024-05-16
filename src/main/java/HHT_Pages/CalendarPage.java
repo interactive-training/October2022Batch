@@ -34,15 +34,6 @@ public class CalendarPage {
             int r = n + 1; // to pass the matching row for the given event
             if (title.equalsIgnoreCase(EventTitle) && (option.equalsIgnoreCase("view")))
             {
-                // Clicking on the Event Title
-                // Element not clickable at point exception:</a> is not clickable at point (519, 653)
-                //driver.findElement(By.xpath("(//tr)[ " + r + " ]/td[3]/div/p/a")).click();     //(//tr)["+r+"]/td[4]/p/a
-
-                // Element not clickable at point exception:did not work with Actions class
-//                WebElement element = driver.findElement(By.xpath("(//tr)[" + r + "]/td[4]/p/a"));
-//                Actions actions = new Actions(driver);
-//                actions.moveToElement(element).click().perform();
-
                 WebElement element = driver.findElement(By.xpath("//tr[" + r + "]/td[4]/p/a"));
                 JavascriptExecutor jse = (JavascriptExecutor)driver;
                 jse.executeScript("arguments[0].scrollIntoView()", element);

@@ -22,6 +22,7 @@ public class ViewEventsPage {
     public void viewEvent(String EventTitle){
         List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
         System.out.println(titleElements.size());
+        log.info("Number of Event Elements to view: " + titleElements.size());
 
         for (int n = 0; n < titleElements.size(); n++) {
             // Looping each Event Title
