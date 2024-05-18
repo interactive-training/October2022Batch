@@ -38,7 +38,7 @@ Feature:News
     Then user should get View details page
     Examples:
       | NewsTitle |
-      | Ugadi News |
+      | Special News |
 
   @EditNews
     Scenario Outline: Editing the fields of News
@@ -54,7 +54,7 @@ Feature:News
       Examples:
       |NewsTitle  | Editfield |EditInfo|
      # | Lakshmi pooja | News Artile/Content|Pooja details will be updated soon   |
-      |Ugadi News	|News Title |  Navami|
+      |Special News	|News Title |  Holi Festival|
 
   @DeleteNews
   Scenario Outline: Deleting News
@@ -62,4 +62,4 @@ Feature:News
     Then user should be able delete the news
     Examples:
       | NewsTitle |
-      | Ugadi News |
+      | Special News |

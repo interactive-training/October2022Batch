@@ -29,7 +29,7 @@ Feature: NewsLetter
     Then newsletter should be deleted successfully
     Examples:
       | EmailField             |
-      | born.testers@gmail.com |
+      | siva.msccs@gmail.com |
 
 
     # View NewsLetter

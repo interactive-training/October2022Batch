@@ -4,7 +4,7 @@ Feature: My Account Dashboard Page
     When the user launches the url
     Then the user should be on the Home Page
     When the user clicks on My Account
-    When the user logs in with Existing Member Credentials "test321@gmail.com" and "Test@321"
+    When the user logs in with Existing Member Credentials "preetk84321@gmail.com" and "pk_84321"
     Then the user should go to the "Dashboard"
 
 @familyMembers
