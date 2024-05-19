@@ -1,3 +1,4 @@
+@events
 Feature: As an admin user I should be able to create an event
 
     Background: Below steps are common for events

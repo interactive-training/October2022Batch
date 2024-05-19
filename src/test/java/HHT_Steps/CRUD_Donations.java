@@ -5,6 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,11 +21,11 @@ import java.util.concurrent.TimeUnit;
 public class CRUD_Donations {
 
     TestContext testContext;
+    private static final Logger logger = LogManager.getLogger(CRUD_Donations.class);
 
     public CRUD_Donations(TestContext testContext) {
         this.testContext = testContext;
     }
-
 
     @And("user is at CMS dropdown and clicks on Donations")
     public void user_is_at_CMS_dropdown_and_clicks_on_Donations() {
@@ -34,6 +36,13 @@ public class CRUD_Donations {
 
     @When("user clicks on view action button of {string}")
     public void user_clicks_on_view_action_button_of(String DonationTitle) throws InterruptedException {
+
+        String msg = "Step executed :  user clicks on view action button of {string} ";
+        logger.info(msg);
+        logger.debug(msg);
+        logger.error(msg);
+        logger.debug(msg);
+
         testContext.getAdmin_donationsDetails_Page().viewDonations(DonationTitle);
     }
 

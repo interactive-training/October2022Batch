@@ -6,7 +6,7 @@ Feature:Donations
     Then user should get in to the Administration Panel
     When user is at CMS dropdown and clicks on Donations
 
-  @adminViewDonations
+  @adminViewDonations @wip
   Scenario Outline: Verify View Donations
     When user clicks on view action button of "<DonationTitle>"
     Then user should View Donation Details

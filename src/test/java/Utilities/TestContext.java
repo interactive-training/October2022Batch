@@ -1,6 +1,9 @@
 package Utilities;
 
 import HHT_Pages.*;
+import HHT_Steps.CRUD_Donations;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,6 +18,9 @@ import java.util.Map;
 import java.util.Properties;
 
 public class TestContext {
+
+    private static final Logger logger = LogManager.getLogger(TestContext.class);
+
     private WebDriver driver;
     public Map<Long, WebDriver> webDriverObjects = new HashMap<>();
     private Properties prop;
@@ -366,21 +372,31 @@ public class TestContext {
     }
 
     public WebDriver intializeDriver() throws IOException {
+
+
         // Reading Properties file
         prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/resources/config.properties");
         prop.load(fis);
 
+        logger.info("Properties file loaded as ..." + prop);
         //Get browser property from config file
-        String browserType = prop.getProperty("BrowserType");
+        String browserTypeFromConfigFile = prop.getProperty("BrowserType");
+
+        logger.info("browsertype from config file " + browserTypeFromConfigFile);
 
         // Override from command prompt
-        String browserTypeFromCommandPrompt = System.getProperty("command.browser");
-        System.out.println("BrowserType from command prompt:" + System.getProperty("command.browser"));
+        String browserTypeFromCommandPrompt = System.getProperty("browser");
+        System.out.println("BrowserType from command prompt:" + browserTypeFromCommandPrompt);
 
-        if (browserTypeFromCommandPrompt != null){
-            browserType = browserTypeFromCommandPrompt;
-        }
+        logger.info("browsertype from command line: " + browserTypeFromCommandPrompt);
+        //ternary operator, if command prompt brwser available, then consider it, otherwise , take from config file
+
+        String browserType =  browserTypeFromCommandPrompt!=null ? browserTypeFromCommandPrompt : browserTypeFromConfigFile;
+
+//        if (browserTypeFromCommandPrompt != null){
+//            browserType = browserTypeFromCommandPrompt;
+//        }
 
         if (browserType.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
@@ -395,6 +411,8 @@ public class TestContext {
 
         // Set Implicit Wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("ImpilcitTimeInSec","10"))));
+
+        logger.info("driver object created as : " + driver.toString());
 
         return driver;
     }
@@ -415,8 +433,6 @@ public class TestContext {
         driver.findElement(By.xpath("//button[@class='btn btn-primary btn-sm ms-3']")).click();
         Thread.sleep(3000);
     }
-
-
 
 }
 

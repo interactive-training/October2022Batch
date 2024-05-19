@@ -9,7 +9,8 @@ import org.testng.annotations.DataProvider;
         glue = "HHT_Steps",
         monochrome = true,
         publish = true,
-        tags = "@CreateEvent or @EditEvent or @ViewEvent or @DeleteEvent",
+        tags="@events",
+//        tags = "@CreateEvent or @EditEvent or @ViewEvent or @DeleteEvent",
 
         plugin = {"pretty", "html:target/cucumber-reports3.html",
                 "json:target/cucumber3.json",
