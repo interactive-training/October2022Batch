@@ -1,5 +1,5 @@
 @events
-Feature: As an admin user I should be able to create an event
+Feature: As an admin user I should be able to perform CRUD operations an event
 
     Background: Below steps are common for events
         When user launches the URL as "admin"
@@ -38,6 +38,15 @@ Feature: As an admin user I should be able to create an event
 
     @EditEvent  @events-end-end
     Scenario Outline: Editing the field of an event by Event Title
+        When user clicks on Add Event button
+        Then user should get in to Add Events Details Page
+        When user enters the details for all the mandatory fields
+            |EventTitle|EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
+            |Maha Shivratri     |Festival |08/03/2024    |08/03/2024  |6-8PM            |Temple      |Maha Shivaratri is a Hindu festival celebrated annually in honour of the deity Shiva, between February and March. According to the Hindu calendar, the festival is observed on the fourteenth day of the first half of the lunar month of Phalguna.|
+
+        And clicks Submit button
+        Then the event should be created with message "Events details Added successfully"
+
         When user selects the Edit option for "<EventTitle>" and edits the "<EditField>" with "<EditInfo>"
         And clicks Submit button on Edit Page of events
         Then user should see the message "Event details updated successfully"
@@ -61,9 +70,18 @@ Feature: As an admin user I should be able to create an event
             |EventTitle| EditField |EditInfo|
             |Maha Shivratri  |Event Location |Temple Hall|
 
-#@events
+    @ViewEvent
     Scenario Outline: Viewing the event with Event Title
-        When user selects the View option of "<EventTitle>"
+        When user clicks on Add Event button
+        Then user should get in to Add Events Details Page
+        When user enters the details for all the mandatory fields
+            |EventTitle|EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
+            |Navami     |Festival |08/03/2024    |08/03/2024  |6-8PM            |Temple      |Maha Shivaratri is a Hindu festival celebrated annually in honour of the deity Shiva, between February and March. According to the Hindu calendar, the festival is observed on the fourteenth day of the first half of the lunar month of Phalguna.|
+
+        And clicks Submit button
+        Then the event should be created with message "Events details Added successfully"
+
+        When user selects the View option for the event "<EventTitle>"
         Then user should be able to view the event
 
 #            Front-end Verification on Event's tab
@@ -82,18 +100,21 @@ Feature: As an admin user I should be able to create an event
         When user clicks on the "<EventTitle>" of Calendar page for "view"
         Then user should be able to see the event "<EventTitle>" in "calendar"
 
-        @ViewEvent
         Examples:
             | EventTitle |
-            |   N_Navami    |
+            |  Navami    |
 
-        @events-end-end
-        Examples:
-            | EventTitle |
-            | Maha Shivratri    |
-
-
+    @DeleteEvent
     Scenario Outline: Deleting an event as a backend admin user
+        When user clicks on Add Event button
+        Then user should get in to Add Events Details Page
+        When user enters the details for all the mandatory fields
+            |EventTitle|EventType|EventStartDate|EventEndDate|EventTimeDuration|EventLocation|EventContent|
+            |Maha Shivratri     |Festival |08/03/2024    |08/03/2024  |6-8PM            |Temple      |Maha Shivaratri is a Hindu festival celebrated annually in honour of the deity Shiva, between February and March. According to the Hindu calendar, the festival is observed on the fourteenth day of the first half of the lunar month of Phalguna.|
+
+        And clicks Submit button
+        Then the event should be created with message "Events details Added successfully"
+
         When user selects the Delete option for "<EventTitle>" then it should be deleted
         Then the event should be  deleted for "<EventTitle>"
 
@@ -108,12 +129,8 @@ Feature: As an admin user I should be able to create an event
         When user clicks on Events and chooses the Calendar option
         Then user should be on the Calendar Page
         When user clicks on the "<EventTitle>" of Calendar page for "delete"
-        @events-end-end
-        Examples:
-            |EventTitle |
-            | Maha Shivratri    |
 
-        @DeleteEvent
+
         Examples:
             |EventTitle |
             | Holi    |

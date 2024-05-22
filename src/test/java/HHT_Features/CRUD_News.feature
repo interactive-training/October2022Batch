@@ -34,6 +34,18 @@ Feature:News
 
   @ViewNews
   Scenario Outline: Viewing News
+    When User clicks on Add News button
+    Then user should get Add News Details page
+    When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
+    And clicks Submit button for News
+    Then the News should be added successfully.
+
+    When user launches the URL as "admin"
+    And signs in with admin credentials "sk_behara@hotmail.com" and "test@123"
+    Then user should get in to the Administration Panel
+    And user clicks on CMS dropdown and selects News
+    Then user should get News Details page
+
     When user clicks on View of "<NewsTitle>"
     Then user should get View details page
     Examples:
@@ -42,6 +54,13 @@ Feature:News
 
   @EditNews
     Scenario Outline: Editing the fields of News
+
+      When User clicks on Add News button
+      Then user should get Add News Details page
+      When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
+      And clicks Submit button for News
+      Then the News should be added successfully.
+
       When user selects the Edit option for "<NewsTitle>" and edits the "<Editfield>" with "<EditInfo>"
       And clicks Submit button of Edit News Page
       Then user should see the message "News details updated successfully"
@@ -58,6 +77,12 @@ Feature:News
 
   @DeleteNews
   Scenario Outline: Deleting News
+    When User clicks on Add News button
+    Then user should get Add News Details page
+    When user enters data in all the mandatory fields "<NewsTitle>","<NewsContent>"
+    And clicks Submit button for News
+    Then the News should be added successfully.
+
     When user clicks on Delete of "<NewsTitle>"
     Then user should be able delete the news
     Examples:
