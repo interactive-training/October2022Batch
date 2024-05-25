@@ -2,14 +2,18 @@ package Utilities;
 
 import HHT_Pages.*;
 import HHT_Steps.CRUD_Donations;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -19,7 +23,7 @@ import java.util.Properties;
 
 public class TestContext {
 
-    private static final Logger logger = LogManager.getLogger(TestContext.class);
+//    private  Logger logger = LogManager.getLogger(this.getClass());
 
     private WebDriver driver;
     public Map<Long, WebDriver> webDriverObjects = new HashMap<>();
@@ -65,21 +69,18 @@ public class TestContext {
 
     private NewsLetter_HomePage newsLetter_HomePage;
     private NewLetterConfirmationPage newsLetter_confirmationPage;
-
     private NewsLetterSubscriberDetailsPage newsLetterSubscriberDetailsPage;
 
 
     // Members Variables
     private MembersDetailsPage membersDetailsPage;
     private Members_ViewMembersDetailsPage members_viewMembersDetailsPage;
-
     private Members_DeleteMembersDetailsPage members_deleteMembersDetailsPage;
 
 
     // Methods for creating a new driver or passing the previous one to the next page
 
     private Admin_DonationsDetailsPage admin_donationsDetailsPage;
-
     private Donations_ViewDonationDetailsPage donations_viewDonationDetailsPage;
 
     private Donations_EditDonationsPage donationsEditDonations_Page;
@@ -358,6 +359,13 @@ public class TestContext {
     }
 
 
+    public byte[] getByteScreenshot() throws IOException
+    {
+        File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        byte[] fileContent = FileUtils.readFileToByteArray(src);
+        return fileContent;
+    }
+
     //Initialising the driver
     public WebDriver getDriver() throws IOException {
         if (driver == null) {
@@ -373,6 +381,7 @@ public class TestContext {
 
     public WebDriver intializeDriver() throws IOException {
 
+        Logger logger = LogMe.getMyLogger(this.getClass());
 
         // Reading Properties file
         prop = new Properties();

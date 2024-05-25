@@ -1,5 +1,6 @@
 package HHT_Steps;
 
+import Utilities.LogMe;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class CRUD_Donations {
 
     TestContext testContext;
-    private static final Logger logger = LogManager.getLogger(CRUD_Donations.class);
+//    private static final Logger logger = LogManager.getLogger(CRUD_Donations.class);
 
     public CRUD_Donations(TestContext testContext) {
         this.testContext = testContext;
@@ -38,6 +39,9 @@ public class CRUD_Donations {
     public void user_clicks_on_view_action_button_of(String DonationTitle) throws InterruptedException {
 
         String msg = "Step executed :  user clicks on view action button of {string} ";
+
+        Logger logger = LogMe.getMyLogger(this.getClass());
+
         logger.info(msg);
         logger.debug(msg);
         logger.error(msg);

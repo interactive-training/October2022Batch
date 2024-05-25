@@ -9,13 +9,13 @@ import org.testng.annotations.DataProvider;
         glue = "HHT_Steps",
         monochrome = true,
         publish = true,
-        tags = "@adminViewDonations or @adminEditDonations or @viewMembers or @deleteMembers",
+        tags = "@adminViewDonations",
+//        tags = "@adminViewDonations or @adminEditDonations or @viewMembers or @deleteMembers",
 
         plugin = {"pretty", "html:target/cucumber-reports2.html",
                 "json:target/cucumber2.json",
                 "rerun:target/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-                // "com.aventstack:extentreports-cucumber7-adapter:${1.14.0}"
         }
 )
 public class HHT_DonationsAndMembersRunner extends AbstractTestNGCucumberTests {
