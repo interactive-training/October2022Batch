@@ -153,8 +153,8 @@ public class CRUD_EventStep {
 
     // ------------------------------------------View Event---------------------------------------------------------
 
-    @When("user selects the View option of {string}")
-    public void userSelectsTheViewOption(String EventTitle) {
+    @When("user selects the View option for the event {string}")
+    public void user_selects_the_view_option_for_the_event(String EventTitle) {
         testContext.getViewEventsPage().viewEvent(EventTitle);
     }
 

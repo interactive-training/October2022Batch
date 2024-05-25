@@ -13,7 +13,7 @@ Feature:I want to verify members on the backend admin page
     Then user should get View Details Page
     Examples:
       |MemberName  |
-      |1233  456   |
+      |Pramod  Mallick   |
 
  # Deleting the Members
 @deleteMembers
@@ -22,4 +22,4 @@ Feature:I want to verify members on the backend admin page
     Then user should be able delete the members
     Examples:
       |MemberName  |
-      |1233  456    |
+      |Pramod  Mallick    |

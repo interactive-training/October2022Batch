@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ViewEventsPage {
@@ -24,17 +25,21 @@ public class ViewEventsPage {
         System.out.println(titleElements.size());
         log.info("Number of Event Elements to view: " + titleElements.size());
 
+
         for (int n = 0; n < titleElements.size(); n++) {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             // Looping each Event Title
             String title = titleElements.get(n).getText();
 
             if (title.equalsIgnoreCase(EventTitle)) {
-                int r = n + 1; // to pass the matching row for the given event
+                int r = n + 2; // to pass the matching row for the given event
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
                 // Clicking on the Event Title
-                //driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
-                WebElement element = driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]"));
-                Actions actions = new Actions(driver);
-                actions.moveToElement(element).click().perform();
+                driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]")).click();
+//                WebElement element = driver.findElement(By.xpath("//tr[" + r + " ]/td[4]/a[1]"));
+//                Actions actions = new Actions(driver);
+//                actions.moveToElement(element).click().build().perform();
                 break;
             }
         }
