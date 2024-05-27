@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -435,7 +437,11 @@ public class TestContext {
         return driver.getCurrentUrl();
     }
     public String getMessage(){
-        return driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        String message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='error_msg']"))).getText();
+        //return driver.findElement(By.xpath("//div[@class='error_msg']")).getText();
+        return message;
     }
 
     public void clickAcceptButton() throws InterruptedException {

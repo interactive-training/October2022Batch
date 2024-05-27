@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -42,7 +43,7 @@ public class PaymentPage {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.findElement(By.id("cc-csc")).sendKeys(CVC);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("cc-csc"))).sendKeys(CVC);//driver.findElement(By.id("cc-csc")).sendKeys(CVC);
         driver.findElement(By.xpath("(//div[@class='inner'])[2]")).click();
         driver.switchTo().defaultContent();
         System.out.println("entered the card details and clicked on Pay ");

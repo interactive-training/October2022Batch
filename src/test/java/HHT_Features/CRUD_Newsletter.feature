@@ -7,6 +7,7 @@ Feature: NewsLetter
 
     Given browser is open
     When user enters email address "<NewsLetterEmailID>"
+    Then the user should click on Accept button
     And user clicks on sign up
     Then user navigated to the newsletter page
     Examples:
@@ -20,6 +21,7 @@ Feature: NewsLetter
   Scenario Outline: Delete NewsLetter
   Given browser is open
   When user enters email address "<NewsLetterEmailID>"
+  Then the user should click on Accept button
     And user clicks on sign up
     Then user navigated to the newsletter page
 

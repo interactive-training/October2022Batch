@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
+
 public class AdministrationPanelPage {
     public static final Logger log = LogManager.getLogger(AdministrationPanelPage.class.getName());
 
@@ -70,6 +72,7 @@ public class AdministrationPanelPage {
         WebElement CMS_elm = driver.findElement(CMSBy);
         action.moveToElement(CMS_elm).perform();
         System.out.println("CMS dropdown");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.findElement(DonationsBY).click();
         System.out.println("Clicked on DONATIONS");
         log.info("Clicked on Donations");

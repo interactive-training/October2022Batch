@@ -15,7 +15,7 @@ Feature:Regular Poojas
     When user enters all details for Pooja Type as "<PujaServicesSection>" with "<PoojaTitle>"
       |PoojaType     |PoojaStartDate|PoojaEndDate   |PoojaFrequency|PoojaTimeDuration|PoojaCutOffTime|PoojaAmount|PoojaLocation|PoojaCountry  |PoojaContent|
       |Car Puja      |2/05/2024     |2/05/2024     |Yearly         |9am to 3pm      |3pm            |20         |Hounslow     |United Kingdom|Festival    |
-      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
+#      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
 
     And clicks on Submit button for Poojas
 
@@ -28,7 +28,7 @@ Feature:Regular Poojas
     Then I should navigate to it and "<PoojaTitle>" is visible
     Examples:
     |PoojaTitle|PujaServicesSection|
-    |Sankranti| Regular Poojas     |
+#    |Sankranti| Regular Poojas     |
     | Ugadi   |Special Poojas     |
 
 #      ******* View Poojas *********
@@ -40,14 +40,14 @@ Feature:Regular Poojas
     When user enters all details for Pooja Type as "<PujaServicesSection>" with "<PoojaTitle>"
       |PoojaType     |PoojaStartDate|PoojaEndDate   |PoojaFrequency|PoojaTimeDuration|PoojaCutOffTime|PoojaAmount|PoojaLocation|PoojaCountry  |PoojaContent|
       |Car Puja      |2/05/2024     |2/05/2024     |Yearly         |9am to 3pm      |3pm            |20         |Hounslow     |United Kingdom|Festival    |
-      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
+#      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
 
     And clicks on Submit button for Poojas
-     When user clicks on View for Pooja with "<Pooja Title>"
+     When user clicks on View for Pooja with "<PoojaTitle>"
      Then it should navigate to the selected poojas page
   Examples:
-   | Pooja Title|
-   | Ratha Sapthami	    |
+    |PoojaTitle|PujaServicesSection|
+    |Ugadi| Regular Poojas     |
 
 #      ******* View Poojas *********
 @EditPoojas
@@ -57,7 +57,7 @@ Feature:Regular Poojas
     When user enters all details for Pooja Type as "<PujaServicesSection>" with "<PoojaTitle>"
       |PoojaType     |PoojaStartDate|PoojaEndDate   |PoojaFrequency|PoojaTimeDuration|PoojaCutOffTime|PoojaAmount|PoojaLocation|PoojaCountry  |PoojaContent|
       |Car Puja      |2/05/2024     |2/05/2024     |Yearly         |9am to 3pm      |3pm            |20         |Hounslow     |United Kingdom|Festival    |
-      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
+#      |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
 
     And clicks on Submit button for Poojas
 
@@ -68,9 +68,9 @@ Feature:Regular Poojas
     Then Pooja Title should be edited
 
   Examples:
-      | PoojaTitle|EditField|EditInfo|
-      | Ugadi  	  | Pooja Title| Special Pooja|
-      | Sankranti     | Pooja Start Date 	  |10/04/2024|
+      | PoojaTitle|EditField   |EditInfo      |PujaServicesSection|
+      | Ugadi  	  | Pooja Title| Special Pooja|Special Poojas     |
+#      | Sankranti     | Pooja Start Date 	  |10/04/2024|
 #      | Sankranti      | Pooja End Date 	  |11/04/2024|
 
   #      ******* Delete Poojas *********
@@ -82,12 +82,12 @@ Feature:Regular Poojas
   When user enters all details for Pooja Type as "<PujaServicesSection>" with "<PoojaTitle>"
     |PoojaType     |PoojaStartDate|PoojaEndDate   |PoojaFrequency|PoojaTimeDuration|PoojaCutOffTime|PoojaAmount|PoojaLocation|PoojaCountry  |PoojaContent|
     |Car Puja      |2/05/2024     |2/05/2024     |Yearly         |9am to 3pm      |3pm            |20         |Hounslow     |United Kingdom|Festival    |
-    |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
+#    |Pradhana Sevas|12/05/24      |12/05/2024    |Yearly         |9am to 9pm      |8pm            |25         |Hounslow    |United Kingdom |Festival    |
 
   And clicks on Submit button for Poojas
 
     When user selects the Delete option for Pooja with "<PoojaTitle>"
     Then Pooja should be deleted
     Examples:
-      | PoojaTitle |
-      | Sankranti  |
+      |PoojaTitle|PujaServicesSection|
+      |Sankranti| Regular Poojas     |

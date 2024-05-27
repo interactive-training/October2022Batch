@@ -49,8 +49,8 @@ Feature:News
     When user clicks on View of "<NewsTitle>"
     Then user should get View details page
     Examples:
-      | NewsTitle |
-      | Special News |
+      | NewsTitle | NewsContent |
+      |Special News|Special pooja on auspicious day|
 
   @EditNews
     Scenario Outline: Editing the fields of News
@@ -71,9 +71,9 @@ Feature:News
       Then user should be able to see the News "<NewsTitle>"
 
       Examples:
-      |NewsTitle  | Editfield |EditInfo|
+      |NewsTitle  | NewsContent                     |Editfield  |EditInfo|
      # | Lakshmi pooja | News Artile/Content|Pooja details will be updated soon   |
-      |Special News	|News Title |  Holi Festival|
+      |Lakshmi pooja|Lakshmi pooja is a Special pooja|News Title |  Holi Festival|
 
   @DeleteNews
   Scenario Outline: Deleting News
@@ -86,5 +86,5 @@ Feature:News
     When user clicks on Delete of "<NewsTitle>"
     Then user should be able delete the news
     Examples:
-      | NewsTitle |
-      | Special News |
+      | NewsTitle | NewsContent |
+      |Special News|Special pooja on auspicious day|

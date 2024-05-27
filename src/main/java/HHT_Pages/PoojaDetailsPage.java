@@ -5,7 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
 import java.util.List;
 
 public class PoojaDetailsPage {
@@ -27,14 +29,25 @@ public class PoojaDetailsPage {
     }
 
     public void clickViewOption(String PoojaTitle){
-        List<WebElement> ViewTitle = driver.findElements(By.xpath("//tr//td[2]"));
-        System.out.println(ViewTitle.size());
-        log.info("Number of Pooja Titles for View:" + ViewTitle.size());
+        List<WebElement> titleElements = driver.findElements(By.xpath("//tr/td[2]"));
+        System.out.println(titleElements.size());
+        log.info("Number of Event Elements to view: " + titleElements.size());
 
-        for (int X = 0; X<ViewTitle.size(); X++) {
-            String Title = ViewTitle.get(X).getText();
-            if (Title.equals(PoojaTitle)) {
-                int r = X + 2;
+
+        for (int n = 0; n < titleElements.size(); n++) {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            // Looping each Event Title
+            String title = titleElements.get(n).getText();
+
+            if (title.equalsIgnoreCase(PoojaTitle)) {
+//        List<WebElement> ViewTitle = driver.findElements(By.xpath("//tbody/tr/td[2]"));
+//        System.out.println(ViewTitle.size());
+//        log.info("Number of Pooja Titles for View:" + ViewTitle.size());
+//
+//        for (int X = 0; X<ViewTitle.size(); X++) {
+//            String Title = ViewTitle.get(X).getText();
+//            if (Title.equals(PoojaTitle)) {
+                int r = n + 2;
                 driver.findElement(By.xpath("//tr[" + r + "]/td[6]/a[1]")).click();
                 System.out.println("Clicked View for the title:"+ PoojaTitle);
                 break;
@@ -56,7 +69,9 @@ public class PoojaDetailsPage {
     }
 
     public void clickDeletePoojaOption(String PoojaTitle){
+
         List<WebElement> DeleteTitle = driver.findElements(By.xpath("//tr//td[2]"));
+
         System.out.println(DeleteTitle.size());
         log.info("Number of Pooja Titles for Deletion:" + DeleteTitle.size());
 

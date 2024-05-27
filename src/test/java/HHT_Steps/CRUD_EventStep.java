@@ -77,6 +77,7 @@ public class CRUD_EventStep {
 
     @Then("the event should be created with message {string}")
     public void theEventShouldBeCreatedWithMessage(String expectedMessage) {
+
         String actualMessage = testContext.getMessage();
         Assert.assertEquals(actualMessage, expectedMessage, " Create message is verified.");
         System.out.println("Event added with pictures.");

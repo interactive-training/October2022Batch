@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="classes" thread-count="5" data-provider-thread-count="3">
+<suite name="All Test Suite" parallel="classes" thread-count="2" data-provider-thread-count="2">
     <test verbose="2" preserve-order="true" name="ParallelTests-HHT">
         <classes>
-            <class name= "TestRunner.HHT_EventsRunner"/>
-            <class name= "TestRunner.HHT_NewsRunner"/>
-            <class name= "TestRunner.HHT_PoojasRunner"/>
-            <class name= "TestRunner.HHT_DonationsAndMembersRunner"/>
-            <class name= "TestRunner.HHT_PaymentAndNewsLetterRunner"/>
-            <class name= "TestRunner.HHT_OrdersRunner"/>
-            <class name= "TestRunner.HHT_MyAccountRunner"/>
+<!--            <class name = "TestRunner.HHT_EventsRunner"/>-->
+            <class name= "TestRunner.HHT_FinalRunner"/>
+<!--            <class name= "TestRunner.HHT_NewsRunner"/>-->
+<!--            <class name= "TestRunner.HHT_PoojasRunner"/>-->
+<!--            <class name= "TestRunner.HHT_DonationsAndMembersRunner"/>-->
+<!--            <class name= "TestRunner.HHT_PaymentAndNewsLetterRunner"/>-->
+<!--            <class name= "TestRunner.HHT_OrdersRunner"/>-->
+<!--            <class name= "TestRunner.HHT_MyAccountRunner"/>-->
         </classes>
     </test>
 </suite>

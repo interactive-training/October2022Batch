@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -78,19 +79,33 @@ public class Poojas_AddPoojasDetailsPage {
         }
         // Passing the other fields
         driver.findElement(By.name("strt_date")).sendKeys(data.get(0).get("PoojaStartDate"));
+        driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();
+        driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
+
         driver.findElement(By.name("end_date")).sendKeys(data.get(0).get("PoojaEndDate"));
+        driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();
+        driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
 
         //Passing the Pooja Frequency
         String poojaFrequency = data.get(0).get("PoojaFrequency");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.findElement(By.name("pooja_freq")).click();
         if (poojaFrequency.equalsIgnoreCase("Daily")) {
             driver.findElement(By.xpath("//tr[6]/td[2]/select/./option[1]")).click();
+            driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
+
         } else if (poojaFrequency.equalsIgnoreCase("Weekly")) {
             driver.findElement(By.xpath("//tr[6]/td[2]/select/./option[2]")).click();
+            driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
+
         }else if (poojaFrequency.equalsIgnoreCase("Monthly")) {
             driver.findElement(By.xpath("//tr[6]/td[2]/select/./option[3]")).click();
+            driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
+
         }else if (poojaFrequency.equalsIgnoreCase("Yearly")) {
             driver.findElement(By.xpath("//tr[6]/td[2]/select/./option[4]")).click();
+            driver.findElement(By.xpath("//tr[3]/td[2]/select/option[1]")).click();//Clicking on another element to close the options
+
         }
         // Passing the other fields
         driver.findElement(By.name("etime")).sendKeys(data.get(0).get("PoojaTimeDuration"));

@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +45,9 @@ public class CRUD_Newsletter {
     @When("user clicks on sign up")
     public void user_clicks_on_sign_up()  {
         // Sign up the Page
+
      testContext.getNewsLetter_homePage().NewsLetterSignup();
+
     }
 
     @Then("user navigated to the newsletter page")
