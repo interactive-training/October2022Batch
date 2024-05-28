@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true" name="ParallelTests-HHT">
         <classes>
 <!--            <class name = "TestRunner.HHT_EventsRunner"/>-->
-            <class name= "TestRunner.HHT_FinalRunner"/>
+            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>
 <!--            <class name= "TestRunner.HHT_NewsRunner"/>-->
 <!--            <class name= "TestRunner.HHT_PoojasRunner"/>-->
 <!--            <class name= "TestRunner.HHT_DonationsAndMembersRunner"/>-->
