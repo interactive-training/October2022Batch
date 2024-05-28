@@ -5,10 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features= "src/test/java/HHT_Features",
-        glue = "HHT_Steps",
+        glue = {"HHT_Steps"},
         monochrome = true
 //        publish = true
-//        ,tags = "@wip"
+        ,tags = "@wip"
 //        ,tags = "not @viewMembers or not @deleteMembers",
 
         ,plugin = {"pretty", "html:target/cucumber-reports.html",

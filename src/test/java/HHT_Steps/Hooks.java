@@ -1,6 +1,5 @@
 package HHT_Steps;
 
-import Utilities.LogMe;
 import Utilities.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -9,12 +8,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
+
+import org.testng.Reporter; //used to get the browser property from testng xml file
+
 import java.io.IOException;
 
 public class Hooks {
     TestContext testContext;
     WebDriver driver;
-//    private static final Logger logger = LogManager.getLogger(CRUD_Donations.class);
+    private Logger logger = LogManager.getLogger(this.getClass());
 
     public Hooks(TestContext testContext) throws IOException {
         this.testContext = testContext;
@@ -24,19 +26,26 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) throws IOException {
 
-        Logger logger = LogMe.getMyLogger(this.getClass());
+//        Logger logger = LogMe.getMyLogger(this.getClass());
         logger.info("Before test executed : " + scenario.getName());
 
+        String browserPropertyFromTestNGXML = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("browser");
 
-        this.driver = testContext.getDriver();
+        if (browserPropertyFromTestNGXML != null) {
+            this.driver = testContext.createWebDriverForMultiBrowser(browserPropertyFromTestNGXML);
+        }
+        else{
+            this.driver = testContext.createWebDriver(); // it takes care of local run from property file or command line
+        }
+//        this.driver = testContext.getDriver();
 
-        System.out.println(driver.getTitle());
+//        System.out.println(driver.getTitle());
     }
 
     @After
     public void teardown(Scenario scenario) throws IOException {
 
-        Logger logger = LogMe.getMyLogger(this.getClass());
+//        Logger logger = LogMe.getMyLogger(this.getClass());
         logger.info("tear down executed : " + scenario.getName());
 
         if(scenario.isFailed())

@@ -4,6 +4,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.util.List;
 public class CRUD_EventStep {
     //WebDriver driver;
     TestContext testContext;
+    Logger logger = LogManager.getLogger(this.getClass());
 
     // this constructor will load the contents of the TestContext class which can be accessed through its object.
     public CRUD_EventStep(TestContext testContext){
@@ -26,6 +29,11 @@ public class CRUD_EventStep {
 
     @And("signs in with admin credentials {string} and {string}")
     public void signsInWithAdminCredentials(String emailId, String password) {
+
+        logger.info("The driver received as : " + testContext.getDriver().toString());
+        logger.info("The email received as : " + emailId);
+        logger.info("The password receveid as :" + password);
+
         testContext.getLoginPage().loginAsAdmin(emailId, password);
     }
 

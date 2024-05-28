@@ -1,28 +1,16 @@
 package HHT_Steps;
 
-import Utilities.LogMe;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
-
-import java.io.InterruptedIOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class CRUD_Donations {
 
     TestContext testContext;
-//    private static final Logger logger = LogManager.getLogger(CRUD_Donations.class);
+    private Logger logger = LogManager.getLogger(this.getClass());
 
     public CRUD_Donations(TestContext testContext) {
         this.testContext = testContext;
@@ -40,7 +28,7 @@ public class CRUD_Donations {
 
         String msg = "Step executed :  user clicks on view action button of {string} ";
 
-        Logger logger = LogMe.getMyLogger(this.getClass());
+//        Logger logger = LogMe.getMyLogger(this.getClass());
 
         logger.info(msg);
         logger.debug(msg);

@@ -5,19 +5,22 @@ import HHT_Steps.CRUD_Donations;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +28,7 @@ import java.util.Properties;
 
 public class TestContext {
 
-//    private  Logger logger = LogManager.getLogger(this.getClass());
+    private  Logger logger = LogManager.getLogger(this.getClass());
 
     private WebDriver driver;
     public Map<Long, WebDriver> webDriverObjects = new HashMap<>();
@@ -360,7 +363,6 @@ public class TestContext {
         return myAccountDashboardPage;
     }
 
-
     public byte[] getByteScreenshot() throws IOException
     {
         File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
@@ -368,22 +370,74 @@ public class TestContext {
         return fileContent;
     }
 
-    //Initialising the driver
-    public WebDriver getDriver() throws IOException {
-        if (driver == null) {
-            WebDriver d = intializeDriver();
-            webDriverObjects.put(Thread.currentThread().getId(), d);
-            System.out.println("Thread id:"+ Thread.currentThread().getId());
-            return webDriverObjects.get(Thread.currentThread().getId());
+    public synchronized WebDriver createWebDriverForMultiBrowser(String browserType) throws MalformedURLException {
 
-        } else
-            System.out.println("Thread id:"+ Thread.currentThread().getId());
-        return webDriverObjects.get(Thread.currentThread().getId());
+//        String hubAddress = prop.getProperty("HubAddress");
+
+        WebDriver wd;
+        DesiredCapabilities cap = new DesiredCapabilities();
+
+       if (browserType.equalsIgnoreCase("chrome")){
+           cap.setBrowserName("chrome");
+        }else if(browserType.equalsIgnoreCase("firefox")){
+            cap.setBrowserName("firefox");
+        }else if(browserType.equalsIgnoreCase("edge")) {
+            cap.setBrowserName("edge");
+        }
+
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+
+        // Maximise browser window
+        driver.manage().window().maximize();
+
+        // Set Implicit Wait , commented temporarily as it uses property file, whihc is not initialixzed here, need to
+        // get proper value and set -- Pramod.
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("ImpilcitTimeInSec","10"))));
+
+        // store to get thread level driver;
+        webDriverObjects.put(Thread.currentThread().getId(), driver);
+        return driver;
+
+//        logger.info("driver object created as : " + driver.toString());
+
+        //store into list with thread number
+//        ThreadLocal <String> s = new ThreadLocal<>();
+
+
     }
+
+    public synchronized  WebDriver  createWebDriver() throws IOException {
+
+        WebDriver d = intializeDriver();
+        webDriverObjects.put(Thread.currentThread().getId(), d);
+        System.out.println("Thread id:"+ Thread.currentThread().getId());
+//        return webDriverObjects.get(Thread.currentThread().getId());
+        return d;
+    }
+
+    public synchronized WebDriver getDriver(){
+
+        return webDriverObjects.get(Thread.currentThread().getId());
+
+    }
+
+
+    //Initialising the driver
+//    public WebDriver getDriver() throws IOException {
+//        if (driver == null) {
+//            WebDriver d = intializeDriver();
+//            webDriverObjects.put(Thread.currentThread().getId(), d);
+//            System.out.println("Thread id:"+ Thread.currentThread().getId());
+//            return webDriverObjects.get(Thread.currentThread().getId());
+//
+//        } else
+//            System.out.println("Thread id:"+ Thread.currentThread().getId());
+//            return webDriverObjects.get(Thread.currentThread().getId());
+//    }
 
     public WebDriver intializeDriver() throws IOException {
 
-        Logger logger = LogMe.getMyLogger(this.getClass());
+//        Logger logger = LogMe.getMyLogger(this.getClass());
 
         // Reading Properties file
         prop = new Properties();
@@ -391,10 +445,15 @@ public class TestContext {
         prop.load(fis);
 
         logger.info("Properties file loaded as ..." + prop);
+
         //Get browser property from config file
         String browserTypeFromConfigFile = prop.getProperty("BrowserType");
-
         logger.info("browsertype from config file " + browserTypeFromConfigFile);
+
+        //overwrite with command prompt or testng xml browser variable
+        // if multiBrowser = true then take testng xml file browser property
+        // else take from com
+
 
         // Override from command prompt
         String browserTypeFromCommandPrompt = System.getProperty("browser");

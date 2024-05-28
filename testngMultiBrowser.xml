@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" >
+
+    <test verbose="2" preserve-order="true" name="cucumber_chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="cucumber_firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>
+        </classes>
+    </test>
+
+<!--    <test verbose="2" preserve-order="true" name="cucumber_edge">-->
+<!--        <parameter name="browser" value="edge"></parameter>-->
+<!--        <classes>-->
+<!--            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>

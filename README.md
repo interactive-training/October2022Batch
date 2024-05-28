@@ -9,7 +9,7 @@ We will implement to execute suite from maven command line.
 
    2. refresh pom.xml file, and execute below command in command line.
 
-       **mvn clean test  "-Dbrowser=edge"**
+       **mvn clean test  -Dbrowser=edge**
 
        As above you can see, we can pass brosername from command prompt. it will overwrite the browser mentioned in the config file.
 
