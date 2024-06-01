@@ -28,14 +28,14 @@ public class Hooks {
 
 //        Logger logger = LogMe.getMyLogger(this.getClass());
         logger.info("Before test executed : " + scenario.getName());
-
+        String environmentPropertyFromTestNGXML = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("environment");
         String browserPropertyFromTestNGXML = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("browser");
 
-        if (browserPropertyFromTestNGXML != null) {
+        if (environmentPropertyFromTestNGXML.equalsIgnoreCase("grid")) {
             this.driver = testContext.createWebDriverForMultiBrowser(browserPropertyFromTestNGXML);
         }
-        else{
-            this.driver = testContext.createWebDriver(); // it takes care of local run from property file or command line
+        else if (environmentPropertyFromTestNGXML.equalsIgnoreCase("local")) {
+            this.driver = testContext.createWebDriver(); // it takes care of local run from property file or command line        }
         }
 //        this.driver = testContext.getDriver();
 

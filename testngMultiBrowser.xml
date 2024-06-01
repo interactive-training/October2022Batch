@@ -4,15 +4,17 @@
 
     <test verbose="2" preserve-order="true" name="cucumber_chrome">
         <parameter name="browser" value="chrome"></parameter>
+        <parameter name="environment" value="local"></parameter>
         <classes>
-            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>
+            <class name= "TestRunner.HHT_OrdersRunner"/>
         </classes>
     </test>
 
     <test verbose="2" preserve-order="true" name="cucumber_firefox">
         <parameter name="browser" value="firefox"></parameter>
+        <parameter name="environment" value="grid"></parameter>
         <classes>
-            <class name= "TestRunner.TestRunner_HHT_FinalRunner"/>
+            <class name= "TestRunner.HHT_OrdersRunner"/>
         </classes>
     </test>
 
